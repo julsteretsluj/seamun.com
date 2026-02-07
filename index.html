@@ -70,8 +70,8 @@
               SEAMUN I is a student-led, non-profit Model United Nations
               conference focused on global healthcare and sustainability policy.
               Join 200 delegates, 22 chairs, 8 SMT, 10 staff, and 10 external
-              advisors for two days of policy-driven debate. All surplus will be
-              donated to the King Chulalongkorn Memorial Hospital Foundation.
+              advisors for two days of policy-driven debate. All profits are
+              directed to MDCU's funding program.
             </p>
             <div class="hero-actions">
               <a class="btn btn-primary" href="#committees">🧾 View committees</a>
@@ -81,10 +81,10 @@
               <div>
                 <span class="meta-label">📍 Location</span>
                 <span class="meta-value"
-                  >Venue TBD (MDCU Conference Center, Kasetsart University,
-                  SEAMEO SPAFA - Dusit District, St. Gabriel’s Foundation
-                  Building - Thong Lo 25, Rompo Mansion - Rama IV / Near Klong
-                  Toei)</span
+                  >Venue TBD (First choice: MDCU Conference Center; Kasetsart
+                  University; SEAMEO SPAFA - Dusit District; St. Gabriel’s
+                  Foundation Building - Thong Lo 25; Rompo Mansion - Rama IV /
+                  Near Klong Toei)</span
                 >
               </div>
               <div>
@@ -164,7 +164,7 @@
             </div>
             <div class="feature-card">
               <h3>❤️ Non-profit mission</h3>
-              <p>All surplus donated to the King Chulalongkorn Memorial Hospital Foundation.</p>
+              <p>All profits are directed to MDCU's funding program.</p>
             </div>
             <div class="feature-card">
               <h3>🧩 10 committees</h3>
@@ -704,27 +704,85 @@
               <h3>🌌 FWC Universe Preferences</h3>
               <p>Rank your preferred fantasy universe and allocations.</p>
               <span>Form link to be announced</span>
-              <button
-                class="btn btn-ghost points-btn"
-                type="button"
-                data-form-id="fwc-preferences"
-                data-points="20"
-              >
-                Mark as completed (+20 points)
-              </button>
+              <form class="proof-form" data-form-id="fwc-preferences" data-points="20">
+                <label class="proof-label">
+                  Upload screenshot proof
+                  <input type="file" accept="image/*" required />
+                </label>
+                <button class="btn btn-ghost" type="submit">
+                  Submit proof (+20 points)
+                </button>
+              </form>
             </div>
             <div class="form-card">
               <h3>🗣️ Conference Feedback</h3>
               <p>Share feedback to help improve future SEAMUN conferences.</p>
               <span>Form link to be announced</span>
-              <button
-                class="btn btn-ghost points-btn"
-                type="button"
-                data-form-id="feedback-form"
-                data-points="10"
-              >
-                Mark as completed (+10 points)
-              </button>
+              <form class="proof-form" data-form-id="feedback-form" data-points="10">
+                <label class="proof-label">
+                  Upload screenshot proof
+                  <input type="file" accept="image/*" required />
+                </label>
+                <button class="btn btn-ghost" type="submit">
+                  Submit proof (+10 points)
+                </button>
+              </form>
+            </div>
+            <div class="form-card">
+              <h3>🏫 Delegate sign up (school)</h3>
+              <p>School delegation registration (coming soon).</p>
+              <span>Form link to be announced</span>
+              <form class="proof-form" data-form-id="delegate-school" data-points="15">
+                <label class="proof-label">
+                  Upload screenshot proof
+                  <input type="file" accept="image/*" required />
+                </label>
+                <button class="btn btn-ghost" type="submit">
+                  Submit proof (+15 points)
+                </button>
+              </form>
+            </div>
+            <div class="form-card">
+              <h3>🧍 Delegate sign up (independent)</h3>
+              <p>Independent delegate registration (coming soon).</p>
+              <span>Form link to be announced</span>
+              <form class="proof-form" data-form-id="delegate-independent" data-points="15">
+                <label class="proof-label">
+                  Upload screenshot proof
+                  <input type="file" accept="image/*" required />
+                </label>
+                <button class="btn btn-ghost" type="submit">
+                  Submit proof (+15 points)
+                </button>
+              </form>
+            </div>
+            <div class="form-card">
+              <h3>🧑‍🏫 Advisor sign up</h3>
+              <p>Advisor registration (coming soon).</p>
+              <span>Form link to be announced</span>
+              <form class="proof-form" data-form-id="advisor-signup" data-points="10">
+                <label class="proof-label">
+                  Upload screenshot proof
+                  <input type="file" accept="image/*" required />
+                </label>
+                <button class="btn btn-ghost" type="submit">
+                  Submit proof (+10 points)
+                </button>
+              </form>
+            </div>
+            <div class="form-card">
+              <h3>🪑 Chair applications</h3>
+              <p>Chair applications (late August 2026).</p>
+              <span>Form link to be announced</span>
+              <form class="proof-form" data-form-id="chair-applications" data-points="25">
+                <label class="proof-label">
+                  Upload screenshot proof
+                  <input type="file" accept="image/*" required />
+                </label>
+                <button class="btn btn-ghost" type="submit">
+                  Submit proof (+25 points)
+                </button>
+              </form>
             </div>
             <div class="form-card">
               <h3>📚 Rules of Procedure</h3>
@@ -879,6 +937,7 @@
                 >juleskittoastrop@gmail.com</a
               >)
             </p>
+            <p>Deputy Secretary-General: Emily H.</p>
           </div>
           <div class="schedule-card">
             <h3>🗓️ Schedule</h3>
@@ -889,8 +948,9 @@
             </p>
             <div class="schedule-meta">
               <span>
-                Venue: TBD (MDCU, Kasetsart University, SEAMEO SPAFA, St. Gabriel’s
-                Foundation Building, Rompo Mansion)
+                Venue: TBD (First choice: MDCU Conference Center; Kasetsart
+                University; SEAMEO SPAFA; St. Gabriel’s Foundation Building;
+                Rompo Mansion)
               </span>
               <span>Academic, non-profit conference</span>
             </div>
@@ -925,7 +985,15 @@
         setDoc,
         runTransaction,
         onSnapshot,
+        increment,
+        serverTimestamp,
       } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+      import {
+        getStorage,
+        ref as storageRef,
+        uploadBytes,
+        getDownloadURL,
+      } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
 
       const firebaseConfig = {
         apiKey: "AIzaSyCnPseFI_jpXAXEK4j2gHy0lY9ss1uS48E",
@@ -940,6 +1008,7 @@
       const app = initializeApp(firebaseConfig);
       const auth = getAuth(app);
       const db = getFirestore(app);
+      const storage = getStorage(app);
 
       const form = document.getElementById("signin-form");
       const message = document.getElementById("signin-message");
@@ -949,7 +1018,7 @@
 
       const navStatus = document.getElementById("nav-auth-status");
       const pointsTotal = document.getElementById("points-total");
-      const pointsButtons = document.querySelectorAll("[data-form-id]");
+      const proofForms = document.querySelectorAll(".proof-form");
       const schoolSelect = document.getElementById("school-select");
       const schoolOtherRow = document.getElementById("school-other-row");
       const referralLinkEl = document.getElementById("referral-link");
@@ -959,24 +1028,26 @@
       let unsubscribeUser = null;
       let completionsCache = {};
 
-      const referralPoints = 15;
-
       const updatePointsButtons = () => {
-        pointsButtons.forEach((button) => {
-          if (!currentUser) {
-            button.disabled = true;
-            button.textContent = "Sign in to claim points";
+        proofForms.forEach((proofForm) => {
+          const submitButton = proofForm.querySelector("button[type='submit']");
+          const formId = proofForm.dataset.formId || "";
+          const points = proofForm.dataset.points || "0";
+          if (!submitButton) {
             return;
           }
-          const formId = button.dataset.formId || "";
+          if (!currentUser) {
+            submitButton.disabled = true;
+            submitButton.textContent = "Sign in to claim points";
+            return;
+          }
           const completed = Boolean(completionsCache[formId]);
           if (completed) {
-            button.disabled = true;
-            button.textContent = "Completed";
+            submitButton.disabled = true;
+            submitButton.textContent = "Completed";
           } else {
-            const points = button.dataset.points || "0";
-            button.disabled = false;
-            button.textContent = `Mark as completed (+${points} points)`;
+            submitButton.disabled = false;
+            submitButton.textContent = `Submit proof (+${points} points)`;
           }
         });
       };
@@ -991,17 +1062,17 @@
           const points = Number(data.points || 0);
           const firstName =
             data.firstName || (user.displayName || "").split(" ")[0] || "";
+          const refCode = data.refCode || user.uid.slice(0, 8);
           completionsCache = data.completions || {};
           if (pointsTotal) {
             pointsTotal.textContent = String(points);
           }
           if (referralLinkEl && currentUser) {
-            const code = currentUser.uid.slice(0, 8);
-            const link = `${window.location.origin}${window.location.pathname}?ref=${code}`;
+            const link = `${window.location.origin}${window.location.pathname}?ref=${refCode}`;
             referralLinkEl.textContent = link;
             copyRefCodeButton.disabled = false;
             copyRefLinkButton.disabled = false;
-            copyRefCodeButton.dataset.refCode = code;
+            copyRefCodeButton.dataset.refCode = refCode;
             copyRefLinkButton.dataset.refLink = link;
           }
           if (navStatus) {
@@ -1019,7 +1090,7 @@
           currentUser = user;
           setDoc(
             doc(db, "users", user.uid),
-            { email: user.email || "" },
+            { email: user.email || "", refCode: user.uid.slice(0, 8) },
             { merge: true }
           );
           subscribeUser(user);
@@ -1041,7 +1112,6 @@
           }
         }
         updatePointsButtons();
-        applyReferralPoints();
       };
 
       onAuthStateChanged(auth, updateStatus);
@@ -1155,69 +1225,94 @@
         });
       }
 
-      pointsButtons.forEach((button) => {
-        button.addEventListener("click", async () => {
+      proofForms.forEach((proofForm) => {
+        proofForm.addEventListener("submit", async (event) => {
+          event.preventDefault();
           if (!currentUser) {
             message.textContent = "Sign in to claim points.";
             return;
           }
-          const formId = button.dataset.formId || "";
-          const points = Number(button.dataset.points || "0");
+          const formId = proofForm.dataset.formId || "";
+          const points = Number(proofForm.dataset.points || "0");
+          const fileInput = proofForm.querySelector("input[type='file']");
+          const file = fileInput?.files?.[0];
+          if (!file) {
+            message.textContent = "Please upload a screenshot.";
+            return;
+          }
+
+          const filePath = `proofs/${currentUser.uid}/${formId}/${Date.now()}-${file.name}`;
+          const fileRef = storageRef(storage, filePath);
+          const uploadSnap = await uploadBytes(fileRef, file);
+          const downloadUrl = await getDownloadURL(uploadSnap.ref);
+
           const userRef = doc(db, "users", currentUser.uid);
           await runTransaction(db, async (tx) => {
-            const snap = await tx.get(userRef);
-            const data = snap.data() || {};
+            const userSnap = await tx.get(userRef);
+            const data = userSnap.data() || {};
             const completions = data.completions || {};
+            const refCode = data.refCode || currentUser.uid.slice(0, 8);
+            const referralRef = doc(db, "referrals", refCode);
+            const referralSnap = await tx.get(referralRef);
+            const referralData = referralSnap.data() || {};
+            const visitCount = Number(referralData.visitCount || 0);
+
+            if (visitCount < 1) {
+              throw new Error("referral-required");
+            }
             if (completions[formId]) {
               return;
             }
+
             completions[formId] = true;
+            const proofs = data.proofs || {};
+            proofs[formId] = {
+              url: downloadUrl,
+              submittedAt: serverTimestamp(),
+            };
             const updated = Number(data.points || 0) + points;
             tx.set(
               userRef,
               {
                 points: updated,
                 completions,
+                proofs,
                 email: currentUser.email || "",
               },
               { merge: true }
             );
+          }).then(() => {
+            message.textContent = "Proof submitted. Points added.";
+            proofForm.reset();
+          }).catch((error) => {
+            if (error?.message === "referral-required") {
+              message.textContent =
+                "A referral must open your link before points are awarded.";
+              return;
+            }
+            message.textContent = error?.message || "Proof submission failed.";
           });
         });
       });
 
-      const applyReferralPoints = () => {
-        if (!currentUser) {
-          return;
-        }
+      const logReferralVisit = () => {
         const params = new URLSearchParams(window.location.search);
         const ref = params.get("ref");
         if (!ref) {
           return;
         }
-        const userRef = doc(db, "users", currentUser.uid);
-        runTransaction(db, async (tx) => {
-          const snap = await tx.get(userRef);
-          const data = snap.data() || {};
-          const referrals = data.referrals || {};
-          if (referrals[ref]) {
-            return;
-          }
-          referrals[ref] = true;
-          const updated = Number(data.points || 0) + referralPoints;
-          tx.set(
-            userRef,
-            {
-              points: updated,
-              referrals,
-              email: currentUser.email || "",
-            },
-            { merge: true }
-          );
-        }).then(() => {
-          message.textContent = `Referral bonus applied (+${referralPoints} points).`;
-        });
+        const refDoc = doc(db, "referrals", ref);
+        setDoc(
+          refDoc,
+          {
+            visitCount: increment(1),
+            lastVisitAt: serverTimestamp(),
+          },
+          { merge: true }
+        );
       };
+
+      logReferralVisit();
 
       const body = document.body;
       const themeButtons = document.querySelectorAll("[data-theme]");
