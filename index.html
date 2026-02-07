@@ -192,7 +192,15 @@
                 Password
                 <input type="password" name="password" placeholder="••••••••" required />
               </label>
-              <button class="btn btn-primary" type="submit">Sign in</button>
+              <div class="signin-actions">
+                <button class="btn btn-primary" type="submit">Sign in</button>
+                <button class="btn btn-ghost" type="button" id="signup-button">
+                  Create account
+                </button>
+              </div>
+              <button class="btn btn-google" type="button" id="google-button">
+                Continue with Google
+              </button>
             </form>
             <div class="signin-status">
               <span id="signin-message">Not signed in.</span>
@@ -213,11 +221,47 @@
               TBD for all committees.
             </p>
           </div>
+          <div class="committee-filters">
+            <div class="committee-key">
+              <span class="key-label">Grade key:</span>
+              <span>🟦 Grades 7-8</span>
+              <span>🟪 Grades 9-10</span>
+              <span>🟩 Grades 11-12</span>
+            </div>
+            <div class="filter-row">
+              <span class="filter-label">Filter by grade:</span>
+              <button class="filter-btn active" type="button" data-grade="all">All</button>
+              <button class="filter-btn" type="button" data-grade="7-8">7-8</button>
+              <button class="filter-btn" type="button" data-grade="9-10">9-10</button>
+              <button class="filter-btn" type="button" data-grade="11-12">11-12</button>
+            </div>
+            <div class="filter-row">
+              <span class="filter-label">Filter by committee:</span>
+              <button class="filter-btn active" type="button" data-type="all">All</button>
+              <button class="filter-btn" type="button" data-type="traditional">Traditional</button>
+              <button class="filter-btn" type="button" data-type="specialized">Specialized</button>
+              <button class="filter-btn" type="button" data-type="fantasy">Fantasy</button>
+            </div>
+          </div>
           <div class="committee-grid">
-            <article class="committee-card">
-              <h3>🕊️ UNHRC</h3>
-              <p class="committee-type">Traditional | Human Rights Council</p>
-              <ul>
+            <article class="committee-card" data-grades="9-12" data-type="traditional">
+              <div class="committee-header">
+                <div>
+                  <h3>🕊️ UNHRC</h3>
+                  <p class="committee-type">Traditional | Human Rights Council</p>
+                </div>
+                <div class="committee-tags">
+                  <span class="tag">Traditional</span>
+                  <span class="tag grade-9-10">🟪 9-10</span>
+                  <span class="tag grade-11-12">🟩 11-12</span>
+                </div>
+              </div>
+              <div class="committee-meta">
+                <span>🪑 2 Chairs</span>
+                <span>👥 23 Delegates</span>
+                <span>🎓 Grades 9-12</span>
+              </div>
+              <ul class="committee-topics">
                 <li>
                   Abolition of the death penalty and right to life (intermediate)
                 </li>
@@ -226,18 +270,29 @@
                   (intermediate)
                 </li>
               </ul>
-              <div class="committee-meta">
-                <span>2 Chairs, 23 Delegates</span>
-                <span>Grades 9-12</span>
-              </div>
             </article>
 
-            <article class="committee-card">
-              <h3>🔫 DISEC</h3>
-              <p class="committee-type">
-                Traditional | Disarmament and International Security
-              </p>
-              <ul>
+            <article class="committee-card" data-grades="7-12" data-type="traditional">
+              <div class="committee-header">
+                <div>
+                  <h3>🔫 DISEC</h3>
+                  <p class="committee-type">
+                    Traditional | Disarmament and International Security
+                  </p>
+                </div>
+                <div class="committee-tags">
+                  <span class="tag">Traditional</span>
+                  <span class="tag grade-7-8">🟦 7-8</span>
+                  <span class="tag grade-9-10">🟪 9-10</span>
+                  <span class="tag grade-11-12">🟩 11-12</span>
+                </div>
+              </div>
+              <div class="committee-meta">
+                <span>🪑 2 Chairs</span>
+                <span>👥 23 Delegates</span>
+                <span>🎓 Grades 7-12</span>
+              </div>
+              <ul class="committee-topics">
                 <li>
                   Securing cross-border transport of WMDs and related materials
                   (advanced)
@@ -247,16 +302,26 @@
                   (advanced)
                 </li>
               </ul>
-              <div class="committee-meta">
-                <span>2 Chairs, 23 Delegates</span>
-                <span>Grades 7-12</span>
-              </div>
             </article>
 
-            <article class="committee-card">
-              <h3>💜 UN Women</h3>
-              <p class="committee-type">Specialized | Gender Equality</p>
-              <ul>
+            <article class="committee-card" data-grades="9-12" data-type="specialized">
+              <div class="committee-header">
+                <div>
+                  <h3>💜 UN Women</h3>
+                  <p class="committee-type">Specialized | Gender Equality</p>
+                </div>
+                <div class="committee-tags">
+                  <span class="tag">Specialized</span>
+                  <span class="tag grade-9-10">🟪 9-10</span>
+                  <span class="tag grade-11-12">🟩 11-12</span>
+                </div>
+              </div>
+              <div class="committee-meta">
+                <span>🪑 2 Chairs</span>
+                <span>👥 22 Delegates</span>
+                <span>🎓 Grades 9-12</span>
+              </div>
+              <ul class="committee-topics">
                 <li>
                   Reproductive autonomy and access to safe, legal abortion
                   (advanced)
@@ -265,16 +330,27 @@
                   Universal childcare as a human right (intermediate)
                 </li>
               </ul>
-              <div class="committee-meta">
-                <span>2 Chairs, 22 Delegates</span>
-                <span>Grades 9-12</span>
-              </div>
             </article>
 
-            <article class="committee-card">
-              <h3>🌱 UNEP</h3>
-              <p class="committee-type">Specialized | Environment Programme</p>
-              <ul>
+            <article class="committee-card" data-grades="7-12" data-type="specialized">
+              <div class="committee-header">
+                <div>
+                  <h3>🌱 UNEP</h3>
+                  <p class="committee-type">Specialized | Environment Programme</p>
+                </div>
+                <div class="committee-tags">
+                  <span class="tag">Specialized</span>
+                  <span class="tag grade-7-8">🟦 7-8</span>
+                  <span class="tag grade-9-10">🟪 9-10</span>
+                  <span class="tag grade-11-12">🟩 11-12</span>
+                </div>
+              </div>
+              <div class="committee-meta">
+                <span>🪑 2 Chairs</span>
+                <span>👥 22 Delegates</span>
+                <span>🎓 Grades 7-12</span>
+              </div>
+              <ul class="committee-topics">
                 <li>
                   Rising Arctic temperatures and ocean acidification (beginner)
                 </li>
@@ -282,16 +358,27 @@
                   Protecting island ecosystems from invasive species (beginner)
                 </li>
               </ul>
-              <div class="committee-meta">
-                <span>2 Chairs, 22 Delegates</span>
-                <span>Grades 7-12</span>
-              </div>
             </article>
 
-            <article class="committee-card">
-              <h3>📰 Press Corps</h3>
-              <p class="committee-type">Specialized | Media</p>
-              <ul>
+            <article class="committee-card" data-grades="7-12" data-type="specialized">
+              <div class="committee-header">
+                <div>
+                  <h3>📰 Press Corps</h3>
+                  <p class="committee-type">Specialized | Media</p>
+                </div>
+                <div class="committee-tags">
+                  <span class="tag">Specialized</span>
+                  <span class="tag grade-7-8">🟦 7-8</span>
+                  <span class="tag grade-9-10">🟪 9-10</span>
+                  <span class="tag grade-11-12">🟩 11-12</span>
+                </div>
+              </div>
+              <div class="committee-meta">
+                <span>🪑 2 Editors + Editor</span>
+                <span>👥 14 Delegates</span>
+                <span>🎓 Grades 7-12</span>
+              </div>
+              <ul class="committee-topics">
                 <li>
                   When journalists should report on public affairs (beginner)
                 </li>
@@ -299,16 +386,26 @@
                   Combating political influence and censorship (beginner)
                 </li>
               </ul>
-              <div class="committee-meta">
-                <span>2 Editor in Chief, Editor, 14 Delegates</span>
-                <span>Grades 7-12</span>
-              </div>
             </article>
 
-            <article class="committee-card">
-              <h3>❤️ WHO</h3>
-              <p class="committee-type">Specialized | World Health Organization</p>
-              <ul>
+            <article class="committee-card" data-grades="9-12" data-type="specialized">
+              <div class="committee-header">
+                <div>
+                  <h3>❤️ WHO</h3>
+                  <p class="committee-type">Specialized | World Health Organization</p>
+                </div>
+                <div class="committee-tags">
+                  <span class="tag">Specialized</span>
+                  <span class="tag grade-9-10">🟪 9-10</span>
+                  <span class="tag grade-11-12">🟩 11-12</span>
+                </div>
+              </div>
+              <div class="committee-meta">
+                <span>🪑 2 Chairs</span>
+                <span>👥 22 Delegates</span>
+                <span>🎓 Grades 9-12</span>
+              </div>
+              <ul class="committee-topics">
                 <li>
                   Psychedelic drugs for trauma-based treatment (intermediate)
                 </li>
@@ -317,16 +414,27 @@
                   (intermediate)
                 </li>
               </ul>
-              <div class="committee-meta">
-                <span>2 Chairs, 22 Delegates</span>
-                <span>Grades 9-12</span>
-              </div>
             </article>
 
-            <article class="committee-card">
-              <h3>🔒 UNSC</h3>
-              <p class="committee-type">Traditional | Security Council</p>
-              <ul>
+            <article class="committee-card" data-grades="7-12" data-type="traditional">
+              <div class="committee-header">
+                <div>
+                  <h3>🔒 UNSC</h3>
+                  <p class="committee-type">Traditional | Security Council</p>
+                </div>
+                <div class="committee-tags">
+                  <span class="tag">Traditional</span>
+                  <span class="tag grade-7-8">🟦 7-8</span>
+                  <span class="tag grade-9-10">🟪 9-10</span>
+                  <span class="tag grade-11-12">🟩 11-12</span>
+                </div>
+              </div>
+              <div class="committee-meta">
+                <span>🪑 3 Chairs</span>
+                <span>👥 15 Delegates</span>
+                <span>🎓 Grades 7-12</span>
+              </div>
+              <ul class="committee-topics">
                 <li>
                   Education and information to prevent youth radicalization
                   (beginner)
@@ -335,18 +443,28 @@
                   Standardizing peacekeeping best practices (intermediate)
                 </li>
               </ul>
-              <div class="committee-meta">
-                <span>3 Chairs, 15 Delegates</span>
-                <span>Grades 7-12</span>
-              </div>
             </article>
 
-            <article class="committee-card">
-              <h3>🚫 UNODC</h3>
-              <p class="committee-type">
-                Specialized | Office on Drugs and Crime
-              </p>
-              <ul>
+            <article class="committee-card" data-grades="9-12" data-type="specialized">
+              <div class="committee-header">
+                <div>
+                  <h3>🚫 UNODC</h3>
+                  <p class="committee-type">
+                    Specialized | Office on Drugs and Crime
+                  </p>
+                </div>
+                <div class="committee-tags">
+                  <span class="tag">Specialized</span>
+                  <span class="tag grade-9-10">🟪 9-10</span>
+                  <span class="tag grade-11-12">🟩 11-12</span>
+                </div>
+              </div>
+              <div class="committee-meta">
+                <span>🪑 2 Chairs</span>
+                <span>👥 22 Delegates</span>
+                <span>🎓 Grades 9-12</span>
+              </div>
+              <ul class="committee-topics">
                 <li>
                   Alternatives to conviction for drug possession (intermediate)
                 </li>
@@ -355,18 +473,29 @@
                   (intermediate)
                 </li>
               </ul>
-              <div class="committee-meta">
-                <span>2 Chairs, 22 Delegates</span>
-                <span>Grades 9-12</span>
-              </div>
             </article>
 
-            <article class="committee-card">
-              <h3>📈 ECOSOC</h3>
-              <p class="committee-type">
-                Traditional | Economic and Social Council
-              </p>
-              <ul>
+            <article class="committee-card" data-grades="7-12" data-type="traditional">
+              <div class="committee-header">
+                <div>
+                  <h3>📈 ECOSOC</h3>
+                  <p class="committee-type">
+                    Traditional | Economic and Social Council
+                  </p>
+                </div>
+                <div class="committee-tags">
+                  <span class="tag">Traditional</span>
+                  <span class="tag grade-7-8">🟦 7-8</span>
+                  <span class="tag grade-9-10">🟪 9-10</span>
+                  <span class="tag grade-11-12">🟩 11-12</span>
+                </div>
+              </div>
+              <div class="committee-meta">
+                <span>🪑 2 Chairs</span>
+                <span>👥 22 Delegates</span>
+                <span>🎓 Grades 7-12</span>
+              </div>
+              <ul class="committee-topics">
                 <li>
                   Globally coordinated universal basic income (intermediate)
                 </li>
@@ -374,24 +503,31 @@
                   Reallocating military expenditure to public health (advanced)
                 </li>
               </ul>
-              <div class="committee-meta">
-                <span>2 Chairs, 22 Delegates</span>
-                <span>Grades 7-12</span>
-              </div>
             </article>
 
-            <article class="committee-card">
-              <h3>🧙 FWC</h3>
-              <p class="committee-type">Fantasy World Committee</p>
-              <ul>
+            <article class="committee-card" data-grades="7-12" data-type="fantasy">
+              <div class="committee-header">
+                <div>
+                  <h3>🧙 FWC</h3>
+                  <p class="committee-type">Fantasy World Committee</p>
+                </div>
+                <div class="committee-tags">
+                  <span class="tag">Fantasy</span>
+                  <span class="tag grade-7-8">🟦 7-8</span>
+                  <span class="tag grade-9-10">🟪 9-10</span>
+                  <span class="tag grade-11-12">🟩 11-12</span>
+                </div>
+              </div>
+              <div class="committee-meta">
+                <span>🪑 2 Chairs</span>
+                <span>👥 10 Delegates</span>
+                <span>🎓 Grades 7-12</span>
+              </div>
+              <ul class="committee-topics">
                 <li>Universe tracks: Avatar, Planet of the Apes, Stranger Things.</li>
                 <li>How to Train Your Dragon, The Lorax, Hamilton.</li>
                 <li>Godzilla, The Addams Family.</li>
               </ul>
-              <div class="committee-meta">
-                <span>2 Chairs, 10 Delegates</span>
-                <span>Grades 7-12</span>
-              </div>
             </article>
           </div>
         </div>
@@ -608,7 +744,10 @@
         getAuth,
         onAuthStateChanged,
         signInWithEmailAndPassword,
+        createUserWithEmailAndPassword,
         signOut,
+        GoogleAuthProvider,
+        signInWithPopup,
       } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
       const firebaseConfig = {
@@ -627,6 +766,8 @@
       const form = document.getElementById("signin-form");
       const message = document.getElementById("signin-message");
       const signOutButton = document.getElementById("signout-button");
+      const signUpButton = document.getElementById("signup-button");
+      const googleButton = document.getElementById("google-button");
 
       const updateStatus = (user) => {
         if (user) {
@@ -651,6 +792,29 @@
           form.reset();
         } catch (error) {
           message.textContent = error?.message || "Sign-in failed. Try again.";
+        }
+      });
+
+      signUpButton.addEventListener("click", async () => {
+        const formData = new FormData(form);
+        const email = String(formData.get("email") || "");
+        const password = String(formData.get("password") || "");
+
+        try {
+          await createUserWithEmailAndPassword(auth, email, password);
+          form.reset();
+        } catch (error) {
+          message.textContent = error?.message || "Sign-up failed. Try again.";
+        }
+      });
+
+      googleButton.addEventListener("click", async () => {
+        try {
+          const provider = new GoogleAuthProvider();
+          await signInWithPopup(auth, provider);
+        } catch (error) {
+          message.textContent =
+            error?.message || "Google sign-in failed. Try again.";
         }
       });
 
@@ -689,6 +853,46 @@
       const savedDark = localStorage.getItem("seamun-dark") === "1";
       setTheme(savedTheme);
       setDarkMode(savedDark);
+
+      const gradeButtons = document.querySelectorAll("[data-grade]");
+      const typeButtons = document.querySelectorAll("[data-type]");
+      const committees = document.querySelectorAll(".committee-card");
+      let gradeFilter = "all";
+      let typeFilter = "all";
+
+      const setActive = (buttons, value, attr) => {
+        buttons.forEach((btn) => {
+          btn.classList.toggle("active", btn.dataset[attr] === value);
+        });
+      };
+
+      const applyFilters = () => {
+        committees.forEach((card) => {
+          const grades = card.dataset.grades || "";
+          const type = card.dataset.type || "";
+          const gradeMatch = gradeFilter === "all" || grades.includes(gradeFilter);
+          const typeMatch = typeFilter === "all" || type === typeFilter;
+          card.style.display = gradeMatch && typeMatch ? "block" : "none";
+        });
+      };
+
+      gradeButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          gradeFilter = button.dataset.grade;
+          setActive(gradeButtons, gradeFilter, "grade");
+          applyFilters();
+        });
+      });
+
+      typeButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          typeFilter = button.dataset.type;
+          setActive(typeButtons, typeFilter, "type");
+          applyFilters();
+        });
+      });
+
+      applyFilters();
     </script>
   </body>
 </html>
