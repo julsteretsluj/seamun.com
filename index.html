@@ -327,6 +327,17 @@
                 Sign out
               </button>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="referral">
+        <div class="container">
+          <div class="section-header">
+            <h2>🔗 Referral</h2>
+            <p>Share your referral link and track your points.</p>
+          </div>
+          <div class="signin-card">
             <div class="points-panel">
               <span class="meta-label">🎯 Points</span>
               <span class="meta-value" id="points-total">0</span>
@@ -1101,6 +1112,7 @@
               >)
             </p>
             <p>Deputy Secretary-General: Emily H.</p>
+            <p>Parliamentarian: Lotus T.</p>
           </div>
           <div class="schedule-card">
             <h3>🗓️ Schedule</h3>
@@ -1230,6 +1242,36 @@
         return params.get("ref");
       };
 
+      const applyReferralBonus = async (uid, referrerCode) => {
+        if (!uid || !referrerCode) {
+          return;
+        }
+        const userRef = doc(db, "users", uid);
+        const refDoc = doc(db, "referrals", referrerCode);
+        const refSnap = await getDoc(refDoc);
+        const ownerUid = refSnap.data()?.ownerUid;
+        if (!ownerUid) {
+          return;
+        }
+        const ownerRef = doc(db, "users", ownerUid);
+
+        await runTransaction(db, async (tx) => {
+          const userSnap = await tx.get(userRef);
+          const ownerSnap = await tx.get(ownerRef);
+          const userData = userSnap.data() || {};
+          const ownerData = ownerSnap.data() || {};
+          if (userData.referralBonusApplied) {
+            return;
+          }
+
+          const ownerPoints = Number(ownerData.points || 0);
+          const updatedOwnerPoints = ownerPoints + referralBonusPoints;
+
+          tx.set(userRef, { referralBonusApplied: true }, { merge: true });
+          tx.set(ownerRef, { points: updatedOwnerPoints }, { merge: true });
+        });
+      };
+
       const subscribeUser = (user) => {
         if (unsubscribeUser) {
           unsubscribeUser();
@@ -1335,6 +1377,7 @@
         try {
           await signInWithEmailAndPassword(auth, email, password);
           form.reset();
+          window.location.reload();
         } catch (error) {
           message.textContent = error?.message || "Sign-in failed. Try again.";
         }
@@ -1394,7 +1437,9 @@
             },
             { merge: true }
           );
+          await applyReferralBonus(credential.user.uid, referrerCode);
           form.reset();
+          window.location.reload();
         } catch (error) {
           message.textContent = error?.message || "Sign-up failed. Try again.";
         }
@@ -1404,6 +1449,7 @@
         try {
           const provider = new GoogleAuthProvider();
           await signInWithPopup(auth, provider);
+          window.location.reload();
         } catch (error) {
           message.textContent =
             error?.message || "Google sign-in failed. Try again.";
@@ -1530,36 +1576,6 @@
       };
 
       logReferralVisit();
-
-      const applyReferralBonus = async (uid, referrerCode) => {
-        if (!uid || !referrerCode) {
-          return;
-        }
-        const userRef = doc(db, "users", uid);
-        const refDoc = doc(db, "referrals", referrerCode);
-        const refSnap = await getDoc(refDoc);
-        const ownerUid = refSnap.data()?.ownerUid;
-        if (!ownerUid) {
-          return;
-        }
-        const ownerRef = doc(db, "users", ownerUid);
-
-        await runTransaction(db, async (tx) => {
-          const userSnap = await tx.get(userRef);
-          const ownerSnap = await tx.get(ownerRef);
-          const userData = userSnap.data() || {};
-          const ownerData = ownerSnap.data() || {};
-          if (userData.referralBonusApplied) {
-            return;
-          }
-
-          const ownerPoints = Number(ownerData.points || 0);
-          const updatedOwnerPoints = ownerPoints + referralBonusPoints;
-
-          tx.set(userRef, { referralBonusApplied: true }, { merge: true });
-          tx.set(ownerRef, { points: updatedOwnerPoints }, { merge: true });
-        });
-      };
 
       const body = document.body;
       const themeButtons = document.querySelectorAll("[data-theme]");

@@ -614,11 +614,7 @@ body.dark .section.alt {
   display: none;
 }
 
-.section.signed-in .section-header h2 {
-  display: none;
-}
-
-.section.signed-in .section-header p {
+.section.signed-in {
   display: none;
 }
 
