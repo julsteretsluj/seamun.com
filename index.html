@@ -51,6 +51,7 @@
           <a href="#forms">📝 Forms</a>
           <a href="#awards">🏆 Awards</a>
           <a href="#schedule">🗓️ Schedule</a>
+          <a href="#signin">🔐 Sign in</a>
           <a href="#contact">📬 Contact</a>
         </nav>
         <a class="btn btn-primary" href="#register">Register</a>
@@ -170,6 +171,34 @@
             <div class="feature-card">
               <h3>✨ Unique topics</h3>
               <p>Policy debates across human rights, security, health, and more.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt" id="signin">
+        <div class="container">
+          <div class="section-header">
+            <h2>🔐 Sign in</h2>
+            <p>Use your email and password to access conference tools.</p>
+          </div>
+          <div class="signin-card">
+            <form id="signin-form" class="signin-form">
+              <label>
+                Email
+                <input type="email" name="email" placeholder="you@email.com" required />
+              </label>
+              <label>
+                Password
+                <input type="password" name="password" placeholder="••••••••" required />
+              </label>
+              <button class="btn btn-primary" type="submit">Sign in</button>
+            </form>
+            <div class="signin-status">
+              <span id="signin-message">Not signed in.</span>
+              <button class="btn btn-ghost" id="signout-button" type="button" disabled>
+                Sign out
+              </button>
             </div>
           </div>
         </div>
@@ -573,7 +602,66 @@
         <div>SEAMUN | South East Asia Model United Nations</div>
       </div>
     </footer>
-    <script>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+      import {
+        getAuth,
+        onAuthStateChanged,
+        signInWithEmailAndPassword,
+        signOut,
+      } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyCnPseFI_jpXAXEK4j2gHy0lY9ss1uS48E",
+        authDomain: "seamuncom.firebaseapp.com",
+        projectId: "seamuncom",
+        storageBucket: "seamuncom.firebasestorage.app",
+        messagingSenderId: "853258490125",
+        appId: "1:853258490125:web:77cbf756396fe715c06044",
+        measurementId: "G-TWYYBVL0NY",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+
+      const form = document.getElementById("signin-form");
+      const message = document.getElementById("signin-message");
+      const signOutButton = document.getElementById("signout-button");
+
+      const updateStatus = (user) => {
+        if (user) {
+          message.textContent = `Signed in as ${user.email}.`;
+          signOutButton.disabled = false;
+        } else {
+          message.textContent = "Not signed in.";
+          signOutButton.disabled = true;
+        }
+      };
+
+      onAuthStateChanged(auth, updateStatus);
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        const formData = new FormData(form);
+        const email = String(formData.get("email") || "");
+        const password = String(formData.get("password") || "");
+
+        try {
+          await signInWithEmailAndPassword(auth, email, password);
+          form.reset();
+        } catch (error) {
+          message.textContent = error?.message || "Sign-in failed. Try again.";
+        }
+      });
+
+      signOutButton.addEventListener("click", async () => {
+        try {
+          await signOut(auth);
+        } catch (error) {
+          message.textContent = error?.message || "Sign-out failed. Try again.";
+        }
+      });
+
       const body = document.body;
       const themeButtons = document.querySelectorAll("[data-theme]");
       const themeToggle = document.querySelector("[data-theme-toggle]");
