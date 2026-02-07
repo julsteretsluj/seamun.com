@@ -865,10 +865,41 @@ body.dark .committee-topics li {
 }
 
 .schedule-list li {
-  padding: 8px 10px;
-  border-radius: 10px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
   background: #f8fafc;
   border: 1px solid var(--border);
+}
+
+.schedule-note {
+  grid-template-columns: 1fr;
+  background: rgba(59, 130, 246, 0.08);
+  font-size: 0.9rem;
+}
+
+body.dark .schedule-note {
+  background: rgba(96, 165, 250, 0.12);
+}
+
+.time-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(59, 130, 246, 0.12);
+  border: 1px solid var(--border);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--text);
+}
+
+body.dark .time-tag {
+  background: rgba(96, 165, 250, 0.18);
 }
 
 .topic-grid {
