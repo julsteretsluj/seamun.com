@@ -945,11 +945,24 @@
         });
       };
 
+      const matchesGrade = (grades, filter) => {
+        if (filter === "all") {
+          return true;
+        }
+        if (filter === "7-8") {
+          return grades.includes("7-12") || grades.includes("7-8");
+        }
+        if (filter === "9-10" || filter === "11-12") {
+          return grades.includes("9-12") || grades.includes("7-12");
+        }
+        return false;
+      };
+
       const applyFilters = () => {
         committees.forEach((card) => {
           const grades = card.dataset.grades || "";
           const type = card.dataset.type || "";
-          const gradeMatch = gradeFilter === "all" || grades.includes(gradeFilter);
+          const gradeMatch = matchesGrade(grades, gradeFilter);
           const typeMatch = typeFilter === "all" || type === typeFilter;
           card.style.display = gradeMatch && typeMatch ? "block" : "none";
         });
