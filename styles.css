@@ -242,6 +242,16 @@ body.dark .site-header {
   color: var(--muted);
 }
 
+.nav-status {
+  margin-left: 8px;
+  font-size: 0.85rem;
+  color: var(--text);
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+
 .nav a:hover {
   color: var(--primary);
 }
@@ -411,6 +421,10 @@ body.dark .note {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
+.committee-grid {
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
 .committee-filters {
   display: grid;
   gap: 12px;
@@ -535,6 +549,21 @@ body.dark .note {
   color: var(--muted);
 }
 
+.points-panel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+
+.profile-details {
+  display: grid;
+  gap: 12px;
+}
+
 .btn-google {
   background: #ffffff;
   color: #1f2937;
@@ -618,6 +647,9 @@ body.dark .committee-topics li {
 }
 
 .universe-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-weight: 700;
   color: var(--text);
 }

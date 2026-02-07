@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SEAMUN I Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="theme-bar">
+      <div class="container theme-bar-inner">
+        <button class="theme-toggle" type="button" data-theme-toggle>
+          🌙 Dark mode
+        </button>
+        <div class="theme-selector" aria-label="Theme selector">
+          <span>🎨 Theme</span>
+          <button class="theme-dot theme-red" type="button" data-theme="red" aria-label="Red theme"></button>
+          <button class="theme-dot theme-orange" type="button" data-theme="orange" aria-label="Orange theme"></button>
+          <button class="theme-dot theme-yellow" type="button" data-theme="yellow" aria-label="Yellow theme"></button>
+          <button class="theme-dot theme-green" type="button" data-theme="green" aria-label="Green theme"></button>
+          <button class="theme-dot theme-blue" type="button" data-theme="blue" aria-label="Blue theme"></button>
+          <button class="theme-dot theme-purple" type="button" data-theme="purple" aria-label="Purple theme"></button>
+          <button class="theme-dot theme-pink" type="button" data-theme="pink" aria-label="Pink theme"></button>
+          <button class="theme-dot theme-grey" type="button" data-theme="grey" aria-label="Grey theme"></button>
+          <button class="theme-dot theme-mono" type="button" data-theme="mono" aria-label="Monochrome theme"></button>
+        </div>
+      </div>
+    </div>
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="logo">
+          <img
+            class="logo-image"
+            src="assets/seamun-logo.png"
+            alt="SEAMUN I logo"
+          />
+          <div class="logo-text">
+            <strong>SEAMUN I</strong>
+            <span>Policies with a Purpose</span>
+          </div>
+        </div>
+        <nav class="nav">
+          <a href="index.html">🏛️ Home</a>
+          <a href="index.html#committees">🧾 Committees</a>
+          <a href="index.html#signin">🔐 Sign in</a>
+          <a href="profile.html">👤 Profile</a>
+          <span class="nav-status" id="nav-auth-status">Signed out</span>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <h2>👤 Profile</h2>
+            <p>View your signed-in account details.</p>
+          </div>
+          <div class="signin-card">
+            <div class="signin-status">
+              <span id="profile-status">Not signed in.</span>
+              <button class="btn btn-ghost" id="profile-signout" type="button" disabled>
+                Sign out
+              </button>
+            </div>
+            <div class="profile-details">
+              <div>
+                <span class="meta-label">Email</span>
+                <span class="meta-value" id="profile-email">-</span>
+              </div>
+              <div>
+                <span class="meta-label">User ID</span>
+                <span class="meta-value" id="profile-uid">-</span>
+              </div>
+              <div>
+                <span class="meta-label">Points</span>
+                <span class="meta-value" id="profile-points">0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <strong>SEAMUN I Conference</strong>
+          <span>Policies with a Purpose</span>
+        </div>
+        <div>SEAMUN | South East Asia Model United Nations</div>
+      </div>
+    </footer>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+      import {
+        getAuth,
+        onAuthStateChanged,
+        signOut,
+      } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+      import {
+        getFirestore,
+        doc,
+        onSnapshot,
+      } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyCnPseFI_jpXAXEK4j2gHy0lY9ss1uS48E",
+        authDomain: "seamuncom.firebaseapp.com",
+        projectId: "seamuncom",
+        storageBucket: "seamuncom.firebasestorage.app",
+        messagingSenderId: "853258490125",
+        appId: "1:853258490125:web:77cbf756396fe715c06044",
+        measurementId: "G-TWYYBVL0NY",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+      const db = getFirestore(app);
+
+      const navStatus = document.getElementById("nav-auth-status");
+      const profileStatus = document.getElementById("profile-status");
+      const profileEmail = document.getElementById("profile-email");
+      const profileUid = document.getElementById("profile-uid");
+      const profilePoints = document.getElementById("profile-points");
+      const signOutButton = document.getElementById("profile-signout");
+
+      let unsubscribeUser = null;
+
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          navStatus.textContent = `Signed in: ${user.email}`;
+          profileStatus.textContent = `Signed in as ${user.email}`;
+          profileEmail.textContent = user.email || "-";
+          profileUid.textContent = user.uid || "-";
+          signOutButton.disabled = false;
+          if (unsubscribeUser) {
+            unsubscribeUser();
+          }
+          const userRef = doc(db, "users", user.uid);
+          unsubscribeUser = onSnapshot(userRef, (snap) => {
+            const data = snap.data() || {};
+            profilePoints.textContent = String(data.points || 0);
+          });
+        } else {
+          navStatus.textContent = "Signed out";
+          profileStatus.textContent = "Not signed in.";
+          profileEmail.textContent = "-";
+          profileUid.textContent = "-";
+          profilePoints.textContent = "0";
+          signOutButton.disabled = true;
+          if (unsubscribeUser) {
+            unsubscribeUser();
+            unsubscribeUser = null;
+          }
+        }
+      });
+
+      signOutButton.addEventListener("click", async () => {
+        await signOut(auth);
+      });
+
+      const body = document.body;
+      const themeButtons = document.querySelectorAll("[data-theme]");
+      const themeToggle = document.querySelector("[data-theme-toggle]");
+
+      const setTheme = (theme) => {
+        body.dataset.theme = theme;
+        localStorage.setItem("seamun-theme", theme);
+      };
+
+      const setDarkMode = (enabled) => {
+        body.classList.toggle("dark", enabled);
+        localStorage.setItem("seamun-dark", enabled ? "1" : "0");
+        themeToggle.textContent = enabled ? "☀️ Light mode" : "🌙 Dark mode";
+      };
+
+      themeButtons.forEach((button) => {
+        button.addEventListener("click", () => setTheme(button.dataset.theme));
+      });
+
+      themeToggle.addEventListener("click", () => {
+        setDarkMode(!body.classList.contains("dark"));
+      });
+
+      const savedTheme = localStorage.getItem("seamun-theme") || "blue";
+      const savedDark = localStorage.getItem("seamun-dark") === "1";
+      setTheme(savedTheme);
+      setDarkMode(savedDark);
+    </script>
+  </body>
+</html>

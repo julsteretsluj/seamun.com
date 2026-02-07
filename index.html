@@ -52,7 +52,9 @@
           <a href="#awards">🏆 Awards</a>
           <a href="#schedule">🗓️ Schedule</a>
           <a href="#signin">🔐 Sign in</a>
+          <a href="profile.html">👤 Profile</a>
           <a href="#contact">📬 Contact</a>
+          <span class="nav-status" id="nav-auth-status">Signed out</span>
         </nav>
         <a class="btn btn-primary" href="#register">Register</a>
       </div>
@@ -207,6 +209,10 @@
               <button class="btn btn-ghost" id="signout-button" type="button" disabled>
                 Sign out
               </button>
+            </div>
+            <div class="points-panel">
+              <span class="meta-label">🎯 Points</span>
+              <span class="meta-value" id="points-total">0</span>
             </div>
           </div>
         </div>
@@ -519,90 +525,98 @@
               </div>
               <ul class="committee-topics">
                 <li class="universe-item">
-                  <div class="universe-title">Avatar</div>
-                  <div class="topic-line">
+                  <div class="universe-title">
+                    Avatar
                     <span class="age-tag grade-7-8">🟦 7-8</span>
+                  </div>
+                  <div class="topic-line">
                     Protecting Eywa against violence and destruction
                   </div>
                   <div class="topic-line">
-                    <span class="age-tag grade-9-10">🟪 9-10</span>
                     Combatting unobtanium exploitation with new governing bodies
                   </div>
                 </li>
                 <li class="universe-item">
-                  <div class="universe-title">Planet of the Apes</div>
-                  <div class="topic-line">
+                  <div class="universe-title">
+                    Planet of the Apes
                     <span class="age-tag grade-9-10">🟪 9-10</span>
+                  </div>
+                  <div class="topic-line">
                     Preventing unethical research through bio-ethical review boards
                   </div>
                   <div class="topic-line">
-                    <span class="age-tag grade-11-12">🟩 11-12</span>
                     Codifying rights for enhanced non-human species
                   </div>
                 </li>
                 <li class="universe-item">
-                  <div class="universe-title">Stranger Things</div>
+                  <div class="universe-title">
+                    Stranger Things
+                    <span class="age-tag grade-11-12">🟩 11-12</span>
+                  </div>
                   <div class="topic-line">
-                    <span class="age-tag grade-9-10">🟪 9-10</span>
                     Preventing harm from psychic child experimentation
                   </div>
                   <div class="topic-line">
-                    <span class="age-tag grade-11-12">🟩 11-12</span>
                     Regulating weaponization of the human mind
                   </div>
                 </li>
                 <li class="universe-item">
-                  <div class="universe-title">How to Train Your Dragon</div>
-                  <div class="topic-line">
+                  <div class="universe-title">
+                    How to Train Your Dragon
                     <span class="age-tag grade-7-8">🟦 7-8</span>
+                  </div>
+                  <div class="topic-line">
                     Combatting illegal trafficking and poaching of dragons
                   </div>
                   <div class="topic-line">
-                    <span class="age-tag grade-9-10">🟪 9-10</span>
                     Evaluating ethics of inter-species labor agreements
                   </div>
                 </li>
                 <li class="universe-item">
-                  <div class="universe-title">The Lorax</div>
-                  <div class="topic-line">
+                  <div class="universe-title">
+                    The Lorax
                     <span class="age-tag grade-7-8">🟦 7-8</span>
+                  </div>
+                  <div class="topic-line">
                     Addressing deforestation and industrial pollution
                   </div>
                   <div class="topic-line">
-                    <span class="age-tag grade-9-10">🟪 9-10</span>
                     Regulating non-essential goods and excessive consumerism
                   </div>
                 </li>
                 <li class="universe-item">
-                  <div class="universe-title">Hamilton</div>
-                  <div class="topic-line">
+                  <div class="universe-title">
+                    Hamilton
                     <span class="age-tag grade-9-10">🟪 9-10</span>
+                  </div>
+                  <div class="topic-line">
                     Establishing federal fiscal responsibility and debt sustainability
                   </div>
                   <div class="topic-line">
-                    <span class="age-tag grade-11-12">🟩 11-12</span>
                     Regulating political ethics and public discourse
                   </div>
                 </li>
                 <li class="universe-item">
-                  <div class="universe-title">Godzilla</div>
+                  <div class="universe-title">
+                    Godzilla
+                    <span class="age-tag grade-11-12">🟩 11-12</span>
+                  </div>
                   <div class="topic-line">
-                    <span class="age-tag grade-9-10">🟪 9-10</span>
                     Frameworks for titan stewardship vs. sovereign defense
                   </div>
                   <div class="topic-line">
-                    <span class="age-tag grade-11-12">🟩 11-12</span>
                     Ethics of cybernetic bio-engineering and mecha proliferation
                   </div>
                 </li>
                 <li class="universe-item">
-                  <div class="universe-title">The Addams Family</div>
+                  <div class="universe-title">
+                    The Addams Family
+                    <span class="age-tag grade-9-10">🟪 9-10</span>
+                  </div>
                   <div class="topic-line">
-                    <span class="age-tag grade-7-8">🟦 7-8</span>
                     Protecting rights of outcast communities against assimilation
                   </div>
                   <div class="topic-line">
-                    <span class="age-tag grade-9-10">🟪 9-10</span>
                     Regulating ethical use of the occult in public spaces
                   </div>
                 </li>
@@ -634,6 +648,27 @@
               <h3>🌌 FWC Universe Preferences</h3>
               <p>Rank your preferred fantasy universe and allocations.</p>
               <span>Form link to be announced</span>
+              <button
+                class="btn btn-ghost points-btn"
+                type="button"
+                data-form-id="fwc-preferences"
+                data-points="20"
+              >
+                Mark as completed (+20 points)
+              </button>
+            </div>
+            <div class="form-card">
+              <h3>🗣️ Conference Feedback</h3>
+              <p>Share feedback to help improve future SEAMUN conferences.</p>
+              <span>Form link to be announced</span>
+              <button
+                class="btn btn-ghost points-btn"
+                type="button"
+                data-form-id="feedback-form"
+                data-points="10"
+              >
+                Mark as completed (+10 points)
+              </button>
             </div>
             <div class="form-card">
               <h3>📚 Rules of Procedure</h3>
@@ -828,6 +863,13 @@
         GoogleAuthProvider,
         signInWithPopup,
       } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+      import {
+        getFirestore,
+        doc,
+        setDoc,
+        runTransaction,
+        onSnapshot,
+      } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
       const firebaseConfig = {
         apiKey: "AIzaSyCnPseFI_jpXAXEK4j2gHy0lY9ss1uS48E",
@@ -841,6 +883,7 @@
 
       const app = initializeApp(firebaseConfig);
       const auth = getAuth(app);
+      const db = getFirestore(app);
 
       const form = document.getElementById("signin-form");
       const message = document.getElementById("signin-message");
@@ -848,14 +891,79 @@
       const signUpButton = document.getElementById("signup-button");
       const googleButton = document.getElementById("google-button");
 
+      const navStatus = document.getElementById("nav-auth-status");
+      const pointsTotal = document.getElementById("points-total");
+      const pointsButtons = document.querySelectorAll("[data-form-id]");
+      let currentUser = null;
+      let unsubscribeUser = null;
+      let completionsCache = {};
+
+      const referralPoints = 15;
+
+      const updatePointsButtons = () => {
+        pointsButtons.forEach((button) => {
+          if (!currentUser) {
+            button.disabled = true;
+            button.textContent = "Sign in to claim points";
+            return;
+          }
+          const formId = button.dataset.formId || "";
+          const completed = Boolean(completionsCache[formId]);
+          if (completed) {
+            button.disabled = true;
+            button.textContent = "Completed";
+          } else {
+            const points = button.dataset.points || "0";
+            button.disabled = false;
+            button.textContent = `Mark as completed (+${points} points)`;
+          }
+        });
+      };
+
+      const subscribeUser = (user) => {
+        if (unsubscribeUser) {
+          unsubscribeUser();
+        }
+        const userRef = doc(db, "users", user.uid);
+        unsubscribeUser = onSnapshot(userRef, (snap) => {
+          const data = snap.data() || {};
+          const points = Number(data.points || 0);
+          completionsCache = data.completions || {};
+          if (pointsTotal) {
+            pointsTotal.textContent = String(points);
+          }
+          if (navStatus) {
+            navStatus.textContent = `Signed in: ${user.email} · ${points} pts`;
+          }
+          updatePointsButtons();
+        });
+      };
+
       const updateStatus = (user) => {
         if (user) {
           message.textContent = `Signed in as ${user.email}.`;
           signOutButton.disabled = false;
+          currentUser = user;
+          setDoc(
+            doc(db, "users", user.uid),
+            { email: user.email || "", points: 0 },
+            { merge: true }
+          );
+          subscribeUser(user);
         } else {
           message.textContent = "Not signed in.";
           signOutButton.disabled = true;
+          currentUser = null;
+          completionsCache = {};
+          if (pointsTotal) {
+            pointsTotal.textContent = "0";
+          }
+          if (navStatus) {
+            navStatus.textContent = "Signed out";
+          }
         }
+        updatePointsButtons();
+        applyReferralPoints();
       };
 
       onAuthStateChanged(auth, updateStatus);
@@ -904,6 +1012,70 @@
           message.textContent = error?.message || "Sign-out failed. Try again.";
         }
       });
+
+      pointsButtons.forEach((button) => {
+        button.addEventListener("click", async () => {
+          if (!currentUser) {
+            message.textContent = "Sign in to claim points.";
+            return;
+          }
+          const formId = button.dataset.formId || "";
+          const points = Number(button.dataset.points || "0");
+          const userRef = doc(db, "users", currentUser.uid);
+          await runTransaction(db, async (tx) => {
+            const snap = await tx.get(userRef);
+            const data = snap.data() || {};
+            const completions = data.completions || {};
+            if (completions[formId]) {
+              return;
+            }
+            completions[formId] = true;
+            const updated = Number(data.points || 0) + points;
+            tx.set(
+              userRef,
+              {
+                points: updated,
+                completions,
+                email: currentUser.email || "",
+              },
+              { merge: true }
+            );
+          });
+        });
+      });
+
+      const applyReferralPoints = () => {
+        if (!currentUser) {
+          return;
+        }
+        const params = new URLSearchParams(window.location.search);
+        const ref = params.get("ref");
+        if (!ref) {
+          return;
+        }
+        const userRef = doc(db, "users", currentUser.uid);
+        runTransaction(db, async (tx) => {
+          const snap = await tx.get(userRef);
+          const data = snap.data() || {};
+          const referrals = data.referrals || {};
+          if (referrals[ref]) {
+            return;
+          }
+          referrals[ref] = true;
+          const updated = Number(data.points || 0) + referralPoints;
+          tx.set(
+            userRef,
+            {
+              points: updated,
+              referrals,
+              email: currentUser.email || "",
+            },
+            { merge: true }
+          );
+        }).then(() => {
+          message.textContent = `Referral bonus applied (+${referralPoints} points).`;
+        });
+      };
 
       const body = document.body;
       const themeButtons = document.querySelectorAll("[data-theme]");
