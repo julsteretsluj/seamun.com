@@ -225,6 +225,7 @@ body.dark .site-header {
   justify-content: space-between;
   padding: 18px 0;
   gap: 20px;
+  flex-wrap: nowrap;
 }
 
 .logo {
@@ -250,9 +251,11 @@ body.dark .site-header {
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
-  gap: 20px;
+  gap: 14px;
   font-weight: 600;
   color: var(--muted);
+  font-size: 0.9rem;
+  white-space: nowrap;
 }
 
 .nav-status {
@@ -268,6 +271,17 @@ body.dark .site-header {
 
 .nav a:hover {
   color: var(--primary);
+}
+
+@media (max-width: 1100px) {
+  .nav {
+    gap: 10px;
+    font-size: 0.8rem;
+  }
+
+  .logo-text span {
+    display: none;
+  }
 }
 
 .btn {
