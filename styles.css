@@ -185,6 +185,17 @@ a {
   text-decoration: none;
 }
 
+.contact-links a {
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.contact-links a:hover {
+  color: var(--primary-dark);
+}
+
 img {
   max-width: 100%;
   display: block;
@@ -571,11 +582,13 @@ body.dark .note {
 }
 
 .proof-form input[type="file"] {
+  width: 100%;
   border: 1px dashed var(--border);
   padding: 8px;
   border-radius: 10px;
   background: var(--card);
   color: var(--text);
+  font-size: 0.85rem;
 }
 
 .hidden {
@@ -648,6 +661,9 @@ body.dark .btn-google {
   border-radius: 20px;
   padding: 22px;
   box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .committee-header {
@@ -741,6 +757,12 @@ body.dark .committee-topics li {
   margin-top: 12px;
   font-weight: 600;
   color: var(--primary-dark);
+}
+
+.form-note {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 6px;
 }
 
 .schedule-grid {

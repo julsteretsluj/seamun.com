@@ -1,0 +1,20 @@
+{
+  "name": "functions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "echo \"No lint configured\"",
+    "deploy": "firebase deploy --only functions"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": "18"
+  },
+  "dependencies": {
+    "firebase-admin": "^13.6.1",
+    "firebase-functions": "^7.0.5"
+  }
+}

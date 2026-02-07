@@ -704,6 +704,10 @@
               <h3>🌌 FWC Universe Preferences</h3>
               <p>Rank your preferred fantasy universe and allocations.</p>
               <span>Form link to be announced</span>
+              <p class="form-note">
+                Upload a screenshot that shows the Google Form logo. Manual review
+                by organizers in this chat.
+              </p>
               <form class="proof-form" data-form-id="fwc-preferences" data-points="20">
                 <label class="proof-label">
                   Upload screenshot proof
@@ -718,6 +722,10 @@
               <h3>🗣️ Conference Feedback</h3>
               <p>Share feedback to help improve future SEAMUN conferences.</p>
               <span>Form link to be announced</span>
+              <p class="form-note">
+                Upload a screenshot that shows the Google Form logo. Manual review
+                by organizers in this chat.
+              </p>
               <form class="proof-form" data-form-id="feedback-form" data-points="10">
                 <label class="proof-label">
                   Upload screenshot proof
@@ -732,6 +740,10 @@
               <h3>🏫 Delegate sign up (school)</h3>
               <p>School delegation registration (coming soon).</p>
               <span>Form link to be announced</span>
+              <p class="form-note">
+                Upload a screenshot that shows the Google Form logo. Manual review
+                by organizers in this chat.
+              </p>
               <form class="proof-form" data-form-id="delegate-school" data-points="15">
                 <label class="proof-label">
                   Upload screenshot proof
@@ -746,6 +758,10 @@
               <h3>🧍 Delegate sign up (independent)</h3>
               <p>Independent delegate registration (coming soon).</p>
               <span>Form link to be announced</span>
+              <p class="form-note">
+                Upload a screenshot that shows the Google Form logo. Manual review
+                by organizers in this chat.
+              </p>
               <form class="proof-form" data-form-id="delegate-independent" data-points="15">
                 <label class="proof-label">
                   Upload screenshot proof
@@ -760,6 +776,10 @@
               <h3>🧑‍🏫 Advisor sign up</h3>
               <p>Advisor registration (coming soon).</p>
               <span>Form link to be announced</span>
+              <p class="form-note">
+                Upload a screenshot that shows the Google Form logo. Manual review
+                by organizers in this chat.
+              </p>
               <form class="proof-form" data-form-id="advisor-signup" data-points="10">
                 <label class="proof-label">
                   Upload screenshot proof
@@ -774,6 +794,10 @@
               <h3>🪑 Chair applications</h3>
               <p>Chair applications (late August 2026).</p>
               <span>Form link to be announced</span>
+              <p class="form-note">
+                Upload a screenshot that shows the Google Form logo. Manual review
+                by organizers in this chat.
+              </p>
               <form class="proof-form" data-form-id="chair-applications" data-points="25">
                 <label class="proof-label">
                   Upload screenshot proof
@@ -931,7 +955,7 @@
                 >studentmanagementteam@seamuns.site</a
               >
             </p>
-            <p>
+            <p class="contact-links">
               Instagram:
               <a
                 href="https://www.instagram.com/seamun.th.conference/"
@@ -999,10 +1023,10 @@
         getFirestore,
         doc,
         setDoc,
-        runTransaction,
         onSnapshot,
         increment,
         serverTimestamp,
+        runTransaction,
       } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
       import {
         getStorage,
@@ -1043,6 +1067,7 @@
       let currentUser = null;
       let unsubscribeUser = null;
       let completionsCache = {};
+      let proofsCache = {};
 
       const updatePointsButtons = () => {
         proofForms.forEach((proofForm) => {
@@ -1058,9 +1083,13 @@
             return;
           }
           const completed = Boolean(completionsCache[formId]);
+          const pending = proofsCache[formId]?.status === "pending";
           if (completed) {
             submitButton.disabled = true;
             submitButton.textContent = "Completed";
+          } else if (pending) {
+            submitButton.disabled = true;
+            submitButton.textContent = "Pending review";
           } else {
             submitButton.disabled = false;
             submitButton.textContent = `Submit proof (+${points} points)`;
@@ -1080,6 +1109,7 @@
             data.firstName || (user.displayName || "").split(" ")[0] || "";
           const refCode = data.refCode || user.uid.slice(0, 8);
           completionsCache = data.completions || {};
+          proofsCache = data.proofs || {};
           if (pointsTotal) {
             pointsTotal.textContent = String(points);
           }
@@ -1115,6 +1145,7 @@
           signOutButton.disabled = true;
           currentUser = null;
           completionsCache = {};
+          proofsCache = {};
           if (pointsTotal) {
             pointsTotal.textContent = "0";
           }
@@ -1249,7 +1280,7 @@
             return;
           }
           const formId = proofForm.dataset.formId || "";
-          const points = Number(proofForm.dataset.points || "0");
+          const formPoints = Number(proofForm.dataset.points || "0");
           const fileInput = proofForm.querySelector("input[type='file']");
           const file = fileInput?.files?.[0];
           if (!file) {
@@ -1262,52 +1293,45 @@
           const uploadSnap = await uploadBytes(fileRef, file);
           const downloadUrl = await getDownloadURL(uploadSnap.ref);
 
-          const userRef = doc(db, "users", currentUser.uid);
-          await runTransaction(db, async (tx) => {
-            const userSnap = await tx.get(userRef);
-            const data = userSnap.data() || {};
-            const completions = data.completions || {};
-            const refCode = data.refCode || currentUser.uid.slice(0, 8);
-            const referralRef = doc(db, "referrals", refCode);
-            const referralSnap = await tx.get(referralRef);
-            const referralData = referralSnap.data() || {};
-            const visitCount = Number(referralData.visitCount || 0);
+          try {
+            const userRef = doc(db, "users", currentUser.uid);
+            await runTransaction(db, async (tx) => {
+              const userSnap = await tx.get(userRef);
+              const data = userSnap.data() || {};
+              const completions = data.completions || {};
+              const proofs = data.proofs || {};
+              const refCode = data.refCode || currentUser.uid.slice(0, 8);
 
-            if (visitCount < 1) {
-              throw new Error("referral-required");
-            }
-            if (completions[formId]) {
-              return;
-            }
+              if (completions[formId]) {
+                return;
+              }
+              if (proofs[formId]?.status === "pending") {
+                return;
+              }
 
-            completions[formId] = true;
-            const proofs = data.proofs || {};
-            proofs[formId] = {
-              url: downloadUrl,
-              submittedAt: serverTimestamp(),
-            };
-            const updated = Number(data.points || 0) + points;
-            tx.set(
-              userRef,
-              {
-                points: updated,
-                completions,
-                proofs,
-                email: currentUser.email || "",
-              },
-              { merge: true }
-            );
-          }).then(() => {
-            message.textContent = "Proof submitted. Points added.";
+              proofs[formId] = {
+                url: downloadUrl,
+                status: "pending",
+                submittedAt: serverTimestamp(),
+                refCode,
+                points: formPoints,
+              };
+
+              tx.set(
+                userRef,
+                {
+                  proofs,
+                  email: currentUser.email || "",
+                },
+                { merge: true }
+              );
+            });
+            message.textContent =
+              "Proof submitted for manual review. Points will be added after approval.";
             proofForm.reset();
-          }).catch((error) => {
-            if (error?.message === "referral-required") {
-              message.textContent =
-                "A referral must open your link before points are awarded.";
-              return;
-            }
+          } catch (error) {
             message.textContent = error?.message || "Proof submission failed.";
-          });
+          }
         });
       });
 
