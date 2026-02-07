@@ -1,5 +1,6 @@
 :root {
   color-scheme: light;
+  --theme-bar-height: 48px;
   --bg: #f7f9fc;
   --card: #ffffff;
   --primary: #2b5fff;
@@ -92,6 +93,9 @@ body {
 }
 
 .theme-bar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
   background: #0b1220;
   color: #e2e8f0;
   font-size: 0.9rem;
@@ -105,7 +109,8 @@ body.dark .theme-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 0;
+  min-height: var(--theme-bar-height);
+  padding: 6px 0;
   gap: 16px;
 }
 
@@ -192,7 +197,7 @@ img {
 
 .site-header {
   position: sticky;
-  top: 44px;
+  top: var(--theme-bar-height);
   z-index: 10;
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(18px);
