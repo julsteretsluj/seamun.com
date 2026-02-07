@@ -612,6 +612,34 @@ body.dark .committee-topics li {
   background: rgba(15, 23, 42, 0.6);
 }
 
+.universe-item {
+  display: grid;
+  gap: 8px;
+}
+
+.universe-title {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.topic-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.age-tag {
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: 1px solid var(--border);
+  background: rgba(59, 130, 246, 0.12);
+  color: var(--text);
+}
+
 .form-card span {
   display: inline-flex;
   margin-top: 12px;
