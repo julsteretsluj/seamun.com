@@ -62,13 +62,10 @@ img {
   gap: 14px;
 }
 
-.logo-mark {
-  background: var(--primary);
-  color: #fff;
-  font-weight: 800;
-  padding: 10px 14px;
-  border-radius: 12px;
-  letter-spacing: 0.5px;
+.logo-image {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
 }
 
 .logo-text {
