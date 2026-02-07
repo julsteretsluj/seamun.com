@@ -479,6 +479,10 @@ body.dark .note {
   background: #f1f5ff;
 }
 
+body.dark .section.alt {
+  background: #0f172a;
+}
+
 .section-header {
   max-width: 720px;
   margin-bottom: 32px;
