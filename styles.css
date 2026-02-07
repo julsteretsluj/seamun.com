@@ -237,6 +237,8 @@ body.dark .site-header {
 
 .nav {
   display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
   gap: 20px;
   font-weight: 600;
   color: var(--muted);
@@ -250,6 +252,7 @@ body.dark .site-header {
   border-radius: 999px;
   background: var(--card);
   border: 1px solid var(--border);
+  white-space: nowrap;
 }
 
 .nav a:hover {
@@ -422,7 +425,13 @@ body.dark .note {
 }
 
 .committee-grid {
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(2, minmax(320px, 1fr));
+}
+
+@media (max-width: 900px) {
+  .committee-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .committee-filters {
@@ -540,6 +549,18 @@ body.dark .note {
   color: var(--text);
 }
 
+.signin-form select {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+}
+
+.hidden {
+  display: none;
+}
+
 .signin-status {
   display: flex;
   align-items: center;
@@ -557,6 +578,28 @@ body.dark .note {
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 10px 12px;
+}
+
+.referral-panel {
+  display: grid;
+  gap: 10px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.referral-info {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.referral-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .profile-details {

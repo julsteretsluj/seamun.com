@@ -187,6 +187,48 @@
           <div class="signin-card">
             <form id="signin-form" class="signin-form">
               <label>
+                First name (required for sign up)
+                <input type="text" name="firstName" placeholder="First name" />
+              </label>
+              <label>
+                Pronouns (optional)
+                <input type="text" name="pronouns" placeholder="She/Her, He/Him, They/Them" />
+              </label>
+              <label>
+                School or University
+                <select name="school" id="school-select">
+                  <option value="">Select a school or university</option>
+                  <option>Asian Institute of Technology</option>
+                  <option>Bangkok Patana School</option>
+                  <option>Bangkok University</option>
+                  <option>Brighton College Bangkok</option>
+                  <option>Chulalongkorn University</option>
+                  <option>Harrow International School Bangkok</option>
+                  <option>International School Bangkok</option>
+                  <option>Kasetsart University</option>
+                  <option>Khon Kaen University</option>
+                  <option>KMIDS (King Mongkut's International Demonstration School)</option>
+                  <option>KMUTT (King Mongkut's University of Technology Thonburi)</option>
+                  <option>KMUTNB (King Mongkut's University of Technology North Bangkok)</option>
+                  <option>KMITL (King Mongkut's Institute of Technology Ladkrabang)</option>
+                  <option>Mahidol University</option>
+                  <option>NIST International School</option>
+                  <option>Prince of Songkla University</option>
+                  <option>Rangsit University</option>
+                  <option>Shrewsbury International School Bangkok</option>
+                  <option>Siam University</option>
+                  <option>Silpakorn University</option>
+                  <option>Srinakharinwirot University</option>
+                  <option>St Andrews International School Bangkok</option>
+                  <option>Thammasat University</option>
+                  <option>Other</option>
+                </select>
+              </label>
+              <label id="school-other-row" class="hidden">
+                Other school
+                <input type="text" name="schoolOther" placeholder="Enter your school" />
+              </label>
+              <label>
                 Email
                 <input type="email" name="email" placeholder="you@email.com" required />
               </label>
@@ -213,6 +255,20 @@
             <div class="points-panel">
               <span class="meta-label">🎯 Points</span>
               <span class="meta-value" id="points-total">0</span>
+            </div>
+            <div class="referral-panel">
+              <div class="referral-info">
+                <span class="meta-label">🔗 Referral link</span>
+                <span class="meta-value" id="referral-link">Sign in to get your link</span>
+              </div>
+              <div class="referral-actions">
+                <button class="btn btn-ghost" type="button" id="copy-ref-code" disabled>
+                  Copy code
+                </button>
+                <button class="btn btn-ghost" type="button" id="copy-ref-link" disabled>
+                  Copy link
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -894,6 +950,11 @@
       const navStatus = document.getElementById("nav-auth-status");
       const pointsTotal = document.getElementById("points-total");
       const pointsButtons = document.querySelectorAll("[data-form-id]");
+      const schoolSelect = document.getElementById("school-select");
+      const schoolOtherRow = document.getElementById("school-other-row");
+      const referralLinkEl = document.getElementById("referral-link");
+      const copyRefCodeButton = document.getElementById("copy-ref-code");
+      const copyRefLinkButton = document.getElementById("copy-ref-link");
       let currentUser = null;
       let unsubscribeUser = null;
       let completionsCache = {};
@@ -928,12 +989,24 @@
         unsubscribeUser = onSnapshot(userRef, (snap) => {
           const data = snap.data() || {};
           const points = Number(data.points || 0);
+          const firstName =
+            data.firstName || (user.displayName || "").split(" ")[0] || "";
           completionsCache = data.completions || {};
           if (pointsTotal) {
             pointsTotal.textContent = String(points);
           }
+          if (referralLinkEl && currentUser) {
+            const code = currentUser.uid.slice(0, 8);
+            const link = `${window.location.origin}${window.location.pathname}?ref=${code}`;
+            referralLinkEl.textContent = link;
+            copyRefCodeButton.disabled = false;
+            copyRefLinkButton.disabled = false;
+            copyRefCodeButton.dataset.refCode = code;
+            copyRefLinkButton.dataset.refLink = link;
+          }
           if (navStatus) {
-            navStatus.textContent = `Signed in: ${user.email} · ${points} pts`;
+            const nameLabel = firstName || user.email;
+            navStatus.textContent = `${nameLabel} · ${points} pts`;
           }
           updatePointsButtons();
         });
@@ -946,7 +1019,7 @@
           currentUser = user;
           setDoc(
             doc(db, "users", user.uid),
-            { email: user.email || "", points: 0 },
+            { email: user.email || "" },
             { merge: true }
           );
           subscribeUser(user);
@@ -957,6 +1030,11 @@
           completionsCache = {};
           if (pointsTotal) {
             pointsTotal.textContent = "0";
+          }
+          if (referralLinkEl) {
+            referralLinkEl.textContent = "Sign in to get your link";
+            copyRefCodeButton.disabled = true;
+            copyRefLinkButton.disabled = true;
           }
           if (navStatus) {
             navStatus.textContent = "Signed out";
@@ -986,9 +1064,42 @@
         const formData = new FormData(form);
         const email = String(formData.get("email") || "");
         const password = String(formData.get("password") || "");
+        const firstName = String(formData.get("firstName") || "").trim();
+        const pronouns = String(formData.get("pronouns") || "").trim();
+        const school = String(formData.get("school") || "");
+        const schoolOther = String(formData.get("schoolOther") || "").trim();
+        const finalSchool = school === "Other" ? schoolOther : school;
+
+        if (!firstName) {
+          message.textContent = "Please enter your first name to sign up.";
+          return;
+        }
+        if (!finalSchool) {
+          message.textContent = "Please select your school or choose Other.";
+          return;
+        }
+        if (school === "Other" && !schoolOther) {
+          message.textContent = "Please enter your school name.";
+          return;
+        }
 
         try {
-          await createUserWithEmailAndPassword(auth, email, password);
+          const credential = await createUserWithEmailAndPassword(
+            auth,
+            email,
+            password
+          );
+          await setDoc(
+            doc(db, "users", credential.user.uid),
+            {
+              email,
+              firstName,
+              pronouns,
+              school: finalSchool,
+              points: 0,
+            },
+            { merge: true }
+          );
           form.reset();
         } catch (error) {
           message.textContent = error?.message || "Sign-up failed. Try again.";
@@ -1012,6 +1123,37 @@
           message.textContent = error?.message || "Sign-out failed. Try again.";
         }
       });
+
+      if (schoolSelect && schoolOtherRow) {
+        schoolSelect.addEventListener("change", () => {
+          const showOther = schoolSelect.value === "Other";
+          schoolOtherRow.classList.toggle("hidden", !showOther);
+        });
+      }
+
+      const copyToClipboard = async (text) => {
+        if (!text) {
+          return;
+        }
+        try {
+          await navigator.clipboard.writeText(text);
+          message.textContent = "Copied to clipboard.";
+        } catch (error) {
+          message.textContent = "Copy failed. Try again.";
+        }
+      };
+
+      if (copyRefCodeButton) {
+        copyRefCodeButton.addEventListener("click", () => {
+          copyToClipboard(copyRefCodeButton.dataset.refCode || "");
+        });
+      }
+
+      if (copyRefLinkButton) {
+        copyRefLinkButton.addEventListener("click", () => {
+          copyToClipboard(copyRefLinkButton.dataset.refLink || "");
+        });
+      }
 
       pointsButtons.forEach((button) => {
         button.addEventListener("click", async () => {

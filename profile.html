@@ -71,6 +71,18 @@
             </div>
             <div class="profile-details">
               <div>
+                <span class="meta-label">First name</span>
+                <span class="meta-value" id="profile-first-name">-</span>
+              </div>
+              <div>
+                <span class="meta-label">Pronouns</span>
+                <span class="meta-value" id="profile-pronouns">-</span>
+              </div>
+              <div>
+                <span class="meta-label">School</span>
+                <span class="meta-value" id="profile-school">-</span>
+              </div>
+              <div>
                 <span class="meta-label">Email</span>
                 <span class="meta-value" id="profile-email">-</span>
               </div>
@@ -127,6 +139,9 @@
 
       const navStatus = document.getElementById("nav-auth-status");
       const profileStatus = document.getElementById("profile-status");
+      const profileFirstName = document.getElementById("profile-first-name");
+      const profilePronouns = document.getElementById("profile-pronouns");
+      const profileSchool = document.getElementById("profile-school");
       const profileEmail = document.getElementById("profile-email");
       const profileUid = document.getElementById("profile-uid");
       const profilePoints = document.getElementById("profile-points");
@@ -136,8 +151,8 @@
 
       onAuthStateChanged(auth, (user) => {
         if (user) {
-          navStatus.textContent = `Signed in: ${user.email}`;
-          profileStatus.textContent = `Signed in as ${user.email}`;
+          navStatus.textContent = "Signed in";
+          profileStatus.textContent = "Signed in";
           profileEmail.textContent = user.email || "-";
           profileUid.textContent = user.uid || "-";
           signOutButton.disabled = false;
@@ -148,10 +163,20 @@
           unsubscribeUser = onSnapshot(userRef, (snap) => {
             const data = snap.data() || {};
             profilePoints.textContent = String(data.points || 0);
+            const fallbackName = (user.displayName || "").split(" ")[0] || "-";
+            profileFirstName.textContent = data.firstName || fallbackName;
+            profilePronouns.textContent = data.pronouns || "-";
+            profileSchool.textContent = data.school || "-";
+            const nameLabel = data.firstName || fallbackName || user.email;
+            navStatus.textContent = `${nameLabel} · ${data.points || 0} pts`;
+            profileStatus.textContent = nameLabel;
           });
         } else {
           navStatus.textContent = "Signed out";
           profileStatus.textContent = "Not signed in.";
+          profileFirstName.textContent = "-";
+          profilePronouns.textContent = "-";
+          profileSchool.textContent = "-";
           profileEmail.textContent = "-";
           profileUid.textContent = "-";
           profilePoints.textContent = "0";
