@@ -14,14 +14,14 @@
 
 body.dark {
   color-scheme: dark;
-  --bg: #0b1120;
-  --card: #0f172a;
+  --bg: #0a0f1a;
+  --card: #111827;
   --primary: #60a5fa;
   --primary-dark: #3b82f6;
   --accent: #38bdf8;
-  --text: #f8fafc;
-  --muted: #cbd5f5;
-  --border: #1f2a44;
+  --text: #f9fafb;
+  --muted: #e2e8f0;
+  --border: #334155;
   --shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
 }
 
@@ -873,6 +873,10 @@ body.dark .committee-topics li {
   border-radius: 12px;
   background: #f8fafc;
   border: 1px solid var(--border);
+}
+
+body.dark .schedule-list li {
+  background: #0f172a;
 }
 
 .schedule-note {
