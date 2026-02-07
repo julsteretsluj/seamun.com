@@ -1169,6 +1169,8 @@
       const signUpButton = document.getElementById("signup-button");
       const googleButton = document.getElementById("google-button");
 
+      const signinSection = document.getElementById("signin");
+      const signinCard = document.querySelector(".signin-card");
       const navStatus = document.getElementById("nav-auth-status");
       const pointsTotal = document.getElementById("points-total");
       const proofForms = document.querySelectorAll(".proof-form");
@@ -1256,6 +1258,12 @@
           message.textContent = `Signed in as ${user.email}.`;
           signOutButton.disabled = false;
           currentUser = user;
+          if (signinSection) {
+            signinSection.classList.add("signed-in");
+          }
+          if (signinCard) {
+            signinCard.classList.add("logged-in");
+          }
           const refCode = user.uid.slice(0, 8);
           const refParam = getRefParam();
           const referrerCode =
@@ -1284,6 +1292,12 @@
           currentUser = null;
           completionsCache = {};
           proofsCache = {};
+          if (signinSection) {
+            signinSection.classList.remove("signed-in");
+          }
+          if (signinCard) {
+            signinCard.classList.remove("logged-in");
+          }
           if (pointsTotal) {
             pointsTotal.textContent = "0";
           }
@@ -1519,37 +1533,19 @@
         }
         const ownerRef = doc(db, "users", ownerUid);
 
-        const proofEntries = Object.entries(proofsCache || {});
-        const approvedForms = proofEntries.filter(
-          ([, proof]) => proof?.status === "approved" && !proof?.bonusApplied
-        );
-        if (!approvedForms.length) {
-          return;
-        }
-
         await runTransaction(db, async (tx) => {
           const userSnap = await tx.get(userRef);
           const ownerSnap = await tx.get(ownerRef);
           const userData = userSnap.data() || {};
           const ownerData = ownerSnap.data() || {};
-          const proofs = userData.proofs || {};
-
-          let bonusCount = 0;
-          approvedForms.forEach(([formId]) => {
-            if (proofs[formId]?.status === "approved" && !proofs[formId]?.bonusApplied) {
-              proofs[formId].bonusApplied = true;
-              bonusCount += 1;
-            }
-          });
-
-          if (!bonusCount) {
+          if (userData.referralBonusApplied) {
             return;
           }
 
           const ownerPoints = Number(ownerData.points || 0);
-          const updatedOwnerPoints = ownerPoints + bonusCount * referralBonusPoints;
+          const updatedOwnerPoints = ownerPoints + referralBonusPoints;
 
-          tx.set(userRef, { proofs }, { merge: true });
+          tx.set(userRef, { referralBonusApplied: true }, { merge: true });
           tx.set(ownerRef, { points: updatedOwnerPoints }, { merge: true });
         });
       };

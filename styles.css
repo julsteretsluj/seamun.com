@@ -610,6 +610,18 @@ body.dark .section.alt {
   gap: 12px;
 }
 
+.signin-card.logged-in .signin-form {
+  display: none;
+}
+
+.section.signed-in .section-header h2 {
+  display: none;
+}
+
+.section.signed-in .section-header p {
+  display: none;
+}
+
 .signin-actions {
   display: flex;
   flex-wrap: wrap;
