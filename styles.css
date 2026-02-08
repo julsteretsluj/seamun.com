@@ -112,6 +112,7 @@ body.dark .theme-bar {
   min-height: var(--theme-bar-height);
   padding: 6px 0;
   gap: 16px;
+  flex-wrap: wrap;
 }
 
 .theme-toggle {
@@ -131,20 +132,15 @@ body.dark .theme-bar {
   flex-wrap: wrap;
 }
 
-.translate-widget {
-  display: flex;
+.language-selector {
+  display: inline-flex;
   align-items: center;
   gap: 8px;
   color: #e2e8f0;
   font-weight: 600;
 }
 
-.translate-widget .goog-te-gadget {
-  color: inherit;
-  font-family: "Manrope", system-ui, -apple-system, sans-serif;
-}
-
-.translate-widget .goog-te-combo {
+.language-selector select {
   border-radius: 999px;
   border: 1px solid rgba(148, 163, 184, 0.4);
   background: rgba(15, 23, 42, 0.6);
@@ -153,17 +149,15 @@ body.dark .theme-bar {
   font-weight: 600;
 }
 
-.translate-widget .goog-te-combo:focus {
+.language-selector select:focus {
   outline: 2px solid rgba(96, 165, 250, 0.6);
   outline-offset: 2px;
 }
 
-.goog-te-banner-frame.skiptranslate {
-  display: none !important;
-}
-
-body {
-  top: 0 !important;
+@media (max-width: 720px) {
+  .theme-bar-inner {
+    justify-content: flex-start;
+  }
 }
 
 .theme-selector span {

@@ -19,12 +19,21 @@
         <button class="theme-toggle" type="button" data-theme-toggle>
           🌙 Dark mode
         </button>
-        <div class="translate-widget" aria-label="Language selector">
-          <span>🌐 Translate</span>
-          <div id="google_translate_element"></div>
-        </div>
+        <label class="language-selector" aria-label="Language selector">
+          <span aria-hidden="true">🌐</span>
+          <span data-i18n="language_label">Language</span>
+          <select id="language-select">
+            <option value="en">English</option>
+            <option value="th">ไทย</option>
+            <option value="zh">中文</option>
+            <option value="ja">日本語</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+            <option value="ru">Русский</option>
+          </select>
+        </label>
         <div class="theme-selector" aria-label="Theme selector">
-          <span>🎨 Theme</span>
+          <span>🎨 <span data-i18n="theme_label">Theme</span></span>
           <button class="theme-dot theme-red" type="button" data-theme="red" aria-label="Red theme"></button>
           <button class="theme-dot theme-orange" type="button" data-theme="orange" aria-label="Orange theme"></button>
           <button class="theme-dot theme-yellow" type="button" data-theme="yellow" aria-label="Yellow theme"></button>
@@ -51,22 +60,22 @@
           </div>
         </div>
         <nav class="nav">
-          <a href="#overview">🏛️ Overview</a>
-          <a href="#committees">🧾 Committees</a>
-          <a href="#forms">📝 Forms</a>
+          <a href="#overview" data-i18n="nav_overview">🏛️ Overview</a>
+          <a href="#committees" data-i18n="nav_committees">🧾 Committees</a>
+          <a href="#forms" data-i18n="nav_forms">📝 Forms</a>
           <details class="nav-more">
-            <summary>☰ More</summary>
+            <summary data-i18n="nav_more">☰ More</summary>
             <div class="nav-more-menu">
-              <a href="#awards">🏆 Awards</a>
-              <a href="#schedule">🗓️ Schedule</a>
-              <a href="#signin">🔐 Sign in</a>
-              <a href="profile.html">👤 Profile</a>
-              <a href="#contact">📬 Contact</a>
+              <a href="#awards" data-i18n="nav_awards">🏆 Awards</a>
+              <a href="#schedule" data-i18n="nav_schedule">🗓️ Schedule</a>
+              <a href="#signin" data-i18n="nav_signin">🔐 Sign in</a>
+              <a href="profile.html" data-i18n="nav_profile">👤 Profile</a>
+              <a href="#contact" data-i18n="nav_contact">📬 Contact</a>
             </div>
           </details>
           <span class="nav-status" id="nav-auth-status">Signed out</span>
         </nav>
-        <a class="btn btn-primary" href="#register">Register</a>
+        <a class="btn btn-primary" href="#register" data-i18n="button_register">Register</a>
       </div>
     </header>
 
@@ -74,9 +83,9 @@
       <section class="hero" id="overview">
         <div class="container hero-grid">
           <div class="hero-text">
-            <span class="badge">📅 Upcoming | January 23-24, 2027</span>
-            <h1>SEAMUN I Conference</h1>
-            <p class="lead">
+            <span class="badge" data-i18n="hero_badge">📅 Upcoming | January 23-24, 2027</span>
+            <h1 data-i18n="hero_title">SEAMUN I Conference</h1>
+            <p class="lead" data-i18n="hero_lead">
               SEAMUN I is a student-led, non-profit Model United Nations
               conference focused on global healthcare and sustainability policy.
               Join 200 delegates, 22 chairs, 8 SMT, 10 staff, and 10 external
@@ -84,12 +93,16 @@
               directed to MDCU's funding program.
             </p>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#committees">🧾 View committees</a>
-              <a class="btn btn-ghost" href="#forms">📝 See applications</a>
+              <a class="btn btn-primary" href="#committees" data-i18n="hero_view_committees">
+                🧾 View committees
+              </a>
+              <a class="btn btn-ghost" href="#forms" data-i18n="hero_see_applications">
+                📝 See applications
+              </a>
             </div>
             <div class="hero-meta">
               <div>
-                <span class="meta-label">📍 Location</span>
+                <span class="meta-label" data-i18n="label_location">📍 Location</span>
                 <span class="meta-value"
                   >Venue TBD (First choice: MDCU Conference Center; Kasetsart
                   University; SEAMEO SPAFA - Dusit District; St. Gabriel’s
@@ -98,60 +111,68 @@
                 >
               </div>
               <div>
-                <span class="meta-label">💸 Fees</span>
+                <span class="meta-label" data-i18n="label_fees">💸 Fees</span>
                 <span class="meta-value"
                   >2,500 THB (school) / 3,000 THB (independent). Chair fee: 800
                   THB.</span
                 >
               </div>
               <div>
-                <span class="meta-label">🧾 Registration</span>
+                <span class="meta-label" data-i18n="label_registration">🧾 Registration</span>
                 <span class="meta-value">To be announced</span>
               </div>
               <div>
-                <span class="meta-label">📄 Position papers</span>
+                <span class="meta-label" data-i18n="label_position_papers">📄 Position papers</span>
                 <span class="meta-value">Deadline: January 9, 2027</span>
               </div>
             </div>
           </div>
           <div class="hero-card">
-            <h2>Conference Snapshot</h2>
+            <h2 data-i18n="snapshot_title">Conference Snapshot</h2>
             <div class="snapshot-grid">
               <div>
-                <span class="snapshot-label">Status</span>
+                <span class="snapshot-label" data-i18n="snapshot_status">Status</span>
                 <span class="snapshot-value">Upcoming</span>
               </div>
               <div>
-                <span class="snapshot-label">Capacity</span>
+                <span class="snapshot-label" data-i18n="snapshot_capacity">Capacity</span>
                 <span class="snapshot-value">250 total</span>
               </div>
               <div>
-                <span class="snapshot-label">Delegates</span>
+                <span class="snapshot-label" data-i18n="snapshot_delegates">Delegates</span>
                 <span class="snapshot-value">200</span>
               </div>
               <div>
-                <span class="snapshot-label">Chairs</span>
+                <span class="snapshot-label" data-i18n="snapshot_chairs">Chairs</span>
                 <span class="snapshot-value">22</span>
               </div>
               <div>
-                <span class="snapshot-label">SMT</span>
+                <span class="snapshot-label" data-i18n="snapshot_smt">SMT</span>
                 <span class="snapshot-value">8</span>
               </div>
               <div>
-                <span class="snapshot-label">Staff</span>
+                <span class="snapshot-label" data-i18n="snapshot_staff">Staff</span>
                 <span class="snapshot-value">10</span>
               </div>
             </div>
-            <div class="note">
+            <div class="note" data-i18n="snapshot_note">
               Venue and registration details will be announced.
             </div>
             <div class="cta-stack" id="register">
-              <a class="btn btn-primary" href="mailto:info@seamuns.site"
-                >Email for registration</a
+              <a
+                class="btn btn-primary"
+                href="mailto:info@seamuns.site"
+                data-i18n="button_email_registration"
               >
-              <a class="btn btn-ghost" href="mailto:studentmanagementteam@seamuns.site"
-                >Contact the SMT</a
+                Email for registration
+              </a>
+              <a
+                class="btn btn-ghost"
+                href="mailto:studentmanagementteam@seamuns.site"
+                data-i18n="button_contact_smt"
               >
+                Contact the SMT
+              </a>
             </div>
           </div>
         </div>
@@ -160,8 +181,8 @@
       <section class="section">
         <div class="container">
           <div class="section-header">
-            <h2>💡 Why SEAMUN I</h2>
-            <p>
+            <h2 data-i18n="why_title">💡 Why SEAMUN I</h2>
+            <p data-i18n="why_body">
               Policies with a Purpose connects delegates from grades 7-12 to
               debate global healthcare and sustainability policy through
               traditional, specialized, and fantasy committees.
@@ -169,20 +190,26 @@
           </div>
           <div class="feature-grid">
             <div class="feature-card">
-              <h3>🤝 Inclusive participation</h3>
-              <p>Independent delegates are welcome.</p>
+              <h3 data-i18n="feature_inclusive_title">🤝 Inclusive participation</h3>
+              <p data-i18n="feature_inclusive_body">Independent delegates are welcome.</p>
             </div>
             <div class="feature-card">
-              <h3>❤️ Non-profit mission</h3>
-              <p>All profits are directed to MDCU's funding program.</p>
+              <h3 data-i18n="feature_nonprofit_title">❤️ Non-profit mission</h3>
+              <p data-i18n="feature_nonprofit_body">
+                All profits are directed to MDCU's funding program.
+              </p>
             </div>
             <div class="feature-card">
-              <h3>🧩 10 committees</h3>
-              <p>Traditional, specialized, and a Fantasy World Committee.</p>
+              <h3 data-i18n="feature_committees_title">🧩 10 committees</h3>
+              <p data-i18n="feature_committees_body">
+                Traditional, specialized, and a Fantasy World Committee.
+              </p>
             </div>
             <div class="feature-card">
-              <h3>✨ Unique topics</h3>
-              <p>Policy debates across human rights, security, health, and more.</p>
+              <h3 data-i18n="feature_topics_title">✨ Unique topics</h3>
+              <p data-i18n="feature_topics_body">
+                Policy debates across human rights, security, health, and more.
+              </p>
             </div>
           </div>
         </div>
@@ -191,23 +218,35 @@
       <section class="section alt" id="signin">
         <div class="container">
           <div class="section-header">
-            <h2>🔐 Sign in</h2>
-            <p>Use your email and password to access conference tools.</p>
+            <h2 data-i18n="signin_title">🔐 Sign in</h2>
+            <p data-i18n="signin_body">Use your email and password to access conference tools.</p>
           </div>
           <div class="signin-card">
             <form id="signin-form" class="signin-form">
               <label>
-                First name (required for sign up)
-                <input type="text" name="firstName" placeholder="First name" />
+                <span data-i18n="label_first_name_required">First name (required for sign up)</span>
+                <input
+                  type="text"
+                  name="firstName"
+                  placeholder="First name"
+                  data-i18n-placeholder="placeholder_first_name"
+                />
               </label>
               <label>
-                Pronouns (optional)
-                <input type="text" name="pronouns" placeholder="She/Her, He/Him, They/Them" />
+                <span data-i18n="label_pronouns_optional">Pronouns (optional)</span>
+                <input
+                  type="text"
+                  name="pronouns"
+                  placeholder="She/Her, He/Him, They/Them"
+                  data-i18n-placeholder="placeholder_pronouns"
+                />
               </label>
               <label>
-                School or University
+                <span data-i18n="label_school_university">School or University</span>
                 <select name="school" id="school-select">
-                  <option value="">Select a school or university</option>
+                  <option value="" data-i18n="placeholder_school_select">
+                    Select a school or university
+                  </option>
                   <option>BPS (Bangkok Patana School)</option>
                   <option>CISB (Charter International School Bangkok)</option>
                   <option>CIST (Canadian International School Bangkok)</option>
@@ -304,30 +343,60 @@
                 </select>
               </label>
               <label id="school-other-row" class="hidden">
-                Other school
-                <input type="text" name="schoolOther" placeholder="Enter your school" />
+                <span data-i18n="label_other_school">Other school</span>
+                <input
+                  type="text"
+                  name="schoolOther"
+                  placeholder="Enter your school"
+                  data-i18n-placeholder="placeholder_other_school"
+                />
               </label>
               <label>
-                Email
-                <input type="email" name="email" placeholder="you@email.com" required />
+                <span data-i18n="label_email">Email</span>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="you@email.com"
+                  required
+                  data-i18n-placeholder="placeholder_email"
+                />
               </label>
               <label>
-                Password
-                <input type="password" name="password" placeholder="••••••••" required />
+                <span data-i18n="label_password">Password</span>
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="••••••••"
+                  required
+                  data-i18n-placeholder="placeholder_password"
+                />
               </label>
               <div class="signin-actions">
-                <button class="btn btn-primary" type="submit">Sign in</button>
-                <button class="btn btn-ghost" type="button" id="signup-button">
+                <button class="btn btn-primary" type="submit" data-i18n="button_sign_in">
+                  Sign in
+                </button>
+                <button
+                  class="btn btn-ghost"
+                  type="button"
+                  id="signup-button"
+                  data-i18n="button_create_account"
+                >
                   Create account
                 </button>
               </div>
-              <button class="btn btn-google" type="button" id="google-button">
+              <button class="btn btn-google" type="button" id="google-button" data-i18n="button_google">
                 Continue with Google
               </button>
             </form>
             <div class="signin-status">
               <span id="signin-message">Not signed in.</span>
-              <button class="btn btn-ghost" id="signout-button" type="button" disabled>
+              <button
+                class="btn btn-ghost"
+                id="signout-button"
+                type="button"
+                disabled
+                data-i18n="button_sign_out"
+              >
                 Sign out
               </button>
             </div>
@@ -338,24 +407,36 @@
       <section class="section" id="referral">
         <div class="container">
           <div class="section-header">
-            <h2>🔗 Referral</h2>
-            <p>Share your referral link and track your points.</p>
+            <h2 data-i18n="referral_title">🔗 Referral</h2>
+            <p data-i18n="referral_body">Share your referral link and track your points.</p>
           </div>
           <div class="signin-card">
             <div class="points-panel">
-              <span class="meta-label">🎯 Points</span>
+              <span class="meta-label" data-i18n="label_points">🎯 Points</span>
               <span class="meta-value" id="points-total">0</span>
             </div>
             <div class="referral-panel">
               <div class="referral-info">
-                <span class="meta-label">🔗 Referral link</span>
+                <span class="meta-label" data-i18n="label_referral_link">🔗 Referral link</span>
                 <span class="meta-value" id="referral-link">Sign in to get your link</span>
               </div>
               <div class="referral-actions">
-                <button class="btn btn-ghost" type="button" id="copy-ref-code" disabled>
+                <button
+                  class="btn btn-ghost"
+                  type="button"
+                  id="copy-ref-code"
+                  disabled
+                  data-i18n="button_copy_code"
+                >
                   Copy code
                 </button>
-                <button class="btn btn-ghost" type="button" id="copy-ref-link" disabled>
+                <button
+                  class="btn btn-ghost"
+                  type="button"
+                  id="copy-ref-link"
+                  disabled
+                  data-i18n="button_copy_link"
+                >
                   Copy link
                 </button>
               </div>
@@ -367,32 +448,44 @@
       <section class="section alt" id="committees">
         <div class="container">
           <div class="section-header">
-            <h2>🧾 Committees</h2>
-            <p>
+            <h2 data-i18n="committees_title">🧾 Committees</h2>
+            <p data-i18n="committees_body">
               Ten committees with curated topics and skill levels. Chairs are
               TBD for all committees.
             </p>
           </div>
           <div class="committee-filters">
             <div class="committee-key">
-              <span class="key-label">Grade key:</span>
-              <span>🟦 Grades 7-8</span>
-              <span>🟪 Grades 9-10</span>
-              <span>🟩 Grades 11-12</span>
+              <span class="key-label" data-i18n="grade_key_label">Grade key:</span>
+              <span data-i18n="grade_key_7_8">🟦 Grades 7-8</span>
+              <span data-i18n="grade_key_9_10">🟪 Grades 9-10</span>
+              <span data-i18n="grade_key_11_12">🟩 Grades 11-12</span>
             </div>
             <div class="filter-row">
-              <span class="filter-label">Filter by grade:</span>
-              <button class="filter-btn active" type="button" data-grade="all">All</button>
+              <span class="filter-label" data-i18n="filter_grade_label">Filter by grade:</span>
+              <button class="filter-btn active" type="button" data-grade="all" data-i18n="filter_all">
+                All
+              </button>
               <button class="filter-btn" type="button" data-grade="7-8">7-8</button>
               <button class="filter-btn" type="button" data-grade="9-10">9-10</button>
               <button class="filter-btn" type="button" data-grade="11-12">11-12</button>
             </div>
             <div class="filter-row">
-              <span class="filter-label">Filter by committee:</span>
-              <button class="filter-btn active" type="button" data-type="all">All</button>
-              <button class="filter-btn" type="button" data-type="traditional">Traditional</button>
-              <button class="filter-btn" type="button" data-type="specialized">Specialized</button>
-              <button class="filter-btn" type="button" data-type="fantasy">Fantasy</button>
+              <span class="filter-label" data-i18n="filter_committee_label">
+                Filter by committee:
+              </span>
+              <button class="filter-btn active" type="button" data-type="all" data-i18n="filter_all">
+                All
+              </button>
+              <button class="filter-btn" type="button" data-type="traditional" data-i18n="filter_traditional">
+                Traditional
+              </button>
+              <button class="filter-btn" type="button" data-type="specialized" data-i18n="filter_specialized">
+                Specialized
+              </button>
+              <button class="filter-btn" type="button" data-type="fantasy" data-i18n="filter_fantasy">
+                Fantasy
+              </button>
             </div>
           </div>
           <div class="committee-grid">
@@ -786,39 +879,39 @@
       <section class="section" id="forms">
         <div class="container">
           <div class="section-header">
-            <h2>📝 Applications and resources</h2>
-            <p>
+            <h2 data-i18n="forms_title">📝 Applications and resources</h2>
+            <p data-i18n="forms_body">
               Key forms and links will be shared by the organizers. Chair
               applications open in late August 2026.
             </p>
-            <p class="form-note">
+            <p class="form-note" data-i18n="forms_note">
               Points are only awarded for FWC Universe Preferences and Conference Feedback.
             </p>
           </div>
           <div class="form-grid">
             <div class="form-card">
-              <h3>🧑‍💼 SMT Application</h3>
-              <p>
+              <h3 data-i18n="form_smt_title">🧑‍💼 SMT Application</h3>
+              <p data-i18n="form_smt_body">
                 Roles include DSG, Parliamentarian, Logistics &amp; Finance,
                 Delegate Affairs, PR &amp; Advertising, and Head of Media.
               </p>
-              <span>Deadline: March 3 (offer acceptance)</span>
+              <span data-i18n="form_smt_deadline">Deadline: March 3 (offer acceptance)</span>
             </div>
             <div class="form-card">
-              <h3>🌌 FWC Universe Preferences</h3>
-              <p>Rank your preferred fantasy universe and allocations.</p>
+              <h3 data-i18n="form_fwc_title">🌌 FWC Universe Preferences</h3>
+              <p data-i18n="form_fwc_body">Rank your preferred fantasy universe and allocations.</p>
               <p class="contact-links">
                 <a href="https://forms.gle/EAf1Psr7Jsq6vYyg7" target="_blank" rel="noreferrer">
                   https://forms.gle/EAf1Psr7Jsq6vYyg7
                 </a>
               </p>
-              <p class="form-note">
+              <p class="form-note" data-i18n="form_proof_note">
                 Upload a screenshot that shows the Google Form logo. Manual review
                 by organizers in this chat.
               </p>
               <form class="proof-form" data-form-id="fwc-preferences" data-points="20">
                 <label class="proof-label">
-                  Upload screenshot proof
+                  <span data-i18n="label_upload_proof">Upload screenshot proof</span>
                   <input type="file" accept="image/*" required />
                 </label>
                 <button class="btn btn-ghost" type="submit">
@@ -827,16 +920,18 @@
               </form>
             </div>
             <div class="form-card">
-              <h3>🗣️ Conference Feedback</h3>
-              <p>Share feedback to help improve future SEAMUN conferences.</p>
-              <span>Form link to be announced</span>
-              <p class="form-note">
+              <h3 data-i18n="form_feedback_title">🗣️ Conference Feedback</h3>
+              <p data-i18n="form_feedback_body">
+                Share feedback to help improve future SEAMUN conferences.
+              </p>
+              <span data-i18n="form_link_tba">Form link to be announced</span>
+              <p class="form-note" data-i18n="form_proof_note">
                 Upload a screenshot that shows the Google Form logo. Manual review
                 by organizers in this chat.
               </p>
               <form class="proof-form" data-form-id="feedback-form" data-points="10">
                 <label class="proof-label">
-                  Upload screenshot proof
+                  <span data-i18n="label_upload_proof">Upload screenshot proof</span>
                   <input type="file" accept="image/*" required />
                 </label>
                 <button class="btn btn-ghost" type="submit">
@@ -845,39 +940,41 @@
               </form>
             </div>
             <div class="form-card">
-              <h3>🏫 Delegate sign up (school)</h3>
-              <p>School delegation registration (coming soon).</p>
-              <span>Form link to be announced</span>
+              <h3 data-i18n="form_delegate_school_title">🏫 Delegate sign up (school)</h3>
+              <p data-i18n="form_delegate_school_body">School delegation registration (coming soon).</p>
+              <span data-i18n="form_link_tba">Form link to be announced</span>
             </div>
             <div class="form-card">
-              <h3>🧍 Delegate sign up (independent)</h3>
-              <p>Independent delegate registration (coming soon).</p>
-              <span>Form link to be announced</span>
+              <h3 data-i18n="form_delegate_ind_title">🧍 Delegate sign up (independent)</h3>
+              <p data-i18n="form_delegate_ind_body">
+                Independent delegate registration (coming soon).
+              </p>
+              <span data-i18n="form_link_tba">Form link to be announced</span>
             </div>
             <div class="form-card">
-              <h3>🧑‍🏫 Advisor sign up</h3>
-              <p>Advisor registration (coming soon).</p>
-              <span>Form link to be announced</span>
+              <h3 data-i18n="form_advisor_title">🧑‍🏫 Advisor sign up</h3>
+              <p data-i18n="form_advisor_body">Advisor registration (coming soon).</p>
+              <span data-i18n="form_link_tba">Form link to be announced</span>
             </div>
             <div class="form-card">
-              <h3>🪑 Chair applications</h3>
-              <p>Chair applications (late August 2026).</p>
-              <span>Form link to be announced</span>
+              <h3 data-i18n="form_chair_title">🪑 Chair applications</h3>
+              <p data-i18n="form_chair_body">Chair applications (late August 2026).</p>
+              <span data-i18n="form_link_tba">Form link to be announced</span>
             </div>
             <div class="form-card">
-              <h3>📚 Rules of Procedure</h3>
-              <p>Official RoP will be shared with chairs and delegates.</p>
-              <span>Coming soon</span>
+              <h3 data-i18n="form_rop_title">📚 Rules of Procedure</h3>
+              <p data-i18n="form_rop_body">Official RoP will be shared with chairs and delegates.</p>
+              <span data-i18n="form_coming_soon">Coming soon</span>
             </div>
             <div class="form-card">
-              <h3>🔗 Conference links</h3>
+              <h3 data-i18n="form_links_title">🔗 Conference links</h3>
               <p class="contact-links">
                 <a href="https://seamuns.site" target="_blank" rel="noreferrer">seamuns.site</a>,
                 <a href="https://seamunnotes.com" target="_blank" rel="noreferrer">seamunnotes.com</a>,
                 <a href="https://thedashboard.seamuns.site" target="_blank" rel="noreferrer">thedashboard.seamuns.site</a>,
                 <a href="https://linked.seamuns.site" target="_blank" rel="noreferrer">linked.seamuns.site</a>
               </p>
-              <span>Updates forthcoming</span>
+              <span data-i18n="form_updates">Updates forthcoming</span>
             </div>
           </div>
         </div>
@@ -916,45 +1013,53 @@
       <section class="section" id="awards">
         <div class="container">
           <div class="section-header">
-            <h2>🏆 Awards</h2>
-            <p>Overall, chair, and committee recognition.</p>
+            <h2 data-i18n="awards_title">🏆 Awards</h2>
+            <p data-i18n="awards_body">Overall, chair, and committee recognition.</p>
           </div>
           <div class="award-grid">
             <div class="award-card">
-              <h3>👑 Overall: Best Delegate</h3>
-              <p>Top delegate across the full conference.</p>
+              <h3 data-i18n="award_overall_best_title">👑 Overall: Best Delegate</h3>
+              <p data-i18n="award_overall_best_body">Top delegate across the full conference.</p>
             </div>
             <div class="award-card">
-              <h3>🏅 Overall: Honorable Mention</h3>
-              <p>Conference-wide recognition for outstanding performance.</p>
+              <h3 data-i18n="award_overall_hm_title">🏅 Overall: Honorable Mention</h3>
+              <p data-i18n="award_overall_hm_body">
+                Conference-wide recognition for outstanding performance.
+              </p>
             </div>
             <div class="award-card">
-              <h3>🪑 Chair: Best Chair</h3>
-              <p>Recognition for exceptional committee leadership.</p>
+              <h3 data-i18n="award_chair_best_title">🪑 Chair: Best Chair</h3>
+              <p data-i18n="award_chair_best_body">Recognition for exceptional committee leadership.</p>
             </div>
             <div class="award-card">
-              <h3>🥈 Chair: Honorable Mention</h3>
-              <p>Chair recognition for strong moderation and guidance.</p>
+              <h3 data-i18n="award_chair_hm_title">🥈 Chair: Honorable Mention</h3>
+              <p data-i18n="award_chair_hm_body">
+                Chair recognition for strong moderation and guidance.
+              </p>
             </div>
             <div class="award-card">
-              <h3>🎯 Chair: Best Committee</h3>
-              <p>Awarded to the most effective committee overall.</p>
+              <h3 data-i18n="award_chair_committee_title">🎯 Chair: Best Committee</h3>
+              <p data-i18n="award_chair_committee_body">
+                Awarded to the most effective committee overall.
+              </p>
             </div>
             <div class="award-card">
-              <h3>📝 Chair: Best Chair Report</h3>
-              <p>Top academic reporting from the dais.</p>
+              <h3 data-i18n="award_chair_report_title">📝 Chair: Best Chair Report</h3>
+              <p data-i18n="award_chair_report_body">Top academic reporting from the dais.</p>
             </div>
             <div class="award-card">
-              <h3>🥇 Committee: Best Delegate</h3>
-              <p>Top delegate per committee.</p>
+              <h3 data-i18n="award_committee_best_title">🥇 Committee: Best Delegate</h3>
+              <p data-i18n="award_committee_best_body">Top delegate per committee.</p>
             </div>
             <div class="award-card">
-              <h3>🥉 Committee: Honorable Mention</h3>
-              <p>Committee-level recognition.</p>
+              <h3 data-i18n="award_committee_hm_title">🥉 Committee: Honorable Mention</h3>
+              <p data-i18n="award_committee_hm_body">Committee-level recognition.</p>
             </div>
             <div class="award-card">
-              <h3>📄 Committee: Best Position Paper</h3>
-              <p>Best pre-conference research and writing.</p>
+              <h3 data-i18n="award_committee_paper_title">📄 Committee: Best Position Paper</h3>
+              <p data-i18n="award_committee_paper_body">
+                Best pre-conference research and writing.
+              </p>
             </div>
           </div>
         </div>
@@ -963,11 +1068,16 @@
       <section class="section alt" id="schedule">
         <div class="container">
           <div class="section-header">
-            <h2>🗓️ Schedule</h2>
-            <p>Two-day program with opening and closing ceremonies.</p>
+            <h2 data-i18n="schedule_title">🗓️ Schedule</h2>
+            <p data-i18n="schedule_body">Two-day program with opening and closing ceremonies.</p>
           </div>
           <div class="schedule-actions">
-            <a class="btn btn-primary" href="assets/SEAMUN-I-2027.ics" download>
+            <a
+              class="btn btn-primary"
+              href="assets/SEAMUN-I-2027.ics"
+              download
+              data-i18n="schedule_save_date"
+            >
               📅 Save the date
             </a>
             <a
@@ -975,103 +1085,108 @@
               href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=SEAMUN%20I%20Conference&dates=20270123T003000Z/20270124T103000Z&details=SEAMUN%20I%20%7C%20Policies%20with%20a%20Purpose&location=MDCU%20Conference%20Center%20(TBD)"
               target="_blank"
               rel="noreferrer"
+              data-i18n="schedule_add_google"
             >
               Add to Google Calendar
             </a>
           </div>
           <div class="schedule-grid">
             <div class="schedule-day">
-              <h3>📌 Day 1 - Saturday, January 23, 2027</h3>
+              <h3 data-i18n="schedule_day1">📌 Day 1 - Saturday, January 23, 2027</h3>
               <ul class="schedule-list">
                 <li>
                   <span class="time-tag">07:30 - 08:30</span>
-                  <span>Arrival and delegate registration</span>
+                  <span data-i18n="schedule_day1_item1">Arrival and delegate registration</span>
                 </li>
                 <li>
                   <span class="time-tag">08:30 - 09:30</span>
-                  <span>Opening ceremony</span>
+                  <span data-i18n="schedule_day1_item2">Opening ceremony</span>
                 </li>
                 <li>
                   <span class="time-tag">09:30 - 10:30</span>
-                  <span>Break, photos, and icebreakers</span>
+                  <span data-i18n="schedule_day1_item3">Break, photos, and icebreakers</span>
                 </li>
                 <li>
                   <span class="time-tag">10:30 - 12:00</span>
-                  <span>Committee session 1</span>
+                  <span data-i18n="schedule_day1_item4">Committee session 1</span>
                 </li>
                 <li>
                   <span class="time-tag">12:00 - 13:00</span>
-                  <span>Luncheon</span>
+                  <span data-i18n="schedule_day1_item5">Luncheon</span>
                 </li>
                 <li>
                   <span class="time-tag">13:00 - 14:30</span>
-                  <span>Committee session 2</span>
+                  <span data-i18n="schedule_day1_item6">Committee session 2</span>
                 </li>
                 <li>
                   <span class="time-tag">14:30 - 15:00</span>
-                  <span>Afternoon break</span>
+                  <span data-i18n="schedule_day1_item7">Afternoon break</span>
                 </li>
                 <li>
                   <span class="time-tag">15:00 - 16:30</span>
-                  <span>Committee session 3</span>
+                  <span data-i18n="schedule_day1_item8">Committee session 3</span>
                 </li>
                 <li>
                   <span class="time-tag">16:30 - 17:00</span>
-                  <span>Feedback sessions and departure</span>
+                  <span data-i18n="schedule_day1_item9">Feedback sessions and departure</span>
                 </li>
               </ul>
             </div>
             <div class="schedule-day">
-              <h3>📌 Day 2 - Sunday, January 24, 2027</h3>
+              <h3 data-i18n="schedule_day2">📌 Day 2 - Sunday, January 24, 2027</h3>
               <ul class="schedule-list">
                 <li>
                   <span class="time-tag">08:00 - 09:30</span>
-                  <span>Arrival, registration, and photo opportunities</span>
+                  <span data-i18n="schedule_day2_item1">
+                    Arrival, registration, and photo opportunities
+                  </span>
                 </li>
                 <li>
                   <span class="time-tag">09:30 - 10:45</span>
-                  <span>Committee session 1 (part 1)</span>
+                  <span data-i18n="schedule_day2_item2">Committee session 1 (part 1)</span>
                 </li>
                 <li>
                   <span class="time-tag">10:45 - 11:00</span>
-                  <span>Optional in-committee break</span>
+                  <span data-i18n="schedule_day2_item3">Optional in-committee break</span>
                 </li>
                 <li class="schedule-note">
-                  Chairs may encourage delegates to play a game together, do a
-                  Just Dance activity, or simply sit and chat. Everyone must
-                  remain in committee rooms during this mini break.
+                  <span data-i18n="schedule_day2_note">
+                    Chairs may encourage delegates to play a game together, do a
+                    Just Dance activity, or simply sit and chat. Everyone must
+                    remain in committee rooms during this mini break.
+                  </span>
                 </li>
                 <li>
                   <span class="time-tag">11:00 - 12:00</span>
-                  <span>Committee session 1 (part 2)</span>
+                  <span data-i18n="schedule_day2_item4">Committee session 1 (part 2)</span>
                 </li>
                 <li>
                   <span class="time-tag">12:00 - 13:00</span>
-                  <span>Luncheon</span>
+                  <span data-i18n="schedule_day2_item5">Luncheon</span>
                 </li>
                 <li>
                   <span class="time-tag">13:00 - 14:30</span>
-                  <span>Committee session 2</span>
+                  <span data-i18n="schedule_day2_item6">Committee session 2</span>
                 </li>
                 <li>
                   <span class="time-tag">14:30 - 15:00</span>
-                  <span>Afternoon break</span>
+                  <span data-i18n="schedule_day2_item7">Afternoon break</span>
                 </li>
                 <li>
                   <span class="time-tag">15:00 - 16:00</span>
-                  <span>Committee session 3</span>
+                  <span data-i18n="schedule_day2_item8">Committee session 3</span>
                 </li>
                 <li>
                   <span class="time-tag">16:00 - 16:30</span>
-                  <span>Feedback and final break</span>
+                  <span data-i18n="schedule_day2_item9">Feedback and final break</span>
                 </li>
                 <li>
                   <span class="time-tag">16:30 - 17:30</span>
-                  <span>Closing ceremony</span>
+                  <span data-i18n="schedule_day2_item10">Closing ceremony</span>
                 </li>
                 <li>
                   <span class="time-tag">17:30 - 18:00</span>
-                  <span>Final photos and departure</span>
+                  <span data-i18n="schedule_day2_item11">Final photos and departure</span>
                 </li>
               </ul>
             </div>
@@ -1082,19 +1197,19 @@
       <section class="section alt" id="contact">
         <div class="container contact-grid">
           <div>
-            <h2>📬 Contact</h2>
+            <h2 data-i18n="contact_title">📬 Contact</h2>
             <p>
-              General enquiries:
+              <span data-i18n="contact_general">General enquiries:</span>
               <a href="mailto:info@seamuns.site">info@seamuns.site</a>
             </p>
             <p>
-              SMT Email:
+              <span data-i18n="contact_smt_email">SMT Email:</span>
               <a href="mailto:studentmanagementteam@seamuns.site"
                 >studentmanagementteam@seamuns.site</a
               >
             </p>
             <p class="contact-links">
-              Instagram:
+              <span data-i18n="contact_instagram">Instagram:</span>
               <a
                 href="https://www.instagram.com/seamun.th.conference/"
                 target="_blank"
@@ -1110,28 +1225,28 @@
               >
             </p>
             <p>
-              Secretary-General: Jules Kitto-Astrop (<a
+              <span data-i18n="contact_secretary_general">Secretary-General:</span> Jules Kitto-Astrop (<a
                 href="mailto:juleskittoastrop@gmail.com"
                 >juleskittoastrop@gmail.com</a
               >)
             </p>
-            <p>Deputy Secretary-General: Emily H.</p>
-            <p>Parliamentarian: Lotus T.</p>
+            <p><span data-i18n="contact_deputy">Deputy Secretary-General:</span> Emily H.</p>
+            <p><span data-i18n="contact_parliamentarian">Parliamentarian:</span> Lotus T.</p>
           </div>
           <div class="schedule-card">
-            <h3>🗓️ Schedule</h3>
-            <p>January 23-24, 2027</p>
-            <p>
+            <h3 data-i18n="contact_schedule_title">🗓️ Schedule</h3>
+            <p data-i18n="contact_schedule_dates">January 23-24, 2027</p>
+            <p data-i18n="contact_schedule_body">
               Two-day conference with opening ceremony, committee sessions, and
               closing ceremony.
             </p>
             <div class="schedule-meta">
               <span>
-                Venue: TBD (First choice: MDCU Conference Center; Kasetsart
+                <span data-i18n="contact_schedule_venue_label">Venue:</span> TBD (First choice: MDCU Conference Center; Kasetsart
                 University; SEAMEO SPAFA; St. Gabriel’s Foundation Building;
                 Rompo Mansion)
               </span>
-              <span>Academic, non-profit conference</span>
+              <span data-i18n="contact_schedule_tagline">Academic, non-profit conference</span>
             </div>
           </div>
         </div>
@@ -1141,10 +1256,10 @@
     <footer class="site-footer">
       <div class="container footer-inner">
         <div>
-          <strong>SEAMUN I Conference</strong>
-          <span>Policies with a Purpose</span>
+          <strong data-i18n="footer_title">SEAMUN I Conference</strong>
+          <span data-i18n="footer_tagline">Policies with a Purpose</span>
         </div>
-        <div>SEAMUN | South East Asia Model United Nations</div>
+        <div data-i18n="footer_org">SEAMUN | South East Asia Model United Nations</div>
       </div>
     </footer>
     <script type="module">
@@ -1190,6 +1305,1239 @@
       const db = getFirestore(app);
       const storage = getStorage(app);
 
+      const languageSelect = document.getElementById("language-select");
+      const translations = {
+        en: {
+          language_label: "Language",
+          theme_label: "Theme",
+          nav_overview: "🏛️ Overview",
+          nav_committees: "🧾 Committees",
+          nav_forms: "📝 Forms",
+          nav_more: "☰ More",
+          nav_awards: "🏆 Awards",
+          nav_schedule: "🗓️ Schedule",
+          nav_signin: "🔐 Sign in",
+          nav_profile: "👤 Profile",
+          nav_contact: "📬 Contact",
+          button_register: "Register",
+          hero_badge: "📅 Upcoming | January 23-24, 2027",
+          hero_title: "SEAMUN I Conference",
+          hero_lead:
+            "SEAMUN I is a student-led, non-profit Model United Nations conference focused on global healthcare and sustainability policy. Join 200 delegates, 22 chairs, 8 SMT, 10 staff, and 10 external advisors for two days of policy-driven debate. All profits are directed to MDCU's funding program.",
+          hero_view_committees: "🧾 View committees",
+          hero_see_applications: "📝 See applications",
+          label_location: "📍 Location",
+          label_fees: "💸 Fees",
+          label_registration: "🧾 Registration",
+          label_position_papers: "📄 Position papers",
+          snapshot_title: "Conference Snapshot",
+          snapshot_status: "Status",
+          snapshot_capacity: "Capacity",
+          snapshot_delegates: "Delegates",
+          snapshot_chairs: "Chairs",
+          snapshot_smt: "SMT",
+          snapshot_staff: "Staff",
+          snapshot_note: "Venue and registration details will be announced.",
+          button_email_registration: "Email for registration",
+          button_contact_smt: "Contact the SMT",
+          why_title: "💡 Why SEAMUN I",
+          why_body:
+            "Policies with a Purpose connects delegates from grades 7-12 to debate global healthcare and sustainability policy through traditional, specialized, and fantasy committees.",
+          feature_inclusive_title: "🤝 Inclusive participation",
+          feature_inclusive_body: "Independent delegates are welcome.",
+          feature_nonprofit_title: "❤️ Non-profit mission",
+          feature_nonprofit_body: "All profits are directed to MDCU's funding program.",
+          feature_committees_title: "🧩 10 committees",
+          feature_committees_body: "Traditional, specialized, and a Fantasy World Committee.",
+          feature_topics_title: "✨ Unique topics",
+          feature_topics_body: "Policy debates across human rights, security, health, and more.",
+          signin_title: "🔐 Sign in",
+          signin_body: "Use your email and password to access conference tools.",
+          label_first_name_required: "First name (required for sign up)",
+          placeholder_first_name: "First name",
+          label_pronouns_optional: "Pronouns (optional)",
+          placeholder_pronouns: "She/Her, He/Him, They/Them",
+          label_school_university: "School or University",
+          placeholder_school_select: "Select a school or university",
+          label_other_school: "Other school",
+          placeholder_other_school: "Enter your school",
+          label_email: "Email",
+          placeholder_email: "you@email.com",
+          label_password: "Password",
+          placeholder_password: "••••••••",
+          button_sign_in: "Sign in",
+          button_create_account: "Create account",
+          button_google: "Continue with Google",
+          button_sign_out: "Sign out",
+          label_points: "🎯 Points",
+          label_referral_link: "🔗 Referral link",
+          button_copy_code: "Copy code",
+          button_copy_link: "Copy link",
+          referral_title: "🔗 Referral",
+          referral_body: "Share your referral link and track your points.",
+          committees_title: "🧾 Committees",
+          committees_body:
+            "Ten committees with curated topics and skill levels. Chairs are TBD for all committees.",
+          grade_key_label: "Grade key:",
+          grade_key_7_8: "🟦 Grades 7-8",
+          grade_key_9_10: "🟪 Grades 9-10",
+          grade_key_11_12: "🟩 Grades 11-12",
+          filter_grade_label: "Filter by grade:",
+          filter_committee_label: "Filter by committee:",
+          filter_all: "All",
+          filter_traditional: "Traditional",
+          filter_specialized: "Specialized",
+          filter_fantasy: "Fantasy",
+          forms_title: "📝 Applications and resources",
+          forms_body:
+            "Key forms and links will be shared by the organizers. Chair applications open in late August 2026.",
+          forms_note:
+            "Points are only awarded for FWC Universe Preferences and Conference Feedback.",
+          form_smt_title: "🧑‍💼 SMT Application",
+          form_smt_body:
+            "Roles include DSG, Parliamentarian, Logistics & Finance, Delegate Affairs, PR & Advertising, and Head of Media.",
+          form_smt_deadline: "Deadline: March 3 (offer acceptance)",
+          form_fwc_title: "🌌 FWC Universe Preferences",
+          form_fwc_body: "Rank your preferred fantasy universe and allocations.",
+          form_proof_note:
+            "Upload a screenshot that shows the Google Form logo. Manual review by organizers in this chat.",
+          label_upload_proof: "Upload screenshot proof",
+          form_feedback_title: "🗣️ Conference Feedback",
+          form_feedback_body: "Share feedback to help improve future SEAMUN conferences.",
+          form_link_tba: "Form link to be announced",
+          form_delegate_school_title: "🏫 Delegate sign up (school)",
+          form_delegate_school_body: "School delegation registration (coming soon).",
+          form_delegate_ind_title: "🧍 Delegate sign up (independent)",
+          form_delegate_ind_body: "Independent delegate registration (coming soon).",
+          form_advisor_title: "🧑‍🏫 Advisor sign up",
+          form_advisor_body: "Advisor registration (coming soon).",
+          form_chair_title: "🪑 Chair applications",
+          form_chair_body: "Chair applications (late August 2026).",
+          form_rop_title: "📚 Rules of Procedure",
+          form_rop_body: "Official RoP will be shared with chairs and delegates.",
+          form_coming_soon: "Coming soon",
+          form_links_title: "🔗 Conference links",
+          form_updates: "Updates forthcoming",
+          awards_title: "🏆 Awards",
+          awards_body: "Overall, chair, and committee recognition.",
+          award_overall_best_title: "👑 Overall: Best Delegate",
+          award_overall_best_body: "Top delegate across the full conference.",
+          award_overall_hm_title: "🏅 Overall: Honorable Mention",
+          award_overall_hm_body: "Conference-wide recognition for outstanding performance.",
+          award_chair_best_title: "🪑 Chair: Best Chair",
+          award_chair_best_body: "Recognition for exceptional committee leadership.",
+          award_chair_hm_title: "🥈 Chair: Honorable Mention",
+          award_chair_hm_body: "Chair recognition for strong moderation and guidance.",
+          award_chair_committee_title: "🎯 Chair: Best Committee",
+          award_chair_committee_body: "Awarded to the most effective committee overall.",
+          award_chair_report_title: "📝 Chair: Best Chair Report",
+          award_chair_report_body: "Top academic reporting from the dais.",
+          award_committee_best_title: "🥇 Committee: Best Delegate",
+          award_committee_best_body: "Top delegate per committee.",
+          award_committee_hm_title: "🥉 Committee: Honorable Mention",
+          award_committee_hm_body: "Committee-level recognition.",
+          award_committee_paper_title: "📄 Committee: Best Position Paper",
+          award_committee_paper_body: "Best pre-conference research and writing.",
+          schedule_title: "🗓️ Schedule",
+          schedule_body: "Two-day program with opening and closing ceremonies.",
+          schedule_save_date: "📅 Save the date",
+          schedule_add_google: "Add to Google Calendar",
+          schedule_day1: "📌 Day 1 - Saturday, January 23, 2027",
+          schedule_day2: "📌 Day 2 - Sunday, January 24, 2027",
+          schedule_day1_item1: "Arrival and delegate registration",
+          schedule_day1_item2: "Opening ceremony",
+          schedule_day1_item3: "Break, photos, and icebreakers",
+          schedule_day1_item4: "Committee session 1",
+          schedule_day1_item5: "Luncheon",
+          schedule_day1_item6: "Committee session 2",
+          schedule_day1_item7: "Afternoon break",
+          schedule_day1_item8: "Committee session 3",
+          schedule_day1_item9: "Feedback sessions and departure",
+          schedule_day2_item1: "Arrival, registration, and photo opportunities",
+          schedule_day2_item2: "Committee session 1 (part 1)",
+          schedule_day2_item3: "Optional in-committee break",
+          schedule_day2_note:
+            "Chairs may encourage delegates to play a game together, do a Just Dance activity, or simply sit and chat. Everyone must remain in committee rooms during this mini break.",
+          schedule_day2_item4: "Committee session 1 (part 2)",
+          schedule_day2_item5: "Luncheon",
+          schedule_day2_item6: "Committee session 2",
+          schedule_day2_item7: "Afternoon break",
+          schedule_day2_item8: "Committee session 3",
+          schedule_day2_item9: "Feedback and final break",
+          schedule_day2_item10: "Closing ceremony",
+          schedule_day2_item11: "Final photos and departure",
+          contact_title: "📬 Contact",
+          contact_general: "General enquiries:",
+          contact_smt_email: "SMT Email:",
+          contact_instagram: "Instagram:",
+          contact_secretary_general: "Secretary-General:",
+          contact_deputy: "Deputy Secretary-General:",
+          contact_parliamentarian: "Parliamentarian:",
+          contact_schedule_title: "🗓️ Schedule",
+          contact_schedule_dates: "January 23-24, 2027",
+          contact_schedule_body:
+            "Two-day conference with opening ceremony, committee sessions, and closing ceremony.",
+          contact_schedule_venue_label: "Venue:",
+          contact_schedule_tagline: "Academic, non-profit conference",
+          footer_title: "SEAMUN I Conference",
+          footer_tagline: "Policies with a Purpose",
+          footer_org: "SEAMUN | South East Asia Model United Nations",
+          light_mode: "☀️ Light mode",
+          dark_mode: "🌙 Dark mode",
+          status_signed_out: "Signed out",
+          status_signed_out_message: "Not signed in.",
+          status_signed_in_as: "Signed in as {email}.",
+          nav_status_points: "{name} · {points} pts",
+          referral_sign_in: "Sign in to get your link",
+          points_sign_in: "Sign in to claim points",
+          points_completed: "Completed",
+          points_pending: "Pending review",
+          points_submit: "Submit proof (+{points} points)",
+          copy_success: "Copied to clipboard.",
+          copy_fail: "Copy failed. Try again.",
+          signin_failed: "Sign-in failed. Try again.",
+          signup_failed: "Sign-up failed. Try again.",
+          google_failed: "Google sign-in failed. Try again.",
+          signout_failed: "Sign-out failed. Try again.",
+          validation_first_name: "Please enter your first name to sign up.",
+          validation_school_select: "Please select your school or choose Other.",
+          validation_school_name: "Please enter your school name.",
+          validation_upload: "Please upload a screenshot.",
+          proof_submitted:
+            "Proof submitted for manual review. Points will be added after approval.",
+          proof_failed: "Proof submission failed.",
+        },
+        th: {
+          language_label: "ภาษา",
+          theme_label: "ธีม",
+          nav_overview: "🏛️ ภาพรวม",
+          nav_committees: "🧾 คณะกรรมการ",
+          nav_forms: "📝 ฟอร์ม",
+          nav_more: "☰ เพิ่มเติม",
+          nav_awards: "🏆 รางวัล",
+          nav_schedule: "🗓️ กำหนดการ",
+          nav_signin: "🔐 เข้าสู่ระบบ",
+          nav_profile: "👤 โปรไฟล์",
+          nav_contact: "📬 ติดต่อ",
+          button_register: "ลงทะเบียน",
+          hero_badge: "📅 กำลังจะมาถึง | 23-24 มกราคม 2027",
+          hero_title: "การประชุม SEAMUN I",
+          hero_lead:
+            "SEAMUN I เป็นการประชุม MUN ที่นักเรียนจัดขึ้นแบบไม่แสวงหากำไร เน้นนโยบายด้านสุขภาพโลกและความยั่งยืน ร่วมกับผู้แทน 200 คน ประธาน 22 คน SMT 8 คน เจ้าหน้าที่ 10 คน และที่ปรึกษาภายนอก 10 คน ตลอดสองวันของการอภิปรายเชิงนโยบาย กำไรทั้งหมดมอบให้โครงการทุนของ MDCU",
+          hero_view_committees: "🧾 ดูคณะกรรมการ",
+          hero_see_applications: "📝 ดูการสมัคร",
+          label_location: "📍 สถานที่",
+          label_fees: "💸 ค่าธรรมเนียม",
+          label_registration: "🧾 การลงทะเบียน",
+          label_position_papers: "📄 เอกสารตำแหน่ง",
+          snapshot_title: "ภาพรวมการประชุม",
+          snapshot_status: "สถานะ",
+          snapshot_capacity: "ความจุ",
+          snapshot_delegates: "ผู้แทน",
+          snapshot_chairs: "ประธาน",
+          snapshot_smt: "SMT",
+          snapshot_staff: "เจ้าหน้าที่",
+          snapshot_note: "รายละเอียดสถานที่และการลงทะเบียนจะแจ้งภายหลัง",
+          button_email_registration: "อีเมลเพื่อลงทะเบียน",
+          button_contact_smt: "ติดต่อ SMT",
+          why_title: "💡 ทำไม SEAMUN I",
+          why_body:
+            "Policies with a Purpose เชื่อมโยงผู้แทนชั้น 7-12 เพื่ออภิปรายด้านสุขภาพโลกและความยั่งยืนผ่านคณะกรรมการแบบดั้งเดิม เฉพาะทาง และแฟนตาซี",
+          feature_inclusive_title: "🤝 เปิดกว้างต่อผู้เข้าร่วม",
+          feature_inclusive_body: "ยินดีรับผู้แทนอิสระ",
+          feature_nonprofit_title: "❤️ ภารกิจไม่แสวงหากำไร",
+          feature_nonprofit_body: "กำไรทั้งหมดมอบให้โครงการทุนของ MDCU",
+          feature_committees_title: "🧩 10 คณะกรรมการ",
+          feature_committees_body: "คณะกรรมการแบบดั้งเดิม แบบเฉพาะทาง และแฟนตาซี",
+          feature_topics_title: "✨ หัวข้อโดดเด่น",
+          feature_topics_body: "การอภิปรายด้านสิทธิมนุษยชน ความมั่นคง สุขภาพ และอื่น ๆ",
+          signin_title: "🔐 เข้าสู่ระบบ",
+          signin_body: "ใช้อีเมลและรหัสผ่านเพื่อเข้าถึงเครื่องมือการประชุม",
+          label_first_name_required: "ชื่อ (จำเป็นสำหรับการสมัคร)",
+          placeholder_first_name: "ชื่อ",
+          label_pronouns_optional: "สรรพนาม (ไม่บังคับ)",
+          placeholder_pronouns: "เธอ/เธอ, เขา/เขา, พวกเขา/พวกเขา",
+          label_school_university: "โรงเรียนหรือมหาวิทยาลัย",
+          placeholder_school_select: "เลือกโรงเรียนหรือมหาวิทยาลัย",
+          label_other_school: "โรงเรียนอื่น",
+          placeholder_other_school: "กรอกชื่อโรงเรียน",
+          label_email: "อีเมล",
+          placeholder_email: "you@email.com",
+          label_password: "รหัสผ่าน",
+          placeholder_password: "••••••••",
+          button_sign_in: "เข้าสู่ระบบ",
+          button_create_account: "สร้างบัญชี",
+          button_google: "ดำเนินการต่อด้วย Google",
+          button_sign_out: "ออกจากระบบ",
+          label_points: "🎯 คะแนน",
+          label_referral_link: "🔗 ลิงก์แนะนำ",
+          button_copy_code: "คัดลอกรหัส",
+          button_copy_link: "คัดลอกลิงก์",
+          referral_title: "🔗 การแนะนำ",
+          referral_body: "แชร์ลิงก์แนะนำและติดตามคะแนนของคุณ",
+          committees_title: "🧾 คณะกรรมการ",
+          committees_body:
+            "สิบคณะกรรมการพร้อมหัวข้อและระดับทักษะที่คัดสรร ประธานยังไม่ประกาศ",
+          grade_key_label: "คีย์ระดับชั้น:",
+          grade_key_7_8: "🟦 ชั้น 7-8",
+          grade_key_9_10: "🟪 ชั้น 9-10",
+          grade_key_11_12: "🟩 ชั้น 11-12",
+          filter_grade_label: "กรองตามชั้น:",
+          filter_committee_label: "กรองตามคณะ:",
+          filter_all: "ทั้งหมด",
+          filter_traditional: "ดั้งเดิม",
+          filter_specialized: "เฉพาะทาง",
+          filter_fantasy: "แฟนตาซี",
+          forms_title: "📝 ใบสมัครและแหล่งข้อมูล",
+          forms_body: "แบบฟอร์มและลิงก์หลักจะแชร์โดยผู้จัด งานสมัครประธานเปิดปลายสิงหาคม 2026",
+          forms_note: "จะให้คะแนนเฉพาะ FWC Universe Preferences และ Conference Feedback เท่านั้น",
+          form_smt_title: "🧑‍💼 สมัคร SMT",
+          form_smt_body:
+            "บทบาทรวม DSG, พิธีการ, โลจิสติกส์และการเงิน, ดูแลผู้แทน, PR และสื่อ",
+          form_smt_deadline: "กำหนดส่ง: 3 มีนาคม (ตอบรับข้อเสนอ)",
+          form_fwc_title: "🌌 ความชอบจักรวาล FWC",
+          form_fwc_body: "จัดอันดับจักรวาลแฟนตาซีที่ต้องการและการจัดสรร",
+          form_proof_note:
+            "อัปโหลดภาพหน้าจอที่แสดงโลโก้ Google Form ตรวจสอบแบบแมนนวลผ่านแชทนี้",
+          label_upload_proof: "อัปโหลดหลักฐานภาพหน้าจอ",
+          form_feedback_title: "🗣️ แบบประเมินผลการประชุม",
+          form_feedback_body: "แชร์ความคิดเห็นเพื่อพัฒนาการประชุม SEAMUN ในอนาคต",
+          form_link_tba: "จะแจ้งลิงก์แบบฟอร์มภายหลัง",
+          form_delegate_school_title: "🏫 สมัครผู้แทน (โรงเรียน)",
+          form_delegate_school_body: "ลงทะเบียนคณะผู้แทนโรงเรียน (เร็ว ๆ นี้)",
+          form_delegate_ind_title: "🧍 สมัครผู้แทนอิสระ",
+          form_delegate_ind_body: "ลงทะเบียนผู้แทนอิสระ (เร็ว ๆ นี้)",
+          form_advisor_title: "🧑‍🏫 สมัครที่ปรึกษา",
+          form_advisor_body: "ลงทะเบียนที่ปรึกษา (เร็ว ๆ นี้)",
+          form_chair_title: "🪑 สมัครประธานคณะ",
+          form_chair_body: "เปิดรับสมัครประธาน (ปลายสิงหาคม 2026)",
+          form_rop_title: "📚 ระเบียบการประชุม",
+          form_rop_body: "RoP ทางการจะแชร์กับประธานและผู้แทน",
+          form_coming_soon: "เร็ว ๆ นี้",
+          form_links_title: "🔗 ลิงก์การประชุม",
+          form_updates: "อัปเดตภายหลัง",
+          awards_title: "🏆 รางวัล",
+          awards_body: "รางวัลรวม ประธาน และคณะกรรมการ",
+          award_overall_best_title: "👑 รางวัลรวม: ผู้แทนยอดเยี่ยม",
+          award_overall_best_body: "ผู้แทนยอดเยี่ยมตลอดการประชุม",
+          award_overall_hm_title: "🏅 รางวัลรวม: กล่าวชมเชย",
+          award_overall_hm_body: "การยกย่องผลงานโดดเด่นระดับการประชุม",
+          award_chair_best_title: "🪑 ประธาน: ประธานยอดเยี่ยม",
+          award_chair_best_body: "ยกย่องการนำคณะกรรมการอย่างยอดเยี่ยม",
+          award_chair_hm_title: "🥈 ประธาน: กล่าวชมเชย",
+          award_chair_hm_body: "ยกย่องการดำเนินการประชุมที่โดดเด่น",
+          award_chair_committee_title: "🎯 ประธาน: คณะยอดเยี่ยม",
+          award_chair_committee_body: "มอบให้คณะที่มีประสิทธิภาพที่สุดโดยรวม",
+          award_chair_report_title: "📝 ประธาน: รายงานประธานยอดเยี่ยม",
+          award_chair_report_body: "รายงานเชิงวิชาการยอดเยี่ยมจากประธาน",
+          award_committee_best_title: "🥇 คณะ: ผู้แทนยอดเยี่ยม",
+          award_committee_best_body: "ผู้แทนยอดเยี่ยมของแต่ละคณะ",
+          award_committee_hm_title: "🥉 คณะ: กล่าวชมเชย",
+          award_committee_hm_body: "การยกย่องระดับคณะกรรมการ",
+          award_committee_paper_title: "📄 คณะ: เอกสารตำแหน่งยอดเยี่ยม",
+          award_committee_paper_body: "ผลงานวิจัยและการเขียนก่อนงานยอดเยี่ยม",
+          schedule_title: "🗓️ กำหนดการ",
+          schedule_body: "โปรแกรมสองวันพร้อมพิธีเปิดและปิด",
+          schedule_save_date: "📅 บันทึกวัน",
+          schedule_add_google: "เพิ่มลง Google Calendar",
+          schedule_day1: "📌 วันที่ 1 - เสาร์ที่ 23 มกราคม 2027",
+          schedule_day2: "📌 วันที่ 2 - อาทิตย์ที่ 24 มกราคม 2027",
+          schedule_day1_item1: "การมาถึงและลงทะเบียนผู้แทน",
+          schedule_day1_item2: "พิธีเปิด",
+          schedule_day1_item3: "พัก ถ่ายภาพ และกิจกรรมละลายพฤติกรรม",
+          schedule_day1_item4: "คณะกรรมการช่วงที่ 1",
+          schedule_day1_item5: "อาหารกลางวัน",
+          schedule_day1_item6: "คณะกรรมการช่วงที่ 2",
+          schedule_day1_item7: "พักช่วงบ่าย",
+          schedule_day1_item8: "คณะกรรมการช่วงที่ 3",
+          schedule_day1_item9: "ช่วงรับฟีดแบ็กและเดินทางกลับ",
+          schedule_day2_item1: "มาถึง ลงทะเบียน และถ่ายภาพ",
+          schedule_day2_item2: "คณะกรรมการช่วงที่ 1 (ส่วนที่ 1)",
+          schedule_day2_item3: "พักสั้นในคณะ (ไม่บังคับ)",
+          schedule_day2_note:
+            "ประธานอาจชวนผู้แทนเล่นเกม ทำกิจกรรม Just Dance หรือพูดคุยกัน ทุกคนต้องอยู่ในห้องคณะระหว่างพักสั้นนี้",
+          schedule_day2_item4: "คณะกรรมการช่วงที่ 1 (ส่วนที่ 2)",
+          schedule_day2_item5: "อาหารกลางวัน",
+          schedule_day2_item6: "คณะกรรมการช่วงที่ 2",
+          schedule_day2_item7: "พักช่วงบ่าย",
+          schedule_day2_item8: "คณะกรรมการช่วงที่ 3",
+          schedule_day2_item9: "รับฟีดแบ็กและพักสุดท้าย",
+          schedule_day2_item10: "พิธีปิด",
+          schedule_day2_item11: "ถ่ายภาพสุดท้ายและเดินทางกลับ",
+          contact_title: "📬 ติดต่อ",
+          contact_general: "สอบถามทั่วไป:",
+          contact_smt_email: "อีเมล SMT:",
+          contact_instagram: "Instagram:",
+          contact_secretary_general: "เลขาธิการ:",
+          contact_deputy: "รองเลขาธิการ:",
+          contact_parliamentarian: "เลขานุการการประชุม:",
+          contact_schedule_title: "🗓️ กำหนดการ",
+          contact_schedule_dates: "23-24 มกราคม 2027",
+          contact_schedule_body:
+            "การประชุมสองวันพร้อมพิธีเปิด ช่วงคณะกรรมการ และพิธีปิด",
+          contact_schedule_venue_label: "สถานที่:",
+          contact_schedule_tagline: "การประชุมเชิงวิชาการไม่แสวงหากำไร",
+          footer_title: "การประชุม SEAMUN I",
+          footer_tagline: "นโยบายที่มีเป้าหมาย",
+          footer_org: "SEAMUN | โมเดลสหประชาชาติเอเชียตะวันออกเฉียงใต้",
+          light_mode: "☀️ โหมดสว่าง",
+          dark_mode: "🌙 โหมดมืด",
+          status_signed_out: "ออกจากระบบ",
+          status_signed_out_message: "ยังไม่ได้ลงชื่อเข้าใช้",
+          status_signed_in_as: "ลงชื่อเข้าใช้ในชื่อ {email}.",
+          nav_status_points: "{name} · {points} คะแนน",
+          referral_sign_in: "ลงชื่อเข้าใช้เพื่อรับลิงก์",
+          points_sign_in: "ลงชื่อเข้าใช้เพื่อรับคะแนน",
+          points_completed: "เสร็จสิ้น",
+          points_pending: "รอตรวจสอบ",
+          points_submit: "ส่งหลักฐาน (+{points} คะแนน)",
+          copy_success: "คัดลอกแล้ว",
+          copy_fail: "คัดลอกไม่สำเร็จ ลองอีกครั้ง",
+          signin_failed: "เข้าสู่ระบบไม่สำเร็จ ลองอีกครั้ง",
+          signup_failed: "สมัครไม่สำเร็จ ลองอีกครั้ง",
+          google_failed: "เข้าสู่ระบบด้วย Google ไม่สำเร็จ ลองอีกครั้ง",
+          signout_failed: "ออกจากระบบไม่สำเร็จ ลองอีกครั้ง",
+          validation_first_name: "โปรดกรอกชื่อเพื่อสมัคร",
+          validation_school_select: "โปรดเลือกโรงเรียนหรือเลือก อื่น ๆ",
+          validation_school_name: "โปรดกรอกชื่อโรงเรียน",
+          validation_upload: "โปรดอัปโหลดภาพหน้าจอ",
+          proof_submitted: "ส่งหลักฐานแล้ว รอตรวจสอบจากทีมงาน",
+          proof_failed: "ส่งหลักฐานไม่สำเร็จ",
+        },
+        zh: {
+          language_label: "语言",
+          theme_label: "主题",
+          nav_overview: "🏛️ 概览",
+          nav_committees: "🧾 委员会",
+          nav_forms: "📝 表格",
+          nav_more: "☰ 更多",
+          nav_awards: "🏆 奖项",
+          nav_schedule: "🗓️ 日程",
+          nav_signin: "🔐 登录",
+          nav_profile: "👤 个人资料",
+          nav_contact: "📬 联系",
+          button_register: "注册",
+          hero_badge: "📅 即将到来 | 2027年1月23-24日",
+          hero_title: "SEAMUN I 会议",
+          hero_lead:
+            "SEAMUN I 是由学生主办的非营利模拟联合国会议，聚焦全球健康与可持续发展政策。两天的政策辩论将汇聚200名代表、22名主席、8名SMT、10名工作人员和10名外部顾问。所有收益将用于MDCU的资助项目。",
+          hero_view_committees: "🧾 查看委员会",
+          hero_see_applications: "📝 查看申请",
+          label_location: "📍 地点",
+          label_fees: "💸 费用",
+          label_registration: "🧾 注册",
+          label_position_papers: "📄 立场文件",
+          snapshot_title: "会议概览",
+          snapshot_status: "状态",
+          snapshot_capacity: "规模",
+          snapshot_delegates: "代表",
+          snapshot_chairs: "主席",
+          snapshot_smt: "SMT",
+          snapshot_staff: "工作人员",
+          snapshot_note: "场地与注册详情将另行公布。",
+          button_email_registration: "邮件注册",
+          button_contact_smt: "联系SMT",
+          why_title: "💡 为什么选择 SEAMUN I",
+          why_body:
+            "“有目标的政策”把7-12年级代表聚集起来，通过传统、专项与幻想委员会讨论全球健康与可持续政策。",
+          feature_inclusive_title: "🤝 包容参与",
+          feature_inclusive_body: "欢迎独立代表。",
+          feature_nonprofit_title: "❤️ 非营利使命",
+          feature_nonprofit_body: "所有收益用于MDCU资助项目。",
+          feature_committees_title: "🧩 10个委员会",
+          feature_committees_body: "传统、专项与幻想世界委员会。",
+          feature_topics_title: "✨ 独特议题",
+          feature_topics_body: "涵盖人权、安全、健康等政策辩题。",
+          signin_title: "🔐 登录",
+          signin_body: "使用邮箱和密码访问会议工具。",
+          label_first_name_required: "名（注册必填）",
+          placeholder_first_name: "名",
+          label_pronouns_optional: "代词（可选）",
+          placeholder_pronouns: "She/Her, He/Him, They/Them",
+          label_school_university: "学校或大学",
+          placeholder_school_select: "选择学校或大学",
+          label_other_school: "其他学校",
+          placeholder_other_school: "填写学校名称",
+          label_email: "邮箱",
+          placeholder_email: "you@email.com",
+          label_password: "密码",
+          placeholder_password: "••••••••",
+          button_sign_in: "登录",
+          button_create_account: "创建账户",
+          button_google: "使用 Google 继续",
+          button_sign_out: "退出登录",
+          label_points: "🎯 积分",
+          label_referral_link: "🔗 推荐链接",
+          button_copy_code: "复制代码",
+          button_copy_link: "复制链接",
+          referral_title: "🔗 推荐",
+          referral_body: "分享推荐链接并跟踪积分。",
+          committees_title: "🧾 委员会",
+          committees_body: "十个委员会包含精心设计的议题与难度。主席待定。",
+          grade_key_label: "年级标识：",
+          grade_key_7_8: "🟦 7-8年级",
+          grade_key_9_10: "🟪 9-10年级",
+          grade_key_11_12: "🟩 11-12年级",
+          filter_grade_label: "按年级筛选：",
+          filter_committee_label: "按委员会筛选：",
+          filter_all: "全部",
+          filter_traditional: "传统",
+          filter_specialized: "专项",
+          filter_fantasy: "幻想",
+          forms_title: "📝 申请与资源",
+          forms_body: "主要表格与链接将由组织者发布。主席申请于2026年8月底开放。",
+          forms_note: "仅FWC偏好与会议反馈可获得积分。",
+          form_smt_title: "🧑‍💼 SMT 申请",
+          form_smt_body:
+            "职位包括DSG、议事规则、后勤与财务、代表事务、公关与宣传以及媒体负责人。",
+          form_smt_deadline: "截止日期：3月3日（录取确认）",
+          form_fwc_title: "🌌 FWC 宇宙偏好",
+          form_fwc_body: "填写偏好的幻想宇宙与分配。",
+          form_proof_note: "上传包含Google表单标志的截图，人工审核。",
+          label_upload_proof: "上传截图证明",
+          form_feedback_title: "🗣️ 会议反馈",
+          form_feedback_body: "提供反馈以改进未来会议。",
+          form_link_tba: "表单链接待公布",
+          form_delegate_school_title: "🏫 学校代表报名",
+          form_delegate_school_body: "学校代表团报名（即将开放）。",
+          form_delegate_ind_title: "🧍 独立代表报名",
+          form_delegate_ind_body: "独立代表报名（即将开放）。",
+          form_advisor_title: "🧑‍🏫 顾问报名",
+          form_advisor_body: "顾问报名（即将开放）。",
+          form_chair_title: "🪑 主席申请",
+          form_chair_body: "主席申请（2026年8月底）。",
+          form_rop_title: "📚 会议规则",
+          form_rop_body: "正式RoP将与主席和代表共享。",
+          form_coming_soon: "即将推出",
+          form_links_title: "🔗 会议链接",
+          form_updates: "后续更新",
+          awards_title: "🏆 奖项",
+          awards_body: "全会、主席与委员会表彰。",
+          schedule_title: "🗓️ 日程",
+          schedule_body: "两天安排含开幕与闭幕式。",
+          schedule_save_date: "📅 保存日期",
+          schedule_add_google: "添加到 Google 日历",
+          schedule_day1: "📌 第1天 - 2027年1月23日（周六）",
+          schedule_day2: "📌 第2天 - 2027年1月24日（周日）",
+          contact_title: "📬 联系",
+          contact_general: "一般咨询：",
+          contact_smt_email: "SMT 邮箱：",
+          contact_instagram: "Instagram：",
+          contact_secretary_general: "秘书长：",
+          contact_deputy: "副秘书长：",
+          contact_parliamentarian: "议事规则官：",
+          contact_schedule_title: "🗓️ 日程",
+          contact_schedule_dates: "2027年1月23-24日",
+          contact_schedule_body: "两天会议包含开幕式、委员会会议与闭幕式。",
+          contact_schedule_venue_label: "场地：",
+          contact_schedule_tagline: "学术性非营利会议",
+          footer_title: "SEAMUN I 会议",
+          footer_tagline: "宗旨明确的政策",
+          footer_org: "SEAMUN | 东南亚模拟联合国",
+          light_mode: "☀️ 浅色模式",
+          dark_mode: "🌙 深色模式",
+          status_signed_out: "已退出",
+          status_signed_out_message: "未登录。",
+          status_signed_in_as: "已登录：{email}。",
+          nav_status_points: "{name} · {points} 分",
+          referral_sign_in: "登录后获取链接",
+          points_sign_in: "登录以获取积分",
+          points_completed: "已完成",
+          points_pending: "待审核",
+          points_submit: "提交证明（+{points} 分）",
+          copy_success: "已复制。",
+          copy_fail: "复制失败，请重试。",
+          signin_failed: "登录失败，请重试。",
+          signup_failed: "注册失败，请重试。",
+          google_failed: "Google 登录失败，请重试。",
+          signout_failed: "退出失败，请重试。",
+          validation_first_name: "请输入姓名以注册。",
+          validation_school_select: "请选择学校或选择“其他”。",
+          validation_school_name: "请输入学校名称。",
+          validation_upload: "请上传截图。",
+          proof_submitted: "已提交审核，确认后添加积分。",
+          proof_failed: "提交失败。",
+        },
+        ja: {
+          language_label: "言語",
+          theme_label: "テーマ",
+          nav_overview: "🏛️ 概要",
+          nav_committees: "🧾 委員会",
+          nav_forms: "📝 フォーム",
+          nav_more: "☰ もっと見る",
+          nav_awards: "🏆 表彰",
+          nav_schedule: "🗓️ スケジュール",
+          nav_signin: "🔐 サインイン",
+          nav_profile: "👤 プロフィール",
+          nav_contact: "📬 連絡先",
+          button_register: "登録",
+          hero_badge: "📅 開催予定 | 2027年1月23-24日",
+          hero_title: "SEAMUN I 会議",
+          hero_lead:
+            "SEAMUN Iは学生主導の非営利MUN会議で、世界の医療と持続可能性政策に焦点を当てます。200名の代表、22名の議長、8名のSMT、10名のスタッフ、10名の外部アドバイザーが2日間の政策討論に参加します。収益はMDCUの資金プログラムに充てられます。",
+          hero_view_committees: "🧾 委員会を見る",
+          hero_see_applications: "📝 申請を見る",
+          label_location: "📍 会場",
+          label_fees: "💸 参加費",
+          label_registration: "🧾 登録",
+          label_position_papers: "📄 ポジションペーパー",
+          snapshot_title: "会議概要",
+          snapshot_status: "ステータス",
+          snapshot_capacity: "定員",
+          snapshot_delegates: "代表",
+          snapshot_chairs: "議長",
+          snapshot_smt: "SMT",
+          snapshot_staff: "スタッフ",
+          snapshot_note: "会場と登録の詳細は後日発表します。",
+          button_email_registration: "登録用メール",
+          button_contact_smt: "SMTに連絡",
+          why_title: "💡 SEAMUN I を選ぶ理由",
+          why_body:
+            "Policies with a Purpose は、7-12年生の代表が伝統・専門・ファンタジー委員会で世界の医療と持続可能性政策を議論する場です。",
+          feature_inclusive_title: "🤝 インクルーシブ参加",
+          feature_inclusive_body: "独立代表も歓迎します。",
+          feature_nonprofit_title: "❤️ 非営利ミッション",
+          feature_nonprofit_body: "収益はMDCUの資金プログラムに充てられます。",
+          feature_committees_title: "🧩 10の委員会",
+          feature_committees_body: "伝統・専門・ファンタジー委員会。",
+          feature_topics_title: "✨ 独自の議題",
+          feature_topics_body: "人権、安全、健康などの政策討論。",
+          signin_title: "🔐 サインイン",
+          signin_body: "メールとパスワードで会議ツールにアクセスします。",
+          label_first_name_required: "名（登録必須）",
+          placeholder_first_name: "名",
+          label_pronouns_optional: "代名詞（任意）",
+          placeholder_pronouns: "She/Her, He/Him, They/Them",
+          label_school_university: "学校または大学",
+          placeholder_school_select: "学校または大学を選択",
+          label_other_school: "その他の学校",
+          placeholder_other_school: "学校名を入力",
+          label_email: "メール",
+          placeholder_email: "you@email.com",
+          label_password: "パスワード",
+          placeholder_password: "••••••••",
+          button_sign_in: "サインイン",
+          button_create_account: "アカウント作成",
+          button_google: "Google で続行",
+          button_sign_out: "サインアウト",
+          label_points: "🎯 ポイント",
+          label_referral_link: "🔗 紹介リンク",
+          button_copy_code: "コードをコピー",
+          button_copy_link: "リンクをコピー",
+          referral_title: "🔗 紹介",
+          referral_body: "紹介リンクを共有してポイントを確認。",
+          committees_title: "🧾 委員会",
+          committees_body: "10の委員会と難易度設定。議長は後日発表。",
+          grade_key_label: "学年キー：",
+          grade_key_7_8: "🟦 7-8年",
+          grade_key_9_10: "🟪 9-10年",
+          grade_key_11_12: "🟩 11-12年",
+          filter_grade_label: "学年で絞り込み：",
+          filter_committee_label: "委員会で絞り込み：",
+          filter_all: "すべて",
+          filter_traditional: "伝統",
+          filter_specialized: "専門",
+          filter_fantasy: "ファンタジー",
+          forms_title: "📝 申請と資料",
+          forms_body: "主要なフォームとリンクは主催者から共有。議長申請は2026年8月末。",
+          forms_note: "ポイント対象はFWCとフィードバックのみ。",
+          form_smt_title: "🧑‍💼 SMT 申請",
+          form_smt_body:
+            "役職：DSG、議事規則、物流・財務、代表対応、PR/広報、メディア責任者。",
+          form_smt_deadline: "締切：3月3日（オファー承諾）",
+          form_fwc_title: "🌌 FWC 宇宙の希望",
+          form_fwc_body: "希望するファンタジー宇宙と割当を入力。",
+          form_proof_note: "Googleフォームのロゴが見えるスクリーンショットを提出（手動確認）。",
+          label_upload_proof: "スクリーンショット証明をアップロード",
+          form_feedback_title: "🗣️ 会議フィードバック",
+          form_feedback_body: "今後の改善のためにフィードバックを共有。",
+          form_link_tba: "リンクは後日発表",
+          form_delegate_school_title: "🏫 学校代表登録",
+          form_delegate_school_body: "学校代表団の登録（近日公開）。",
+          form_delegate_ind_title: "🧍 独立代表登録",
+          form_delegate_ind_body: "独立代表の登録（近日公開）。",
+          form_advisor_title: "🧑‍🏫 アドバイザー登録",
+          form_advisor_body: "アドバイザー登録（近日公開）。",
+          form_chair_title: "🪑 議長申請",
+          form_chair_body: "議長申請（2026年8月末）。",
+          form_rop_title: "📚 議事規則",
+          form_rop_body: "正式RoPは議長・代表に共有。",
+          form_coming_soon: "近日公開",
+          form_links_title: "🔗 会議リンク",
+          form_updates: "更新予定",
+          awards_title: "🏆 表彰",
+          awards_body: "全体・議長・委員会の表彰。",
+          schedule_title: "🗓️ スケジュール",
+          schedule_body: "開会・閉会式を含む2日間。",
+          schedule_save_date: "📅 日付を保存",
+          schedule_add_google: "Googleカレンダーに追加",
+          schedule_day1: "📌 1日目 - 2027年1月23日（土）",
+          schedule_day2: "📌 2日目 - 2027年1月24日（日）",
+          contact_title: "📬 連絡先",
+          contact_general: "お問い合わせ：",
+          contact_smt_email: "SMT メール：",
+          contact_instagram: "Instagram：",
+          contact_secretary_general: "事務総長：",
+          contact_deputy: "副事務総長：",
+          contact_parliamentarian: "議事規則官：",
+          contact_schedule_title: "🗓️ スケジュール",
+          contact_schedule_dates: "2027年1月23-24日",
+          contact_schedule_body: "開会式、委員会、閉会式を含む2日間。",
+          contact_schedule_venue_label: "会場：",
+          contact_schedule_tagline: "学術・非営利会議",
+          footer_title: "SEAMUN I 会議",
+          footer_tagline: "目的ある政策",
+          footer_org: "SEAMUN | 東南アジア模擬国連",
+          light_mode: "☀️ ライトモード",
+          dark_mode: "🌙 ダークモード",
+          status_signed_out: "サインアウト中",
+          status_signed_out_message: "未サインイン",
+          status_signed_in_as: "{email} としてサインインしました。",
+          nav_status_points: "{name} · {points} pt",
+          referral_sign_in: "サインインしてリンクを取得",
+          points_sign_in: "サインインしてポイント取得",
+          points_completed: "完了",
+          points_pending: "確認待ち",
+          points_submit: "証明を送信（+{points} pt）",
+          copy_success: "コピーしました。",
+          copy_fail: "コピーに失敗しました。",
+          signin_failed: "サインイン失敗。もう一度。",
+          signup_failed: "登録失敗。もう一度。",
+          google_failed: "Google サインイン失敗。もう一度。",
+          signout_failed: "サインアウト失敗。もう一度。",
+          validation_first_name: "登録のため名を入力してください。",
+          validation_school_select: "学校を選択するか「その他」を選んでください。",
+          validation_school_name: "学校名を入力してください。",
+          validation_upload: "スクリーンショットをアップロードしてください。",
+          proof_submitted: "証明を送信しました。承認後にポイントが追加されます。",
+          proof_failed: "送信に失敗しました。",
+        },
+        es: {
+          language_label: "Idioma",
+          theme_label: "Tema",
+          nav_overview: "🏛️ Resumen",
+          nav_committees: "🧾 Comités",
+          nav_forms: "📝 Formularios",
+          nav_more: "☰ Más",
+          nav_awards: "🏆 Premios",
+          nav_schedule: "🗓️ Agenda",
+          nav_signin: "🔐 Iniciar sesión",
+          nav_profile: "👤 Perfil",
+          nav_contact: "📬 Contacto",
+          button_register: "Registrar",
+          hero_badge: "📅 Próximo | 23-24 de enero de 2027",
+          hero_title: "Conferencia SEAMUN I",
+          hero_lead:
+            "SEAMUN I es una conferencia MUN sin fines de lucro liderada por estudiantes, enfocada en políticas de salud global y sostenibilidad. Participan 200 delegados, 22 chairs, 8 SMT, 10 staff y 10 asesores externos durante dos días de debate. Todas las ganancias se destinan al programa de financiamiento de MDCU.",
+          hero_view_committees: "🧾 Ver comités",
+          hero_see_applications: "📝 Ver solicitudes",
+          label_location: "📍 Ubicación",
+          label_fees: "💸 Tarifas",
+          label_registration: "🧾 Registro",
+          label_position_papers: "📄 Position papers",
+          snapshot_title: "Resumen de la conferencia",
+          snapshot_status: "Estado",
+          snapshot_capacity: "Capacidad",
+          snapshot_delegates: "Delegados",
+          snapshot_chairs: "Chairs",
+          snapshot_smt: "SMT",
+          snapshot_staff: "Staff",
+          snapshot_note: "Los detalles de sede y registro se anunciarán.",
+          button_email_registration: "Correo para registro",
+          button_contact_smt: "Contactar SMT",
+          why_title: "💡 Por qué SEAMUN I",
+          why_body:
+            "Policies with a Purpose conecta a delegados de 7º-12º para debatir políticas de salud global y sostenibilidad en comités tradicionales, especializados y de fantasía.",
+          feature_inclusive_title: "🤝 Participación inclusiva",
+          feature_inclusive_body: "Se aceptan delegados independientes.",
+          feature_nonprofit_title: "❤️ Misión sin fines de lucro",
+          feature_nonprofit_body: "Todas las ganancias se destinan al programa de MDCU.",
+          feature_committees_title: "🧩 10 comités",
+          feature_committees_body: "Tradicionales, especializados y Comité Fantasía.",
+          feature_topics_title: "✨ Temas únicos",
+          feature_topics_body: "Debates sobre derechos humanos, seguridad, salud y más.",
+          signin_title: "🔐 Iniciar sesión",
+          signin_body: "Usa tu correo y contraseña para acceder a herramientas.",
+          label_first_name_required: "Nombre (obligatorio para registrarse)",
+          placeholder_first_name: "Nombre",
+          label_pronouns_optional: "Pronombres (opcional)",
+          placeholder_pronouns: "She/Her, He/Him, They/Them",
+          label_school_university: "Escuela o universidad",
+          placeholder_school_select: "Selecciona una escuela o universidad",
+          label_other_school: "Otra escuela",
+          placeholder_other_school: "Ingresa tu escuela",
+          label_email: "Correo",
+          placeholder_email: "you@email.com",
+          label_password: "Contraseña",
+          placeholder_password: "••••••••",
+          button_sign_in: "Iniciar sesión",
+          button_create_account: "Crear cuenta",
+          button_google: "Continuar con Google",
+          button_sign_out: "Cerrar sesión",
+          label_points: "🎯 Puntos",
+          label_referral_link: "🔗 Enlace de referencia",
+          button_copy_code: "Copiar código",
+          button_copy_link: "Copiar enlace",
+          referral_title: "🔗 Referidos",
+          referral_body: "Comparte tu enlace y sigue tus puntos.",
+          committees_title: "🧾 Comités",
+          committees_body: "Diez comités con temas y niveles. Chairs por anunciar.",
+          grade_key_label: "Clave de grado:",
+          grade_key_7_8: "🟦 Grados 7-8",
+          grade_key_9_10: "🟪 Grados 9-10",
+          grade_key_11_12: "🟩 Grados 11-12",
+          filter_grade_label: "Filtrar por grado:",
+          filter_committee_label: "Filtrar por comité:",
+          filter_all: "Todos",
+          filter_traditional: "Tradicional",
+          filter_specialized: "Especializado",
+          filter_fantasy: "Fantasía",
+          forms_title: "📝 Solicitudes y recursos",
+          forms_body: "Los formularios se compartirán por los organizadores. Chairs a fines de agosto 2026.",
+          forms_note: "Solo se otorgan puntos por FWC y Feedback.",
+          form_smt_title: "🧑‍💼 Solicitud SMT",
+          form_smt_body:
+            "Roles incluyen DSG, Parliamentarian, Logística y Finanzas, Asuntos Delegados, PR y Medios.",
+          form_smt_deadline: "Fecha límite: 3 de marzo (aceptación)",
+          form_fwc_title: "🌌 Preferencias FWC",
+          form_fwc_body: "Ordena tu universo de fantasía preferido.",
+          form_proof_note: "Sube una captura con el logo de Google Form. Revisión manual.",
+          label_upload_proof: "Subir prueba en captura",
+          form_feedback_title: "🗣️ Retroalimentación",
+          form_feedback_body: "Comparte comentarios para mejorar futuras conferencias.",
+          form_link_tba: "Enlace por anunciar",
+          form_delegate_school_title: "🏫 Registro de delegados (escuela)",
+          form_delegate_school_body: "Registro de delegación escolar (próximamente).",
+          form_delegate_ind_title: "🧍 Registro de delegados (independiente)",
+          form_delegate_ind_body: "Registro de delegados independientes (próximamente).",
+          form_advisor_title: "🧑‍🏫 Registro de asesores",
+          form_advisor_body: "Registro de asesores (próximamente).",
+          form_chair_title: "🪑 Solicitud de chairs",
+          form_chair_body: "Solicitudes de chair (agosto 2026).",
+          form_rop_title: "📚 Reglas de Procedimiento",
+          form_rop_body: "El RoP oficial se compartirá con chairs y delegados.",
+          form_coming_soon: "Próximamente",
+          form_links_title: "🔗 Enlaces de la conferencia",
+          form_updates: "Actualizaciones próximamente",
+          awards_title: "🏆 Premios",
+          awards_body: "Reconocimiento general, chairs y comités.",
+          schedule_title: "🗓️ Agenda",
+          schedule_body: "Programa de dos días con ceremonias de apertura y cierre.",
+          schedule_save_date: "📅 Guardar fecha",
+          schedule_add_google: "Agregar a Google Calendar",
+          schedule_day1: "📌 Día 1 - Sábado, 23 de enero de 2027",
+          schedule_day2: "📌 Día 2 - Domingo, 24 de enero de 2027",
+          contact_title: "📬 Contacto",
+          contact_general: "Consultas generales:",
+          contact_smt_email: "Correo SMT:",
+          contact_instagram: "Instagram:",
+          contact_secretary_general: "Secretario General:",
+          contact_deputy: "Subsecretario General:",
+          contact_parliamentarian: "Parlamentario:",
+          contact_schedule_title: "🗓️ Agenda",
+          contact_schedule_dates: "23-24 de enero de 2027",
+          contact_schedule_body: "Conferencia de dos días con apertura, comités y cierre.",
+          contact_schedule_venue_label: "Sede:",
+          contact_schedule_tagline: "Conferencia académica sin fines de lucro",
+          footer_title: "Conferencia SEAMUN I",
+          footer_tagline: "Políticas con un propósito",
+          footer_org: "SEAMUN | Modelo de Naciones Unidas del Sudeste Asiático",
+          light_mode: "☀️ Modo claro",
+          dark_mode: "🌙 Modo oscuro",
+          status_signed_out: "Sesión cerrada",
+          status_signed_out_message: "No has iniciado sesión.",
+          status_signed_in_as: "Sesión iniciada como {email}.",
+          nav_status_points: "{name} · {points} pts",
+          referral_sign_in: "Inicia sesión para ver tu enlace",
+          points_sign_in: "Inicia sesión para reclamar puntos",
+          points_completed: "Completado",
+          points_pending: "Pendiente de revisión",
+          points_submit: "Enviar prueba (+{points} pts)",
+          copy_success: "Copiado.",
+          copy_fail: "No se pudo copiar.",
+          signin_failed: "Error al iniciar sesión.",
+          signup_failed: "Error al registrarse.",
+          google_failed: "Error con Google.",
+          signout_failed: "Error al cerrar sesión.",
+          validation_first_name: "Ingresa tu nombre para registrarte.",
+          validation_school_select: "Selecciona una escuela o elige Otra.",
+          validation_school_name: "Ingresa el nombre de tu escuela.",
+          validation_upload: "Sube una captura.",
+          proof_submitted: "Prueba enviada. Puntos tras aprobación.",
+          proof_failed: "Error al enviar prueba.",
+        },
+        fr: {
+          language_label: "Langue",
+          theme_label: "Thème",
+          nav_overview: "🏛️ Aperçu",
+          nav_committees: "🧾 Comités",
+          nav_forms: "📝 Formulaires",
+          nav_more: "☰ Plus",
+          nav_awards: "🏆 Récompenses",
+          nav_schedule: "🗓️ Programme",
+          nav_signin: "🔐 Se connecter",
+          nav_profile: "👤 Profil",
+          nav_contact: "📬 Contact",
+          button_register: "S'inscrire",
+          hero_badge: "📅 À venir | 23-24 janvier 2027",
+          hero_title: "Conférence SEAMUN I",
+          hero_lead:
+            "SEAMUN I est une conférence MUN non lucrative dirigée par des élèves, axée sur la santé mondiale et la durabilité. 200 délégués, 22 chairs, 8 SMT, 10 staff et 10 conseillers externes participent à deux jours de débat. Les bénéfices sont versés au programme de financement de MDCU.",
+          hero_view_committees: "🧾 Voir les comités",
+          hero_see_applications: "📝 Voir les candidatures",
+          label_location: "📍 Lieu",
+          label_fees: "💸 Frais",
+          label_registration: "🧾 Inscription",
+          label_position_papers: "📄 Position papers",
+          snapshot_title: "Aperçu de la conférence",
+          snapshot_status: "Statut",
+          snapshot_capacity: "Capacité",
+          snapshot_delegates: "Délégués",
+          snapshot_chairs: "Chairs",
+          snapshot_smt: "SMT",
+          snapshot_staff: "Staff",
+          snapshot_note: "Les détails du lieu et de l'inscription seront annoncés.",
+          button_email_registration: "E-mail d'inscription",
+          button_contact_smt: "Contacter le SMT",
+          why_title: "💡 Pourquoi SEAMUN I",
+          why_body:
+            "Policies with a Purpose relie les délégués de 7e à 12e année pour débattre de la santé mondiale et de la durabilité.",
+          feature_inclusive_title: "🤝 Participation inclusive",
+          feature_inclusive_body: "Les délégués indépendants sont les bienvenus.",
+          feature_nonprofit_title: "❤️ Mission à but non lucratif",
+          feature_nonprofit_body: "Tous les bénéfices vont au programme MDCU.",
+          feature_committees_title: "🧩 10 comités",
+          feature_committees_body: "Comités traditionnels, spécialisés et fantasy.",
+          feature_topics_title: "✨ Thèmes uniques",
+          feature_topics_body: "Débats sur les droits humains, la sécurité, la santé, etc.",
+          signin_title: "🔐 Se connecter",
+          signin_body: "Utilisez votre e-mail et mot de passe pour accéder aux outils.",
+          label_first_name_required: "Prénom (obligatoire pour l'inscription)",
+          placeholder_first_name: "Prénom",
+          label_pronouns_optional: "Pronoms (facultatif)",
+          placeholder_pronouns: "She/Her, He/Him, They/Them",
+          label_school_university: "École ou université",
+          placeholder_school_select: "Sélectionnez une école ou université",
+          label_other_school: "Autre école",
+          placeholder_other_school: "Entrez votre école",
+          label_email: "E-mail",
+          placeholder_email: "you@email.com",
+          label_password: "Mot de passe",
+          placeholder_password: "••••••••",
+          button_sign_in: "Se connecter",
+          button_create_account: "Créer un compte",
+          button_google: "Continuer avec Google",
+          button_sign_out: "Se déconnecter",
+          label_points: "🎯 Points",
+          label_referral_link: "🔗 Lien de parrainage",
+          button_copy_code: "Copier le code",
+          button_copy_link: "Copier le lien",
+          referral_title: "🔗 Parrainage",
+          referral_body: "Partagez votre lien et suivez vos points.",
+          committees_title: "🧾 Comités",
+          committees_body: "Dix comités avec niveaux. Chairs à annoncer.",
+          grade_key_label: "Niveau :",
+          grade_key_7_8: "🟦 Niveaux 7-8",
+          grade_key_9_10: "🟪 Niveaux 9-10",
+          grade_key_11_12: "🟩 Niveaux 11-12",
+          filter_grade_label: "Filtrer par niveau :",
+          filter_committee_label: "Filtrer par comité :",
+          filter_all: "Tous",
+          filter_traditional: "Traditionnel",
+          filter_specialized: "Spécialisé",
+          filter_fantasy: "Fantasy",
+          forms_title: "📝 Candidatures et ressources",
+          forms_body: "Les formulaires clés seront partagés. Candidatures chairs fin août 2026.",
+          forms_note: "Points attribués uniquement pour FWC et Feedback.",
+          form_smt_title: "🧑‍💼 Candidature SMT",
+          form_smt_body:
+            "Rôles : DSG, Parlementaire, Logistique & Finances, Affaires délégués, PR & Médias.",
+          form_smt_deadline: "Date limite : 3 mars (acceptation)",
+          form_fwc_title: "🌌 Préférences FWC",
+          form_fwc_body: "Classez vos univers fantasy préférés.",
+          form_proof_note: "Téléversez une capture avec le logo Google Form. Revue manuelle.",
+          label_upload_proof: "Téléverser une preuve",
+          form_feedback_title: "🗣️ Retour de conférence",
+          form_feedback_body: "Partagez vos retours pour améliorer.",
+          form_link_tba: "Lien à annoncer",
+          form_delegate_school_title: "🏫 Inscription délégués (école)",
+          form_delegate_school_body: "Inscription délégation scolaire (bientôt).",
+          form_delegate_ind_title: "🧍 Inscription délégués (indépendant)",
+          form_delegate_ind_body: "Inscription délégués indépendants (bientôt).",
+          form_advisor_title: "🧑‍🏫 Inscription conseillers",
+          form_advisor_body: "Inscription conseillers (bientôt).",
+          form_chair_title: "🪑 Candidatures chairs",
+          form_chair_body: "Candidatures chairs (fin août 2026).",
+          form_rop_title: "📚 Règlement",
+          form_rop_body: "Le RoP officiel sera partagé.",
+          form_coming_soon: "Bientôt",
+          form_links_title: "🔗 Liens de conférence",
+          form_updates: "Mises à jour à venir",
+          awards_title: "🏆 Récompenses",
+          awards_body: "Reconnaissance générale, chairs et comités.",
+          schedule_title: "🗓️ Programme",
+          schedule_body: "Deux jours avec cérémonies d'ouverture et de clôture.",
+          schedule_save_date: "📅 Enregistrer la date",
+          schedule_add_google: "Ajouter à Google Calendar",
+          schedule_day1: "📌 Jour 1 - Samedi 23 janvier 2027",
+          schedule_day2: "📌 Jour 2 - Dimanche 24 janvier 2027",
+          contact_title: "📬 Contact",
+          contact_general: "Questions générales :",
+          contact_smt_email: "E-mail SMT :",
+          contact_instagram: "Instagram :",
+          contact_secretary_general: "Secrétaire général :",
+          contact_deputy: "Secrétaire général adjoint :",
+          contact_parliamentarian: "Parlementaire :",
+          contact_schedule_title: "🗓️ Programme",
+          contact_schedule_dates: "23-24 janvier 2027",
+          contact_schedule_body: "Deux jours avec cérémonie d'ouverture, comités, clôture.",
+          contact_schedule_venue_label: "Lieu :",
+          contact_schedule_tagline: "Conférence académique non lucrative",
+          footer_title: "Conférence SEAMUN I",
+          footer_tagline: "Des politiques qui ont du sens",
+          footer_org: "SEAMUN | Modèle des Nations Unies d’Asie du Sud-Est",
+          light_mode: "☀️ Mode clair",
+          dark_mode: "🌙 Mode sombre",
+          status_signed_out: "Déconnecté",
+          status_signed_out_message: "Non connecté.",
+          status_signed_in_as: "Connecté en tant que {email}.",
+          nav_status_points: "{name} · {points} pts",
+          referral_sign_in: "Connectez-vous pour obtenir le lien",
+          points_sign_in: "Connectez-vous pour obtenir des points",
+          points_completed: "Terminé",
+          points_pending: "En attente",
+          points_submit: "Envoyer la preuve (+{points} pts)",
+          copy_success: "Copié.",
+          copy_fail: "Échec de la copie.",
+          signin_failed: "Échec de connexion.",
+          signup_failed: "Échec d'inscription.",
+          google_failed: "Échec Google.",
+          signout_failed: "Échec de déconnexion.",
+          validation_first_name: "Veuillez saisir votre prénom.",
+          validation_school_select: "Sélectionnez une école ou Autre.",
+          validation_school_name: "Veuillez saisir le nom de l'école.",
+          validation_upload: "Veuillez téléverser une capture.",
+          proof_submitted: "Preuve envoyée. Points après validation.",
+          proof_failed: "Échec de l'envoi.",
+        },
+        ru: {
+          language_label: "Язык",
+          theme_label: "Тема",
+          nav_overview: "🏛️ Обзор",
+          nav_committees: "🧾 Комитеты",
+          nav_forms: "📝 Формы",
+          nav_more: "☰ Подробнее",
+          nav_awards: "🏆 Награды",
+          nav_schedule: "🗓️ Расписание",
+          nav_signin: "🔐 Войти",
+          nav_profile: "👤 Профиль",
+          nav_contact: "📬 Контакты",
+          button_register: "Регистрация",
+          hero_badge: "📅 Скоро | 23-24 января 2027",
+          hero_title: "Конференция SEAMUN I",
+          hero_lead:
+            "SEAMUN I — некоммерческая конференция MUN, организованная учениками, с фокусом на глобальном здравоохранении и устойчивом развитии. 200 делегатов, 22 председателя, 8 SMT, 10 сотрудников и 10 внешних советников участвуют в двухдневных дебатах. Вся прибыль направляется в программу MDCU.",
+          hero_view_committees: "🧾 Комитеты",
+          hero_see_applications: "📝 Заявки",
+          label_location: "📍 Место",
+          label_fees: "💸 Взносы",
+          label_registration: "🧾 Регистрация",
+          label_position_papers: "📄 Позиционные документы",
+          snapshot_title: "Обзор конференции",
+          snapshot_status: "Статус",
+          snapshot_capacity: "Вместимость",
+          snapshot_delegates: "Делегаты",
+          snapshot_chairs: "Председатели",
+          snapshot_smt: "SMT",
+          snapshot_staff: "Сотрудники",
+          snapshot_note: "Детали места и регистрации будут объявлены.",
+          button_email_registration: "Почта для регистрации",
+          button_contact_smt: "Связаться с SMT",
+          why_title: "💡 Почему SEAMUN I",
+          why_body:
+            "Policies with a Purpose объединяет делегатов 7–12 классов для обсуждения политики в области здравоохранения и устойчивости.",
+          feature_inclusive_title: "🤝 Инклюзивное участие",
+          feature_inclusive_body: "Независимые делегаты приветствуются.",
+          feature_nonprofit_title: "❤️ Некоммерческая миссия",
+          feature_nonprofit_body: "Вся прибыль направляется в программу MDCU.",
+          feature_committees_title: "🧩 10 комитетов",
+          feature_committees_body: "Традиционные, специализированные и фантазийные.",
+          feature_topics_title: "✨ Уникальные темы",
+          feature_topics_body: "Дебаты о правах человека, безопасности, здоровье и др.",
+          signin_title: "🔐 Войти",
+          signin_body: "Используйте email и пароль для доступа к инструментам.",
+          label_first_name_required: "Имя (обязательно для регистрации)",
+          placeholder_first_name: "Имя",
+          label_pronouns_optional: "Местоимения (необязательно)",
+          placeholder_pronouns: "She/Her, He/Him, They/Them",
+          label_school_university: "Школа или университет",
+          placeholder_school_select: "Выберите школу или университет",
+          label_other_school: "Другая школа",
+          placeholder_other_school: "Введите школу",
+          label_email: "Эл. почта",
+          placeholder_email: "you@email.com",
+          label_password: "Пароль",
+          placeholder_password: "••••••••",
+          button_sign_in: "Войти",
+          button_create_account: "Создать аккаунт",
+          button_google: "Продолжить с Google",
+          button_sign_out: "Выйти",
+          label_points: "🎯 Очки",
+          label_referral_link: "🔗 Реферальная ссылка",
+          button_copy_code: "Копировать код",
+          button_copy_link: "Копировать ссылку",
+          referral_title: "🔗 Рефералы",
+          referral_body: "Поделитесь ссылкой и следите за очками.",
+          committees_title: "🧾 Комитеты",
+          committees_body: "Десять комитетов с уровнем сложности. Председатели — позже.",
+          grade_key_label: "Ключ классов:",
+          grade_key_7_8: "🟦 7-8 классы",
+          grade_key_9_10: "🟪 9-10 классы",
+          grade_key_11_12: "🟩 11-12 классы",
+          filter_grade_label: "Фильтр по классу:",
+          filter_committee_label: "Фильтр по комитету:",
+          filter_all: "Все",
+          filter_traditional: "Традиционный",
+          filter_specialized: "Специализированный",
+          filter_fantasy: "Фэнтези",
+          forms_title: "📝 Заявки и ресурсы",
+          forms_body: "Ключевые формы будут опубликованы. Chairs — конец августа 2026.",
+          forms_note: "Очки только за FWC и Feedback.",
+          form_smt_title: "🧑‍💼 Заявка SMT",
+          form_smt_body:
+            "Роли: DSG, парламентариан, логистика и финансы, делегаты, PR и медиа.",
+          form_smt_deadline: "Дедлайн: 3 марта (подтверждение оффера)",
+          form_fwc_title: "🌌 Предпочтения FWC",
+          form_fwc_body: "Ранжируйте предпочтения по вселенным.",
+          form_proof_note: "Загрузите скрин с логотипом Google Form. Ручная проверка.",
+          label_upload_proof: "Загрузить скрин",
+          form_feedback_title: "🗣️ Обратная связь",
+          form_feedback_body: "Поделитесь отзывом для улучшения будущих конференций.",
+          form_link_tba: "Ссылка будет объявлена",
+          form_delegate_school_title: "🏫 Регистрация делегации (школа)",
+          form_delegate_school_body: "Регистрация школьной делегации (скоро).",
+          form_delegate_ind_title: "🧍 Регистрация делегата (независимый)",
+          form_delegate_ind_body: "Регистрация независимых делегатов (скоро).",
+          form_advisor_title: "🧑‍🏫 Регистрация советников",
+          form_advisor_body: "Регистрация советников (скоро).",
+          form_chair_title: "🪑 Заявки chairs",
+          form_chair_body: "Заявки chairs (конец августа 2026).",
+          form_rop_title: "📚 Регламент",
+          form_rop_body: "Официальный RoP будет предоставлен.",
+          form_coming_soon: "Скоро",
+          form_links_title: "🔗 Ссылки конференции",
+          form_updates: "Обновления позже",
+          awards_title: "🏆 Награды",
+          awards_body: "Общее, chair и комитеты.",
+          schedule_title: "🗓️ Расписание",
+          schedule_body: "Двухдневная программа с открытием и закрытием.",
+          schedule_save_date: "📅 Сохранить дату",
+          schedule_add_google: "Добавить в Google Calendar",
+          schedule_day1: "📌 День 1 - Суббота, 23 января 2027",
+          schedule_day2: "📌 День 2 - Воскресенье, 24 января 2027",
+          contact_title: "📬 Контакты",
+          contact_general: "Общие вопросы:",
+          contact_smt_email: "Почта SMT:",
+          contact_instagram: "Instagram:",
+          contact_secretary_general: "Генеральный секретарь:",
+          contact_deputy: "Зам. генсека:",
+          contact_parliamentarian: "Парламентариан:",
+          contact_schedule_title: "🗓️ Расписание",
+          contact_schedule_dates: "23-24 января 2027",
+          contact_schedule_body: "Два дня с открытием, комитетами и закрытием.",
+          contact_schedule_venue_label: "Место:",
+          contact_schedule_tagline: "Академическая некоммерческая конференция",
+          footer_title: "Конференция SEAMUN I",
+          footer_tagline: "Политика с целью",
+          footer_org: "SEAMUN | Модель ООН Юго‑Восточной Азии",
+          light_mode: "☀️ Светлая тема",
+          dark_mode: "🌙 Темная тема",
+          status_signed_out: "Вышли",
+          status_signed_out_message: "Не вошли.",
+          status_signed_in_as: "Вошли как {email}.",
+          nav_status_points: "{name} · {points} очк.",
+          referral_sign_in: "Войдите, чтобы получить ссылку",
+          points_sign_in: "Войдите, чтобы получить очки",
+          points_completed: "Готово",
+          points_pending: "На проверке",
+          points_submit: "Отправить доказательство (+{points} очк.)",
+          copy_success: "Скопировано.",
+          copy_fail: "Не удалось скопировать.",
+          signin_failed: "Не удалось войти.",
+          signup_failed: "Не удалось зарегистрироваться.",
+          google_failed: "Ошибка входа Google.",
+          signout_failed: "Не удалось выйти.",
+          validation_first_name: "Введите имя для регистрации.",
+          validation_school_select: "Выберите школу или Другую.",
+          validation_school_name: "Введите название школы.",
+          validation_upload: "Загрузите скриншот.",
+          proof_submitted: "Доказательство отправлено. Баллы после проверки.",
+          proof_failed: "Ошибка отправки.",
+        },
+      };
+
+      let currentLang = localStorage.getItem("seamun-lang") || "en";
+      const t = (key, vars = {}) => {
+        const table = translations[currentLang] || translations.en;
+        let text = table[key] || translations.en[key] || key;
+        Object.entries(vars).forEach(([token, value]) => {
+          text = text.replaceAll(`{${token}}`, String(value));
+        });
+        return text;
+      };
+
+      const applyLanguage = (lang) => {
+        currentLang = translations[lang] ? lang : "en";
+        document.documentElement.lang = currentLang;
+        localStorage.setItem("seamun-lang", currentLang);
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.dataset.i18n;
+          const value = t(key);
+          if (value) {
+            el.textContent = value;
+          }
+        });
+        document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+          const key = el.dataset.i18nPlaceholder;
+          const value = t(key);
+          if (value) {
+            el.setAttribute("placeholder", value);
+          }
+        });
+      };
+
+      if (languageSelect) {
+        languageSelect.value = currentLang;
+        languageSelect.addEventListener("change", (event) => {
+          applyLanguage(event.target.value);
+          setDarkMode(document.body.classList.contains("dark"));
+          updatePointsButtons();
+          if (currentUser) {
+            if (message) {
+              message.textContent = t("status_signed_in_as", {
+                email: currentUser.email || "",
+              });
+            }
+            if (navStatus) {
+              navStatus.textContent = t("nav_status_points", {
+                name: currentUserName || currentUser.email || "",
+                points: currentUserPoints,
+              });
+            }
+          } else {
+            if (message) {
+              message.textContent = t("status_signed_out_message");
+            }
+            if (navStatus) {
+              navStatus.textContent = t("status_signed_out");
+            }
+            if (referralLinkEl) {
+              referralLinkEl.textContent = t("referral_sign_in");
+            }
+          }
+        });
+      }
+
       const form = document.getElementById("signin-form");
       const message = document.getElementById("signin-message");
       const signOutButton = document.getElementById("signout-button");
@@ -1210,6 +2558,8 @@
       let unsubscribeUser = null;
       let completionsCache = {};
       let proofsCache = {};
+      let currentUserName = "";
+      let currentUserPoints = 0;
 
       const updatePointsButtons = () => {
         proofForms.forEach((proofForm) => {
@@ -1221,20 +2571,20 @@
           }
           if (!currentUser) {
             submitButton.disabled = true;
-            submitButton.textContent = "Sign in to claim points";
+            submitButton.textContent = t("points_sign_in");
             return;
           }
           const completed = Boolean(completionsCache[formId]);
           const pending = proofsCache[formId]?.status === "pending";
           if (completed) {
             submitButton.disabled = true;
-            submitButton.textContent = "Completed";
+            submitButton.textContent = t("points_completed");
           } else if (pending) {
             submitButton.disabled = true;
-            submitButton.textContent = "Pending review";
+            submitButton.textContent = t("points_pending");
           } else {
             submitButton.disabled = false;
-            submitButton.textContent = `Submit proof (+${points} points)`;
+            submitButton.textContent = t("points_submit", { points });
           }
         });
       };
@@ -1293,6 +2643,8 @@
           if (pointsTotal) {
             pointsTotal.textContent = String(points);
           }
+          currentUserName = firstName || user.email || "";
+          currentUserPoints = points;
           if (referralLinkEl && currentUser) {
             const link = `${window.location.origin}${window.location.pathname}?ref=${refCode}`;
             referralLinkEl.textContent = link;
@@ -1302,8 +2654,10 @@
             copyRefLinkButton.dataset.refLink = link;
           }
           if (navStatus) {
-            const nameLabel = firstName || user.email;
-            navStatus.textContent = `${nameLabel} · ${points} pts`;
+            navStatus.textContent = t("nav_status_points", {
+              name: currentUserName,
+              points: currentUserPoints,
+            });
           }
           updatePointsButtons();
           applyReferralBonus(user.uid, referrerCode);
@@ -1312,7 +2666,7 @@
 
       const updateStatus = (user) => {
         if (user) {
-          message.textContent = `Signed in as ${user.email}.`;
+          message.textContent = t("status_signed_in_as", { email: user.email });
           signOutButton.disabled = false;
           currentUser = user;
           if (signinSection) {
@@ -1344,11 +2698,13 @@
           );
           subscribeUser(user);
         } else {
-          message.textContent = "Not signed in.";
+          message.textContent = t("status_signed_out_message");
           signOutButton.disabled = true;
           currentUser = null;
           completionsCache = {};
           proofsCache = {};
+          currentUserName = "";
+          currentUserPoints = 0;
           if (signinSection) {
             signinSection.classList.remove("signed-in");
           }
@@ -1359,12 +2715,12 @@
             pointsTotal.textContent = "0";
           }
           if (referralLinkEl) {
-            referralLinkEl.textContent = "Sign in to get your link";
+            referralLinkEl.textContent = t("referral_sign_in");
             copyRefCodeButton.disabled = true;
             copyRefLinkButton.disabled = true;
           }
           if (navStatus) {
-            navStatus.textContent = "Signed out";
+            navStatus.textContent = t("status_signed_out");
           }
         }
         updatePointsButtons();
@@ -1383,7 +2739,7 @@
           form.reset();
           window.location.reload();
         } catch (error) {
-          message.textContent = error?.message || "Sign-in failed. Try again.";
+          message.textContent = error?.message || t("signin_failed");
         }
       });
 
@@ -1398,15 +2754,15 @@
         const finalSchool = school === "Other" ? schoolOther : school;
 
         if (!firstName) {
-          message.textContent = "Please enter your first name to sign up.";
+          message.textContent = t("validation_first_name");
           return;
         }
         if (!finalSchool) {
-          message.textContent = "Please select your school or choose Other.";
+          message.textContent = t("validation_school_select");
           return;
         }
         if (school === "Other" && !schoolOther) {
-          message.textContent = "Please enter your school name.";
+          message.textContent = t("validation_school_name");
           return;
         }
 
@@ -1445,7 +2801,7 @@
           form.reset();
           window.location.reload();
         } catch (error) {
-          message.textContent = error?.message || "Sign-up failed. Try again.";
+          message.textContent = error?.message || t("signup_failed");
         }
       });
 
@@ -1455,8 +2811,7 @@
           await signInWithPopup(auth, provider);
           window.location.reload();
         } catch (error) {
-          message.textContent =
-            error?.message || "Google sign-in failed. Try again.";
+          message.textContent = error?.message || t("google_failed");
         }
       });
 
@@ -1464,7 +2819,7 @@
         try {
           await signOut(auth);
         } catch (error) {
-          message.textContent = error?.message || "Sign-out failed. Try again.";
+          message.textContent = error?.message || t("signout_failed");
         }
       });
 
@@ -1481,9 +2836,9 @@
         }
         try {
           await navigator.clipboard.writeText(text);
-          message.textContent = "Copied to clipboard.";
+          message.textContent = t("copy_success");
         } catch (error) {
-          message.textContent = "Copy failed. Try again.";
+          message.textContent = t("copy_fail");
         }
       };
 
@@ -1503,7 +2858,7 @@
         proofForm.addEventListener("submit", async (event) => {
           event.preventDefault();
           if (!currentUser) {
-            message.textContent = "Sign in to claim points.";
+            message.textContent = t("points_sign_in");
             return;
           }
           const formId = proofForm.dataset.formId || "";
@@ -1511,7 +2866,7 @@
           const fileInput = proofForm.querySelector("input[type='file']");
           const file = fileInput?.files?.[0];
           if (!file) {
-            message.textContent = "Please upload a screenshot.";
+            message.textContent = t("validation_upload");
             return;
           }
 
@@ -1553,11 +2908,10 @@
                 { merge: true }
               );
             });
-            message.textContent =
-              "Proof submitted for manual review. Points will be added after approval.";
+            message.textContent = t("proof_submitted");
             proofForm.reset();
           } catch (error) {
-            message.textContent = error?.message || "Proof submission failed.";
+            message.textContent = error?.message || t("proof_failed");
           }
         });
       });
@@ -1593,7 +2947,7 @@
       const setDarkMode = (enabled) => {
         body.classList.toggle("dark", enabled);
         localStorage.setItem("seamun-dark", enabled ? "1" : "0");
-        themeToggle.textContent = enabled ? "☀️ Light mode" : "🌙 Dark mode";
+        themeToggle.textContent = enabled ? t("light_mode") : t("dark_mode");
       };
 
       themeButtons.forEach((button) => {
@@ -1608,6 +2962,7 @@
       const savedDark = localStorage.getItem("seamun-dark") === "1";
       setTheme(savedTheme);
       setDarkMode(savedDark);
+      applyLanguage(currentLang);
 
       const gradeButtons = document.querySelectorAll("[data-grade]");
       const typeButtons = document.querySelectorAll("[data-type]");
@@ -1662,18 +3017,5 @@
 
       applyFilters();
     </script>
-    <script>
-      window.googleTranslateElementInit = function () {
-        new google.translate.TranslateElement(
-          {
-            pageLanguage: "en",
-            includedLanguages: "th,zh-CN,ja,es,fr,ru",
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-          },
-          "google_translate_element"
-        );
-      };
-    </script>
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   </body>
 </html>

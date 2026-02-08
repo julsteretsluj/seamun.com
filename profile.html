@@ -19,12 +19,21 @@
         <button class="theme-toggle" type="button" data-theme-toggle>
           🌙 Dark mode
         </button>
-        <div class="translate-widget" aria-label="Language selector">
-          <span>🌐 Translate</span>
-          <div id="google_translate_element"></div>
-        </div>
+        <label class="language-selector" aria-label="Language selector">
+          <span aria-hidden="true">🌐</span>
+          <span data-i18n="language_label">Language</span>
+          <select id="language-select">
+            <option value="en">English</option>
+            <option value="th">ไทย</option>
+            <option value="zh">中文</option>
+            <option value="ja">日本語</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+            <option value="ru">Русский</option>
+          </select>
+        </label>
         <div class="theme-selector" aria-label="Theme selector">
-          <span>🎨 Theme</span>
+          <span>🎨 <span data-i18n="theme_label">Theme</span></span>
           <button class="theme-dot theme-red" type="button" data-theme="red" aria-label="Red theme"></button>
           <button class="theme-dot theme-orange" type="button" data-theme="orange" aria-label="Orange theme"></button>
           <button class="theme-dot theme-yellow" type="button" data-theme="yellow" aria-label="Yellow theme"></button>
@@ -51,17 +60,17 @@
           </div>
         </div>
         <nav class="nav">
-          <a href="index.html">🏛️ Home</a>
-          <a href="index.html#committees">🧾 Committees</a>
+          <a href="index.html" data-i18n="nav_home">🏛️ Home</a>
+          <a href="index.html#committees" data-i18n="nav_committees">🧾 Committees</a>
           <details class="nav-more">
-            <summary>☰ More</summary>
+            <summary data-i18n="nav_more">☰ More</summary>
             <div class="nav-more-menu">
-              <a href="index.html#forms">📝 Forms</a>
-              <a href="index.html#awards">🏆 Awards</a>
-              <a href="index.html#schedule">🗓️ Schedule</a>
-              <a href="index.html#signin">🔐 Sign in</a>
-              <a href="profile.html">👤 Profile</a>
-              <a href="index.html#contact">📬 Contact</a>
+              <a href="index.html#forms" data-i18n="nav_forms">📝 Forms</a>
+              <a href="index.html#awards" data-i18n="nav_awards">🏆 Awards</a>
+              <a href="index.html#schedule" data-i18n="nav_schedule">🗓️ Schedule</a>
+              <a href="index.html#signin" data-i18n="nav_signin">🔐 Sign in</a>
+              <a href="profile.html" data-i18n="nav_profile">👤 Profile</a>
+              <a href="index.html#contact" data-i18n="nav_contact">📬 Contact</a>
             </div>
           </details>
           <span class="nav-status" id="nav-auth-status">Signed out</span>
@@ -73,39 +82,45 @@
       <section class="section">
         <div class="container">
           <div class="section-header">
-            <h2>👤 Profile</h2>
-            <p>View your signed-in account details.</p>
+            <h2 data-i18n="profile_title">👤 Profile</h2>
+            <p data-i18n="profile_subtitle">View your signed-in account details.</p>
           </div>
           <div class="signin-card">
             <div class="signin-status">
               <span id="profile-status">Not signed in.</span>
-              <button class="btn btn-ghost" id="profile-signout" type="button" disabled>
+              <button
+                class="btn btn-ghost"
+                id="profile-signout"
+                type="button"
+                disabled
+                data-i18n="button_sign_out"
+              >
                 Sign out
               </button>
             </div>
             <div class="profile-details">
               <div>
-                <span class="meta-label">First name</span>
+                <span class="meta-label" data-i18n="label_first_name">First name</span>
                 <span class="meta-value" id="profile-first-name">-</span>
               </div>
               <div>
-                <span class="meta-label">Pronouns</span>
+                <span class="meta-label" data-i18n="label_pronouns">Pronouns</span>
                 <span class="meta-value" id="profile-pronouns">-</span>
               </div>
               <div>
-                <span class="meta-label">School</span>
+                <span class="meta-label" data-i18n="label_school">School</span>
                 <span class="meta-value" id="profile-school">-</span>
               </div>
               <div>
-                <span class="meta-label">Email</span>
+                <span class="meta-label" data-i18n="label_email">Email</span>
                 <span class="meta-value" id="profile-email">-</span>
               </div>
               <div>
-                <span class="meta-label">User ID</span>
+                <span class="meta-label" data-i18n="label_user_id">User ID</span>
                 <span class="meta-value" id="profile-uid">-</span>
               </div>
               <div>
-                <span class="meta-label">Points</span>
+                <span class="meta-label" data-i18n="label_points">Points</span>
                 <span class="meta-value" id="profile-points">0</span>
               </div>
             </div>
@@ -117,10 +132,10 @@
     <footer class="site-footer">
       <div class="container footer-inner">
         <div>
-          <strong>SEAMUN I Conference</strong>
-          <span>Policies with a Purpose</span>
+          <strong data-i18n="footer_title">SEAMUN I Conference</strong>
+          <span data-i18n="footer_tagline">Policies with a Purpose</span>
         </div>
-        <div>SEAMUN | South East Asia Model United Nations</div>
+        <div data-i18n="footer_org">SEAMUN | South East Asia Model United Nations</div>
       </div>
     </footer>
 
@@ -151,6 +166,270 @@
       const auth = getAuth(app);
       const db = getFirestore(app);
 
+      const languageSelect = document.getElementById("language-select");
+      const translations = {
+        en: {
+          language_label: "Language",
+          theme_label: "Theme",
+          nav_home: "🏛️ Home",
+          nav_committees: "🧾 Committees",
+          nav_more: "☰ More",
+          nav_forms: "📝 Forms",
+          nav_awards: "🏆 Awards",
+          nav_schedule: "🗓️ Schedule",
+          nav_signin: "🔐 Sign in",
+          nav_profile: "👤 Profile",
+          nav_contact: "📬 Contact",
+          nav_signed_out: "Signed out",
+          profile_title: "👤 Profile",
+          profile_subtitle: "View your signed-in account details.",
+          button_sign_out: "Sign out",
+          label_first_name: "First name",
+          label_pronouns: "Pronouns",
+          label_school: "School",
+          label_email: "Email",
+          label_user_id: "User ID",
+          label_points: "Points",
+          signed_in: "Signed in",
+          not_signed_in: "Not signed in.",
+          nav_status_points: "{name} · {points} pts",
+          light_mode: "☀️ Light mode",
+          dark_mode: "🌙 Dark mode",
+          footer_title: "SEAMUN I Conference",
+          footer_tagline: "Policies with a Purpose",
+          footer_org: "SEAMUN | South East Asia Model United Nations",
+        },
+        th: {
+          language_label: "ภาษา",
+          theme_label: "ธีม",
+          nav_home: "🏛️ หน้าแรก",
+          nav_committees: "🧾 คณะกรรมการ",
+          nav_more: "☰ เพิ่มเติม",
+          nav_forms: "📝 ฟอร์ม",
+          nav_awards: "🏆 รางวัล",
+          nav_schedule: "🗓️ กำหนดการ",
+          nav_signin: "🔐 เข้าสู่ระบบ",
+          nav_profile: "👤 โปรไฟล์",
+          nav_contact: "📬 ติดต่อ",
+          nav_signed_out: "ออกจากระบบ",
+          profile_title: "👤 โปรไฟล์",
+          profile_subtitle: "ดูรายละเอียดบัญชีที่ลงชื่อเข้าใช้ของคุณ",
+          button_sign_out: "ออกจากระบบ",
+          label_first_name: "ชื่อ",
+          label_pronouns: "สรรพนาม",
+          label_school: "โรงเรียน",
+          label_email: "อีเมล",
+          label_user_id: "รหัสผู้ใช้",
+          label_points: "คะแนน",
+          signed_in: "ลงชื่อเข้าใช้แล้ว",
+          not_signed_in: "ยังไม่ได้ลงชื่อเข้าใช้",
+          nav_status_points: "{name} · {points} คะแนน",
+          light_mode: "☀️ โหมดสว่าง",
+          dark_mode: "🌙 โหมดมืด",
+          footer_title: "การประชุม SEAMUN I",
+          footer_tagline: "นโยบายที่มีเป้าหมาย",
+          footer_org: "SEAMUN | โมเดลสหประชาชาติเอเชียตะวันออกเฉียงใต้",
+        },
+        zh: {
+          language_label: "语言",
+          theme_label: "主题",
+          nav_home: "🏛️ 首页",
+          nav_committees: "🧾 委员会",
+          nav_more: "☰ 更多",
+          nav_forms: "📝 表格",
+          nav_awards: "🏆 奖项",
+          nav_schedule: "🗓️ 日程",
+          nav_signin: "🔐 登录",
+          nav_profile: "👤 个人资料",
+          nav_contact: "📬 联系",
+          nav_signed_out: "已退出",
+          profile_title: "👤 个人资料",
+          profile_subtitle: "查看已登录账户详情。",
+          button_sign_out: "退出登录",
+          label_first_name: "名",
+          label_pronouns: "代词",
+          label_school: "学校",
+          label_email: "邮箱",
+          label_user_id: "用户ID",
+          label_points: "积分",
+          signed_in: "已登录",
+          not_signed_in: "未登录。",
+          nav_status_points: "{name} · {points} 分",
+          light_mode: "☀️ 浅色模式",
+          dark_mode: "🌙 深色模式",
+          footer_title: "SEAMUN I 会议",
+          footer_tagline: "宗旨明确的政策",
+          footer_org: "SEAMUN | 东南亚模拟联合国",
+        },
+        ja: {
+          language_label: "言語",
+          theme_label: "テーマ",
+          nav_home: "🏛️ ホーム",
+          nav_committees: "🧾 委員会",
+          nav_more: "☰ もっと見る",
+          nav_forms: "📝 フォーム",
+          nav_awards: "🏆 表彰",
+          nav_schedule: "🗓️ スケジュール",
+          nav_signin: "🔐 サインイン",
+          nav_profile: "👤 プロフィール",
+          nav_contact: "📬 連絡先",
+          nav_signed_out: "サインアウト中",
+          profile_title: "👤 プロフィール",
+          profile_subtitle: "サインインしたアカウントの詳細を表示します。",
+          button_sign_out: "サインアウト",
+          label_first_name: "名",
+          label_pronouns: "代名詞",
+          label_school: "学校",
+          label_email: "メール",
+          label_user_id: "ユーザーID",
+          label_points: "ポイント",
+          signed_in: "サインイン済み",
+          not_signed_in: "未サインイン",
+          nav_status_points: "{name} · {points} pt",
+          light_mode: "☀️ ライトモード",
+          dark_mode: "🌙 ダークモード",
+          footer_title: "SEAMUN I 会議",
+          footer_tagline: "目的ある政策",
+          footer_org: "SEAMUN | 東南アジア模擬国連",
+        },
+        es: {
+          language_label: "Idioma",
+          theme_label: "Tema",
+          nav_home: "🏛️ Inicio",
+          nav_committees: "🧾 Comités",
+          nav_more: "☰ Más",
+          nav_forms: "📝 Formularios",
+          nav_awards: "🏆 Premios",
+          nav_schedule: "🗓️ Agenda",
+          nav_signin: "🔐 Iniciar sesión",
+          nav_profile: "👤 Perfil",
+          nav_contact: "📬 Contacto",
+          nav_signed_out: "Sesión cerrada",
+          profile_title: "👤 Perfil",
+          profile_subtitle: "Ver los detalles de tu cuenta.",
+          button_sign_out: "Cerrar sesión",
+          label_first_name: "Nombre",
+          label_pronouns: "Pronombres",
+          label_school: "Escuela",
+          label_email: "Correo",
+          label_user_id: "ID de usuario",
+          label_points: "Puntos",
+          signed_in: "Sesión iniciada",
+          not_signed_in: "No has iniciado sesión.",
+          nav_status_points: "{name} · {points} pts",
+          light_mode: "☀️ Modo claro",
+          dark_mode: "🌙 Modo oscuro",
+          footer_title: "Conferencia SEAMUN I",
+          footer_tagline: "Políticas con un propósito",
+          footer_org: "SEAMUN | Modelo de Naciones Unidas del Sudeste Asiático",
+        },
+        fr: {
+          language_label: "Langue",
+          theme_label: "Thème",
+          nav_home: "🏛️ Accueil",
+          nav_committees: "🧾 Comités",
+          nav_more: "☰ Plus",
+          nav_forms: "📝 Formulaires",
+          nav_awards: "🏆 Récompenses",
+          nav_schedule: "🗓️ Programme",
+          nav_signin: "🔐 Se connecter",
+          nav_profile: "👤 Profil",
+          nav_contact: "📬 Contact",
+          nav_signed_out: "Déconnecté",
+          profile_title: "👤 Profil",
+          profile_subtitle: "Voir les détails de votre compte.",
+          button_sign_out: "Se déconnecter",
+          label_first_name: "Prénom",
+          label_pronouns: "Pronoms",
+          label_school: "École",
+          label_email: "E-mail",
+          label_user_id: "ID utilisateur",
+          label_points: "Points",
+          signed_in: "Connecté",
+          not_signed_in: "Non connecté.",
+          nav_status_points: "{name} · {points} pts",
+          light_mode: "☀️ Mode clair",
+          dark_mode: "🌙 Mode sombre",
+          footer_title: "Conférence SEAMUN I",
+          footer_tagline: "Des politiques qui ont du sens",
+          footer_org: "SEAMUN | Modèle des Nations Unies d’Asie du Sud-Est",
+        },
+        ru: {
+          language_label: "Язык",
+          theme_label: "Тема",
+          nav_home: "🏛️ Главная",
+          nav_committees: "🧾 Комитеты",
+          nav_more: "☰ Подробнее",
+          nav_forms: "📝 Формы",
+          nav_awards: "🏆 Награды",
+          nav_schedule: "🗓️ Расписание",
+          nav_signin: "🔐 Войти",
+          nav_profile: "👤 Профиль",
+          nav_contact: "📬 Контакты",
+          nav_signed_out: "Вышли",
+          profile_title: "👤 Профиль",
+          profile_subtitle: "Просмотр сведений учетной записи.",
+          button_sign_out: "Выйти",
+          label_first_name: "Имя",
+          label_pronouns: "Местоимения",
+          label_school: "Школа",
+          label_email: "Эл. почта",
+          label_user_id: "ID пользователя",
+          label_points: "Очки",
+          signed_in: "Вошли",
+          not_signed_in: "Не вошли.",
+          nav_status_points: "{name} · {points} очк.",
+          light_mode: "☀️ Светлая тема",
+          dark_mode: "🌙 Темная тема",
+          footer_title: "Конференция SEAMUN I",
+          footer_tagline: "Политика с целью",
+          footer_org: "SEAMUN | Модель ООН Юго‑Восточной Азии",
+        },
+      };
+
+      let currentLang = localStorage.getItem("seamun-lang") || "en";
+      const t = (key, vars = {}) => {
+        const table = translations[currentLang] || translations.en;
+        let text = table[key] || translations.en[key] || key;
+        Object.entries(vars).forEach(([token, value]) => {
+          text = text.replaceAll(`{${token}}`, String(value));
+        });
+        return text;
+      };
+
+      const applyLanguage = (lang) => {
+        currentLang = translations[lang] ? lang : "en";
+        document.documentElement.lang = currentLang;
+        localStorage.setItem("seamun-lang", currentLang);
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.dataset.i18n;
+          const value = t(key);
+          if (value) {
+            el.textContent = value;
+          }
+        });
+      };
+
+      if (languageSelect) {
+        languageSelect.value = currentLang;
+        languageSelect.addEventListener("change", (event) => {
+          applyLanguage(event.target.value);
+          setDarkMode(document.body.classList.contains("dark"));
+          if (auth.currentUser) {
+            const nameLabel =
+              profileFirstName.textContent !== "-" ? profileFirstName.textContent : auth.currentUser.email || "-";
+            navStatus.textContent = t("nav_status_points", {
+              name: nameLabel,
+              points: profilePoints.textContent || 0,
+            });
+            profileStatus.textContent = nameLabel;
+          } else {
+            navStatus.textContent = t("nav_signed_out");
+            profileStatus.textContent = t("not_signed_in");
+          }
+        });
+      }
+
       const navStatus = document.getElementById("nav-auth-status");
       const profileStatus = document.getElementById("profile-status");
       const profileFirstName = document.getElementById("profile-first-name");
@@ -165,8 +444,8 @@
 
       onAuthStateChanged(auth, (user) => {
         if (user) {
-          navStatus.textContent = "Signed in";
-          profileStatus.textContent = "Signed in";
+          navStatus.textContent = t("signed_in");
+          profileStatus.textContent = t("signed_in");
           profileEmail.textContent = user.email || "-";
           profileUid.textContent = user.uid || "-";
           signOutButton.disabled = false;
@@ -182,12 +461,15 @@
             profilePronouns.textContent = data.pronouns || "-";
             profileSchool.textContent = data.school || "-";
             const nameLabel = data.firstName || fallbackName || user.email;
-            navStatus.textContent = `${nameLabel} · ${data.points || 0} pts`;
+            navStatus.textContent = t("nav_status_points", {
+              name: nameLabel,
+              points: data.points || 0,
+            });
             profileStatus.textContent = nameLabel;
           });
         } else {
-          navStatus.textContent = "Signed out";
-          profileStatus.textContent = "Not signed in.";
+          navStatus.textContent = t("nav_signed_out");
+          profileStatus.textContent = t("not_signed_in");
           profileFirstName.textContent = "-";
           profilePronouns.textContent = "-";
           profileSchool.textContent = "-";
@@ -218,7 +500,7 @@
       const setDarkMode = (enabled) => {
         body.classList.toggle("dark", enabled);
         localStorage.setItem("seamun-dark", enabled ? "1" : "0");
-        themeToggle.textContent = enabled ? "☀️ Light mode" : "🌙 Dark mode";
+        themeToggle.textContent = enabled ? t("light_mode") : t("dark_mode");
       };
 
       themeButtons.forEach((button) => {
@@ -233,19 +515,7 @@
       const savedDark = localStorage.getItem("seamun-dark") === "1";
       setTheme(savedTheme);
       setDarkMode(savedDark);
+      applyLanguage(currentLang);
     </script>
-    <script>
-      window.googleTranslateElementInit = function () {
-        new google.translate.TranslateElement(
-          {
-            pageLanguage: "en",
-            includedLanguages: "th,zh-CN,ja,es,fr,ru",
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-          },
-          "google_translate_element"
-        );
-      };
-    </script>
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   </body>
 </html>
