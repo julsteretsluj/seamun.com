@@ -19,6 +19,10 @@
         <button class="theme-toggle" type="button" data-theme-toggle>
           🌙 Dark mode
         </button>
+        <div class="translate-widget" aria-label="Language selector">
+          <span>🌐 Translate</span>
+          <div id="google_translate_element"></div>
+        </div>
         <div class="theme-selector" aria-label="Theme selector">
           <span>🎨 Theme</span>
           <button class="theme-dot theme-red" type="button" data-theme="red" aria-label="Red theme"></button>
@@ -230,5 +234,18 @@
       setTheme(savedTheme);
       setDarkMode(savedDark);
     </script>
+    <script>
+      window.googleTranslateElementInit = function () {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "en",
+            includedLanguages: "th,zh-CN,ja,es,fr,ru",
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          },
+          "google_translate_element"
+        );
+      };
+    </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   </body>
 </html>
