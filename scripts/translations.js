@@ -1,1040 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SEAMUN I Conference</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" type="image/png" href="assets/seamun-logo-light.png" />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="theme-bar">
-      <div class="container theme-bar-inner">
-        <button class="theme-toggle" type="button" data-theme-toggle>
-          🌙 Dark mode
-        </button>
-        <label class="language-selector" aria-label="Language selector">
-          <span aria-hidden="true">🌐</span>
-          <span data-i18n="language_label">Language</span>
-          <select id="language-select">
-            <option value="en">English</option>
-            <option value="th">ไทย</option>
-            <option value="zh">中文</option>
-            <option value="ja">日本語</option>
-            <option value="es">Español</option>
-            <option value="fr">Français</option>
-            <option value="ru">Русский</option>
-            <option value="ko">한국어</option>
-          </select>
-        </label>
-        <div class="theme-selector" aria-label="Theme selector">
-          <span>🎨 <span data-i18n="theme_label">Theme</span></span>
-          <button class="theme-dot theme-red" type="button" data-theme="red" aria-label="Red theme"></button>
-          <button class="theme-dot theme-orange" type="button" data-theme="orange" aria-label="Orange theme"></button>
-          <button class="theme-dot theme-yellow" type="button" data-theme="yellow" aria-label="Yellow theme"></button>
-          <button class="theme-dot theme-green" type="button" data-theme="green" aria-label="Green theme"></button>
-          <button class="theme-dot theme-blue" type="button" data-theme="blue" aria-label="Blue theme"></button>
-          <button class="theme-dot theme-purple" type="button" data-theme="purple" aria-label="Purple theme"></button>
-          <button class="theme-dot theme-pink" type="button" data-theme="pink" aria-label="Pink theme"></button>
-          <button class="theme-dot theme-grey" type="button" data-theme="grey" aria-label="Grey theme"></button>
-          <button class="theme-dot theme-mono" type="button" data-theme="mono" aria-label="Monochrome theme"></button>
-        </div>
-      </div>
-    </div>
-    <header class="site-header">
-      <div class="container header-inner">
-        <div class="logo">
-          <img
-            class="logo-image"
-            src="assets/seamun-logo-light.png"
-            alt="SEAMUN I logo"
-          />
-          <div class="logo-text">
-            <strong>SEAMUN I</strong>
-            <span data-i18n="footer_tagline">Policies with a Purpose</span>
-          </div>
-        </div>
-        <nav class="nav">
-          <a href="#overview" data-i18n="nav_overview">🏛️ Overview</a>
-          <a href="committees.html" data-i18n="nav_committees">🧾 Committees</a>
-          <a href="#forms" data-i18n="nav_forms">📝 Forms</a>
-          <details class="nav-more">
-            <summary data-i18n="nav_more">☰ More</summary>
-            <div class="nav-more-menu">
-              <a href="#awards" data-i18n="nav_awards">🏆 Awards</a>
-              <a href="#schedule" data-i18n="nav_schedule">🗓️ Schedule</a>
-              <a href="#signin" data-i18n="nav_signin">🔐 Sign in</a>
-              <a href="profile.html" data-i18n="nav_profile">👤 Profile</a>
-              <a href="#leadership" data-i18n="nav_leadership">👔 Leadership</a>
-              <a href="#for-venues-sponsors" data-i18n="nav_for_partners">🏢 For venues &amp; sponsors</a>
-              <a href="#contact" data-i18n="nav_contact">📬 Contact</a>
-            </div>
-          </details>
-          <span class="nav-status" id="nav-auth-status">Signed out</span>
-        </nav>
-        <a class="btn btn-primary" href="#register" data-i18n="button_register">Register</a>
-      </div>
-    </header>
-
-    <main>
-      <section class="role-entry section alt" id="role-entry">
-        <div class="container">
-          <h2 class="role-entry-title" data-i18n="role_are_you">Are you a:</h2>
-          <div class="role-options" role="group" aria-label="Select your role">
-            <button type="button" class="role-btn" data-role="delegate" data-i18n="role_delegate">
-              👥 Delegate
-            </button>
-            <button type="button" class="role-btn" data-role="chair" data-i18n="role_chair">
-              🪑 Chair
-            </button>
-            <button type="button" class="role-btn" data-role="advisor" data-i18n="role_advisor">
-              💜 Advisor
-            </button>
-          </div>
-          <div class="role-welcome hidden" id="role-welcome">
-            <div class="welcome-panel" data-panel="delegate" hidden>
-              <p class="welcome-question" data-i18n="role_independent_question">Are you an independent delegate?</p>
-              <div class="independent-toggle">
-                <button type="button" class="btn btn-ghost" data-independent="yes" data-i18n="role_yes">Yes</button>
-                <button type="button" class="btn btn-ghost" data-independent="no" data-i18n="role_no">No</button>
-              </div>
-              <div class="welcome-message welcome-independent hidden" data-i18n="welcome_independent">Welcome, independent delegate!</div>
-              <div class="welcome-message welcome-school hidden" data-i18n="welcome_delegate">Welcome, delegate!</div>
-              <div class="welcome-actions">
-                <a class="btn btn-primary" href="#register" data-i18n="action_sign_up">Sign up</a>
-                <a class="btn btn-ghost" href="profile.html" data-i18n="action_check_status">Check status</a>
-                <a class="btn btn-ghost" href="#signin" data-i18n="action_login">Login</a>
-              </div>
-            </div>
-            <div class="welcome-panel" data-panel="chair" hidden>
-              <p class="welcome-message" data-i18n="welcome_chair">Welcome, chair!</p>
-              <div class="welcome-actions">
-                <a class="btn btn-primary" href="#forms" data-i18n="action_sign_up">Sign up</a>
-                <a class="btn btn-ghost" href="profile.html" data-i18n="action_check_status">Check status</a>
-                <a class="btn btn-ghost" href="#signin" data-i18n="action_login">Login</a>
-              </div>
-            </div>
-            <div class="welcome-panel" data-panel="advisor" hidden>
-              <p class="welcome-message" data-i18n="welcome_advisor">Welcome, advisors!</p>
-              <div class="welcome-actions">
-                <a class="btn btn-primary" href="#forms" data-i18n="action_sign_up">Sign up</a>
-                <a class="btn btn-ghost" href="profile.html" data-i18n="action_check_status">Check status</a>
-                <a class="btn btn-ghost" href="#signin" data-i18n="action_login">Login</a>
-              </div>
-            </div>
-            <button type="button" class="btn btn-ghost back-to-roles" id="back-to-roles" data-i18n="action_back">Back</button>
-          </div>
-        </div>
-      </section>
-
-      <section class="hero" id="overview">
-        <div class="container hero-grid">
-          <div class="hero-text">
-            <span class="badge" data-i18n="hero_badge">📅 Upcoming | January 23-24, 2027</span>
-            <h1 data-i18n="hero_title">SEAMUN I Conference</h1>
-            <p class="lead" data-i18n="hero_lead">
-              SEAMUN I is a student-led, non-profit Model United Nations
-              conference focused on global healthcare and sustainability policy.
-              Join 200 delegates, 22 chairs, 8 SMT, 10 staff, and 10 external
-              advisors for two days of policy-driven debate. All profits are
-              directed to MDCU's funding program.
-            </p>
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="committees.html" data-i18n="hero_view_committees">
-                🧾 View committees
-              </a>
-              <a class="btn btn-ghost" href="#forms" data-i18n="hero_see_applications">
-                📝 See applications
-              </a>
-            </div>
-            <div class="hero-meta">
-              <div>
-                <span class="meta-label" data-i18n="label_location">📍 Location</span>
-                <span class="meta-value" data-i18n="meta_value_venue">Venue TBD (First choice: MDCU Conference Center; Kasetsart University; SEAMEO SPAFA - Dusit District; St. Gabriel’s Foundation Building - Thong Lo 25; Rompo Mansion - Rama IV / Near Klong Toei)</span>
-              </div>
-              <div>
-                <span class="meta-label" data-i18n="label_fees">💸 Fees</span>
-                <span class="meta-value" data-i18n="meta_value_fees">2,500 THB (school) / 3,000 THB (independent). Chair fee: 800 THB.</span>
-              </div>
-              <div>
-                <span class="meta-label" data-i18n="label_registration">🧾 Registration</span>
-                <span class="meta-value" data-i18n="meta_value_registration">To be announced</span>
-              </div>
-              <div>
-                <span class="meta-label" data-i18n="label_position_papers">📄 Position papers</span>
-                <span class="meta-value" data-i18n="meta_value_position_papers">Deadline: January 9, 2027</span>
-              </div>
-            </div>
-          </div>
-          <div class="hero-card">
-            <h2 data-i18n="snapshot_title">Conference Snapshot</h2>
-            <div class="snapshot-grid">
-              <div>
-                <span class="snapshot-label" data-i18n="snapshot_status">Status</span>
-                <span class="snapshot-value" data-i18n="snapshot_value_upcoming">Upcoming</span>
-              </div>
-              <div>
-                <span class="snapshot-label" data-i18n="snapshot_capacity">Capacity</span>
-                <span class="snapshot-value" data-i18n="snapshot_value_capacity">250 total</span>
-              </div>
-              <div>
-                <span class="snapshot-label" data-i18n="snapshot_delegates">Delegates</span>
-                <span class="snapshot-value">200</span>
-              </div>
-              <div>
-                <span class="snapshot-label" data-i18n="snapshot_chairs">Chairs</span>
-                <span class="snapshot-value">22</span>
-              </div>
-              <div>
-                <span class="snapshot-label" data-i18n="snapshot_smt">SMT</span>
-                <span class="snapshot-value">8</span>
-              </div>
-              <div>
-                <span class="snapshot-label" data-i18n="snapshot_staff">Staff</span>
-                <span class="snapshot-value">10</span>
-              </div>
-            </div>
-            <div class="note" data-i18n="snapshot_note">
-              Venue and registration details will be announced.
-            </div>
-            <div class="cta-stack" id="register">
-              <a
-                class="btn btn-primary"
-                href="mailto:info@seamuns.site"
-                data-i18n="button_email_registration"
-              >
-                Email for registration
-              </a>
-              <a
-                class="btn btn-ghost"
-                href="mailto:studentmanagementteam@seamuns.site"
-                data-i18n="button_contact_smt"
-              >
-                Contact the SMT
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="leadership">
-        <div class="container">
-          <div class="section-header">
-            <h2 data-i18n="leadership_title">👔 Secretariat &amp; leadership</h2>
-            <p data-i18n="leadership_body">The team behind SEAMUN I 2027.</p>
-          </div>
-          <div class="leadership-grid">
-            <div class="leadership-card">
-              <span class="leadership-role" data-i18n="role_sg">Secretary General</span>
-              <span class="leadership-name">Jules K.A.</span>
-              <a href="mailto:juleskittoastrop@gmail.com" class="leadership-email">juleskittoastrop@gmail.com</a>
-            </div>
-            <div class="leadership-card">
-              <span class="leadership-role" data-i18n="role_dsg">Deputy Secretary General</span>
-              <span class="leadership-name">Emily H.</span>
-              <a href="mailto:emily.yhstudent@sisbschool.com" class="leadership-email">emily.yhstudent@sisbschool.com</a>
-            </div>
-            <div class="leadership-card">
-              <span class="leadership-role" data-i18n="role_parliamentarian">Parliamentarian</span>
-              <span class="leadership-name">Lotus T.</span>
-              <a href="mailto:ladapham14@gmail.com" class="leadership-email">ladapham14@gmail.com</a>
-            </div>
-            <div class="leadership-card">
-              <span class="leadership-role" data-i18n="role_hlf">Head of Logistics &amp; Finance</span>
-              <span class="leadership-name">Dominic S. S.</span>
-              <a href="mailto:dominicstott09@gmail.com" class="leadership-email">dominicstott09@gmail.com</a>
-            </div>
-            <div class="leadership-card">
-              <span class="leadership-role" data-i18n="role_df">Deputy Head of Finance</span>
-              <span class="leadership-name">Mannan P.</span>
-              <a href="mailto:mannanparikh27@gmail.com" class="leadership-email">mannanparikh27@gmail.com</a>
-            </div>
-            <div class="leadership-card">
-              <span class="leadership-role" data-i18n="role_hpr">Head of PR &amp; Advertising</span>
-              <span class="leadership-name">Phil</span>
-              <a href="mailto:sarana79262@gmail.com" class="leadership-email">sarana79262@gmail.com</a>
-            </div>
-            <div class="leadership-card">
-              <span class="leadership-role" data-i18n="role_hm">Head of Media</span>
-              <span class="leadership-name">Ping J.</span>
-              <a href="mailto:30bping@regents.ac.th" class="leadership-email">30bping@regents.ac.th</a>
-            </div>
-            <div class="leadership-card">
-              <span class="leadership-role" data-i18n="role_da">Delegate Affairs</span>
-              <span class="leadership-name">—</span>
-              <span class="leadership-email">TBD</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section alt" id="pillars">
-        <div class="container">
-          <div class="section-header">
-            <h2 data-i18n="pillars_title">🎯 Our pillars</h2>
-            <p data-i18n="pillars_body">Purpose, collaboration, and diplomacy drive SEAMUN I.</p>
-          </div>
-          <div class="pillars-grid">
-            <div class="pillar-card">
-              <h3 class="pillar-name" data-i18n="pillar_purpose">Purpose</h3>
-              <p data-i18n="pillar_purpose_body">SEAMUN I is purpose-driven: 100% of conference surplus is donated to the King Chulalongkorn Memorial Hospital Foundation. We bridge global policy debate with local impact.</p>
-            </div>
-            <div class="pillar-card">
-              <h3 class="pillar-name" data-i18n="pillar_collaboration">Collaboration</h3>
-              <p data-i18n="pillar_collaboration_body">Delegates, chairs, and advisors work together across 10 committees. We build partnerships through resolution-writing, caucusing, and committee activities.</p>
-            </div>
-            <div class="pillar-card">
-              <h3 class="pillar-name" data-i18n="pillar_diplomacy">Diplomacy</h3>
-              <p data-i18n="pillar_diplomacy_body">Rules of procedure, moderated debate, and formal diplomacy are at the heart of the conference. We train the next generation in negotiation and public speaking.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="container">
-          <div class="section-header">
-            <h2 data-i18n="why_title">💡 Why SEAMUN I</h2>
-            <p data-i18n="why_body">
-              Policies with a Purpose connects delegates from grades 7-12 to
-              debate global healthcare and sustainability policy through
-              traditional, specialized, and fantasy committees.
-            </p>
-          </div>
-          <div class="feature-grid">
-            <div class="feature-card">
-              <h3 data-i18n="feature_inclusive_title">🤝 Inclusive participation</h3>
-              <p data-i18n="feature_inclusive_body">Independent delegates are welcome.</p>
-            </div>
-            <div class="feature-card">
-              <h3 data-i18n="feature_nonprofit_title">❤️ Non-profit mission</h3>
-              <p data-i18n="feature_nonprofit_body">
-                All profits are directed to MDCU's funding program.
-              </p>
-            </div>
-            <div class="feature-card">
-              <h3 data-i18n="feature_committees_title">🧩 10 committees</h3>
-              <p data-i18n="feature_committees_body">
-                Traditional, specialized, and a Fantasy World Committee.
-              </p>
-            </div>
-            <div class="feature-card">
-              <h3 data-i18n="feature_topics_title">✨ Unique topics</h3>
-              <p data-i18n="feature_topics_body">
-                Policy debates across human rights, security, health, and more.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section alt" id="signin">
-        <div class="container">
-          <div class="section-header">
-            <h2 data-i18n="signin_title">🔐 Sign in</h2>
-            <p data-i18n="signin_body">Use your email and password to access conference tools.</p>
-          </div>
-          <div class="signin-card">
-            <form id="signin-form" class="signin-form">
-              <label>
-                <span data-i18n="label_first_name_required">First name (required for sign up)</span>
-                <input
-                  type="text"
-                  name="firstName"
-                  placeholder="First name"
-                  data-i18n-placeholder="placeholder_first_name"
-                />
-              </label>
-              <label>
-                <span data-i18n="label_pronouns_optional">Pronouns (optional)</span>
-                <input
-                  type="text"
-                  name="pronouns"
-                  placeholder="She/Her, He/Him, They/Them"
-                  data-i18n-placeholder="placeholder_pronouns"
-                />
-              </label>
-              <label>
-                <span data-i18n="label_school_university">School or University</span>
-                <select name="school" id="school-select">
-                  <option value="" data-i18n="placeholder_school_select">
-                    Select a school or university
-                  </option>
-                  <option>BPS (Bangkok Patana School)</option>
-                  <option>CISB (Charter International School Bangkok)</option>
-                  <option>CIST (Canadian International School Bangkok)</option>
-                  <option>CIS (Concordian International School Bangkok)</option>
-                  <option>EIS (Ekamai International School Bangkok)</option>
-                  <option>HIS (Harrow International School Bangkok)</option>
-                  <option>GISB (Garden International School Bangkok)</option>
-                  <option>ICS (International Community School Bangkok)</option>
-                  <option>IPS (International Pioneers School Bangkok)</option>
-                  <option>ASB (American International School Bangkok)</option>
-                  <option>ASB (Amnuay Slipa School Bangkok)</option>
-                  <option>ISB (International School Bangkok)</option>
-                  <option>KCB (King's College International School Bangkok)</option>
-                  <option>KIS (KIS International School Bangkok)</option>
-                  <option>Assumption College Bangkok</option>
-                  <option>NIST (NIST International School Bangkok)</option>
-                  <option>WCIS (Wellington College International School Bangkok)</option>
-                  <option>RIS (Rumrudee International School Bangkok)</option>
-                  <option>ASBG (American School of Bangkok Green Valley)</option>
-                  <option>BASIS (BASIS International School Bangkok)</option>
-                  <option>NSB (Newton Business School Bangkok)</option>
-                  <option>RAS (Raffles American School Bangkok)</option>
-                  <option>SKIP (Satit Kaset International Program, Katesart University Bangkok)</option>
-                  <option>KCS (Kwong Chow School Bangkok)</option>
-                  <option>SSIS (St. Stephens International School Bangkok)</option>
-                  <option>KISB (Kevalee International School Bangkok)</option>
-                  <option>STA107 (St. Andrews, Sukhumvit 107 Bangkok)</option>
-                  <option>TCIS (Thai-Chinese International School Bangkok)</option>
-                  <option>KPIS (Keerapat International School Bangkok)</option>
-                  <option>TSB (Thai-Sikh International School Bangkok)</option>
-                  <option>LFIB (Lycee Francais International de Bangkok International School)</option>
-                  <option>TSIS (Thai-Singapore International School Bangkok)</option>
-                  <option>BCB (Brighton College Bangkok)</option>
-                  <option>TUS (Triam Udom Suksa Bangkok)</option>
-                  <option>NIS (Norwich International School Bangkok)</option>
-                  <option>VIS (VERSO International School Bangkok)</option>
-                  <option>PDS (Patumwan Demonstration School Bangkok)</option>
-                  <option>WIS (Wells International School Bangkok)</option>
-                  <option>RAIS (Roong Aroon International School Bangkok)</option>
-                  <option>RAIS2 (Ramkhamhaeng Adventist International School Bangkok)</option>
-                  <option>RISB (Regents International School Bangkok)</option>
-                  <option>BISB (Berkeley International School Bangkok)</option>
-                  <option>SISB-TR (Singapore International School, Thonburi Bangkok)</option>
-                  <option>SISB-PU (Singapore International School, Pracha Uthit Bangkok)</option>
-                  <option>SPIP (Satit Prasarnmit International Programme Bangkok)</option>
-                  <option>SMIS (St. Mark's International School Bangkok)</option>
-                  <option>BKP (Bangkok Prep)</option>
-                  <option>STA (St. Andrew's International School, Ekamai Bangkok)</option>
-                  <option>YSB (Yothinburana School Bangkok)</option>
-                  <option>BIST (Bromsgrove International School Bangkok)</option>
-                  <option>AIS (Aster International School Bangkok)</option>
-                  <option>ASIS (Anglo-Singapore International School Bangkok)</option>
-                  <option>BCC (Bangkok Christian College)</option>
-                  <option>CSB (Chonprathanwittaya School Bangkok)</option>
-                  <option>CUDS (Chulalongkorn University Demonstration School Bangkok)</option>
-                  <option>MUIDS (Mahidol University International Demonstration School Bangkok)</option>
-                  <option>MWITS (Mahidol Wittayanusorn School, Bangkok)</option>
-                  <option>SHB (Shrewsbury International School, Bangkok)</option>
-                  <option>SWN (Suankularb Wittayalai Nonthaburi)</option>
-                  <option>SWSB (Satriwithaya School Bangkok)</option>
-                  <option>CMIS (Chiang Mai International School Thailand)</option>
-                  <option>SIS (Singapore International School Chiang Mai)</option>
-                  <option>MCC (Montfort International School Chiang Mai)</option>
-                  <option>PTIS (Prem International School Chiang Mai)</option>
-                  <option>HHIS (Hua Hin International School)</option>
-                  <option>GISR (Garden International School Rayong)</option>
-                  <option>REPS (Royal English Program School Rayong)</option>
-                  <option>STAR (St. Andrew's International School, Rayong)</option>
-                  <option>HSIS (HeadStart Phuket International School)</option>
-                  <option>UWCT (United World College Phuket)</option>
-                  <option>BISP (British International School Phuket)</option>
-                  <option>PIA (Phuket International Academy)</option>
-                  <option>SPS (Satree Phuket School)</option>
-                  <option>PBIS (Panyadee British International School Koh Samui)</option>
-                  <option>MISP (Mooltripakdee International School Pattaya)</option>
-                  <option>ISE (ISE International School Eastern Seaboard, Chonburi Thailand)</option>
-                  <option>DPSU (Demonstration School, Prince of Songkhla University Pattani)</option>
-                  <option>Asian Institute of Technology</option>
-                  <option>Bangkok University</option>
-                  <option>Chulalongkorn University</option>
-                  <option>Kasetsart University</option>
-                  <option>Khon Kaen University</option>
-                  <option>KMUTT (King Mongkut's University of Technology Thonburi)</option>
-                  <option>KMUTNB (King Mongkut's University of Technology North Bangkok)</option>
-                  <option>KMITL (King Mongkut's Institute of Technology Ladkrabang)</option>
-                  <option>Mahidol University</option>
-                  <option>Prince of Songkla University</option>
-                  <option>Rangsit University</option>
-                  <option>Siam University</option>
-                  <option>Silpakorn University</option>
-                  <option>Srinakharinwirot University</option>
-                  <option>Thammasat University</option>
-                  <option value="Other" id="school-option-other">Other</option>
-                </select>
-              </label>
-              <label id="school-other-row" class="hidden">
-                <span data-i18n="label_other_school">Other school</span>
-                <input
-                  type="text"
-                  name="schoolOther"
-                  placeholder="Enter your school"
-                  data-i18n-placeholder="placeholder_other_school"
-                />
-              </label>
-              <label>
-                <span data-i18n="label_email">Email</span>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="you@email.com"
-                  required
-                  data-i18n-placeholder="placeholder_email"
-                />
-              </label>
-              <label>
-                <span data-i18n="label_password">Password</span>
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="••••••••"
-                  required
-                  data-i18n-placeholder="placeholder_password"
-                />
-              </label>
-              <div class="signin-actions">
-                <button class="btn btn-primary" type="submit" data-i18n="button_sign_in">
-                  Sign in
-                </button>
-                <button
-                  class="btn btn-ghost"
-                  type="button"
-                  id="signup-button"
-                  data-i18n="button_create_account"
-                >
-                  Create account
-                </button>
-              </div>
-              <button class="btn btn-google" type="button" id="google-button" data-i18n="button_google">
-                Continue with Google
-              </button>
-            </form>
-            <div class="signin-status">
-              <span id="signin-message">Not signed in.</span>
-              <button
-                class="btn btn-ghost"
-                id="signout-button"
-                type="button"
-                disabled
-                data-i18n="button_sign_out"
-              >
-                Sign out
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="referral">
-        <div class="container">
-          <div class="section-header">
-            <h2 data-i18n="referral_title">🔗 Referral</h2>
-            <p data-i18n="referral_body">Share your referral link and track your points.</p>
-          </div>
-          <div class="signin-card">
-            <div class="points-panel">
-              <span class="meta-label" data-i18n="label_points">🎯 Points</span>
-              <span class="meta-value" id="points-total">0</span>
-            </div>
-            <div class="referral-panel">
-              <div class="referral-info">
-                <span class="meta-label" data-i18n="label_referral_link">🔗 Referral link</span>
-                <span class="meta-value" id="referral-link">Sign in to get your link</span>
-              </div>
-              <div class="referral-actions">
-                <button
-                  class="btn btn-ghost"
-                  type="button"
-                  id="copy-ref-code"
-                  disabled
-                  data-i18n="button_copy_code"
-                >
-                  Copy code
-                </button>
-                <button
-                  class="btn btn-ghost"
-                  type="button"
-                  id="copy-ref-link"
-                  disabled
-                  data-i18n="button_copy_link"
-                >
-                  Copy link
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section alt" id="committees">
-        <div class="container">
-          <div class="section-header">
-            <h2 data-i18n="committees_title">🧾 Committees</h2>
-            <p data-i18n="committees_body">
-              Ten committees with curated topics and allocations. View the full list with filters and country/agency allocations on the Committees page.
-            </p>
-            <p>
-              <a class="btn btn-primary" href="committees.html" data-i18n="hero_view_committees">🧾 View committees, topics &amp; allocations</a>
-            </p>
-          </div>
-        </div>
-      </section>
-
-
-      <section class="section" id="forms">
-        <div class="container">
-          <div class="section-header">
-            <h2 data-i18n="forms_title">📝 Applications and resources</h2>
-            <p data-i18n="forms_body">
-              Key forms and links will be shared by the organizers. Chair
-              applications open in late August 2026.
-            </p>
-            <p class="form-note" data-i18n="forms_note">
-              Points are only awarded for FWC Universe Preferences and Conference Feedback.
-            </p>
-          </div>
-          <div class="form-grid">
-            <div class="form-card">
-              <h3 data-i18n="form_smt_title">🧑‍💼 SMT Application</h3>
-              <p data-i18n="form_smt_body">
-                Roles include DSG, Parliamentarian, Logistics &amp; Finance,
-                Delegate Affairs, PR &amp; Advertising, and Head of Media.
-              </p>
-              <span data-i18n="form_smt_deadline">Deadline: March 3 (offer acceptance)</span>
-            </div>
-            <div class="form-card">
-              <h3 data-i18n="form_fwc_title">🌌 FWC Universe Preferences</h3>
-              <p data-i18n="form_fwc_body">Rank your preferred fantasy universe and allocations.</p>
-              <p class="contact-links">
-                <a href="https://forms.gle/EAf1Psr7Jsq6vYyg7" target="_blank" rel="noreferrer">
-                  https://forms.gle/EAf1Psr7Jsq6vYyg7
-                </a>
-              </p>
-              <p class="form-note" data-i18n="form_proof_note">
-                Upload a screenshot that shows the Google Form logo. Manual review
-                by organizers in this chat.
-              </p>
-              <form class="proof-form" data-form-id="fwc-preferences" data-points="20">
-                <label class="proof-label">
-                  <span data-i18n="label_upload_proof">Upload screenshot proof</span>
-                  <input type="file" accept="image/*" required />
-                </label>
-                <button class="btn btn-ghost" type="submit" data-i18n="button_submit_proof_fwc">
-                  Submit proof (+20 points)
-                </button>
-              </form>
-            </div>
-            <div class="form-card">
-              <h3 data-i18n="form_feedback_title">🗣️ Conference Feedback</h3>
-              <p data-i18n="form_feedback_body">
-                Share feedback to help improve future SEAMUN conferences.
-              </p>
-              <span data-i18n="form_link_tba">Form link to be announced</span>
-              <p class="form-note" data-i18n="form_proof_note">
-                Upload a screenshot that shows the Google Form logo. Manual review
-                by organizers in this chat.
-              </p>
-              <form class="proof-form" data-form-id="feedback-form" data-points="10">
-                <label class="proof-label">
-                  <span data-i18n="label_upload_proof">Upload screenshot proof</span>
-                  <input type="file" accept="image/*" required />
-                </label>
-                <button class="btn btn-ghost" type="submit" data-i18n="button_submit_proof_feedback">
-                  Submit proof (+10 points)
-                </button>
-              </form>
-            </div>
-            <div class="form-card">
-              <h3 data-i18n="form_delegate_school_title">🏫 Delegate sign up (school)</h3>
-              <p data-i18n="form_delegate_school_body">School delegation registration (coming soon).</p>
-              <span data-i18n="form_link_tba">Form link to be announced</span>
-            </div>
-            <div class="form-card">
-              <h3 data-i18n="form_delegate_ind_title">🧍 Delegate sign up (independent)</h3>
-              <p data-i18n="form_delegate_ind_body">
-                Independent delegate registration (coming soon).
-              </p>
-              <span data-i18n="form_link_tba">Form link to be announced</span>
-            </div>
-            <div class="form-card">
-              <h3 data-i18n="form_advisor_title">🧑‍🏫 Advisor sign up</h3>
-              <p data-i18n="form_advisor_body">Advisor registration (coming soon).</p>
-              <span data-i18n="form_link_tba">Form link to be announced</span>
-            </div>
-            <div class="form-card">
-              <h3 data-i18n="form_chair_title">🪑 Chair applications</h3>
-              <p data-i18n="form_chair_body">Chair applications (late August 2026).</p>
-              <span data-i18n="form_link_tba">Form link to be announced</span>
-            </div>
-            <div class="form-card">
-              <h3 data-i18n="form_rop_title">📚 Rules of Procedure</h3>
-              <p data-i18n="form_rop_body">Official RoP will be shared with chairs and delegates.</p>
-              <span data-i18n="form_coming_soon">Coming soon</span>
-            </div>
-            <div class="form-card">
-              <h3 data-i18n="form_links_title">🔗 Conference links</h3>
-              <p class="contact-links">
-                <a href="https://seamuns.site" target="_blank" rel="noreferrer">seamuns.site</a>,
-                <a href="https://seamunnotes.com" target="_blank" rel="noreferrer">seamunnotes.com</a>,
-                <a href="https://thedashboard.seamuns.site" target="_blank" rel="noreferrer">thedashboard.seamuns.site</a>,
-                <a href="https://linked.seamuns.site" target="_blank" rel="noreferrer">linked.seamuns.site</a>
-              </p>
-              <span data-i18n="form_updates">Updates forthcoming</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="awards">
-        <div class="container">
-          <div class="section-header">
-            <h2 data-i18n="awards_title">🏆 Awards</h2>
-            <p data-i18n="awards_body">Overall, chair, and committee recognition.</p>
-          </div>
-
-          <div class="awards-subsection">
-            <h3 class="awards-subsection-title" data-i18n="awards_chair_heading">🪑 Chair awards</h3>
-            <div class="award-grid">
-              <div class="award-card">
-                <h3 data-i18n="award_chair_best_title">🪑 Chair: Best Chair</h3>
-                <p data-i18n="award_chair_best_body">Recognition for exceptional committee leadership.</p>
-              </div>
-              <div class="award-card">
-                <h3 data-i18n="award_chair_hm_title">🥈 Chair: Honorable Mention</h3>
-                <p data-i18n="award_chair_hm_body">
-                  Chair recognition for strong moderation and guidance.
-                </p>
-              </div>
-              <div class="award-card">
-                <h3 data-i18n="award_chair_committee_title">🎯 Chair: Best Committee</h3>
-                <p data-i18n="award_chair_committee_body">
-                  Awarded to the most effective committee overall.
-                </p>
-              </div>
-              <div class="award-card">
-                <h3 data-i18n="award_chair_report_title">📝 Chair: Best Chair Report</h3>
-                <p data-i18n="award_chair_report_body">Top academic reporting from the dais.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="awards-subsection">
-            <h3 class="awards-subsection-title" data-i18n="awards_delegate_heading">🥇 Delegate awards</h3>
-            <div class="award-grid">
-              <div class="award-card">
-                <h3 data-i18n="award_committee_best_title">🥇 Committee: Best Delegate</h3>
-                <p data-i18n="award_committee_best_body">Top delegate per committee.</p>
-              </div>
-              <div class="award-card">
-                <h3 data-i18n="award_committee_hm_title">🥉 Committee: Honorable Mention</h3>
-                <p data-i18n="award_committee_hm_body">Committee-level recognition.</p>
-              </div>
-              <div class="award-card">
-                <h3 data-i18n="award_committee_paper_title">📄 Committee: Best Position Paper</h3>
-                <p data-i18n="award_committee_paper_body">
-                  Best pre-conference research and writing.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="awards-subsection">
-            <h3 class="awards-subsection-title" data-i18n="awards_overall_heading">👑 Overall delegate awards</h3>
-            <div class="award-grid">
-              <div class="award-card">
-                <h3 data-i18n="award_overall_best_title">👑 Overall: Best Delegate</h3>
-                <p data-i18n="award_overall_best_body">Top delegate across the full conference.</p>
-              </div>
-              <div class="award-card">
-                <h3 data-i18n="award_overall_hm_title">🏅 Overall: Honorable Mention</h3>
-                <p data-i18n="award_overall_hm_body">
-                  Conference-wide recognition for outstanding performance.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section alt" id="schedule">
-        <div class="container">
-          <div class="section-header">
-            <h2 data-i18n="schedule_title">🗓️ Schedule</h2>
-            <p data-i18n="schedule_body">Two-day program with opening and closing ceremonies.</p>
-          </div>
-          <div class="schedule-actions">
-            <a
-              class="btn btn-primary"
-              href="assets/SEAMUN-I-2027.ics"
-              download
-              data-i18n="schedule_save_date"
-            >
-              📅 Save the date
-            </a>
-            <a
-              class="btn btn-ghost"
-              href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=SEAMUN%20I%20Conference&dates=20270123T003000Z/20270124T103000Z&details=SEAMUN%20I%20%7C%20Policies%20with%20a%20Purpose&location=MDCU%20Conference%20Center%20(TBD)"
-              target="_blank"
-              rel="noreferrer"
-              data-i18n="schedule_add_google"
-            >
-              Add to Google Calendar
-            </a>
-          </div>
-          <div class="schedule-grid">
-            <div class="schedule-day">
-              <h3 data-i18n="schedule_day1">📌 Day 1 - Saturday, January 23, 2027</h3>
-              <ul class="schedule-list">
-                <li>
-                  <span class="time-tag">07:30 - 08:30</span>
-                  <span data-i18n="schedule_day1_item1">Arrival and delegate registration</span>
-                </li>
-                <li>
-                  <span class="time-tag">08:30 - 09:30</span>
-                  <span data-i18n="schedule_day1_item2">Opening ceremony</span>
-                </li>
-                <li>
-                  <span class="time-tag">09:30 - 10:30</span>
-                  <span data-i18n="schedule_day1_item3">Break, photos, and icebreakers</span>
-                </li>
-                <li>
-                  <span class="time-tag">10:30 - 12:00</span>
-                  <span data-i18n="schedule_day1_item4">Committee session 1</span>
-                </li>
-                <li>
-                  <span class="time-tag">12:00 - 13:00</span>
-                  <span data-i18n="schedule_day1_item5">Luncheon</span>
-                </li>
-                <li>
-                  <span class="time-tag">13:00 - 14:30</span>
-                  <span data-i18n="schedule_day1_item6">Committee session 2</span>
-                </li>
-                <li>
-                  <span class="time-tag">14:30 - 15:00</span>
-                  <span data-i18n="schedule_day1_item7">Afternoon break</span>
-                </li>
-                <li>
-                  <span class="time-tag">15:00 - 16:30</span>
-                  <span data-i18n="schedule_day1_item8">Committee session 3</span>
-                </li>
-                <li>
-                  <span class="time-tag">16:30 - 17:00</span>
-                  <span data-i18n="schedule_day1_item9">Feedback sessions and departure</span>
-                </li>
-              </ul>
-            </div>
-            <div class="schedule-day">
-              <h3 data-i18n="schedule_day2">📌 Day 2 - Sunday, January 24, 2027</h3>
-              <ul class="schedule-list">
-                <li>
-                  <span class="time-tag">08:00 - 09:30</span>
-                  <span data-i18n="schedule_day2_item1">
-                    Arrival, registration, and photo opportunities
-                  </span>
-                </li>
-                <li>
-                  <span class="time-tag">09:30 - 10:45</span>
-                  <span data-i18n="schedule_day2_item2">Committee session 1 (part 1)</span>
-                </li>
-                <li>
-                  <span class="time-tag">10:45 - 11:00</span>
-                  <span data-i18n="schedule_day2_item3">Optional in-committee break</span>
-                </li>
-                <li class="schedule-note">
-                  <span data-i18n="schedule_day2_note">
-                    Chairs may encourage delegates to play a game together, do a
-                    Just Dance activity, or simply sit and chat. Everyone must
-                    remain in committee rooms during this mini break.
-                  </span>
-                </li>
-                <li>
-                  <span class="time-tag">11:00 - 12:00</span>
-                  <span data-i18n="schedule_day2_item4">Committee session 1 (part 2)</span>
-                </li>
-                <li>
-                  <span class="time-tag">12:00 - 13:00</span>
-                  <span data-i18n="schedule_day2_item5">Luncheon</span>
-                </li>
-                <li>
-                  <span class="time-tag">13:00 - 14:30</span>
-                  <span data-i18n="schedule_day2_item6">Committee session 2</span>
-                </li>
-                <li>
-                  <span class="time-tag">14:30 - 15:00</span>
-                  <span data-i18n="schedule_day2_item7">Afternoon break</span>
-                </li>
-                <li>
-                  <span class="time-tag">15:00 - 16:00</span>
-                  <span data-i18n="schedule_day2_item8">Committee session 3</span>
-                </li>
-                <li>
-                  <span class="time-tag">16:00 - 16:30</span>
-                  <span data-i18n="schedule_day2_item9">Feedback and final break</span>
-                </li>
-                <li>
-                  <span class="time-tag">16:30 - 17:30</span>
-                  <span data-i18n="schedule_day2_item10">Closing ceremony</span>
-                </li>
-                <li>
-                  <span class="time-tag">17:30 - 18:00</span>
-                  <span data-i18n="schedule_day2_item11">Final photos and departure</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="for-venues-sponsors">
-        <div class="container">
-          <div class="section-header">
-            <h2 data-i18n="for_partners_title">🏢 For venues &amp; sponsors</h2>
-            <p><span data-i18n="for_partners_intro">Use the text and details below in venue inquiries and sponsor outreach emails. Full site:</span> <a href="https://seamun.com">seamun.com</a></p>
-          </div>
-          <div class="partner-blurb">
-            <h3 data-i18n="for_partners_blurb_heading">Short description (for emails)</h3>
-            <p class="partner-blurb-text" data-i18n="for_partners_blurb">SEAMUN I is an independent, student-led Model United Nations conference themed &quot;Policies with a Purpose,&quot; scheduled for January 23–24, 2027. We bring together approximately 250 attendees (200 delegates, 22 chairs, 8 SMT, 10 staff, 10 external advisors) for two days of debate on global healthcare and sustainability policy. SEAMUN I operates on a strictly non-profit basis: 100% of conference surplus is pledged to the King Chulalongkorn Memorial Hospital Foundation (MDCU). We are seeking the Educational/Internal rate for venue hire and welcome partnership enquiries from sponsors aligned with our mission.</p>
-          </div>
-          <div class="partner-facts-grid">
-            <div class="partner-card">
-              <h3 data-i18n="for_partners_key_facts">Key facts</h3>
-              <ul class="partner-list">
-                <li><strong data-i18n="for_partners_fact_title">Conference:</strong> SEAMUN I</li>
-                <li><strong data-i18n="for_partners_fact_theme">Theme:</strong> Policies with a Purpose</li>
-                <li><strong data-i18n="for_partners_fact_dates">Dates:</strong> 23–24 January 2027 (2 days)</li>
-                <li><strong data-i18n="for_partners_fact_capacity">Total capacity:</strong> 250</li>
-                <li><strong data-i18n="for_partners_fact_donation">Donation pledge:</strong> 100% surplus → King Chulalongkorn Memorial Hospital Foundation</li>
-              </ul>
-            </div>
-            <div class="partner-card">
-              <h3 data-i18n="for_partners_venue_requirements">Venue requirements</h3>
-              <ul class="partner-list">
-                <li data-i18n="for_partners_venue_main">1 main auditorium (250 pax) — opening &amp; closing ceremonies</li>
-                <li data-i18n="for_partners_venue_rooms">10 seminar/breakout rooms (20–30 pax each) — committee sessions</li>
-                <li data-i18n="for_partners_venue_av">AV: projection, sound, Wi‑Fi for 250 devices</li>
-                <li data-i18n="for_partners_venue_catering">Catering: 2 coffee breaks + 1 buffet lunch per day (Halal/vegetarian options)</li>
-              </ul>
-            </div>
-            <div class="partner-card">
-              <h3 data-i18n="for_partners_contact">Primary contact</h3>
-              <p><strong data-i18n="contact_secretary_general">Secretary-General:</strong> Jules Kitto-Astrop</p>
-              <p><a href="mailto:juleskittoastrop@gmail.com">juleskittoastrop@gmail.com</a></p>
-              <p><strong data-i18n="contact_general">General enquiries:</strong> <a href="mailto:info@seamuns.site">info@seamuns.site</a></p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section alt" id="contact">
-        <div class="container contact-grid">
-          <div>
-            <h2 data-i18n="contact_title">📬 Contact</h2>
-            <p>
-              <span data-i18n="contact_general">General enquiries:</span>
-              <a href="mailto:info@seamuns.site">info@seamuns.site</a>
-            </p>
-            <p>
-              <span data-i18n="contact_smt_email">SMT Email:</span>
-              <a href="mailto:studentmanagementteam@seamuns.site"
-                >studentmanagementteam@seamuns.site</a
-              >
-            </p>
-            <p class="contact-links">
-              <span data-i18n="contact_instagram">Instagram:</span>
-              <a
-                href="https://www.instagram.com/seamun.th.conference/"
-                target="_blank"
-                rel="noreferrer"
-                >@seamun.th.conference</a
-              >
-              ·
-              <a
-                href="https://www.instagram.com/seamuns.th/"
-                target="_blank"
-                rel="noreferrer"
-                >@seamuns.th</a
-              >
-            </p>
-            <p>
-              <span data-i18n="contact_secretary_general">Secretary-General:</span> Jules Kitto-Astrop (<a
-                href="mailto:juleskittoastrop@gmail.com"
-                >juleskittoastrop@gmail.com</a
-              >)
-            </p>
-            <p><span data-i18n="contact_deputy">Deputy Secretary-General:</span> Emily H.</p>
-            <p><span data-i18n="contact_parliamentarian">Parliamentarian:</span> Lotus T.</p>
-          </div>
-          <div class="schedule-card">
-            <h3 data-i18n="contact_schedule_title">🗓️ Schedule</h3>
-            <p data-i18n="contact_schedule_dates">January 23-24, 2027</p>
-            <p data-i18n="contact_schedule_body">
-              Two-day conference with opening ceremony, committee sessions, and
-              closing ceremony.
-            </p>
-            <div class="schedule-meta">
-              <span>
-                <span data-i18n="contact_schedule_venue_label">Venue:</span>
-                <span data-i18n="meta_value_venue_short">TBD (First choice: MDCU Conference Center; Kasetsart University; SEAMEO SPAFA; St. Gabriel’s Foundation Building; Rompo Mansion)</span>
-              </span>
-              <span data-i18n="contact_schedule_tagline">Academic, non-profit conference</span>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container footer-inner">
-        <div>
-          <strong data-i18n="footer_title">SEAMUN I Conference</strong>
-          <span data-i18n="footer_tagline">Policies with a Purpose</span>
-        </div>
-        <div data-i18n="footer_org">SEAMUN | South East Asia Model United Nations</div>
-      </div>
-    </footer>
-    <script type="module">
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-      import {
-        getAuth,
-        onAuthStateChanged,
-        signInWithEmailAndPassword,
-        createUserWithEmailAndPassword,
-        signOut,
-        GoogleAuthProvider,
-        signInWithPopup,
-      } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-      import {
-        getFirestore,
-        doc,
-        setDoc,
-        onSnapshot,
-        increment,
-        serverTimestamp,
-        runTransaction,
-        getDoc,
-      } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-      import {
-        getStorage,
-        ref as storageRef,
-        uploadBytes,
-        getDownloadURL,
-      } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
-
-      const firebaseConfig = {
-        apiKey: "AIzaSyCnPseFI_jpXAXEK4j2gHy0lY9ss1uS48E",
-        authDomain: "seamuncom.firebaseapp.com",
-        projectId: "seamuncom",
-        storageBucket: "seamuncom.firebasestorage.app",
-        messagingSenderId: "853258490125",
-        appId: "1:853258490125:web:77cbf756396fe715c06044",
-        measurementId: "G-TWYYBVL0NY",
-      };
-
-      const app = initializeApp(firebaseConfig);
-      const auth = getAuth(app);
-      const db = getFirestore(app);
-      const storage = getStorage(app);
-
-      const languageSelect = document.getElementById("language-select");
-      const translations = {
+window.SEAMUN_TRANSLATIONS = {
         en: {
           language_label: "Language",
           theme_label: "Theme",
@@ -1046,59 +10,8 @@
           nav_schedule: "🗓️ Schedule",
           nav_signin: "🔐 Sign in",
           nav_profile: "👤 Profile",
-          nav_leadership: "👔 Leadership",
           nav_contact: "📬 Contact",
           button_register: "Register",
-          role_are_you: "Are you a:",
-          role_delegate: "👥 Delegate",
-          role_chair: "🪑 Chair",
-          role_advisor: "💜 Advisor",
-          role_independent_question: "Are you an independent delegate?",
-          role_yes: "Yes",
-          role_no: "No",
-          welcome_independent: "Welcome, independent delegate!",
-          welcome_delegate: "Welcome, delegate!",
-          welcome_chair: "Welcome, chair!",
-          welcome_advisor: "Welcome, advisors!",
-          action_sign_up: "Sign up",
-          action_check_status: "Check status",
-          action_login: "Login",
-          action_back: "Back",
-          leadership_title: "👔 Secretariat & leadership",
-          leadership_body: "The team behind SEAMUN I 2027.",
-          role_sg: "Secretary General",
-          role_dsg: "Deputy Secretary General",
-          role_parliamentarian: "Parliamentarian",
-          role_hlf: "Head of Logistics & Finance",
-          role_df: "Deputy Head of Finance",
-          role_hpr: "Head of PR & Advertising",
-          role_hm: "Head of Media",
-          role_da: "Delegate Affairs",
-          pillars_title: "🎯 Our pillars",
-          pillars_body: "Purpose, collaboration, and diplomacy drive SEAMUN I.",
-          pillar_purpose: "Purpose",
-          pillar_purpose_body: "SEAMUN I is purpose-driven: 100% of conference surplus is donated to the King Chulalongkorn Memorial Hospital Foundation. We bridge global policy debate with local impact.",
-          pillar_collaboration: "Collaboration",
-          pillar_collaboration_body: "Delegates, chairs, and advisors work together across 10 committees. We build partnerships through resolution-writing, caucusing, and committee activities.",
-          pillar_diplomacy: "Diplomacy",
-          pillar_diplomacy_body: "Rules of procedure, moderated debate, and formal diplomacy are at the heart of the conference. We train the next generation in negotiation and public speaking.",
-          for_partners_title: "For venues & sponsors",
-          for_partners_intro: "Use the text and details below in venue inquiries and sponsor outreach emails. Full site:",
-          for_partners_blurb_heading: "Short description (for emails)",
-          for_partners_blurb: "SEAMUN I is an independent, student-led Model United Nations conference themed \"Policies with a Purpose,\" scheduled for January 23–24, 2027. We bring together approximately 250 attendees (200 delegates, 22 chairs, 8 SMT, 10 staff, 10 external advisors) for two days of debate on global healthcare and sustainability policy. SEAMUN I operates on a strictly non-profit basis: 100% of conference surplus is pledged to the King Chulalongkorn Memorial Hospital Foundation (MDCU). We are seeking the Educational/Internal rate for venue hire and welcome partnership enquiries from sponsors aligned with our mission.",
-          for_partners_key_facts: "Key facts",
-          for_partners_fact_title: "Conference:",
-          for_partners_fact_theme: "Theme:",
-          for_partners_fact_dates: "Dates:",
-          for_partners_fact_capacity: "Total capacity:",
-          for_partners_fact_donation: "Donation pledge:",
-          for_partners_venue_requirements: "Venue requirements",
-          for_partners_venue_main: "1 main auditorium (250 pax) — opening & closing ceremonies",
-          for_partners_venue_rooms: "10 seminar/breakout rooms (20–30 pax each) — committee sessions",
-          for_partners_venue_av: "AV: projection, sound, Wi‑Fi for 250 devices",
-          for_partners_venue_catering: "Catering: 2 coffee breaks + 1 buffet lunch per day (Halal/vegetarian options)",
-          for_partners_contact: "Primary contact",
-          nav_for_partners: "For venues & sponsors",
           hero_badge: "📅 Upcoming | January 23-24, 2027",
           hero_title: "SEAMUN I Conference",
           hero_lead:
@@ -1187,7 +100,7 @@
           referral_body: "Share your referral link and track your points.",
           committees_title: "🧾 Committees",
           committees_body:
-            "Ten committees with curated topics and allocations. View the full list with filters and country/agency allocations on the Committees page.",
+            "Ten committees with curated topics and skill levels. Chairs are TBD for all committees.",
           grade_key_label: "Grade key:",
           grade_key_7_8: "🟦 Grades 7-8",
           grade_key_9_10: "🟪 Grades 9-10",
@@ -1218,6 +131,7 @@
           meta_editors: "Editors",
           allocations_show: "Show allocations",
           allocations_tbd: "Allocations to be announced.",
+          back_to_top: "↑ Back to top",
           topic_unhrc_1: "The Question of Promoting the Standardized Regulation of the Death Penalty and Respect for the Right to Life",
           topic_unhrc_2: "The Question of The Obligation to Prevent Cruel, Inhuman or Degrading Treatment Arising from Deficiencies in Prison Administration and Justice Systems",
           topic_disec_1: "The Question of Strengthening International Protocols and Logistics for Securing the Cross-Border Transport of Weapons of Mass Destruction (WMDs) and Related Materials",
@@ -1292,9 +206,6 @@
           form_updates: "Updates forthcoming",
           awards_title: "🏆 Awards",
           awards_body: "Overall, chair, and committee recognition.",
-          awards_chair_heading: "🪑 Chair awards",
-          awards_delegate_heading: "🥇 Delegate awards",
-          awards_overall_heading: "👑 Overall delegate awards",
           award_overall_best_title: "👑 Overall: Best Delegate",
           award_overall_best_body: "Top delegate across the full conference.",
           award_overall_hm_title: "🏅 Overall: Honorable Mention",
@@ -1393,8 +304,6 @@
           nav_schedule: "🗓️ กำหนดการ",
           nav_signin: "🔐 เข้าสู่ระบบ",
           nav_profile: "👤 โปรไฟล์",
-          nav_leadership: "👔 ทีมบริหาร",
-          nav_for_partners: "🏢 สำหรับสถานที่และสปอนเซอร์",
           nav_contact: "📬 ติดต่อ",
           button_register: "ลงทะเบียน",
           hero_badge: "📅 กำลังจะมาถึง | 23-24 มกราคม 2027",
@@ -1516,6 +425,7 @@
           meta_editors: "บรรณาธิการ",
           allocations_show: "แสดงการจัดสรร",
           allocations_tbd: "รอประกาศการจัดสรร",
+          back_to_top: "↑ กลับด้านบน",
           topic_unhrc_1: "The Question of Promoting the Standardized Regulation of the Death Penalty and Respect for the Right to Life",
           topic_unhrc_2: "The Question of The Obligation to Prevent Cruel, Inhuman or Degrading Treatment Arising from Deficiencies in Prison Administration and Justice Systems",
           topic_disec_1: "The Question of Strengthening International Protocols and Logistics for Securing the Cross-Border Transport of Weapons of Mass Destruction (WMDs) and Related Materials",
@@ -1588,9 +498,6 @@
           form_updates: "อัปเดตภายหลัง",
           awards_title: "🏆 รางวัล",
           awards_body: "รางวัลรวม ประธาน และคณะกรรมการ",
-          awards_chair_heading: "🪑 รางวัลประธาน",
-          awards_delegate_heading: "🥇 รางวัลผู้แทน",
-          awards_overall_heading: "👑 รางวัลผู้แทนรวม",
           award_overall_best_title: "👑 รางวัลรวม: ผู้แทนยอดเยี่ยม",
           award_overall_best_body: "ผู้แทนยอดเยี่ยมตลอดการประชุม",
           award_overall_hm_title: "🏅 รางวัลรวม: กล่าวชมเชย",
@@ -1688,8 +595,6 @@
           nav_schedule: "🗓️ 日程",
           nav_signin: "🔐 登录",
           nav_profile: "👤 个人资料",
-          nav_leadership: "👔 领导团队",
-          nav_for_partners: "🏢 场地与赞助",
           nav_contact: "📬 联系",
           button_register: "注册",
           hero_badge: "📅 即将到来 | 2027年1月23-24日",
@@ -1810,6 +715,7 @@
           meta_editors: "编辑",
           allocations_show: "显示分配",
           allocations_tbd: "分配待公布。",
+          back_to_top: "↑ 返回顶部",
           topic_unhrc_1: "The Question of Promoting the Standardized Regulation of the Death Penalty and Respect for the Right to Life",
           topic_unhrc_2: "The Question of The Obligation to Prevent Cruel, Inhuman or Degrading Treatment Arising from Deficiencies in Prison Administration and Justice Systems",
           topic_disec_1: "The Question of Strengthening International Protocols and Logistics for Securing the Cross-Border Transport of Weapons of Mass Destruction (WMDs) and Related Materials",
@@ -1881,9 +787,6 @@
           form_updates: "后续更新",
           awards_title: "🏆 奖项",
           awards_body: "全会、主席与委员会表彰。",
-          awards_chair_heading: "🪑 主席奖",
-          awards_delegate_heading: "🥇 代表奖",
-          awards_overall_heading: "👑 全场代表奖",
           schedule_title: "🗓️ 日程",
           schedule_body: "两天安排含开幕与闭幕式。",
           schedule_save_date: "📅 保存日期",
@@ -1940,8 +843,6 @@
           nav_schedule: "🗓️ スケジュール",
           nav_signin: "🔐 サインイン",
           nav_profile: "👤 プロフィール",
-          nav_leadership: "👔 リーダーシップ",
-          nav_for_partners: "🏢 会場・スポンサー向け",
           nav_contact: "📬 連絡先",
           button_register: "登録",
           hero_badge: "📅 開催予定 | 2027年1月23-24日",
@@ -2062,6 +963,7 @@
           meta_editors: "編集者",
           allocations_show: "割当を表示",
           allocations_tbd: "割当は未定です。",
+          back_to_top: "↑ トップへ",
           topic_unhrc_1: "The Question of Promoting the Standardized Regulation of the Death Penalty and Respect for the Right to Life",
           topic_unhrc_2: "The Question of The Obligation to Prevent Cruel, Inhuman or Degrading Treatment Arising from Deficiencies in Prison Administration and Justice Systems",
           topic_disec_1: "The Question of Strengthening International Protocols and Logistics for Securing the Cross-Border Transport of Weapons of Mass Destruction (WMDs) and Related Materials",
@@ -2133,9 +1035,6 @@
           form_updates: "更新予定",
           awards_title: "🏆 表彰",
           awards_body: "全体・議長・委員会の表彰。",
-          awards_chair_heading: "🪑 議長賞",
-          awards_delegate_heading: "🥇 代表賞",
-          awards_overall_heading: "👑 全体代表賞",
           schedule_title: "🗓️ スケジュール",
           schedule_body: "開会・閉会式を含む2日間。",
           schedule_save_date: "📅 日付を保存",
@@ -2192,8 +1091,6 @@
           nav_schedule: "🗓️ Agenda",
           nav_signin: "🔐 Iniciar sesión",
           nav_profile: "👤 Perfil",
-          nav_leadership: "👔 Liderazgo",
-          nav_for_partners: "🏢 Para sedes y patrocinadores",
           nav_contact: "📬 Contacto",
           button_register: "Registrar",
           hero_badge: "📅 Próximo | 23-24 de enero de 2027",
@@ -2314,6 +1211,7 @@
           meta_editors: "Editores",
           allocations_show: "Ver asignaciones",
           allocations_tbd: "Asignaciones por anunciar.",
+          back_to_top: "↑ Volver arriba",
           topic_unhrc_1: "The Question of Promoting the Standardized Regulation of the Death Penalty and Respect for the Right to Life",
           topic_unhrc_2: "The Question of The Obligation to Prevent Cruel, Inhuman or Degrading Treatment Arising from Deficiencies in Prison Administration and Justice Systems",
           topic_disec_1: "The Question of Strengthening International Protocols and Logistics for Securing the Cross-Border Transport of Weapons of Mass Destruction (WMDs) and Related Materials",
@@ -2385,9 +1283,6 @@
           form_updates: "Actualizaciones próximamente",
           awards_title: "🏆 Premios",
           awards_body: "Reconocimiento general, chairs y comités.",
-          awards_chair_heading: "🪑 Premios a chairs",
-          awards_delegate_heading: "🥇 Premios a delegados",
-          awards_overall_heading: "👑 Premios a delegados (general)",
           schedule_title: "🗓️ Agenda",
           schedule_body: "Programa de dos días con ceremonias de apertura y cierre.",
           schedule_save_date: "📅 Guardar fecha",
@@ -2444,8 +1339,6 @@
           nav_schedule: "🗓️ Programme",
           nav_signin: "🔐 Se connecter",
           nav_profile: "👤 Profil",
-          nav_leadership: "👔 Direction",
-          nav_for_partners: "🏢 Salles et partenaires",
           nav_contact: "📬 Contact",
           button_register: "S'inscrire",
           hero_badge: "📅 À venir | 23-24 janvier 2027",
@@ -2566,6 +1459,7 @@
           meta_editors: "Rédacteurs",
           allocations_show: "Afficher les affectations",
           allocations_tbd: "Affectations à annoncer.",
+          back_to_top: "↑ Retour en haut",
           topic_unhrc_1: "The Question of Promoting the Standardized Regulation of the Death Penalty and Respect for the Right to Life",
           topic_unhrc_2: "The Question of The Obligation to Prevent Cruel, Inhuman or Degrading Treatment Arising from Deficiencies in Prison Administration and Justice Systems",
           topic_disec_1: "The Question of Strengthening International Protocols and Logistics for Securing the Cross-Border Transport of Weapons of Mass Destruction (WMDs) and Related Materials",
@@ -2637,9 +1531,6 @@
           form_updates: "Mises à jour à venir",
           awards_title: "🏆 Récompenses",
           awards_body: "Reconnaissance générale, chairs et comités.",
-          awards_chair_heading: "🪑 Récompenses chairs",
-          awards_delegate_heading: "🥇 Récompenses délégués",
-          awards_overall_heading: "👑 Récompenses délégués (ensemble)",
           schedule_title: "🗓️ Programme",
           schedule_body: "Deux jours avec cérémonies d'ouverture et de clôture.",
           schedule_save_date: "📅 Enregistrer la date",
@@ -2696,8 +1587,6 @@
           nav_schedule: "🗓️ Расписание",
           nav_signin: "🔐 Войти",
           nav_profile: "👤 Профиль",
-          nav_leadership: "👔 Руководство",
-          nav_for_partners: "🏢 Для площадок и спонсоров",
           nav_contact: "📬 Контакты",
           button_register: "Регистрация",
           hero_badge: "📅 Скоро | 23-24 января 2027",
@@ -2818,6 +1707,7 @@
           meta_editors: "Редакторы",
           allocations_show: "Показать распределение",
           allocations_tbd: "Распределение будет объявлено.",
+          back_to_top: "↑ Наверх",
           topic_unhrc_1: "The Question of Promoting the Standardized Regulation of the Death Penalty and Respect for the Right to Life",
           topic_unhrc_2: "The Question of The Obligation to Prevent Cruel, Inhuman or Degrading Treatment Arising from Deficiencies in Prison Administration and Justice Systems",
           topic_disec_1: "The Question of Strengthening International Protocols and Logistics for Securing the Cross-Border Transport of Weapons of Mass Destruction (WMDs) and Related Materials",
@@ -2889,9 +1779,6 @@
           form_updates: "Обновления позже",
           awards_title: "🏆 Награды",
           awards_body: "Общее, chair и комитеты.",
-          awards_chair_heading: "🪑 Награды председателей",
-          awards_delegate_heading: "🥇 Награды делегатов",
-          awards_overall_heading: "👑 Общие награды делегатов",
           schedule_title: "🗓️ Расписание",
           schedule_body: "Двухдневная программа с открытием и закрытием.",
           schedule_save_date: "📅 Сохранить дату",
@@ -2948,8 +1835,6 @@
           nav_schedule: "🗓️ 일정",
           nav_signin: "🔐 로그인",
           nav_profile: "👤 프로필",
-          nav_leadership: "👔 리더십",
-          nav_for_partners: "🏢 장소 및 스폰서",
           nav_contact: "📬 연락처",
           button_register: "등록",
           hero_badge: "📅 예정 | 2027년 1월 23-24일",
@@ -3070,6 +1955,7 @@
           meta_editors: "편집자",
           allocations_show: "배정 보기",
           allocations_tbd: "배정 추후 공지.",
+          back_to_top: "↑ 맨 위로",
           topic_unhrc_1: "The Question of Promoting the Standardized Regulation of the Death Penalty and Respect for the Right to Life",
           topic_unhrc_2: "The Question of The Obligation to Prevent Cruel, Inhuman or Degrading Treatment Arising from Deficiencies in Prison Administration and Justice Systems",
           topic_disec_1: "The Question of Strengthening International Protocols and Logistics for Securing the Cross-Border Transport of Weapons of Mass Destruction (WMDs) and Related Materials",
@@ -3141,9 +2027,6 @@
           form_updates: "업데이트 예정",
           awards_title: "🏆 시상",
           awards_body: "전체, 의장 및 위원회 인정.",
-          awards_chair_heading: "🪑 의장상",
-          awards_delegate_heading: "🥇 대표상",
-          awards_overall_heading: "👑 전체 대표상",
           award_overall_best_title: "👑 전체: 최우수 대표",
           award_overall_best_body: "전체 컨퍼런스 최우수 대표.",
           award_overall_hm_title: "🏅 전체: 우수상",
@@ -3229,580 +2112,4 @@
           proof_submitted: "증명이 제출되었습니다. 승인 후 포인트가 추가됩니다.",
           proof_failed: "제출 실패.",
         },
-      };
-
-      let currentLang = localStorage.getItem("seamun-lang") || "en";
-      const languageNativeNames = {
-        en: "English",
-        th: "ไทย",
-        zh: "中文",
-        ja: "日本語",
-        es: "Español",
-        fr: "Français",
-        ru: "Русский",
-        ko: "한국어",
-      };
-      const applyLanguageOptionLabels = () => {
-        const sel = document.getElementById("language-select");
-        if (!sel) return;
-        Array.from(sel.options).forEach((opt) => {
-          const native = languageNativeNames[opt.value];
-          if (native) opt.textContent = native;
-        });
-      };
-      const t = (key, vars = {}) => {
-        const table = translations[currentLang] || translations.en;
-        let text = table[key] || translations.en[key] || key;
-        Object.entries(vars).forEach(([token, value]) => {
-          text = text.replaceAll(`{${token}}`, String(value));
-        });
-        return text;
-      };
-
-      const applyLanguage = (lang) => {
-        currentLang = translations[lang] ? lang : "en";
-        document.documentElement.lang = currentLang;
-        localStorage.setItem("seamun-lang", currentLang);
-        document.querySelectorAll("[data-i18n]").forEach((el) => {
-          const key = el.dataset.i18n;
-          const value = t(key);
-          if (value) {
-            el.textContent = value;
-          }
-        });
-        document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
-          const key = el.dataset.i18nPlaceholder;
-          const value = t(key);
-          if (value) {
-            el.setAttribute("placeholder", value);
-          }
-        });
-        const themeBtn = document.querySelector("[data-theme-toggle]");
-        if (themeBtn) {
-          themeBtn.textContent = document.body.classList.contains("dark") ? t("light_mode") : t("dark_mode");
-        }
-        const otherOpt = document.getElementById("school-option-other");
-        if (otherOpt) otherOpt.textContent = t("option_other");
-        applyLanguageOptionLabels();
-      };
-
-      if (languageSelect) {
-        languageSelect.value = currentLang;
-        languageSelect.addEventListener("change", (event) => {
-          applyLanguage(event.target.value);
-          setDarkMode(document.body.classList.contains("dark"));
-          updatePointsButtons();
-          if (currentUser) {
-            if (message) {
-              message.textContent = t("status_signed_in_as", {
-                email: currentUser.email || "",
-              });
-            }
-            if (navStatus) {
-              navStatus.textContent = t("nav_status_points", {
-                name: currentUserName || currentUser.email || "",
-                points: currentUserPoints,
-              });
-            }
-          } else {
-            if (message) {
-              message.textContent = t("status_signed_out_message");
-            }
-            if (navStatus) {
-              navStatus.textContent = t("status_signed_out");
-            }
-            if (referralLinkEl) {
-              referralLinkEl.textContent = t("referral_sign_in");
-            }
-          }
-        });
-      }
-
-      const form = document.getElementById("signin-form");
-      const message = document.getElementById("signin-message");
-      const signOutButton = document.getElementById("signout-button");
-      const signUpButton = document.getElementById("signup-button");
-      const googleButton = document.getElementById("google-button");
-
-      const signinSection = document.getElementById("signin");
-      const signinCard = document.querySelector(".signin-card");
-      const navStatus = document.getElementById("nav-auth-status");
-      const pointsTotal = document.getElementById("points-total");
-      const proofForms = document.querySelectorAll(".proof-form");
-      const schoolSelect = document.getElementById("school-select");
-      const schoolOtherRow = document.getElementById("school-other-row");
-      const referralLinkEl = document.getElementById("referral-link");
-      const copyRefCodeButton = document.getElementById("copy-ref-code");
-      const copyRefLinkButton = document.getElementById("copy-ref-link");
-      let currentUser = null;
-      let unsubscribeUser = null;
-      let completionsCache = {};
-      let proofsCache = {};
-      let currentUserName = "";
-      let currentUserPoints = 0;
-
-      const updatePointsButtons = () => {
-        proofForms.forEach((proofForm) => {
-          const submitButton = proofForm.querySelector("button[type='submit']");
-          const formId = proofForm.dataset.formId || "";
-          const points = proofForm.dataset.points || "0";
-          if (!submitButton) {
-            return;
-          }
-          if (!currentUser) {
-            submitButton.disabled = true;
-            submitButton.textContent = t("points_sign_in");
-            return;
-          }
-          const completed = Boolean(completionsCache[formId]);
-          const pending = proofsCache[formId]?.status === "pending";
-          if (completed) {
-            submitButton.disabled = true;
-            submitButton.textContent = t("points_completed");
-          } else if (pending) {
-            submitButton.disabled = true;
-            submitButton.textContent = t("points_pending");
-          } else {
-            submitButton.disabled = false;
-            submitButton.textContent = t("points_submit", { points });
-          }
-        });
-      };
-
-      const referralBonusPoints = 5;
-
-      const getRefParam = () => {
-        const params = new URLSearchParams(window.location.search);
-        return params.get("ref");
-      };
-
-      const applyReferralBonus = async (uid, referrerCode) => {
-        if (!uid || !referrerCode) {
-          return;
-        }
-        const userRef = doc(db, "users", uid);
-        const refDoc = doc(db, "referrals", referrerCode);
-        const refSnap = await getDoc(refDoc);
-        const ownerUid = refSnap.data()?.ownerUid;
-        if (!ownerUid) {
-          return;
-        }
-        const ownerRef = doc(db, "users", ownerUid);
-
-        await runTransaction(db, async (tx) => {
-          const userSnap = await tx.get(userRef);
-          const ownerSnap = await tx.get(ownerRef);
-          const userData = userSnap.data() || {};
-          const ownerData = ownerSnap.data() || {};
-          if (userData.referralBonusApplied) {
-            return;
-          }
-
-          const ownerPoints = Number(ownerData.points || 0);
-          const updatedOwnerPoints = ownerPoints + referralBonusPoints;
-
-          tx.set(userRef, { referralBonusApplied: true }, { merge: true });
-          tx.set(ownerRef, { points: updatedOwnerPoints }, { merge: true });
-        });
-      };
-
-      const subscribeUser = (user) => {
-        if (unsubscribeUser) {
-          unsubscribeUser();
-        }
-        const userRef = doc(db, "users", user.uid);
-        unsubscribeUser = onSnapshot(userRef, (snap) => {
-          const data = snap.data() || {};
-          const points = Number(data.points || 0);
-          const firstName =
-            data.firstName || (user.displayName || "").split(" ")[0] || "";
-          const refCode = data.refCode || user.uid.slice(0, 8);
-          const referrerCode = data.referrerCode || "";
-          completionsCache = data.completions || {};
-          proofsCache = data.proofs || {};
-          if (pointsTotal) {
-            pointsTotal.textContent = String(points);
-          }
-          currentUserName = firstName || user.email || "";
-          currentUserPoints = points;
-          if (referralLinkEl && currentUser) {
-            const link = `${window.location.origin}${window.location.pathname}?ref=${refCode}`;
-            referralLinkEl.textContent = link;
-            copyRefCodeButton.disabled = false;
-            copyRefLinkButton.disabled = false;
-            copyRefCodeButton.dataset.refCode = refCode;
-            copyRefLinkButton.dataset.refLink = link;
-          }
-          if (navStatus) {
-            navStatus.textContent = t("nav_status_points", {
-              name: currentUserName,
-              points: currentUserPoints,
-            });
-          }
-          updatePointsButtons();
-          applyReferralBonus(user.uid, referrerCode);
-        });
-      };
-
-      const updateStatus = (user) => {
-        if (user) {
-          message.textContent = t("status_signed_in_as", { email: user.email });
-          signOutButton.disabled = false;
-          currentUser = user;
-          if (signinSection) {
-            signinSection.classList.add("signed-in");
-          }
-          if (signinCard) {
-            signinCard.classList.add("logged-in");
-          }
-          const refCode = user.uid.slice(0, 8);
-          const refParam = getRefParam();
-          const referrerCode =
-            refParam && refParam !== refCode ? refParam : "";
-          setDoc(
-            doc(db, "users", user.uid),
-            {
-              email: user.email || "",
-              refCode,
-              referrerCode,
-            },
-            { merge: true }
-          );
-          setDoc(
-            doc(db, "referrals", refCode),
-            {
-              ownerUid: user.uid,
-              ownerEmail: user.email || "",
-            },
-            { merge: true }
-          );
-          subscribeUser(user);
-        } else {
-          message.textContent = t("status_signed_out_message");
-          signOutButton.disabled = true;
-          currentUser = null;
-          completionsCache = {};
-          proofsCache = {};
-          currentUserName = "";
-          currentUserPoints = 0;
-          if (signinSection) {
-            signinSection.classList.remove("signed-in");
-          }
-          if (signinCard) {
-            signinCard.classList.remove("logged-in");
-          }
-          if (pointsTotal) {
-            pointsTotal.textContent = "0";
-          }
-          if (referralLinkEl) {
-            referralLinkEl.textContent = t("referral_sign_in");
-            copyRefCodeButton.disabled = true;
-            copyRefLinkButton.disabled = true;
-          }
-          if (navStatus) {
-            navStatus.textContent = t("status_signed_out");
-          }
-        }
-        updatePointsButtons();
-      };
-
-      onAuthStateChanged(auth, updateStatus);
-
-      form.addEventListener("submit", async (event) => {
-        event.preventDefault();
-        const formData = new FormData(form);
-        const email = String(formData.get("email") || "");
-        const password = String(formData.get("password") || "");
-
-        try {
-          await signInWithEmailAndPassword(auth, email, password);
-          form.reset();
-          window.location.reload();
-        } catch (error) {
-          message.textContent = error?.message || t("signin_failed");
-        }
-      });
-
-      signUpButton.addEventListener("click", async () => {
-        const formData = new FormData(form);
-        const email = String(formData.get("email") || "");
-        const password = String(formData.get("password") || "");
-        const firstName = String(formData.get("firstName") || "").trim();
-        const pronouns = String(formData.get("pronouns") || "").trim();
-        const school = String(formData.get("school") || "");
-        const schoolOther = String(formData.get("schoolOther") || "").trim();
-        const finalSchool = school === "Other" ? schoolOther : school;
-
-        if (!firstName) {
-          message.textContent = t("validation_first_name");
-          return;
-        }
-        if (!finalSchool) {
-          message.textContent = t("validation_school_select");
-          return;
-        }
-        if (school === "Other" && !schoolOther) {
-          message.textContent = t("validation_school_name");
-          return;
-        }
-
-        try {
-          const credential = await createUserWithEmailAndPassword(
-            auth,
-            email,
-            password
-          );
-          const refCode = credential.user.uid.slice(0, 8);
-          const refParam = getRefParam();
-          const referrerCode =
-            refParam && refParam !== refCode ? refParam : "";
-          await setDoc(
-            doc(db, "users", credential.user.uid),
-            {
-              email,
-              firstName,
-              pronouns,
-              school: finalSchool,
-              points: 0,
-              refCode,
-              referrerCode,
-            },
-            { merge: true }
-          );
-          await setDoc(
-            doc(db, "referrals", refCode),
-            {
-              ownerUid: credential.user.uid,
-              ownerEmail: email,
-            },
-            { merge: true }
-          );
-          await applyReferralBonus(credential.user.uid, referrerCode);
-          form.reset();
-          window.location.reload();
-        } catch (error) {
-          message.textContent = error?.message || t("signup_failed");
-        }
-      });
-
-      googleButton.addEventListener("click", async () => {
-        try {
-          const provider = new GoogleAuthProvider();
-          await signInWithPopup(auth, provider);
-          window.location.reload();
-        } catch (error) {
-          message.textContent = error?.message || t("google_failed");
-        }
-      });
-
-      signOutButton.addEventListener("click", async () => {
-        try {
-          await signOut(auth);
-        } catch (error) {
-          message.textContent = error?.message || t("signout_failed");
-        }
-      });
-
-      if (schoolSelect && schoolOtherRow) {
-        schoolSelect.addEventListener("change", () => {
-          const showOther = schoolSelect.value === "Other";
-          schoolOtherRow.classList.toggle("hidden", !showOther);
-        });
-      }
-
-      const copyToClipboard = async (text) => {
-        if (!text) {
-          return;
-        }
-        try {
-          await navigator.clipboard.writeText(text);
-          message.textContent = t("copy_success");
-        } catch (error) {
-          message.textContent = t("copy_fail");
-        }
-      };
-
-      if (copyRefCodeButton) {
-        copyRefCodeButton.addEventListener("click", () => {
-          copyToClipboard(copyRefCodeButton.dataset.refCode || "");
-        });
-      }
-
-      if (copyRefLinkButton) {
-        copyRefLinkButton.addEventListener("click", () => {
-          copyToClipboard(copyRefLinkButton.dataset.refLink || "");
-        });
-      }
-
-      proofForms.forEach((proofForm) => {
-        proofForm.addEventListener("submit", async (event) => {
-          event.preventDefault();
-          if (!currentUser) {
-            message.textContent = t("points_sign_in");
-            return;
-          }
-          const formId = proofForm.dataset.formId || "";
-          const formPoints = Number(proofForm.dataset.points || "0");
-          const fileInput = proofForm.querySelector("input[type='file']");
-          const file = fileInput?.files?.[0];
-          if (!file) {
-            message.textContent = t("validation_upload");
-            return;
-          }
-
-          const filePath = `proofs/${currentUser.uid}/${formId}/${Date.now()}-${file.name}`;
-          const fileRef = storageRef(storage, filePath);
-          const uploadSnap = await uploadBytes(fileRef, file);
-          const downloadUrl = await getDownloadURL(uploadSnap.ref);
-
-          try {
-            const userRef = doc(db, "users", currentUser.uid);
-            await runTransaction(db, async (tx) => {
-              const userSnap = await tx.get(userRef);
-              const data = userSnap.data() || {};
-              const completions = data.completions || {};
-              const proofs = data.proofs || {};
-              const refCode = data.refCode || currentUser.uid.slice(0, 8);
-
-              if (completions[formId]) {
-                return;
-              }
-              if (proofs[formId]?.status === "pending") {
-                return;
-              }
-
-              proofs[formId] = {
-                url: downloadUrl,
-                status: "pending",
-                submittedAt: serverTimestamp(),
-                refCode,
-                points: formPoints,
-              };
-
-              tx.set(
-                userRef,
-                {
-                  proofs,
-                  email: currentUser.email || "",
-                },
-                { merge: true }
-              );
-            });
-            message.textContent = t("proof_submitted");
-            proofForm.reset();
-          } catch (error) {
-            message.textContent = error?.message || t("proof_failed");
-          }
-        });
-      });
-
-      const logReferralVisit = () => {
-        const params = new URLSearchParams(window.location.search);
-        const ref = params.get("ref");
-        if (!ref) {
-          return;
-        }
-        const refDoc = doc(db, "referrals", ref);
-        setDoc(
-          refDoc,
-          {
-            visitCount: increment(1),
-            lastVisitAt: serverTimestamp(),
-          },
-          { merge: true }
-        );
-      };
-
-      logReferralVisit();
-
-      const body = document.body;
-      const themeButtons = document.querySelectorAll("[data-theme]");
-      const themeToggle = document.querySelector("[data-theme-toggle]");
-
-      const setTheme = (theme) => {
-        body.dataset.theme = theme;
-        localStorage.setItem("seamun-theme", theme);
-      };
-
-      const setDarkMode = (enabled) => {
-        body.classList.toggle("dark", enabled);
-        localStorage.setItem("seamun-dark", enabled ? "1" : "0");
-        themeToggle.textContent = enabled ? t("light_mode") : t("dark_mode");
-      };
-
-      themeButtons.forEach((button) => {
-        button.addEventListener("click", () => setTheme(button.dataset.theme));
-      });
-
-      themeToggle.addEventListener("click", () => {
-        setDarkMode(!body.classList.contains("dark"));
-      });
-
-      const savedTheme = localStorage.getItem("seamun-theme") || "blue";
-      const savedDark = localStorage.getItem("seamun-dark") === "1";
-      setTheme(savedTheme);
-      setDarkMode(savedDark);
-      applyLanguage(currentLang);
-
-      (function () {
-        const roleEntry = document.getElementById("role-entry");
-        const roleOptions = roleEntry?.querySelector(".role-options");
-        const roleWelcome = document.getElementById("role-welcome");
-        const backBtn = document.getElementById("back-to-roles");
-        const roleBtns = roleEntry?.querySelectorAll(".role-btn");
-        const welcomePanels = roleWelcome?.querySelectorAll(".welcome-panel");
-        const delegatePanel = roleWelcome?.querySelector("[data-panel='delegate']");
-        const indepYes = delegatePanel?.querySelector("[data-independent='yes']");
-        const indepNo = delegatePanel?.querySelector("[data-independent='no']");
-        const welcomeIndependent = delegatePanel?.querySelector(".welcome-independent");
-        const welcomeSchool = delegatePanel?.querySelector(".welcome-school");
-        const welcomeQuestion = delegatePanel?.querySelector(".welcome-question");
-        const independentToggle = delegatePanel?.querySelector(".independent-toggle");
-
-        function showRoleChoice() {
-          if (roleOptions) roleOptions.classList.remove("hidden");
-          if (roleWelcome) roleWelcome.classList.add("hidden");
-          welcomePanels?.forEach((p) => { p.hidden = true; });
-          if (welcomeIndependent) welcomeIndependent.classList.add("hidden");
-          if (welcomeSchool) welcomeSchool.classList.add("hidden");
-          if (welcomeQuestion) welcomeQuestion.classList.remove("hidden");
-          if (independentToggle) independentToggle.classList.remove("hidden");
-        }
-
-        function showPanel(role) {
-          if (roleOptions) roleOptions.classList.add("hidden");
-          if (roleWelcome) roleWelcome.classList.remove("hidden");
-          welcomePanels?.forEach((p) => { p.hidden = p.dataset.panel !== role; });
-          if (role === "delegate") {
-            if (welcomeQuestion) welcomeQuestion.classList.remove("hidden");
-            if (independentToggle) independentToggle.classList.remove("hidden");
-            if (welcomeIndependent) welcomeIndependent.classList.add("hidden");
-            if (welcomeSchool) welcomeSchool.classList.add("hidden");
-          }
-        }
-
-        roleBtns?.forEach((btn) => {
-          btn.addEventListener("click", () => {
-            const role = btn.dataset.role;
-            showPanel(role);
-          });
-        });
-
-        indepYes?.addEventListener("click", () => {
-          if (welcomeQuestion) welcomeQuestion.classList.add("hidden");
-          if (independentToggle) independentToggle.classList.add("hidden");
-          if (welcomeIndependent) welcomeIndependent.classList.remove("hidden");
-          if (welcomeSchool) welcomeSchool.classList.add("hidden");
-        });
-        indepNo?.addEventListener("click", () => {
-          if (welcomeQuestion) welcomeQuestion.classList.add("hidden");
-          if (independentToggle) independentToggle.classList.add("hidden");
-          if (welcomeIndependent) welcomeIndependent.classList.add("hidden");
-          if (welcomeSchool) welcomeSchool.classList.remove("hidden");
-        });
-
-        backBtn?.addEventListener("click", showRoleChoice);
-      })();
-    </script>
-  </body>
-</html>
+};

@@ -265,6 +265,14 @@ body.dark .site-header {
   gap: 14px;
 }
 
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: inherit;
+}
+
 .logo-image {
   width: 56px;
   height: 56px;
@@ -1067,6 +1075,217 @@ body.dark .time-tag {
 
 .award-card h3 {
   margin-bottom: 8px;
+}
+
+/* Role entry (Delegate / Chair / Advisor) */
+.role-entry-title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.role-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 0;
+}
+
+.role-btn {
+  padding: 1rem 1.75rem;
+  border-radius: 16px;
+  border: 2px solid var(--border);
+  background: var(--card);
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  color: var(--text);
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.role-btn:hover {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+.role-welcome {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+}
+
+.role-welcome .welcome-panel[hidden] {
+  display: none !important;
+}
+
+.welcome-question {
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.independent-toggle {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.welcome-message {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.welcome-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.back-to-roles {
+  margin-top: 1.25rem;
+}
+
+/* Leadership grid */
+.leadership-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.leadership-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.leadership-role {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.leadership-name {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.leadership-email {
+  font-size: 0.85rem;
+  color: var(--accent);
+  word-break: break-all;
+}
+
+/* Pillars (Purpose, Collaboration, Diplomacy) */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.pillar-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 1.5rem;
+}
+
+.pillar-name {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.awards-subsection {
+  margin-top: 2rem;
+}
+
+.awards-subsection:first-of-type {
+  margin-top: 0;
+}
+
+.awards-subsection-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--border);
+}
+
+.back-to-top-wrap {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+/* For venues & sponsors (email-ready copy) */
+.partner-blurb {
+  margin-bottom: 2rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.partner-blurb h3 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+
+.partner-blurb-text {
+  margin: 0;
+  line-height: 1.65;
+  color: var(--text);
+  max-width: 72ch;
+}
+
+.partner-facts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.partner-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+}
+
+.partner-card h3 {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.partner-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.partner-list li {
+  padding: 0.25rem 0;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.partner-list strong {
+  display: inline-block;
+  min-width: 8em;
+  color: var(--muted);
 }
 
 .contact-grid {
