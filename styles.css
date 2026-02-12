@@ -409,6 +409,77 @@ body {
   max-width: 560px;
 }
 
+.contact-note a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.contact-note a:hover {
+  text-decoration: underline;
+}
+
+/* Sponsors page */
+.sponsors-subtitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 2.5rem 0 1rem;
+}
+
+.sponsor-tiers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.sponsor-tier {
+  padding: 1.25rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.sponsor-tier h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.sponsor-price {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.75rem;
+}
+
+.sponsor-tier ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.sponsor-tier li {
+  margin-bottom: 0.35rem;
+}
+
+.sponsor-note {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+.sponsor-purposes {
+  margin: 0 0 2rem;
+  padding-left: 1.25rem;
+  max-width: 640px;
+}
+
+.sponsor-purposes li {
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
 /* Footer */
 .site-footer {
   padding: 2.5rem 0;

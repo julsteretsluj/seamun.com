@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leadership — SEAMUN I</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="assets/seamun-logo.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo">
+          <img class="logo-image" src="assets/seamun-logo.png" alt="SEAMUN I" />
+          <span class="logo-text">SEAMUN I</span>
+        </a>
+        <nav class="nav">
+          <a href="about.html">About</a>
+          <a href="leadership.html">Leadership</a>
+          <a href="committees.html">Committees</a>
+          <a href="contact.html">Contact</a>
+          <a href="sponsors.html">Sponsors</a>
+          <a class="btn btn-header" href="register.html">Register</a>
+        </nav>
+        <button class="nav-toggle" type="button" aria-label="Open menu" data-nav-toggle></button>
+      </div>
+      <div class="nav-dropdown" id="nav-dropdown" hidden>
+        <a href="about.html">About</a>
+        <a href="leadership.html">Leadership</a>
+        <a href="committees.html">Committees</a>
+        <a href="contact.html">Contact</a>
+        <a href="sponsors.html">Sponsors</a>
+        <a href="register.html">Register</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="section section-alt">
+        <div class="container">
+          <h2 class="section-title">Secretariat &amp; Leadership</h2>
+          <div class="leadership-grid">
+            <div class="leadership-card">
+              <span class="role">Secretary General</span>
+              <span class="name">Jules K.A.</span>
+              <a href="mailto:juleskittoastrop@gmail.com">juleskittoastrop@gmail.com</a>
+            </div>
+            <div class="leadership-card">
+              <span class="role">Deputy Secretary General</span>
+              <span class="name">Emily H.</span>
+              <a href="mailto:emily.yhstudent@sisbschool.com">emily.yhstudent@sisbschool.com</a>
+            </div>
+            <div class="leadership-card">
+              <span class="role">Parliamentarian</span>
+              <span class="name">Lotus T.</span>
+              <a href="mailto:ladapham14@gmail.com">ladapham14@gmail.com</a>
+            </div>
+            <div class="leadership-card">
+              <span class="role">Head of Logistics &amp; Finance</span>
+              <span class="name">Dominic S. S.</span>
+              <a href="mailto:dominicstott09@gmail.com">dominicstott09@gmail.com</a>
+            </div>
+            <div class="leadership-card">
+              <span class="role">Deputy Head of Finance</span>
+              <span class="name">Mannan P.</span>
+              <a href="mailto:mannanparikh27@gmail.com">mannanparikh27@gmail.com</a>
+            </div>
+            <div class="leadership-card">
+              <span class="role">Head of PR &amp; Advertising</span>
+              <span class="name">Phil</span>
+              <a href="mailto:sarana79262@gmail.com">sarana79262@gmail.com</a>
+            </div>
+            <div class="leadership-card">
+              <span class="role">Head of Media</span>
+              <span class="name">Ping J.</span>
+              <a href="mailto:30bping@regents.ac.th">30bping@regents.ac.th</a>
+            </div>
+            <div class="leadership-card">
+              <span class="role">Delegate Affairs</span>
+              <span class="name">TBD</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <img class="footer-logo" src="assets/seamun-logo.png" alt="" />
+        <p class="footer-tagline">SEAMUN I — Policies with a Purpose</p>
+        <p class="footer-copy">&copy; SEAMUN I 2027</p>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var t = document.querySelector("[data-nav-toggle]");
+        var d = document.getElementById("nav-dropdown");
+        if (t && d) t.addEventListener("click", function () {
+          var open = d.hasAttribute("hidden");
+          if (open) d.removeAttribute("hidden"); else d.setAttribute("hidden", "");
+          t.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+        });
+      })();
+    </script>
+  </body>
+</html>

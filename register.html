@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register — SEAMUN I</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="assets/seamun-logo.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo">
+          <img class="logo-image" src="assets/seamun-logo.png" alt="SEAMUN I" />
+          <span class="logo-text">SEAMUN I</span>
+        </a>
+        <nav class="nav">
+          <a href="about.html">About</a>
+          <a href="leadership.html">Leadership</a>
+          <a href="committees.html">Committees</a>
+          <a href="contact.html">Contact</a>
+          <a href="sponsors.html">Sponsors</a>
+          <a class="btn btn-header" href="register.html">Register</a>
+        </nav>
+        <button class="nav-toggle" type="button" aria-label="Open menu" data-nav-toggle></button>
+      </div>
+      <div class="nav-dropdown" id="nav-dropdown" hidden>
+        <a href="about.html">About</a>
+        <a href="leadership.html">Leadership</a>
+        <a href="committees.html">Committees</a>
+        <a href="contact.html">Contact</a>
+        <a href="sponsors.html">Sponsors</a>
+        <a href="register.html">Register</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container" style="max-width: 520px;">
+          <h2 class="section-title">Register for SEAMUN I</h2>
+          <p class="modal-form-intro">Express your interest. We’ll get back to you with registration details.</p>
+          <form class="modal-form" id="register-form" data-mailto="info@seamuns.site" data-subject="SEAMUN I 2027 – Registration interest">
+            <label>
+              <span>Name</span>
+              <input type="text" name="name" required placeholder="Your name" />
+            </label>
+            <label>
+              <span>Email</span>
+              <input type="email" name="email" required placeholder="you@example.com" />
+            </label>
+            <label>
+              <span>Role</span>
+              <select name="role">
+                <option value="">Select…</option>
+                <option value="Delegate">Delegate</option>
+                <option value="Chair">Chair</option>
+                <option value="Advisor">Advisor</option>
+              </select>
+            </label>
+            <label>
+              <span>School or organisation (optional)</span>
+              <input type="text" name="school" placeholder="School name" />
+            </label>
+            <label>
+              <span>Message (optional)</span>
+              <textarea name="message" rows="3" placeholder="Any questions or notes…"></textarea>
+            </label>
+            <div class="modal-form-actions">
+              <button type="submit" class="btn btn-primary">Send</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <img class="footer-logo" src="assets/seamun-logo.png" alt="" />
+        <p class="footer-tagline">SEAMUN I — Policies with a Purpose</p>
+        <p class="footer-copy">&copy; SEAMUN I 2027</p>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var t = document.querySelector("[data-nav-toggle]");
+        var d = document.getElementById("nav-dropdown");
+        if (t && d) t.addEventListener("click", function () {
+          var open = d.hasAttribute("hidden");
+          if (open) d.removeAttribute("hidden"); else d.setAttribute("hidden", "");
+          t.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+        });
+
+        function buildMailto(to, subject, bodyLines) {
+          var params = ["subject=" + encodeURIComponent(subject), "body=" + encodeURIComponent(bodyLines.join("\n"))];
+          return "mailto:" + encodeURIComponent(to) + "?" + params.join("&");
+        }
+        document.getElementById("register-form").addEventListener("submit", function (e) {
+          e.preventDefault();
+          var form = e.target;
+          var to = form.getAttribute("data-mailto") || "info@seamuns.site";
+          var subject = form.getAttribute("data-subject") || "SEAMUN I 2027";
+          var name = (form.querySelector("[name=name]") && form.querySelector("[name=name]").value) || "";
+          var email = (form.querySelector("[name=email]") && form.querySelector("[name=email]").value) || "";
+          var role = (form.querySelector("[name=role]") && form.querySelector("[name=role]").value) || "";
+          var school = (form.querySelector("[name=school]") && form.querySelector("[name=school]").value) || "";
+          var message = (form.querySelector("[name=message]") && form.querySelector("[name=message]").value) || "";
+          var body = ["Name: " + name, "Email: " + email].concat(role ? ["Role: " + role] : []).concat(school ? ["School/Organisation: " + school] : []).concat(message ? ["Message: " + message] : []);
+          window.location.href = buildMailto(to, subject, body);
+        });
+      })();
+    </script>
+  </body>
+</html>

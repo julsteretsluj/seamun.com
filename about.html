@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About — SEAMUN I</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="assets/seamun-logo.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo">
+          <img class="logo-image" src="assets/seamun-logo.png" alt="SEAMUN I" />
+          <span class="logo-text">SEAMUN I</span>
+        </a>
+        <nav class="nav">
+          <a href="about.html">About</a>
+          <a href="leadership.html">Leadership</a>
+          <a href="committees.html">Committees</a>
+          <a href="contact.html">Contact</a>
+          <a href="sponsors.html">Sponsors</a>
+          <a class="btn btn-header" href="register.html">Register</a>
+        </nav>
+        <button class="nav-toggle" type="button" aria-label="Open menu" data-nav-toggle></button>
+      </div>
+      <div class="nav-dropdown" id="nav-dropdown" hidden>
+        <a href="about.html">About</a>
+        <a href="leadership.html">Leadership</a>
+        <a href="committees.html">Committees</a>
+        <a href="contact.html">Contact</a>
+        <a href="sponsors.html">Sponsors</a>
+        <a href="register.html">Register</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">About</h2>
+          <div class="about-grid">
+            <div class="about-card">
+              <h3>Purpose</h3>
+              <p>100% of conference surplus is donated to the King Chulalongkorn Memorial Hospital Foundation. We connect global policy debate with local impact.</p>
+            </div>
+            <div class="about-card">
+              <h3>Collaboration</h3>
+              <p>Delegates, chairs, and advisors work across 10 committees—resolution-writing, caucusing, and committee activities.</p>
+            </div>
+            <div class="about-card">
+              <h3>Diplomacy</h3>
+              <p>Rules of procedure, moderated debate, and formal diplomacy. We train the next generation in negotiation and public speaking.</p>
+            </div>
+          </div>
+          <div class="meta-row">
+            <span><strong>Location:</strong> Venue TBD (Bangkok)</span>
+            <span><strong>Fees:</strong> 2,500 THB (school) / 3,000 THB (independent). Chair: 800 THB.</span>
+            <span><strong>Capacity:</strong> 250</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <img class="footer-logo" src="assets/seamun-logo.png" alt="" />
+        <p class="footer-tagline">SEAMUN I — Policies with a Purpose</p>
+        <p class="footer-copy">&copy; SEAMUN I 2027</p>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var t = document.querySelector("[data-nav-toggle]");
+        var d = document.getElementById("nav-dropdown");
+        if (t && d) t.addEventListener("click", function () {
+          var open = d.hasAttribute("hidden");
+          if (open) d.removeAttribute("hidden"); else d.setAttribute("hidden", "");
+          t.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+        });
+      })();
+    </script>
+  </body>
+</html>
