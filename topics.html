@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agenda — SEAMUN I</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Libre+Baskerville:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="assets/seamun-logo-light.png" />
+    <style>
+      :root {
+        --agenda-bg: #dbece9;
+        --agenda-panel: #ffffff;
+        --agenda-border: #7dd3c0;
+        --agenda-text: #0f3460;
+        --agenda-accent: #0d7377;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Manrope", system-ui, sans-serif;
+        background: var(--agenda-bg);
+        color: var(--agenda-text);
+        line-height: 1.6;
+        min-height: 100vh;
+      }
+      .agenda-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1rem;
+        padding: 1.25rem 2rem;
+        border-bottom: 2px solid var(--agenda-border);
+        background: var(--agenda-panel);
+      }
+      .agenda-logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .agenda-logo img {
+        width: 48px;
+        height: 48px;
+        object-fit: contain;
+      }
+      .agenda-logo-text strong {
+        display: block;
+        font-size: 1.1rem;
+      }
+      .agenda-logo-text span {
+        font-size: 0.8rem;
+        color: var(--agenda-accent);
+      }
+      .agenda-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--agenda-text);
+      }
+      .agenda-links {
+        display: flex;
+        gap: 0.75rem;
+      }
+      .agenda-links a {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background: #b8e4e0;
+        color: var(--agenda-text);
+        text-decoration: none;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        border: 1px solid var(--agenda-border);
+      }
+      .agenda-links a:hover {
+        background: var(--agenda-border);
+        color: #fff;
+      }
+      .agenda-main {
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      @media (max-width: 768px) {
+        .agenda-main {
+          grid-template-columns: 1fr;
+        }
+      }
+      .agenda-committees {
+        position: sticky;
+        top: 1rem;
+        align-self: start;
+      }
+      .agenda-committees h2,
+      .agenda-topics h2 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--agenda-text);
+        margin-bottom: 0.75rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--agenda-border);
+      }
+      .committee-btn {
+        display: block;
+        width: 100%;
+        padding: 0.6rem 1rem;
+        margin-bottom: 0.5rem;
+        background: var(--agenda-panel);
+        border: 2px solid var(--agenda-border);
+        border-radius: 999px;
+        color: var(--agenda-text);
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-align: center;
+        cursor: pointer;
+        font-family: inherit;
+        transition: background 0.2s, color 0.2s;
+      }
+      .committee-btn:hover,
+      .committee-btn.active {
+        background: var(--agenda-accent);
+        color: #fff;
+        border-color: var(--agenda-accent);
+      }
+      .agenda-topics {
+        min-width: 0;
+        background: var(--agenda-panel);
+        border-radius: 8px;
+        border: 1px solid var(--agenda-border);
+        padding: 1.5rem 2rem;
+      }
+      .agenda-topics h2 {
+        display: none;
+      }
+      .committee-agenda-title {
+        font-family: "Libre Baskerville", Georgia, serif;
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: var(--agenda-text);
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--agenda-border);
+      }
+      .topic-block {
+        display: none;
+        margin-bottom: 0;
+      }
+      .topic-block.visible {
+        display: block;
+      }
+      .topic-block h3 {
+        display: none;
+      }
+      .topic-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+        font-family: "Libre Baskerville", Georgia, serif;
+        font-size: 1rem;
+        color: var(--agenda-text);
+        line-height: 1.6;
+      }
+      .topic-item:last-child {
+        margin-bottom: 0;
+      }
+      .topic-icon {
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+      }
+      .topic-item .topic-text {
+        flex: 1;
+      }
+      .topic-item .topic-text em {
+        font-style: italic;
+        font-weight: normal;
+      }
+      .topic-item .topic-text strong {
+        font-weight: 700;
+        text-decoration: underline;
+        color: var(--agenda-text);
+      }
+      .topic-list {
+        list-style: none;
+      }
+      .topic-list li {
+        font-family: "Libre Baskerville", Georgia, serif;
+        font-size: 0.95rem;
+        margin-bottom: 0.75rem;
+        padding-left: 0.5rem;
+      }
+      .topic-list li strong {
+        font-weight: 700;
+        text-decoration: underline;
+        color: var(--agenda-text);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="agenda-header">
+      <div class="agenda-logo">
+        <img src="assets/seamun-logo-light.png" alt="SEAMUN I" />
+        <div class="agenda-logo-text">
+          <strong>SEAMUN I</strong>
+          <span>POLICIES WITH A PURPOSE</span>
+        </div>
+      </div>
+      <h1 class="agenda-title">Agenda!</h1>
+      <div class="agenda-links">
+        <a href="index.html">seamun.com</a>
+        <a href="https://seamuns.site" target="_blank" rel="noreferrer">seamuns.site</a>
+      </div>
+    </header>
+
+    <main class="agenda-main">
+      <aside class="agenda-committees">
+        <h2>Committees</h2>
+        <button type="button" class="committee-btn active" data-committee="unhrc">UNHRC</button>
+        <button type="button" class="committee-btn" data-committee="disec">DISEC</button>
+        <button type="button" class="committee-btn" data-committee="unwomen">UN Women</button>
+        <button type="button" class="committee-btn" data-committee="unep">UNEP</button>
+        <button type="button" class="committee-btn" data-committee="press">Press Corps</button>
+        <button type="button" class="committee-btn" data-committee="who">WHO</button>
+        <button type="button" class="committee-btn" data-committee="unsc">UNSC</button>
+        <button type="button" class="committee-btn" data-committee="unodc">UNODC</button>
+        <button type="button" class="committee-btn" data-committee="ecosoc">ECOSOC</button>
+        <button type="button" class="committee-btn" data-committee="fwc">FWC</button>
+      </aside>
+
+      <section class="agenda-topics">
+        <h2>Topics</h2>
+        <p class="committee-agenda-title" id="committee-agenda-title">UNHRC : agenda!</p>
+
+        <div class="topic-block visible" id="topic-unhrc">
+          <div class="topic-item">
+            <span class="topic-icon" aria-hidden="true">☠️</span>
+            <div class="topic-text"><em>The Question of</em> Promoting the <strong>Standardized Regulation</strong> of the <strong>Death Penalty</strong> and Respect for the <strong>Right to Life</strong>.</div>
+          </div>
+          <div class="topic-item">
+            <span class="topic-icon" aria-hidden="true">🔒</span>
+            <div class="topic-text"><em>The Question of The Obligation to</em> <strong>Prevent Cruel, Inhuman or Degrading Treatment</strong> Arising from Deficiencies in <strong>Prison Administration and Justice Systems</strong>.</div>
+          </div>
+        </div>
+
+        <div class="topic-block" id="topic-disec">
+          <div class="topic-item">
+            <span class="topic-icon" aria-hidden="true">☢️</span>
+            <div class="topic-text"><em>The Question of</em> Strengthening International Protocols and Logistics for Securing the Cross-Border Transport of <strong>Weapons of Mass Destruction (WMDs)</strong> and Related Materials.</div>
+          </div>
+          <div class="topic-item">
+            <span class="topic-icon" aria-hidden="true">🔫</span>
+            <div class="topic-text"><em>The Question of</em> Developing Mechanisms to Prevent the Diversion of Legally Traded Conventional Arms to <strong>Illicit Markets and Non-State Actors</strong>.</div>
+          </div>
+        </div>
+
+        <div class="topic-block" id="topic-unwomen">
+          <div class="topic-item">
+            <span class="topic-icon" aria-hidden="true">💜</span>
+            <div class="topic-text"><em>The Question of</em> Affirming and Guaranteeing Women's <strong>Reproductive Autonomy</strong> by Establishing International Legal Standards on Access to Safe and <strong>Legal Abortion</strong> with Respect for Cultural and Religious Diversity.</div>
+          </div>
+          <div class="topic-item">
+            <span class="topic-icon" aria-hidden="true">👶</span>
+            <div class="topic-text"><em>The Question of</em> Examining the Recognition of <strong>Universal Childcare</strong> as a Fundamental Human Right and its Role in Addressing <strong>Declining Birth Rates</strong> and Supporting Gender Equality in the Workforce.</div>
+          </div>
+        </div>
+
+        <div class="topic-block" id="topic-unep">
+          <div class="topic-item">
+            <span class="topic-icon" aria-hidden="true">🌡️</span>
+            <div class="topic-text"><em>The Question of</em> Combating <strong>Rising Temperatures</strong> in the Arctic and <strong>Preventing Ocean Acidification</strong>.</div>
+          </div>
+          <div class="topic-item">
+            <span class="topic-icon" aria-hidden="true">🏝️</span>
+            <div class="topic-text"><em>The Question of</em> Protecting Sensitive Island Ecosystems from <strong>Invasive Species</strong> and Recovering Ecosystems That Were Damaged.</div>
+          </div>
+        </div>
+
+        <div class="topic-block" id="topic-press">
+          <div class="topic-item">
+            <span class="topic-icon" aria-hidden="true">📰</span>
+            <div class="topic-text"><em>The Question of</em> Determining the Circumstances in Which Journalists Can and Should <strong>Report on Public Affairs</strong>.</div>
+          </div>
+          <div class="topic-item">
+            <span class="topic-icon" aria-hidden="true">📢</span>
+            <div class="topic-text"><em>The Question of</em> Combating <strong>Political Influence</strong> on and <strong>Censorship of Media and Journalism</strong>.</div>
+          </div>
+        </div>
+
+        <div class="topic-block" id="topic-who">
+          <div class="topic-item">
+            <span class="topic-icon" aria-hidden="true">💊</span>
+            <div class="topic-text"><em>The Question of</em> Examining the Ethical and Regulatory Landscape for the Clinical Use of <strong>Psychedelic Drugs</strong> in the Treatment of Trauma-Based Mental Health Conditions.</div>
+          </div>
+          <div class="topic-item">
+            <span class="topic-icon" aria-hidden="true">⚖️</span>
+            <div class="topic-text"><em>The Question of</em> Examining Measures to Safeguard <strong>Patient Autonomy</strong> and Ensure the Protection of Human Rights in the Context of <strong>Euthanasia and Assisted Suicide</strong>.</div>
+          </div>
+        </div>
+
+        <div class="topic-block" id="topic-unsc">
+          <div class="topic-item">
+            <span class="topic-icon" aria-hidden="true">📚</span>
+            <div class="topic-text"><em>The Question of</em> Addressing the Role of Education and Information Management in Preventing <strong>Youth Radicalization and Extremism</strong>.</div>
+          </div>
+          <div class="topic-item">
+            <span class="topic-icon" aria-hidden="true">🕊️</span>
+            <div class="topic-text"><em>The Question of</em> Developing and Standardizing Best Practices for Peacekeeping Operations to Ensure <strong>Scalable and Sustainable Global Implementation</strong>.</div>
+          </div>
+        </div>
+
+        <div class="topic-block" id="topic-unodc">
+          <div class="topic-item">
+            <span class="topic-icon" aria-hidden="true">⚖️</span>
+            <div class="topic-text"><em>The Question of</em> Policy Analysis of Alternatives to Conviction and Punishment for <strong>Drug Possession for Personal Use</strong>.</div>
+          </div>
+          <div class="topic-item">
+            <span class="topic-icon" aria-hidden="true">🌿</span>
+            <div class="topic-text"><em>The Question of</em> Mitigating Environmental Degradation and Ecosystem Damage Resulting from <strong>Illicit Drug Cultivation and Production</strong>.</div>
+          </div>
+        </div>
+
+        <div class="topic-block" id="topic-ecosoc">
+          <div class="topic-item">
+            <span class="topic-icon" aria-hidden="true">💰</span>
+            <div class="topic-text"><em>The Question of</em> Implementing a Globally Coordinated <strong>Universal Basic Income (UBI) Programme</strong> as a Strategy for <strong>Poverty Eradication and Economic Stability</strong>.</div>
+          </div>
+          <div class="topic-item">
+            <span class="topic-icon" aria-hidden="true">🏥</span>
+            <div class="topic-text"><em>The Question of</em> Exploring International Mechanisms for Reallocating Military Expenditures Towards the Development and Strengthening of <strong>Global Public Health Systems</strong>.</div>
+          </div>
+        </div>
+
+        <div class="topic-block" id="topic-fwc">
+          <p style="margin-bottom: 1rem; font-size: 0.95rem;">Universe tracks with two topics each:</p>
+          <ol class="topic-list">
+            <li><strong>Avatar</strong> — 1) Protecting Eywa against violence and destruction. 2) Combatting unobtanium exploitation with new governing bodies.</li>
+            <li><strong>Planet of the Apes</strong> — 1) Preventing unethical research through bio-ethical review boards. 2) Codifying rights for enhanced non-human species.</li>
+            <li><strong>Stranger Things</strong> — 1) Preventing harm from psychic child experimentation. 2) Regulating weaponization of the human mind.</li>
+            <li><strong>How to Train Your Dragon</strong> — 1) Combatting illegal trafficking and poaching of dragons. 2) Evaluating ethics of inter-species labor agreements.</li>
+            <li><strong>The Lorax</strong> — 1) Addressing deforestation and industrial pollution. 2) Regulating <strong>non-essential goods</strong> and <strong>excessive consumerism</strong>.</li>
+            <li><strong>Hamilton</strong> — 1) Establishing federal fiscal responsibility and debt sustainability. 2) Regulating political ethics and public discourse.</li>
+            <li><strong>Godzilla</strong> — 1) Frameworks for titan stewardship vs. sovereign defense. 2) Ethics of cybernetic bio-engineering and mecha proliferation.</li>
+            <li><strong>The Addams Family</strong> — 1) Protecting rights of outcast communities against assimilation. 2) Regulating ethical use of the occult in public spaces.</li>
+          </ol>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      (function () {
+        var titles = {
+          unhrc: "UNHRC",
+          disec: "DISEC",
+          unwomen: "UN Women",
+          unep: "UNEP",
+          press: "Press Corps",
+          who: "WHO",
+          unsc: "UNSC",
+          unodc: "UNODC",
+          ecosoc: "ECOSOC",
+          fwc: "FWC"
+        };
+        var buttons = document.querySelectorAll(".committee-btn");
+        var blocks = document.querySelectorAll(".topic-block");
+        var titleEl = document.getElementById("committee-agenda-title");
+
+        function showCommittee(id) {
+          blocks.forEach(function (block) {
+            block.classList.toggle("visible", block.id === "topic-" + id);
+          });
+          buttons.forEach(function (b) {
+            b.classList.toggle("active", b.dataset.committee === id);
+          });
+          if (titleEl && titles[id]) titleEl.textContent = titles[id] + " : agenda!";
+        }
+
+        buttons.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            showCommittee(btn.dataset.committee);
+          });
+        });
+
+        showCommittee("unhrc");
+      })();
+    </script>
+  </body>
+</html>
