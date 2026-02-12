@@ -39,7 +39,7 @@
       </div>
       <div id="help-type-filter">
         <p class="help-popover-title">Committee type</p>
-        <p><strong>Traditional</strong> — Classic UN bodies (e.g. UNSC, UNHRC, ECOSOC). <strong>Specialized</strong> — Themed or media committees (WHO, UNEP, Press). <strong>Fantasy</strong> — Fictional universe (e.g. The Lorax).</p>
+        <p><strong>Traditional</strong> — Classic UN bodies (e.g. UNSC, UNHRC, ECOSOC). <strong>Specialized</strong> — Themed or media committees (WHO, HSC, Press). <strong>Fantasy</strong> — Fictional universe (e.g. The Lorax).</p>
       </div>
       <div id="help-allocations">
         <p class="help-popover-title">Allocations</p>
@@ -210,11 +210,11 @@
               </details>
             </article>
 
-            <article class="committee-card" data-committee="unep" data-grades="7-12" data-type="specialized">
+            <article class="committee-card" data-committee="hsc" data-grades="7-12" data-type="specialized">
               <div class="committee-header">
                 <div>
-                  <h3>UNEP</h3>
-                  <p class="committee-type">Environment Programme</p>
+                  <h3>HSC</h3>
+                  <p class="committee-type">Historical Security Council</p>
                 </div>
                 <div class="committee-tags">
                   <span class="tag">Specialized</span>
@@ -230,19 +230,15 @@
               </div>
               <ul class="committee-topics">
                 <li>
-                  <span class="topic-emoji">🌡️</span>
-                  <span>The Question of Combating Rising Temperatures in the Arctic and Preventing Ocean Acidification</span>
-                  <span class="difficulty-tag">Beginner</span>
-                </li>
-                <li>
-                  <span class="topic-emoji">🏝️</span>
-                  <span>The Question of Protecting Sensitive Island Ecosystems from Invasive Species and Recovering Damaged Ecosystems</span>
-                  <span class="difficulty-tag">Beginner</span>
+                  <span class="topic-emoji">📜</span>
+                  <span>The Question of Operation Cast Thy Bread: Biological Warfare, the 1925 Geneva Protocol, and Accountability in the 1948 Palestine War</span>
+                  <span class="difficulty-tag">Intermediate</span>
                 </li>
               </ul>
+              <p class="committee-topic-note"><a href="https://en.wikipedia.org/wiki/Operation_Cast_Thy_Bread" target="_blank" rel="noopener">Operation Cast Thy Bread (Wikipedia)</a></p>
               <details class="committee-allocations">
                 <summary>Show allocations</summary>
-                <ul class="allocation-list" data-committee="unep"></ul>
+                <ul class="allocation-list" data-committee="hsc"></ul>
               </details>
             </article>
 
@@ -558,17 +554,28 @@
           });
         });
 
+        // Allocations: UN committees use actual body membership (or subset); others topic-based.
         var ALLOCATIONS = {
-          unhrc: ["Benin","Brazil","Chile","China","Colombia","Cuba","Cyprus","France","Ghana","Iceland","India","Iraq","Japan","Mexico","Netherlands","Pakistan","Republic of Korea","South Africa","Spain","Switzerland","Thailand","United Kingdom","Vietnam"],
-          disec: ["Australia","Brazil","China","Colombia","Egypt","France","Germany","India","Israel","Japan","Netherlands","Nigeria","Pakistan","Panama","Russia","Saudi Arabia","Singapore","South Korea","Turkey","Ukraine","United Arab Emirates","United Kingdom","United States of America"],
-          unwomen: ["Argentina","China","Colombia","Denmark","France","Iceland","India","Ireland","Italy","Japan","Luxembourg","Malta","Mexico","Nigeria","Norway","Poland","Saudi Arabia","Slovenia","South Korea","Sweden","Thailand","United States of America"],
-          unep: ["Australia","Canada","Comoros","Denmark","Ecuador","Fiji","Finland","France","Germany","Iceland","Japan","Mauritius","Mexico","New Zealand","Norway","Russia","Saint Lucia","Seychelles","Sweden","United Kingdom","United States of America","Vanuatu"],
+          // UNHRC: 23 from current Human Rights Council membership (2025 cycle)
+          unhrc: ["Albania","Algeria","Bangladesh","Belgium","Benin","Bolivia","Brazil","Bulgaria","Burundi","Chile","China","Colombia","Costa Rica","Côte d'Ivoire","Cuba","Cyprus","Czechia","DRC","Dominican Republic","Ethiopia","France","Gambia","Georgia"],
+          // DISEC (First Committee): 23 UN member states (GA committee; topic: disarmament/security)
+          disec: ["Australia","Brazil","China","Egypt","France","Germany","India","Iran","Israel","Japan","Mexico","Nigeria","North Korea","Pakistan","Russia","South Africa","South Korea","Turkey","United Kingdom","United States","Algeria","Canada","Indonesia"],
+          // UN Women: 22 from Executive Board / states active on gender equality
+          unwomen: ["Burkina Faso","DRC","South Africa","Senegal","Rwanda","China","India","Japan","South Korea","Saudi Arabia","Vietnam","Nepal","Philippines","Albania","Russia","Ukraine","Colombia","Peru","Mexico","Bolivia","Belgium","United States"],
+          // HSC (1948): 22 — 1948 UNSC (11) + key regional states for Palestine/Operation Cast Thy Bread context
+          hsc: ["China","France","United Kingdom","United States","USSR","Argentina","Belgium","Canada","Colombia","Syria","Ukraine","Egypt","Iraq","Lebanon","Jordan","Saudi Arabia","Yemen","Turkey","Iran","Pakistan","India","Greece"],
+          // Press Corps: 14 news agencies (topic: media)
           press: ["AFP","Al Jazeera","BBC News","Daily Maverick","Deutsche Welle","Novaya Gazeta Europe","Rappler","Reuters","AP","The Economist","The Guardian","The New York Times","The Washington Post","The Wire"],
-          who: ["Australia","Canada","Israel","Czechia","Switzerland","United States of America","Jamaica","Netherlands","Belgium","Spain","Luxembourg","Ecuador","Colombia","New Zealand","United Kingdom","Portugal","Mexico","India","Turkey","Ukraine","Germany","South Korea"],
-          unsc: ["Bahrain","China","Colombia","DRC","Denmark","France","Greece","Latvia","Liberia","Pakistan","Panama","Russia","Somalia","UK","USA"],
-          unodc: ["Argentina","Brazil","Cameroon","Canada","China","Colombia","Cuba","Czechia","El Salvador","Finland","France","Germany","Guatemala","Japan","Mexico","Nigeria","Pakistan","South Africa","Thailand","UAE","United Kingdom","United States of America"],
-          ecosoc: ["Brazil","China","Costa Rica","Finland","Germany","India","Iran","Israel","Japan","Kenya","Mongolia","Namibia","Norway","Saudi Arabia","Sierra Leone","South Africa","South Korea","Spain","Switzerland","Togo","Ukraine","United States of America"],
-          fwc: []
+          // WHO: 22 WHO member states (topic: health)
+          who: ["Australia","Brazil","Canada","China","Egypt","Ethiopia","France","Germany","India","Indonesia","Japan","Kenya","Mexico","Nigeria","Pakistan","Russia","South Africa","South Korea","Thailand","United Kingdom","United States","Vietnam"],
+          // UNSC: 15 — actual Security Council 2025
+          unsc: ["Algeria","China","Denmark","France","Greece","Guyana","Pakistan","Panama","Russia","Sierra Leone","Slovenia","Somalia","South Korea","United Kingdom","United States"],
+          // UNODC/CND: 22 from Commission on Narcotic Drugs membership (topic: drugs/crime)
+          unodc: ["Algeria","Argentina","Australia","Brazil","China","Colombia","France","Ghana","India","Indonesia","Iran","Japan","Kenya","Mexico","Morocco","Nigeria","Russia","South Africa","Switzerland","Thailand","United Kingdom","United States"],
+          // ECOSOC: 20 from current ECOSOC membership (54 members)
+          ecosoc: ["Algeria","Australia","Bangladesh","Canada","China","Côte d'Ivoire","France","Germany","India","Japan","Kenya","Mexico","Netherlands","Nigeria","Pakistan","Russia","Saudi Arabia","South Africa","United States","Uruguay"],
+          // FWC (The Lorax): 10 roles from the story
+          fwc: ["The Once-ler","The Lorax","Bar-ba-loots","Swomee-Swans","Humming-Fish","Thneedville","Ted Wiggins","Audrey","Aloysius O'Hare","Truffula Valley"]
         };
         document.querySelectorAll(".allocation-list[data-committee]").forEach(function (ul) {
           var id = ul.getAttribute("data-committee");
