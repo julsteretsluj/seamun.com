@@ -185,7 +185,14 @@ body {
 .hero-tagline {
   font-size: 1.125rem;
   color: var(--text-muted);
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.hero-audience {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+  font-weight: 500;
 }
 
 .hero-lead {
