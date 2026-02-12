@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Committee — SEAMUN I</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="assets/seamun-logo.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo">
+          <img class="logo-image" src="assets/seamun-logo.png" alt="SEAMUN I" />
+          <span class="logo-text">SEAMUN I</span>
+        </a>
+        <nav class="nav">
+          <a href="index.html#about">About</a>
+          <a href="index.html#leadership">Leadership</a>
+          <a href="committees.html">Committees</a>
+          <a href="index.html#contact">Contact</a>
+          <a class="btn btn-header" href="index.html#register">Register</a>
+        </nav>
+        <button class="nav-toggle" type="button" aria-label="Open menu" data-nav-toggle></button>
+      </div>
+      <div class="nav-dropdown" id="nav-dropdown" hidden>
+        <a href="index.html#about">About</a>
+        <a href="index.html#leadership">Leadership</a>
+        <a href="committees.html">Committees</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="index.html#register">Register</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="section section-alt">
+        <div class="container">
+          <p class="committee-back-wrap">
+            <a href="committees.html" class="committee-back">← All committees</a>
+          </p>
+          <div id="committee-content"></div>
+          <p class="committee-back-wrap" style="margin-top: 1.5rem;">
+            <a href="committees.html" class="committee-back">← All committees</a>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <img class="footer-logo" src="assets/seamun-logo.png" alt="" />
+        <p class="footer-tagline">SEAMUN I — Policies with a Purpose</p>
+        <p class="footer-copy">&copy; SEAMUN I 2027</p>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var navToggle = document.querySelector("[data-nav-toggle]");
+        var dropdown = document.getElementById("nav-dropdown");
+        if (navToggle && dropdown) {
+          navToggle.addEventListener("click", function () {
+            var open = dropdown.hasAttribute("hidden");
+            if (open) dropdown.removeAttribute("hidden");
+            else dropdown.setAttribute("hidden", "");
+            navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+          });
+        }
+
+        var params = new URLSearchParams(window.location.search);
+        var id = (params.get("c") || "").toLowerCase().trim();
+        var content = document.getElementById("committee-content");
+
+        var COMMITTEES = {
+          unhrc: { name: "UNHRC", fullName: "Human Rights Council", type: "Traditional", grades: "9–12", chairs: "2", delegates: "23", metaLabel: "Chairs", topics: [
+            { emoji: "☠️", text: "The Question of Promoting the Standardized Regulation of the Death Penalty and Respect for the Right to Life", diff: "Intermediate" },
+            { emoji: "🔒", text: "The Question of The Obligation to Prevent Cruel, Inhuman or Degrading Treatment Arising from Deficiencies in Prison Administration and Justice Systems", diff: "Intermediate" }
+          ], topicNote: null, allocations: ["Albania","Algeria","Bangladesh","Belgium","Benin","Bolivia","Brazil","Bulgaria","Burundi","Chile","China","Colombia","Costa Rica","Côte d'Ivoire","Cuba","Cyprus","Czechia","DRC","Dominican Republic","Ethiopia","France","Gambia","Georgia"] },
+          disec: { name: "DISEC", fullName: "Disarmament and International Security", type: "Traditional", grades: "7–12", chairs: "2", delegates: "23", metaLabel: "Chairs", topics: [
+            { emoji: "☢️", text: "The Question of Strengthening International Protocols and Logistics for Securing the Cross-Border Transport of WMDs and Related Materials", diff: "Advanced" },
+            { emoji: "🔫", text: "The Question of Developing Mechanisms to Prevent the Diversion of Legally Traded Conventional Arms to Illicit Markets and Non-State Actors", diff: "Advanced" }
+          ], topicNote: null, allocations: ["Australia","Brazil","China","Egypt","France","Germany","India","Iran","Israel","Japan","Mexico","Nigeria","North Korea","Pakistan","Russia","South Africa","South Korea","Turkey","United Kingdom","United States","Algeria","Canada","Indonesia"] },
+          unwomen: { name: "UN Women", fullName: "Gender Equality", type: "Specialized", grades: "9–12", chairs: "2", delegates: "22", metaLabel: "Chairs", topics: [
+            { emoji: "💜", text: "The Question of Affirming and Guaranteeing Women's Reproductive Autonomy by Establishing International Legal Standards on Access to Safe and Legal Abortion", diff: "Advanced" },
+            { emoji: "👶", text: "The Question of Examining the Recognition of Universal Childcare as a Fundamental Human Right and its Role in Addressing Declining Birth Rates and Supporting Gender Equality in the Workforce", diff: "Intermediate" }
+          ], topicNote: null, allocations: ["Burkina Faso","DRC","South Africa","Senegal","Rwanda","China","India","Japan","South Korea","Saudi Arabia","Vietnam","Nepal","Philippines","Albania","Russia","Ukraine","Colombia","Peru","Mexico","Bolivia","Belgium","United States"] },
+          hsc: { name: "HSC", fullName: "Historical Security Council", type: "Specialized", grades: "7–12", chairs: "2", delegates: "22", metaLabel: "Chairs", topics: [
+            { emoji: "📜", text: "The Question of Operation Cast Thy Bread: Biological Warfare, the 1925 Geneva Protocol, and Accountability in the 1948 Palestine War", diff: "Intermediate" }
+          ], topicNote: '<a href="https://en.wikipedia.org/wiki/Operation_Cast_Thy_Bread" target="_blank" rel="noopener">Operation Cast Thy Bread (Wikipedia)</a>', allocations: ["China","France","United Kingdom","United States","USSR","Argentina","Belgium","Canada","Colombia","Syria","Ukraine","Egypt","Iraq","Lebanon","Jordan","Saudi Arabia","Yemen","Turkey","Iran","Pakistan","India","Greece"] },
+          press: { name: "Press Corps", fullName: "Media", type: "Specialized", grades: "7–12", chairs: "2", delegates: "14", metaLabel: "Editors", topics: [
+            { emoji: "📰", text: "The Question of Determining the Circumstances in Which Journalists Can and Should Report on Public Affairs", diff: "Beginner" }
+          ], topicNote: null, allocations: ["AFP","Al Jazeera","BBC News","Daily Maverick","Deutsche Welle","Novaya Gazeta Europe","Rappler","Reuters","AP","The Economist","The Guardian","The New York Times","The Washington Post","The Wire"] },
+          who: { name: "WHO", fullName: "World Health Organization", type: "Specialized", grades: "9–12", chairs: "2", delegates: "22", metaLabel: "Chairs", topics: [
+            { emoji: "💊", text: "The Question of Examining the Ethical and Regulatory Landscape for the Clinical Use of Psychedelic Drugs in the Treatment of Trauma-Based Mental Health Conditions", diff: "Intermediate" },
+            { emoji: "⚖️", text: "The Question of Examining Measures to Safeguard Patient Autonomy and Ensure the Protection of Human Rights in the Context of Euthanasia and Assisted Suicide", diff: "Intermediate" }
+          ], topicNote: null, allocations: ["Australia","Brazil","Canada","China","Egypt","Ethiopia","France","Germany","India","Indonesia","Japan","Kenya","Mexico","Nigeria","Pakistan","Russia","South Africa","South Korea","Thailand","United Kingdom","United States","Vietnam"] },
+          unsc: { name: "UNSC", fullName: "Security Council", type: "Traditional", grades: "7–12", chairs: "3", delegates: "15", metaLabel: "Chairs", topics: [
+            { emoji: "🕊️", text: "The Question of Developing and Standardizing Best Practices for Peacekeeping Operations to Ensure Scalable and Sustainable Global Implementation", diff: "Intermediate" }
+          ], topicNote: null, allocations: ["Algeria","China","Denmark","France","Greece","Guyana","Pakistan","Panama","Russia","Sierra Leone","Slovenia","Somalia","South Korea","United Kingdom","United States"] },
+          unodc: { name: "UNODC", fullName: "Office on Drugs and Crime", type: "Specialized", grades: "9–12", chairs: "2", delegates: "22", metaLabel: "Chairs", topics: [
+            { emoji: "⚖️", text: "The Question of Policy Analysis of Alternatives to Conviction and Punishment for Drug Possession for Personal Use", diff: "Intermediate" },
+            { emoji: "🌿", text: "The Question of Mitigating Environmental Degradation and Ecosystem Damage Resulting from Illicit Drug Cultivation and Production", diff: "Intermediate" }
+          ], topicNote: null, allocations: ["Algeria","Argentina","Australia","Brazil","China","Colombia","France","Ghana","India","Indonesia","Iran","Japan","Kenya","Mexico","Morocco","Nigeria","Russia","South Africa","Switzerland","Thailand","United Kingdom","United States"] },
+          ecosoc: { name: "ECOSOC", fullName: "Economic and Social Council", type: "Traditional", grades: "7–12", chairs: "2", delegates: "20", metaLabel: "Chairs", topics: [
+            { emoji: "💰", text: "The Question of Implementing a Globally Coordinated Universal Basic Income (UBI) Programme as a Strategy for Poverty Eradication and Economic Stability", diff: "Intermediate" },
+            { emoji: "🏥", text: "The Question of Exploring International Mechanisms for Reallocating Military Expenditures Towards the Development and Strengthening of Global Public Health Systems", diff: "Advanced" }
+          ], topicNote: null, allocations: ["Algeria","Australia","Bangladesh","Canada","China","Côte d'Ivoire","France","Germany","India","Japan","Kenya","Mexico","Netherlands","Nigeria","Pakistan","Russia","Saudi Arabia","South Africa","United States","Uruguay"] },
+          fwc: { name: "FWC", fullName: "Fantasy World Committee", type: "Fantasy", grades: "7–12", chairs: "2", delegates: "10", metaLabel: "Chairs", topics: [], topicNote: null, allocations: ["The Once-ler","The Lorax","Bar-ba-loots","Swomee-Swans","Humming-Fish","Thneedville","Ted Wiggins","Audrey","Aloysius O'Hare","Truffula Valley"], fwcUniverse: { title: "The Lorax (7–8)", lines: [{ emoji: "🌳", text: "Addressing deforestation and industrial pollution" }, { emoji: "🛒", text: "Regulating non-essential goods and excessive consumerism" }] } }
+        };
+
+        if (!id || !COMMITTEES[id]) {
+          window.location.href = "committees.html";
+          return;
+        }
+
+        var c = COMMITTEES[id];
+        document.title = c.name + " — SEAMUN I";
+
+        var html = '<article class="committee-card committee-card-single">';
+        html += '<div class="committee-header"><div><h2 class="committee-single-title">' + c.name + '</h2><p class="committee-type">' + c.fullName + '</p></div>';
+        html += '<div class="committee-tags"><span class="tag">' + c.type + '</span><span class="tag">' + c.grades + '</span></div></div>';
+        html += '<div class="committee-meta"><span>' + c.chairs + ' ' + c.metaLabel + '</span><span>' + c.delegates + ' Delegates</span><span>Grades ' + c.grades + '</span></div>';
+
+        if (c.fwcUniverse) {
+          html += '<ul class="committee-topics"><li class="universe-item"><div class="universe-title">' + c.fwcUniverse.title + '</div>';
+          c.fwcUniverse.lines.forEach(function (line) {
+            html += '<div class="topic-line"><span class="topic-emoji">' + line.emoji + '</span> ' + line.text + '</div>';
+          });
+          html += '</li></ul>';
+        } else if (c.topics.length) {
+          html += '<ul class="committee-topics">';
+          c.topics.forEach(function (t) {
+            html += '<li><span class="topic-emoji">' + t.emoji + '</span><span>' + t.text + '</span><span class="difficulty-tag">' + t.diff + '</span></li>';
+          });
+          html += '</ul>';
+        }
+
+        if (c.topicNote) html += '<p class="committee-topic-note">' + c.topicNote + '</p>';
+        html += '<details class="committee-allocations" open><summary>Allocations</summary><ul class="allocation-list">';
+        (c.allocations.length ? c.allocations : ["Allocations to be announced."]).forEach(function (item) {
+          html += '<li>' + item + '</li>';
+        });
+        html += '</ul></details></article>';
+        content.innerHTML = html;
+      })();
+    </script>
+  </body>
+</html>
