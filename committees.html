@@ -3,619 +3,460 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Committees, topics &amp; allocations — SEAMUN I</title>
+    <title>Committees — SEAMUN I</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/png" href="assets/seamun-logo-light.png" />
+    <link rel="icon" type="image/png" href="assets/seamun-logo.png" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="theme-bar">
-      <div class="container theme-bar-inner">
-        <button class="theme-toggle" type="button" data-theme-toggle>
-          🌙 Dark mode
-        </button>
-        <label class="language-selector" aria-label="Language selector">
-          <span aria-hidden="true">🌐</span>
-          <span data-i18n="language_label">Language</span>
-          <select id="language-select">
-            <option value="en">English</option>
-            <option value="th">ไทย</option>
-            <option value="zh">中文</option>
-            <option value="ja">日本語</option>
-            <option value="es">Español</option>
-            <option value="fr">Français</option>
-            <option value="ru">Русский</option>
-            <option value="ko">한국어</option>
-          </select>
-        </label>
-        <div class="theme-selector" aria-label="Theme selector">
-          <span>🎨 <span data-i18n="theme_label">Theme</span></span>
-          <button class="theme-dot theme-red" type="button" data-theme="red" aria-label="Red theme"></button>
-          <button class="theme-dot theme-orange" type="button" data-theme="orange" aria-label="Orange theme"></button>
-          <button class="theme-dot theme-yellow" type="button" data-theme="yellow" aria-label="Yellow theme"></button>
-          <button class="theme-dot theme-green" type="button" data-theme="green" aria-label="Green theme"></button>
-          <button class="theme-dot theme-blue" type="button" data-theme="blue" aria-label="Blue theme"></button>
-          <button class="theme-dot theme-purple" type="button" data-theme="purple" aria-label="Purple theme"></button>
-          <button class="theme-dot theme-pink" type="button" data-theme="pink" aria-label="Pink theme"></button>
-          <button class="theme-dot theme-grey" type="button" data-theme="grey" aria-label="Grey theme"></button>
-          <button class="theme-dot theme-mono" type="button" data-theme="mono" aria-label="Monochrome theme"></button>
-        </div>
+    <div hidden id="help-root">
+      <div id="help-site-guide">
+        <p class="help-popover-title">Navigate this site</p>
+        <p><strong>About</strong> — Our purpose and pillars (index).</p>
+        <p><strong>Leadership</strong> — Secretariat &amp; contacts (index).</p>
+        <p><strong>Committees</strong> — This page: all committees, topics, allocations.</p>
+        <p><strong>Contact</strong> — Email and message form (index).</p>
+        <p><strong>Register</strong> — Express interest form (index).</p>
+      </div>
+      <div id="help-committees-guide">
+        <p class="help-popover-title">How to use this page</p>
+        <p><strong>Grade</strong> — Filter by school year (7–8, 9–10, 11–12). Pick your grade to see committees you can join.</p>
+        <p><strong>Type</strong> — Traditional (UN bodies), Specialized (e.g. WHO, Press), or Fantasy (fictional universe).</p>
+        <p>Each card shows topics, number of chairs and delegates, and <strong>Show allocations</strong> lists which countries/roles you can be assigned.</p>
+      </div>
+      <div id="help-committee">
+        <p class="help-popover-title">Committee</p>
+        <p>A group that debates one or two topics (e.g. UNHRC, WHO). Each has chairs and a set number of delegate spots (allocations).</p>
+      </div>
+      <div id="help-grade-filter">
+        <p class="help-popover-title">Grade filter</p>
+        <p>Filter committees by school year. 7–8, 9–10, and 11–12 show which committees are open to each grade level.</p>
+      </div>
+      <div id="help-type-filter">
+        <p class="help-popover-title">Committee type</p>
+        <p><strong>Traditional</strong> — Classic UN bodies (e.g. UNSC, UNHRC, ECOSOC). <strong>Specialized</strong> — Themed or media committees (WHO, UNEP, Press). <strong>Fantasy</strong> — Fictional universe (e.g. The Lorax).</p>
+      </div>
+      <div id="help-allocations">
+        <p class="help-popover-title">Allocations</p>
+        <p>The list of countries (or roles, e.g. press agencies) that can be assigned in this committee. You will be allocated one when you register.</p>
+      </div>
+      <div id="help-difficulty">
+        <p class="help-popover-title">Difficulty</p>
+        <p><strong>Beginner</strong> — Good for first-time delegates. <strong>Intermediate</strong> — Some experience helpful. <strong>Advanced</strong> — Complex topics and procedure.</p>
       </div>
     </div>
+    <div id="help-popover" class="help-popover" hidden role="tooltip"></div>
+
     <header class="site-header">
       <div class="container header-inner">
-        <div class="logo">
-          <a href="index.html" class="logo-link">
-            <img
-              class="logo-image"
-              src="assets/seamun-logo-light.png"
-              alt="SEAMUN I logo"
-            />
-            <div class="logo-text">
-              <strong>SEAMUN I</strong>
-              <span data-i18n="footer_tagline">Policies with a Purpose</span>
-            </div>
-          </a>
-        </div>
+        <a href="index.html" class="logo">
+          <img class="logo-image" src="assets/seamun-logo.png" alt="SEAMUN I" />
+          <span class="logo-text">SEAMUN I</span>
+        </a>
         <nav class="nav">
-          <a href="index.html#overview" data-i18n="nav_overview">🏛️ Overview</a>
-          <a href="committees.html" data-i18n="nav_committees">🧾 Committees</a>
-          <a href="index.html#forms" data-i18n="nav_forms">📝 Forms</a>
-          <details class="nav-more">
-            <summary data-i18n="nav_more">☰ More</summary>
-            <div class="nav-more-menu">
-              <a href="index.html#awards" data-i18n="nav_awards">🏆 Awards</a>
-              <a href="index.html#schedule" data-i18n="nav_schedule">🗓️ Schedule</a>
-              <a href="index.html#signin" data-i18n="nav_signin">🔐 Sign in</a>
-              <a href="profile.html" data-i18n="nav_profile">👤 Profile</a>
-              <a href="index.html#contact" data-i18n="nav_contact">📬 Contact</a>
-            </div>
-          </details>
+          <a href="index.html#about">About</a>
+          <a href="index.html#leadership">Leadership</a>
+          <a href="committees.html">Committees</a>
+          <a href="index.html#contact">Contact</a>
+          <span class="header-help">
+            <button type="button" class="help-icon" aria-label="Site and MUN help" data-help="site-guide" title="Help">?</button>
+          </span>
+          <a class="btn btn-header" href="index.html#register">Register</a>
         </nav>
-        <a class="btn btn-primary" href="index.html#register" data-i18n="button_register">Register</a>
+        <button class="nav-toggle" type="button" aria-label="Open menu" data-nav-toggle></button>
+      </div>
+      <div class="nav-dropdown" id="nav-dropdown" hidden>
+        <a href="index.html#about">About</a>
+        <a href="index.html#leadership">Leadership</a>
+        <a href="committees.html">Committees</a>
+        <a href="index.html#contact">Contact</a>
+        <button type="button" class="help-trigger" data-help="site-guide">Help</button>
+        <a href="index.html#register">Register</a>
       </div>
     </header>
 
     <main>
-      <section class="section alt" id="committees">
+      <section class="section section-alt">
         <div class="container">
-          <div class="section-header">
-            <h2 data-i18n="committees_title">🧾 Committees</h2>
-            <p data-i18n="committees_body">
-              Ten committees with curated topics and skill levels. Chairs are
-              TBD for all committees.
-            </p>
+          <div class="page-title-wrap">
+            <h2 class="section-title"><span class="help-wrap">Committees <button type="button" class="help-icon" aria-label="How to use this page" data-help="committees-guide">?</button></span></h2>
+            <p class="section-desc">Ten committees with curated topics. Chairs TBD.</p>
           </div>
           <div class="committee-filters">
-            <div class="committee-key">
-              <span class="key-label" data-i18n="grade_key_label">Grade key:</span>
-              <span data-i18n="grade_key_7_8">🟦 Grades 7-8</span>
-              <span data-i18n="grade_key_9_10">🟪 Grades 9-10</span>
-              <span data-i18n="grade_key_11_12">🟩 Grades 11-12</span>
+            <div class="filter-row">
+              <span class="filter-label"><span class="help-wrap">Grade <button type="button" class="help-icon" aria-label="What does Grade filter mean?" data-help="grade-filter">?</button></span>:</span>
+              <button type="button" class="filter-btn active" data-grade="all">All</button>
+              <button type="button" class="filter-btn" data-grade="7-8">7–8</button>
+              <button type="button" class="filter-btn" data-grade="9-10">9–10</button>
+              <button type="button" class="filter-btn" data-grade="11-12">11–12</button>
             </div>
             <div class="filter-row">
-              <span class="filter-label" data-i18n="filter_grade_label">Filter by grade:</span>
-              <button class="filter-btn active" type="button" data-grade="all" data-i18n="filter_all">
-                All
-              </button>
-              <button class="filter-btn" type="button" data-grade="7-8">7-8</button>
-              <button class="filter-btn" type="button" data-grade="9-10">9-10</button>
-              <button class="filter-btn" type="button" data-grade="11-12">11-12</button>
-            </div>
-            <div class="filter-row">
-              <span class="filter-label" data-i18n="filter_committee_label">
-                Filter by committee:
-              </span>
-              <button class="filter-btn active" type="button" data-type="all" data-i18n="filter_all">
-                All
-              </button>
-              <button class="filter-btn" type="button" data-type="traditional" data-i18n="filter_traditional">
-                Traditional
-              </button>
-              <button class="filter-btn" type="button" data-type="specialized" data-i18n="filter_specialized">
-                Specialized
-              </button>
-              <button class="filter-btn" type="button" data-type="fantasy" data-i18n="filter_fantasy">
-                Fantasy
-              </button>
+              <span class="filter-label"><span class="help-wrap">Type <button type="button" class="help-icon" aria-label="What does Type mean?" data-help="type-filter">?</button></span>:</span>
+              <button type="button" class="filter-btn active" data-type="all">All</button>
+              <button type="button" class="filter-btn" data-type="traditional">Traditional</button>
+              <button type="button" class="filter-btn" data-type="specialized">Specialized</button>
+              <button type="button" class="filter-btn" data-type="fantasy">Fantasy</button>
             </div>
           </div>
           <div class="committee-grid">
             <article class="committee-card" data-committee="unhrc" data-grades="9-12" data-type="traditional">
               <div class="committee-header">
                 <div>
-                  <h3>🕊️ UNHRC</h3>
-                  <p class="committee-type" data-i18n="com_unhrc">Human Rights Council</p>
+                  <h3>UNHRC</h3>
+                  <p class="committee-type">Human Rights Council</p>
                 </div>
                 <div class="committee-tags">
-                  <span class="tag" data-i18n="filter_traditional">Traditional</span>
-                  <span class="tag grade-9-10">🟪 9-10</span>
-                  <span class="tag grade-11-12">🟩 11-12</span>
+                  <span class="tag">Traditional</span>
+                  <span class="tag grade-9-10">9–10</span>
+                  <span class="tag grade-11-12">11–12</span>
                 </div>
               </div>
               <div class="committee-meta">
-                <span>🪑 2 <span data-i18n="meta_chairs">Chairs</span></span>
-                <span>👥 23 <span data-i18n="meta_delegates">Delegates</span></span>
-                <span>🎓 <span data-i18n="meta_grades">Grades 9-12</span></span>
+                <span>2 Chairs</span>
+                <span>23 Delegates</span>
+                <span>Grades 9–12</span>
               </div>
               <ul class="committee-topics">
                 <li>
-                  <span class="topic-emoji" aria-hidden="true">☠️</span>
-                  <span data-i18n="topic_unhrc_1">The Question of Promoting the Standardized Regulation of the Death Penalty and Respect for the Right to Life</span>
-                  <span class="difficulty-tag difficulty-intermediate" data-i18n="diff_intermediate">Intermediate</span>
+                  <span class="topic-emoji">☠️</span>
+                  <span>The Question of Promoting the Standardized Regulation of the Death Penalty and Respect for the Right to Life</span>
+                  <span class="help-wrap"><span class="difficulty-tag">Intermediate</span> <button type="button" class="help-icon" aria-label="What does difficulty mean?" data-help="difficulty">?</button></span>
                 </li>
                 <li>
-                  <span class="topic-emoji" aria-hidden="true">🔒</span>
-                  <span data-i18n="topic_unhrc_2">The Question of The Obligation to Prevent Cruel, Inhuman or Degrading Treatment Arising from Deficiencies in Prison Administration and Justice Systems</span>
-                  <span class="difficulty-tag difficulty-intermediate" data-i18n="diff_intermediate">Intermediate</span>
+                  <span class="topic-emoji">🔒</span>
+                  <span>The Question of The Obligation to Prevent Cruel, Inhuman or Degrading Treatment Arising from Deficiencies in Prison Administration and Justice Systems</span>
+                  <span class="difficulty-tag">Intermediate</span>
                 </li>
               </ul>
               <details class="committee-allocations">
-                <summary data-i18n="allocations_show">Show allocations</summary>
-                <ul class="allocation-list" data-committee="unhrc" aria-label="Country allocations"></ul>
+                <summary><span class="help-wrap">Show allocations <button type="button" class="help-icon" aria-label="What are allocations?" data-help="allocations">?</button></span></summary>
+                <ul class="allocation-list" data-committee="unhrc"></ul>
               </details>
             </article>
 
             <article class="committee-card" data-committee="disec" data-grades="7-12" data-type="traditional">
               <div class="committee-header">
                 <div>
-                  <h3>🔫 DISEC</h3>
-                  <p class="committee-type" data-i18n="com_disec">Disarmament and International Security</p>
+                  <h3>DISEC</h3>
+                  <p class="committee-type">Disarmament and International Security</p>
                 </div>
                 <div class="committee-tags">
-                  <span class="tag" data-i18n="filter_traditional">Traditional</span>
-                  <span class="tag grade-7-8">🟦 7-8</span>
-                  <span class="tag grade-9-10">🟪 9-10</span>
-                  <span class="tag grade-11-12">🟩 11-12</span>
+                  <span class="tag">Traditional</span>
+                  <span class="tag grade-7-8">7–8</span>
+                  <span class="tag grade-9-10">9–10</span>
+                  <span class="tag grade-11-12">11–12</span>
                 </div>
               </div>
               <div class="committee-meta">
-                <span>🪑 2 <span data-i18n="meta_chairs">Chairs</span></span>
-                <span>👥 23 <span data-i18n="meta_delegates">Delegates</span></span>
-                <span>🎓 <span data-i18n="meta_grades_7_12">Grades 7-12</span></span>
+                <span>2 Chairs</span>
+                <span>23 Delegates</span>
+                <span>Grades 7–12</span>
               </div>
               <ul class="committee-topics">
                 <li>
-                  <span class="topic-emoji" aria-hidden="true">☢️</span>
-                  <span data-i18n="topic_disec_1">The Question of Strengthening International Protocols and Logistics for Securing the Cross-Border Transport of Weapons of Mass Destruction (WMDs) and Related Materials</span>
-                  <span class="difficulty-tag difficulty-advanced" data-i18n="diff_advanced">Advanced</span>
+                  <span class="topic-emoji">☢️</span>
+                  <span>The Question of Strengthening International Protocols and Logistics for Securing the Cross-Border Transport of WMDs and Related Materials</span>
+                  <span class="difficulty-tag">Advanced</span>
                 </li>
                 <li>
-                  <span class="topic-emoji" aria-hidden="true">🔫</span>
-                  <span data-i18n="topic_disec_2">The Question of Developing Mechanisms to Prevent the Diversion of Legally Traded Conventional Arms to Illicit Markets and Non-State Actors</span>
-                  <span class="difficulty-tag difficulty-advanced" data-i18n="diff_advanced">Advanced</span>
+                  <span class="topic-emoji">🔫</span>
+                  <span>The Question of Developing Mechanisms to Prevent the Diversion of Legally Traded Conventional Arms to Illicit Markets and Non-State Actors</span>
+                  <span class="difficulty-tag">Advanced</span>
                 </li>
               </ul>
               <details class="committee-allocations">
-                <summary data-i18n="allocations_show">Show allocations</summary>
-                <ul class="allocation-list" data-committee="disec" aria-label="Country allocations"></ul>
+                <summary>Show allocations</summary>
+                <ul class="allocation-list" data-committee="disec"></ul>
               </details>
             </article>
 
             <article class="committee-card" data-committee="unwomen" data-grades="9-12" data-type="specialized">
               <div class="committee-header">
                 <div>
-                  <h3>💜 UN Women</h3>
-                  <p class="committee-type" data-i18n="com_unwomen">Gender Equality</p>
+                  <h3>UN Women</h3>
+                  <p class="committee-type">Gender Equality</p>
                 </div>
                 <div class="committee-tags">
-                  <span class="tag" data-i18n="filter_specialized">Specialized</span>
-                  <span class="tag grade-9-10">🟪 9-10</span>
-                  <span class="tag grade-11-12">🟩 11-12</span>
+                  <span class="tag">Specialized</span>
+                  <span class="tag grade-9-10">9–10</span>
+                  <span class="tag grade-11-12">11–12</span>
                 </div>
               </div>
               <div class="committee-meta">
-                <span>🪑 2 <span data-i18n="meta_chairs">Chairs</span></span>
-                <span>👥 22 <span data-i18n="meta_delegates">Delegates</span></span>
-                <span>🎓 <span data-i18n="meta_grades">Grades 9-12</span></span>
+                <span>2 Chairs</span>
+                <span>22 Delegates</span>
+                <span>Grades 9–12</span>
               </div>
               <ul class="committee-topics">
                 <li>
-                  <span class="topic-emoji" aria-hidden="true">💜</span>
-                  <span data-i18n="topic_unwomen_1">The Question of Affirming and Guaranteeing Women's Reproductive Autonomy by Establishing International Legal Standards on Access to Safe and Legal Abortion with Respect for Cultural and Religious Diversity</span>
-                  <span class="difficulty-tag difficulty-advanced" data-i18n="diff_advanced">Advanced</span>
+                  <span class="topic-emoji">💜</span>
+                  <span>The Question of Affirming and Guaranteeing Women's Reproductive Autonomy by Establishing International Legal Standards on Access to Safe and Legal Abortion</span>
+                  <span class="difficulty-tag">Advanced</span>
                 </li>
                 <li>
-                  <span class="topic-emoji" aria-hidden="true">👶</span>
-                  <span data-i18n="topic_unwomen_2">The Question of Examining the Recognition of Universal Childcare as a Fundamental Human Right and its Role in Addressing Declining Birth Rates and Supporting Gender Equality in the Workforce</span>
-                  <span class="difficulty-tag difficulty-intermediate" data-i18n="diff_intermediate">Intermediate</span>
+                  <span class="topic-emoji">👶</span>
+                  <span>The Question of Examining the Recognition of Universal Childcare as a Fundamental Human Right and its Role in Addressing Declining Birth Rates and Supporting Gender Equality in the Workforce</span>
+                  <span class="difficulty-tag">Intermediate</span>
                 </li>
               </ul>
               <details class="committee-allocations">
-                <summary data-i18n="allocations_show">Show allocations</summary>
-                <ul class="allocation-list" data-committee="unwomen" aria-label="Country allocations"></ul>
+                <summary>Show allocations</summary>
+                <ul class="allocation-list" data-committee="unwomen"></ul>
               </details>
             </article>
 
             <article class="committee-card" data-committee="unep" data-grades="7-12" data-type="specialized">
               <div class="committee-header">
                 <div>
-                  <h3>🌱 UNEP</h3>
-                  <p class="committee-type" data-i18n="com_unep">Environment Programme</p>
+                  <h3>UNEP</h3>
+                  <p class="committee-type">Environment Programme</p>
                 </div>
                 <div class="committee-tags">
-                  <span class="tag" data-i18n="filter_specialized">Specialized</span>
-                  <span class="tag grade-7-8">🟦 7-8</span>
-                  <span class="tag grade-9-10">🟪 9-10</span>
-                  <span class="tag grade-11-12">🟩 11-12</span>
+                  <span class="tag">Specialized</span>
+                  <span class="tag grade-7-8">7–8</span>
+                  <span class="tag grade-9-10">9–10</span>
+                  <span class="tag grade-11-12">11–12</span>
                 </div>
               </div>
               <div class="committee-meta">
-                <span>🪑 2 <span data-i18n="meta_chairs">Chairs</span></span>
-                <span>👥 22 <span data-i18n="meta_delegates">Delegates</span></span>
-                <span>🎓 <span data-i18n="meta_grades_7_12">Grades 7-12</span></span>
+                <span>2 Chairs</span>
+                <span>22 Delegates</span>
+                <span>Grades 7–12</span>
               </div>
               <ul class="committee-topics">
                 <li>
-                  <span class="topic-emoji" aria-hidden="true">🌡️</span>
-                  <span data-i18n="topic_unep_1">The Question of Combating Rising Temperatures in the Arctic and Preventing Ocean Acidification</span>
-                  <span class="difficulty-tag difficulty-beginner" data-i18n="diff_beginner">Beginner</span>
+                  <span class="topic-emoji">🌡️</span>
+                  <span>The Question of Combating Rising Temperatures in the Arctic and Preventing Ocean Acidification</span>
+                  <span class="difficulty-tag">Beginner</span>
                 </li>
                 <li>
-                  <span class="topic-emoji" aria-hidden="true">🏝️</span>
-                  <span data-i18n="topic_unep_2">The Question of Protecting Sensitive Island Ecosystems from Invasive Species and Recovering Ecosystems That Were Damaged</span>
-                  <span class="difficulty-tag difficulty-beginner" data-i18n="diff_beginner">Beginner</span>
+                  <span class="topic-emoji">🏝️</span>
+                  <span>The Question of Protecting Sensitive Island Ecosystems from Invasive Species and Recovering Damaged Ecosystems</span>
+                  <span class="difficulty-tag">Beginner</span>
                 </li>
               </ul>
               <details class="committee-allocations">
-                <summary data-i18n="allocations_show">Show allocations</summary>
-                <ul class="allocation-list" data-committee="unep" aria-label="Country allocations"></ul>
+                <summary>Show allocations</summary>
+                <ul class="allocation-list" data-committee="unep"></ul>
               </details>
             </article>
 
             <article class="committee-card" data-committee="press" data-grades="7-12" data-type="specialized">
               <div class="committee-header">
                 <div>
-                  <h3>📰 Press Corps</h3>
-                  <p class="committee-type" data-i18n="com_press">Media</p>
+                  <h3>Press Corps</h3>
+                  <p class="committee-type">Media</p>
                 </div>
                 <div class="committee-tags">
-                  <span class="tag" data-i18n="filter_specialized">Specialized</span>
-                  <span class="tag grade-7-8">🟦 7-8</span>
-                  <span class="tag grade-9-10">🟪 9-10</span>
-                  <span class="tag grade-11-12">🟩 11-12</span>
+                  <span class="tag">Specialized</span>
+                  <span class="tag grade-7-8">7–8</span>
+                  <span class="tag grade-9-10">9–10</span>
+                  <span class="tag grade-11-12">11–12</span>
                 </div>
               </div>
               <div class="committee-meta">
-                <span>🪑 2 <span data-i18n="meta_editors">Editors</span></span>
-                <span>👥 14 <span data-i18n="meta_delegates">Delegates</span></span>
-                <span>🎓 <span data-i18n="meta_grades_7_12">Grades 7-12</span></span>
+                <span>2 Editors</span>
+                <span>14 Delegates</span>
+                <span>Grades 7–12</span>
               </div>
               <ul class="committee-topics">
                 <li>
-                  <span class="topic-emoji" aria-hidden="true">📰</span>
-                  <span data-i18n="topic_press_1">The Question of Determining the Circumstances in Which Journalists Can and Should Report on Public Affairs</span>
-                  <span class="difficulty-tag difficulty-beginner" data-i18n="diff_beginner">Beginner</span>
+                  <span class="topic-emoji">📰</span>
+                  <span>The Question of Determining the Circumstances in Which Journalists Can and Should Report on Public Affairs</span>
+                  <span class="difficulty-tag">Beginner</span>
                 </li>
                 <li>
-                  <span class="topic-emoji" aria-hidden="true">📢</span>
-                  <span data-i18n="topic_press_2">The Question of Combating Political Influence on and Censorship of Media and Journalism</span>
-                  <span class="difficulty-tag difficulty-beginner" data-i18n="diff_beginner">Beginner</span>
+                  <span class="topic-emoji">📢</span>
+                  <span>The Question of Combating Political Influence on and Censorship of Media and Journalism</span>
+                  <span class="difficulty-tag">Beginner</span>
                 </li>
               </ul>
               <details class="committee-allocations">
-                <summary data-i18n="allocations_show">Show allocations</summary>
-                <ul class="allocation-list" data-committee="press" aria-label="Agency allocations"></ul>
+                <summary>Show allocations</summary>
+                <ul class="allocation-list" data-committee="press"></ul>
               </details>
             </article>
 
             <article class="committee-card" data-committee="who" data-grades="9-12" data-type="specialized">
               <div class="committee-header">
                 <div>
-                  <h3>❤️ WHO</h3>
-                  <p class="committee-type" data-i18n="com_who">World Health Organization</p>
+                  <h3>WHO</h3>
+                  <p class="committee-type">World Health Organization</p>
                 </div>
                 <div class="committee-tags">
-                  <span class="tag" data-i18n="filter_specialized">Specialized</span>
-                  <span class="tag grade-9-10">🟪 9-10</span>
-                  <span class="tag grade-11-12">🟩 11-12</span>
+                  <span class="tag">Specialized</span>
+                  <span class="tag grade-9-10">9–10</span>
+                  <span class="tag grade-11-12">11–12</span>
                 </div>
               </div>
               <div class="committee-meta">
-                <span>🪑 2 <span data-i18n="meta_chairs">Chairs</span></span>
-                <span>👥 22 <span data-i18n="meta_delegates">Delegates</span></span>
-                <span>🎓 <span data-i18n="meta_grades">Grades 9-12</span></span>
+                <span>2 Chairs</span>
+                <span>22 Delegates</span>
+                <span>Grades 9–12</span>
               </div>
               <ul class="committee-topics">
                 <li>
-                  <span class="topic-emoji" aria-hidden="true">💊</span>
-                  <span data-i18n="topic_who_1">The Question of Examining the Ethical and Regulatory Landscape for the Clinical Use of Psychedelic Drugs in the Treatment of Trauma-Based Mental Health Conditions</span>
-                  <span class="difficulty-tag difficulty-intermediate" data-i18n="diff_intermediate">Intermediate</span>
+                  <span class="topic-emoji">💊</span>
+                  <span>The Question of Examining the Ethical and Regulatory Landscape for the Clinical Use of Psychedelic Drugs in the Treatment of Trauma-Based Mental Health Conditions</span>
+                  <span class="difficulty-tag">Intermediate</span>
                 </li>
                 <li>
-                  <span class="topic-emoji" aria-hidden="true">⚖️</span>
-                  <span data-i18n="topic_who_2">The Question of Examining Measures to Safeguard Patient Autonomy and Ensure the Protection of Human Rights in the Context of Euthanasia and Assisted Suicide</span>
-                  <span class="difficulty-tag difficulty-intermediate" data-i18n="diff_intermediate">Intermediate</span>
+                  <span class="topic-emoji">⚖️</span>
+                  <span>The Question of Examining Measures to Safeguard Patient Autonomy and Ensure the Protection of Human Rights in the Context of Euthanasia and Assisted Suicide</span>
+                  <span class="difficulty-tag">Intermediate</span>
                 </li>
               </ul>
               <details class="committee-allocations">
-                <summary data-i18n="allocations_show">Show allocations</summary>
-                <ul class="allocation-list" data-committee="who" aria-label="Country allocations"></ul>
+                <summary>Show allocations</summary>
+                <ul class="allocation-list" data-committee="who"></ul>
               </details>
             </article>
 
             <article class="committee-card" data-committee="unsc" data-grades="7-12" data-type="traditional">
               <div class="committee-header">
                 <div>
-                  <h3>🔒 UNSC</h3>
-                  <p class="committee-type" data-i18n="com_unsc">Security Council</p>
+                  <h3>UNSC</h3>
+                  <p class="committee-type">Security Council</p>
                 </div>
                 <div class="committee-tags">
-                  <span class="tag" data-i18n="filter_traditional">Traditional</span>
-                  <span class="tag grade-7-8">🟦 7-8</span>
-                  <span class="tag grade-9-10">🟪 9-10</span>
-                  <span class="tag grade-11-12">🟩 11-12</span>
+                  <span class="tag">Traditional</span>
+                  <span class="tag grade-7-8">7–8</span>
+                  <span class="tag grade-9-10">9–10</span>
+                  <span class="tag grade-11-12">11–12</span>
                 </div>
               </div>
               <div class="committee-meta">
-                <span>🪑 3 <span data-i18n="meta_chairs">Chairs</span></span>
-                <span>👥 15 <span data-i18n="meta_delegates">Delegates</span></span>
-                <span>🎓 <span data-i18n="meta_grades_7_12">Grades 7-12</span></span>
+                <span>3 Chairs</span>
+                <span>15 Delegates</span>
+                <span>Grades 7–12</span>
               </div>
               <ul class="committee-topics">
                 <li>
-                  <span class="topic-emoji" aria-hidden="true">📚</span>
-                  <span data-i18n="topic_unsc_1">The Question of Addressing the Role of Education and Information Management in Preventing Youth Radicalization and Extremism</span>
-                  <span class="difficulty-tag difficulty-beginner" data-i18n="diff_beginner">Beginner</span>
+                  <span class="topic-emoji">📚</span>
+                  <span>The Question of Addressing the Role of Education and Information Management in Preventing Youth Radicalization and Extremism</span>
+                  <span class="difficulty-tag">Beginner</span>
                 </li>
                 <li>
-                  <span class="topic-emoji" aria-hidden="true">🕊️</span>
-                  <span data-i18n="topic_unsc_2">The Question of Developing and Standardizing Best Practices for Peacekeeping Operations to Ensure Scalable and Sustainable Global Implementation</span>
-                  <span class="difficulty-tag difficulty-intermediate" data-i18n="diff_intermediate">Intermediate</span>
+                  <span class="topic-emoji">🕊️</span>
+                  <span>The Question of Developing and Standardizing Best Practices for Peacekeeping Operations</span>
+                  <span class="difficulty-tag">Intermediate</span>
                 </li>
               </ul>
               <details class="committee-allocations">
-                <summary data-i18n="allocations_show">Show allocations</summary>
-                <ul class="allocation-list" data-committee="unsc" aria-label="Country allocations"></ul>
+                <summary>Show allocations</summary>
+                <ul class="allocation-list" data-committee="unsc"></ul>
               </details>
             </article>
 
             <article class="committee-card" data-committee="unodc" data-grades="9-12" data-type="specialized">
               <div class="committee-header">
                 <div>
-                  <h3>🚫 UNODC</h3>
-                  <p class="committee-type" data-i18n="com_unodc">Office on Drugs and Crime</p>
+                  <h3>UNODC</h3>
+                  <p class="committee-type">Office on Drugs and Crime</p>
                 </div>
                 <div class="committee-tags">
-                  <span class="tag" data-i18n="filter_specialized">Specialized</span>
-                  <span class="tag grade-9-10">🟪 9-10</span>
-                  <span class="tag grade-11-12">🟩 11-12</span>
+                  <span class="tag">Specialized</span>
+                  <span class="tag grade-9-10">9–10</span>
+                  <span class="tag grade-11-12">11–12</span>
                 </div>
               </div>
               <div class="committee-meta">
-                <span>🪑 2 <span data-i18n="meta_chairs">Chairs</span></span>
-                <span>👥 22 <span data-i18n="meta_delegates">Delegates</span></span>
-                <span>🎓 <span data-i18n="meta_grades">Grades 9-12</span></span>
+                <span>2 Chairs</span>
+                <span>22 Delegates</span>
+                <span>Grades 9–12</span>
               </div>
               <ul class="committee-topics">
                 <li>
-                  <span class="topic-emoji" aria-hidden="true">⚖️</span>
-                  <span data-i18n="topic_unodc_1">The Question of Policy Analysis of Alternatives to Conviction and Punishment for Drug Possession for Personal Use</span>
-                  <span class="difficulty-tag difficulty-intermediate" data-i18n="diff_intermediate">Intermediate</span>
+                  <span class="topic-emoji">⚖️</span>
+                  <span>The Question of Policy Analysis of Alternatives to Conviction and Punishment for Drug Possession for Personal Use</span>
+                  <span class="difficulty-tag">Intermediate</span>
                 </li>
                 <li>
-                  <span class="topic-emoji" aria-hidden="true">🌿</span>
-                  <span data-i18n="topic_unodc_2">The Question of Mitigating Environmental Degradation and Ecosystem Damage Resulting from Illicit Drug Cultivation and Production</span>
-                  <span class="difficulty-tag difficulty-intermediate" data-i18n="diff_intermediate">Intermediate</span>
+                  <span class="topic-emoji">🌿</span>
+                  <span>The Question of Mitigating Environmental Degradation and Ecosystem Damage Resulting from Illicit Drug Cultivation and Production</span>
+                  <span class="difficulty-tag">Intermediate</span>
                 </li>
               </ul>
               <details class="committee-allocations">
-                <summary data-i18n="allocations_show">Show allocations</summary>
-                <ul class="allocation-list" data-committee="unodc" aria-label="Country allocations"></ul>
+                <summary>Show allocations</summary>
+                <ul class="allocation-list" data-committee="unodc"></ul>
               </details>
             </article>
 
             <article class="committee-card" data-committee="ecosoc" data-grades="7-12" data-type="traditional">
               <div class="committee-header">
                 <div>
-                  <h3>📈 ECOSOC</h3>
-                  <p class="committee-type" data-i18n="com_ecosoc">Economic and Social Council</p>
+                  <h3>ECOSOC</h3>
+                  <p class="committee-type">Economic and Social Council</p>
                 </div>
                 <div class="committee-tags">
-                  <span class="tag" data-i18n="filter_traditional">Traditional</span>
-                  <span class="tag grade-7-8">🟦 7-8</span>
-                  <span class="tag grade-9-10">🟪 9-10</span>
-                  <span class="tag grade-11-12">🟩 11-12</span>
+                  <span class="tag">Traditional</span>
+                  <span class="tag grade-7-8">7–8</span>
+                  <span class="tag grade-9-10">9–10</span>
+                  <span class="tag grade-11-12">11–12</span>
                 </div>
               </div>
               <div class="committee-meta">
-                <span>🪑 2 <span data-i18n="meta_chairs">Chairs</span></span>
-                <span>👥 20 <span data-i18n="meta_delegates">Delegates</span></span>
-                <span>🎓 <span data-i18n="meta_grades_7_12">Grades 7-12</span></span>
+                <span>2 Chairs</span>
+                <span>20 Delegates</span>
+                <span>Grades 7–12</span>
               </div>
               <ul class="committee-topics">
                 <li>
-                  <span class="topic-emoji" aria-hidden="true">💰</span>
-                  <span data-i18n="topic_ecosoc_1">The Question of Implementing a Globally Coordinated Universal Basic Income (UBI) Programme as a Strategy for Poverty Eradication and Economic Stability</span>
-                  <span class="difficulty-tag difficulty-intermediate" data-i18n="diff_intermediate">Intermediate</span>
+                  <span class="topic-emoji">💰</span>
+                  <span>The Question of Implementing a Globally Coordinated Universal Basic Income (UBI) Programme as a Strategy for Poverty Eradication and Economic Stability</span>
+                  <span class="difficulty-tag">Intermediate</span>
                 </li>
                 <li>
-                  <span class="topic-emoji" aria-hidden="true">🏥</span>
-                  <span data-i18n="topic_ecosoc_2">The Question of Exploring International Mechanisms for Reallocating Military Expenditures Towards the Development and Strengthening of Global Public Health Systems</span>
-                  <span class="difficulty-tag difficulty-advanced" data-i18n="diff_advanced">Advanced</span>
+                  <span class="topic-emoji">🏥</span>
+                  <span>The Question of Exploring International Mechanisms for Reallocating Military Expenditures Towards the Development and Strengthening of Global Public Health Systems</span>
+                  <span class="difficulty-tag">Advanced</span>
                 </li>
               </ul>
               <details class="committee-allocations">
-                <summary data-i18n="allocations_show">Show allocations</summary>
-                <ul class="allocation-list" data-committee="ecosoc" aria-label="Country allocations"></ul>
+                <summary>Show allocations</summary>
+                <ul class="allocation-list" data-committee="ecosoc"></ul>
               </details>
             </article>
 
             <article class="committee-card" data-committee="fwc" data-grades="7-12" data-type="fantasy">
               <div class="committee-header">
                 <div>
-                  <h3>🧙 FWC</h3>
-                  <p class="committee-type" data-i18n="com_fwc">Fantasy World Committee</p>
+                  <h3>FWC</h3>
+                  <p class="committee-type">Fantasy World Committee</p>
                 </div>
                 <div class="committee-tags">
-                  <span class="tag" data-i18n="filter_fantasy">Fantasy</span>
-                  <span class="tag grade-7-8">🟦 7-8</span>
-                  <span class="tag grade-9-10">🟪 9-10</span>
-                  <span class="tag grade-11-12">🟩 11-12</span>
+                  <span class="tag">Fantasy</span>
+                  <span class="tag grade-7-8">7–8</span>
+                  <span class="tag grade-9-10">9–10</span>
+                  <span class="tag grade-11-12">11–12</span>
                 </div>
               </div>
               <div class="committee-meta">
-                <span>🪑 2 <span data-i18n="meta_chairs">Chairs</span></span>
-                <span>👥 10 <span data-i18n="meta_delegates">Delegates</span></span>
-                <span>🎓 <span data-i18n="meta_grades_7_12">Grades 7-12</span></span>
+                <span>2 Chairs</span>
+                <span>10 Delegates</span>
+                <span>Grades 7–12</span>
               </div>
               <ul class="committee-topics">
                 <li class="universe-item">
-                  <div class="universe-title">
-                    <span data-i18n="fwc_avatar">Avatar</span>
-                    <span class="age-tag grade-7-8">🟦 7-8</span>
-                  </div>
-                  <div class="topic-line">
-                    <span class="topic-emoji" aria-hidden="true">🌿</span>
-                    <span data-i18n="fwc_avatar_t1">Protecting Eywa against violence and destruction</span>
-                  </div>
-                  <div class="topic-line">
-                    <span class="topic-emoji" aria-hidden="true">⛏️</span>
-                    <span data-i18n="fwc_avatar_t2">Combatting unobtanium exploitation with new governing bodies</span>
-                  </div>
-                </li>
-                <li class="universe-item">
-                  <div class="universe-title">
-                    <span data-i18n="fwc_apes">Planet of the Apes</span>
-                    <span class="age-tag grade-9-10">🟪 9-10</span>
-                  </div>
-                  <div class="topic-line">
-                    <span class="topic-emoji" aria-hidden="true">🧪</span>
-                    <span data-i18n="fwc_apes_t1">Preventing unethical research through bio-ethical review boards</span>
-                  </div>
-                  <div class="topic-line">
-                    <span class="topic-emoji" aria-hidden="true">📜</span>
-                    <span data-i18n="fwc_apes_t2">Codifying rights for enhanced non-human species</span>
-                  </div>
-                </li>
-                <li class="universe-item">
-                  <div class="universe-title">
-                    <span data-i18n="fwc_stranger">Stranger Things</span>
-                    <span class="age-tag grade-11-12">🟩 11-12</span>
-                  </div>
-                  <div class="topic-line">
-                    <span class="topic-emoji" aria-hidden="true">👁️</span>
-                    <span data-i18n="fwc_stranger_t1">Preventing harm from psychic child experimentation</span>
-                  </div>
-                  <div class="topic-line">
-                    <span class="topic-emoji" aria-hidden="true">🧠</span>
-                    <span data-i18n="fwc_stranger_t2">Regulating weaponization of the human mind</span>
-                  </div>
-                </li>
-                <li class="universe-item">
-                  <div class="universe-title">
-                    <span data-i18n="fwc_httyd">How to Train Your Dragon</span>
-                    <span class="age-tag grade-7-8">🟦 7-8</span>
-                  </div>
-                  <div class="topic-line">
-                    <span class="topic-emoji" aria-hidden="true">🐉</span>
-                    <span data-i18n="fwc_httyd_t1">Combatting illegal trafficking and poaching of dragons</span>
-                  </div>
-                  <div class="topic-line">
-                    <span class="topic-emoji" aria-hidden="true">🤝</span>
-                    <span data-i18n="fwc_httyd_t2">Evaluating ethics of inter-species labor agreements</span>
-                  </div>
-                </li>
-                <li class="universe-item">
-                  <div class="universe-title">
-                    <span data-i18n="fwc_lorax">The Lorax</span>
-                    <span class="age-tag grade-7-8">🟦 7-8</span>
-                  </div>
-                  <div class="topic-line">
-                    <span class="topic-emoji" aria-hidden="true">🌳</span>
-                    <span data-i18n="fwc_lorax_t1">Addressing deforestation and industrial pollution</span>
-                  </div>
-                  <div class="topic-line">
-                    <span class="topic-emoji" aria-hidden="true">🛒</span>
-                    <span data-i18n="fwc_lorax_t2">Regulating non-essential goods and excessive consumerism</span>
-                  </div>
-                </li>
-                <li class="universe-item">
-                  <div class="universe-title">
-                    <span data-i18n="fwc_hamilton">Hamilton</span>
-                    <span class="age-tag grade-9-10">🟪 9-10</span>
-                  </div>
-                  <div class="topic-line">
-                    <span class="topic-emoji" aria-hidden="true">💰</span>
-                    <span data-i18n="fwc_hamilton_t1">Establishing federal fiscal responsibility and debt sustainability</span>
-                  </div>
-                  <div class="topic-line">
-                    <span class="topic-emoji" aria-hidden="true">📜</span>
-                    <span data-i18n="fwc_hamilton_t2">Regulating political ethics and public discourse</span>
-                  </div>
-                </li>
-                <li class="universe-item">
-                  <div class="universe-title">
-                    <span data-i18n="fwc_godzilla">Godzilla</span>
-                    <span class="age-tag grade-11-12">🟩 11-12</span>
-                  </div>
-                  <div class="topic-line">
-                    <span class="topic-emoji" aria-hidden="true">🦎</span>
-                    <span data-i18n="fwc_godzilla_t1">Frameworks for titan stewardship vs. sovereign defense</span>
-                  </div>
-                  <div class="topic-line">
-                    <span class="topic-emoji" aria-hidden="true">🤖</span>
-                    <span data-i18n="fwc_godzilla_t2">Ethics of cybernetic bio-engineering and mecha proliferation</span>
-                  </div>
-                </li>
-                <li class="universe-item">
-                  <div class="universe-title">
-                    <span data-i18n="fwc_addams">The Addams Family</span>
-                    <span class="age-tag grade-9-10">🟪 9-10</span>
-                  </div>
-                  <div class="topic-line">
-                    <span class="topic-emoji" aria-hidden="true">🏚️</span>
-                    <span data-i18n="fwc_addams_t1">Protecting rights of outcast communities against assimilation</span>
-                  </div>
-                  <div class="topic-line">
-                    <span class="topic-emoji" aria-hidden="true">🔮</span>
-                    <span data-i18n="fwc_addams_t2">Regulating ethical use of the occult in public spaces</span>
-                  </div>
+                  <div class="universe-title">The Lorax (7–8)</div>
+                  <div class="topic-line"><span class="topic-emoji">🌳</span> Addressing deforestation and industrial pollution</div>
+                  <div class="topic-line"><span class="topic-emoji">🛒</span> Regulating non-essential goods and excessive consumerism</div>
                 </li>
               </ul>
               <details class="committee-allocations">
-                <summary data-i18n="allocations_show">Show allocations</summary>
-                <ul class="allocation-list" data-committee="fwc" aria-label="Universe allocations"></ul>
+                <summary>Show allocations</summary>
+                <ul class="allocation-list" data-committee="fwc"></ul>
               </details>
             </article>
           </div>
-        </div>
-      </section>
-
-      <section class="section" id="topics">
-        <div class="container">
-          <div class="section-header">
-            <h2 data-i18n="topics_section_title">✨ Unique topics</h2>
-            <p data-i18n="topics_section_body">Highlighting standout questions across all committees.</p>
-          </div>
-          <div class="topic-grid">
-            <span data-i18n="topic_tag_1">Death Penalty Abolition and Right to Life</span>
-            <span data-i18n="topic_tag_2">Prison Administration and Degrading Treatment</span>
-            <span data-i18n="topic_tag_3">WMD Cross-Border Transport</span>
-            <span data-i18n="topic_tag_4">Conventional Arms Diversion</span>
-            <span data-i18n="topic_tag_5">Women&apos;s Reproductive Autonomy</span>
-            <span data-i18n="topic_tag_6">Universal Childcare and Gender Equality</span>
-            <span data-i18n="topic_tag_7">Arctic Temperatures and Ocean Acidification</span>
-            <span data-i18n="topic_tag_8">Island Ecosystems and Invasive Species</span>
-            <span data-i18n="topic_tag_9">Journalists and Public Affairs</span>
-            <span data-i18n="topic_tag_10">Political Influence on Media</span>
-            <span data-i18n="topic_tag_11">Psychedelic Drugs in Mental Health</span>
-            <span data-i18n="topic_tag_12">Euthanasia and Assisted Suicide</span>
-            <span data-i18n="topic_tag_13">Youth Radicalization and Extremism</span>
-            <span data-i18n="topic_tag_14">Peacekeeping Best Practices</span>
-            <span data-i18n="topic_tag_15">Alternatives to Drug Conviction</span>
-            <span data-i18n="topic_tag_16">Illicit Drug Cultivation and Environment</span>
-            <span data-i18n="topic_tag_17">Universal Basic Income</span>
-            <span data-i18n="topic_tag_18">Military Expenditure and Public Health</span>
-            <span data-i18n="topic_tag_19">FWC universe tracks and ethics</span>
-          </div>
           <p class="back-to-top-wrap">
-            <a href="#" class="btn btn-ghost back-to-top" data-i18n="back_to_top">↑ Back to top</a>
+            <a href="#" class="back-to-top">↑ Back to top</a>
           </p>
         </div>
       </section>
@@ -623,153 +464,128 @@
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <div>
-          <strong data-i18n="footer_title">SEAMUN I Conference</strong>
-          <span data-i18n="footer_tagline">Policies with a Purpose</span>
-        </div>
-        <div data-i18n="footer_org">SEAMUN | South East Asia Model United Nations</div>
+        <img class="footer-logo" src="assets/seamun-logo.png" alt="" />
+        <p class="footer-tagline">SEAMUN I — Policies with a Purpose</p>
+        <p class="footer-copy">&copy; SEAMUN I 2027</p>
       </div>
     </footer>
 
-    <script src="scripts/translations.js"></script>
     <script>
-      const translations = window.SEAMUN_TRANSLATIONS || {};
-      let currentLang = localStorage.getItem("seamun-lang") || "en";
-      const languageNativeNames = {
-        en: "English",
-        th: "ไทย",
-        zh: "中文",
-        ja: "日本語",
-        es: "Español",
-        fr: "Français",
-        ru: "Русский",
-        ko: "한국어",
-      };
-      const applyLanguageOptionLabels = () => {
-        const sel = document.getElementById("language-select");
-        if (!sel) return;
-        Array.from(sel.options).forEach((opt) => {
-          const native = languageNativeNames[opt.value];
-          if (native) opt.textContent = native;
-        });
-      };
-      const t = (key, vars = {}) => {
-        const table = translations[currentLang] || translations.en || {};
-        let text = table[key] || (translations.en && translations.en[key]) || key;
-        Object.entries(vars).forEach(([token, value]) => {
-          text = String(text).replaceAll(`{${token}}`, String(value));
-        });
-        return text;
-      };
-      const applyLanguage = (lang) => {
-        currentLang = translations[lang] ? lang : "en";
-        document.documentElement.lang = currentLang;
-        localStorage.setItem("seamun-lang", currentLang);
-        document.querySelectorAll("[data-i18n]").forEach((el) => {
-          const key = el.dataset.i18n;
-          const value = t(key);
-          if (value) el.textContent = value;
-        });
-        const themeBtn = document.querySelector("[data-theme-toggle]");
-        if (themeBtn) themeBtn.textContent = document.body.classList.contains("dark") ? t("light_mode") : t("dark_mode");
-        applyLanguageOptionLabels();
-      };
-
-      const body = document.body;
-      const themeButtons = document.querySelectorAll("[data-theme]");
-      const themeToggle = document.querySelector("[data-theme-toggle]");
-      const setTheme = (theme) => {
-        body.dataset.theme = theme;
-        localStorage.setItem("seamun-theme", theme);
-      };
-      const setDarkMode = (enabled) => {
-        body.classList.toggle("dark", enabled);
-        localStorage.setItem("seamun-dark", enabled ? "1" : "0");
-        if (themeToggle) themeToggle.textContent = enabled ? t("light_mode") : t("dark_mode");
-      };
-      themeButtons.forEach((btn) => btn.addEventListener("click", () => setTheme(btn.dataset.theme)));
-      if (themeToggle) themeToggle.addEventListener("click", () => setDarkMode(!body.classList.contains("dark")));
-
-      const savedTheme = localStorage.getItem("seamun-theme") || "blue";
-      const savedDark = localStorage.getItem("seamun-dark") === "1";
-      setTheme(savedTheme);
-      setDarkMode(savedDark);
-
-      const languageSelect = document.getElementById("language-select");
-      if (languageSelect) {
-        languageSelect.value = currentLang;
-        languageSelect.addEventListener("change", (e) => {
-          applyLanguage(e.target.value);
-          setDarkMode(body.classList.contains("dark"));
-        });
-      }
-      applyLanguage(currentLang);
-
-      const gradeButtons = document.querySelectorAll("[data-grade]");
-      const typeButtons = document.querySelectorAll("[data-type]");
-      const committees = document.querySelectorAll(".committee-card");
-      let gradeFilter = "all";
-      let typeFilter = "all";
-      const setActive = (buttons, value, attr) => {
-        buttons.forEach((btn) => btn.classList.toggle("active", btn.dataset[attr] === value));
-      };
-      const matchesGrade = (grades, filter) => {
-        if (filter === "all") return true;
-        if (filter === "7-8") return grades.includes("7-12") || grades.includes("7-8");
-        if (filter === "9-10" || filter === "11-12") return grades.includes("9-12") || grades.includes("7-12");
-        return false;
-      };
-      const applyFilters = () => {
-        committees.forEach((card) => {
-          const grades = card.dataset.grades || "";
-          const type = card.dataset.type || "";
-          const gradeMatch = matchesGrade(grades, gradeFilter);
-          const typeMatch = typeFilter === "all" || type === typeFilter;
-          card.style.display = gradeMatch && typeMatch ? "block" : "none";
-        });
-      };
-      gradeButtons.forEach((btn) => btn.addEventListener("click", () => {
-        gradeFilter = btn.dataset.grade;
-        setActive(gradeButtons, gradeFilter, "grade");
-        applyFilters();
-      }));
-      typeButtons.forEach((btn) => btn.addEventListener("click", () => {
-        typeFilter = btn.dataset.type;
-        setActive(typeButtons, typeFilter, "type");
-        applyFilters();
-      }));
-      applyFilters();
-
-      const ALLOCATIONS = {
-        unhrc: ["Benin","Brazil","Chile","China","Colombia","Cuba","Cyprus","France","Ghana","Iceland","India","Iraq","Japan","Mexico","Netherlands","Pakistan","Republic of Korea","South Africa","Spain","Switzerland","Thailand","United Kingdom","Vietnam"],
-        disec: ["Australia","Brazil","China","Colombia","Egypt","France","Germany","India","Israel","Japan","Netherlands","Nigeria","Pakistan","Panama","Russia","Saudi Arabia","Singapore","South Korea","Turkey","Ukraine","United Arab Emirates","United Kingdom","United States of America"],
-        unwomen: ["Argentina","China","Colombia","Denmark","France","Iceland","India","Ireland","Italy","Japan","Luxembourg","Malta","Mexico","Nigeria","Norway","Poland","Saudi Arabia","Slovenia","South Korea","Sweden","Thailand","United States of America"],
-        unep: ["Australia","Canada","Comoros","Denmark","Ecuador","Fiji","Finland","France","Germany","Iceland","Japan","Mauritius","Mexico","New Zealand","Norway","Russia","Saint Lucia","Seychelles","Sweden","United Kingdom","United States of America","Vanuatu"],
-        press: ["Agency France-Presse (AFP)","Al Jazeera","BBC News","Daily Maverick","Deutsche Welle (DW)","Novaya Gazeta Europe","Rappler","Reuters","The Associated Press (AP)","The Economist","The Guardian","The New York Times","The Washington Post","The Wire"],
-        who: ["Australia","Canada","Israel","Czechia","Switzerland","United States of America","Jamaica","Netherlands","Belgium","Spain","Luxembourg","Ecuador","Colombia","New Zealand","United Kingdom","Portugal","Mexico","India","Turkey","Ukraine","Germany","South Korea"],
-        unsc: ["Bahrain","China","Colombia","Democratic Republic of the Congo","Denmark","France","Greece","Latvia","Liberia","Pakistan","Panama","Russia","Somalia","UK","USA"],
-        unodc: ["Argentina","Brazil","Cameroon","Canada","China","Colombia","Cuba","Czechia","El Salvador","Finland","France","Germany","Guatemala","Japan","Mexico","Nigeria","Pakistan","South Africa","Thailand","United Arab Emirates","United Kingdom","United States of America"],
-        ecosoc: ["Brazil","China","Costa Rica","Finland","Germany","India","Iran","Israel","Japan","Kenya","Mongolia","Namibia","Norway","Saudi Arabia","Sierra Leone","South Africa","South Korea","Spain","Switzerland","Togo","Ukraine","United States of America"],
-        fwc: []
-      };
-      document.querySelectorAll(".allocation-list[data-committee]").forEach((ul) => {
-        const id = ul.getAttribute("data-committee");
-        const list = ALLOCATIONS[id];
-        if (!list || list.length === 0) {
-          const li = document.createElement("li");
-          li.className = "allocation-empty";
-          li.setAttribute("data-i18n", "allocations_tbd");
-          li.textContent = "Allocations to be announced.";
-          ul.appendChild(li);
-          return;
+      (function () {
+        // Help popovers
+        var popover = document.getElementById("help-popover");
+        var helpRoot = document.getElementById("help-root");
+        function showHelp(helpId, anchor) {
+          if (!popover || !helpRoot) return;
+          var content = document.getElementById("help-" + helpId);
+          if (!content) return;
+          popover.innerHTML = "";
+          popover.appendChild(content.cloneNode(true));
+          popover.hidden = false;
+          if (anchor && anchor.setAttribute) anchor.setAttribute("aria-expanded", "true");
+          var rect = anchor ? anchor.getBoundingClientRect() : null;
+          if (rect) {
+            popover.style.position = "fixed";
+            popover.style.left = Math.min(rect.left, window.innerWidth - 330) + "px";
+            var below = rect.bottom + 8;
+            if (below + 200 > window.innerHeight) below = rect.top - 8 - 200;
+            popover.style.top = below + "px";
+          }
         }
-        list.forEach((name) => {
-          const li = document.createElement("li");
-          li.textContent = name;
-          ul.appendChild(li);
+        function hideHelp() {
+          if (popover) popover.hidden = true;
+          document.querySelectorAll(".help-icon[aria-expanded]").forEach(function (el) { el.setAttribute("aria-expanded", "false"); });
+        }
+        document.querySelectorAll("[data-help]").forEach(function (btn) {
+          btn.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = btn.getAttribute("data-help");
+            if (popover && !popover.hidden && popover.getAttribute("data-current") === id) { hideHelp(); return; }
+            showHelp(id, btn.classList.contains("help-icon") ? btn : null);
+            popover.setAttribute("data-current", id);
+          });
         });
-      });
-      applyLanguage(currentLang);
+        document.addEventListener("click", function (e) {
+          if (popover && !popover.hidden && !popover.contains(e.target) && !e.target.closest("[data-help]")) hideHelp();
+        });
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") hideHelp();
+        });
+
+        var toggle = document.querySelector("[data-nav-toggle]");
+        var dropdown = document.getElementById("nav-dropdown");
+        if (toggle && dropdown) {
+          toggle.addEventListener("click", function () {
+            var open = dropdown.hasAttribute("hidden");
+            if (open) dropdown.removeAttribute("hidden");
+            else dropdown.setAttribute("hidden", "");
+            toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+          });
+        }
+
+        var gradeBtns = document.querySelectorAll("[data-grade]");
+        var typeBtns = document.querySelectorAll("[data-type]");
+        var cards = document.querySelectorAll(".committee-card");
+        var gradeFilter = "all";
+        var typeFilter = "all";
+
+        function matchesGrade(grades, filter) {
+          if (filter === "all") return true;
+          if (filter === "7-8") return grades.indexOf("7") !== -1;
+          if (filter === "9-10" || filter === "11-12") return grades.indexOf("9") !== -1 || grades === "7-12";
+          return false;
+        }
+        function applyFilters() {
+          cards.forEach(function (card) {
+            var grades = card.getAttribute("data-grades") || "";
+            var type = card.getAttribute("data-type") || "";
+            var ok = matchesGrade(grades, gradeFilter) && (typeFilter === "all" || type === typeFilter);
+            card.style.display = ok ? "block" : "none";
+          });
+        }
+        gradeBtns.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            gradeFilter = btn.getAttribute("data-grade");
+            gradeBtns.forEach(function (b) { b.classList.toggle("active", b.getAttribute("data-grade") === gradeFilter); });
+            applyFilters();
+          });
+        });
+        typeBtns.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            typeFilter = btn.getAttribute("data-type");
+            typeBtns.forEach(function (b) { b.classList.toggle("active", b.getAttribute("data-type") === typeFilter); });
+            applyFilters();
+          });
+        });
+
+        var ALLOCATIONS = {
+          unhrc: ["Benin","Brazil","Chile","China","Colombia","Cuba","Cyprus","France","Ghana","Iceland","India","Iraq","Japan","Mexico","Netherlands","Pakistan","Republic of Korea","South Africa","Spain","Switzerland","Thailand","United Kingdom","Vietnam"],
+          disec: ["Australia","Brazil","China","Colombia","Egypt","France","Germany","India","Israel","Japan","Netherlands","Nigeria","Pakistan","Panama","Russia","Saudi Arabia","Singapore","South Korea","Turkey","Ukraine","United Arab Emirates","United Kingdom","United States of America"],
+          unwomen: ["Argentina","China","Colombia","Denmark","France","Iceland","India","Ireland","Italy","Japan","Luxembourg","Malta","Mexico","Nigeria","Norway","Poland","Saudi Arabia","Slovenia","South Korea","Sweden","Thailand","United States of America"],
+          unep: ["Australia","Canada","Comoros","Denmark","Ecuador","Fiji","Finland","France","Germany","Iceland","Japan","Mauritius","Mexico","New Zealand","Norway","Russia","Saint Lucia","Seychelles","Sweden","United Kingdom","United States of America","Vanuatu"],
+          press: ["AFP","Al Jazeera","BBC News","Daily Maverick","Deutsche Welle","Novaya Gazeta Europe","Rappler","Reuters","AP","The Economist","The Guardian","The New York Times","The Washington Post","The Wire"],
+          who: ["Australia","Canada","Israel","Czechia","Switzerland","United States of America","Jamaica","Netherlands","Belgium","Spain","Luxembourg","Ecuador","Colombia","New Zealand","United Kingdom","Portugal","Mexico","India","Turkey","Ukraine","Germany","South Korea"],
+          unsc: ["Bahrain","China","Colombia","DRC","Denmark","France","Greece","Latvia","Liberia","Pakistan","Panama","Russia","Somalia","UK","USA"],
+          unodc: ["Argentina","Brazil","Cameroon","Canada","China","Colombia","Cuba","Czechia","El Salvador","Finland","France","Germany","Guatemala","Japan","Mexico","Nigeria","Pakistan","South Africa","Thailand","UAE","United Kingdom","United States of America"],
+          ecosoc: ["Brazil","China","Costa Rica","Finland","Germany","India","Iran","Israel","Japan","Kenya","Mongolia","Namibia","Norway","Saudi Arabia","Sierra Leone","South Africa","South Korea","Spain","Switzerland","Togo","Ukraine","United States of America"],
+          fwc: []
+        };
+        document.querySelectorAll(".allocation-list[data-committee]").forEach(function (ul) {
+          var id = ul.getAttribute("data-committee");
+          var list = ALLOCATIONS[id];
+          if (!list || list.length === 0) {
+            var li = document.createElement("li");
+            li.textContent = "Allocations to be announced.";
+            ul.appendChild(li);
+            return;
+          }
+          list.forEach(function (name) {
+            var li = document.createElement("li");
+            li.textContent = name;
+            ul.appendChild(li);
+          });
+        });
+      })();
     </script>
   </body>
 </html>
