@@ -305,6 +305,54 @@ body {
   margin-bottom: 2rem;
 }
 
+.schedule-ics {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.schedule-ics:hover {
+  text-decoration: underline;
+}
+
+/* Schedule */
+.schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.schedule-day-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.schedule-list {
+  list-style: none;
+}
+
+.schedule-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+}
+
+.schedule-list li:last-child {
+  border-bottom: none;
+}
+
+.schedule-time {
+  flex-shrink: 0;
+  font-weight: 600;
+  color: var(--text);
+  min-width: 3.5rem;
+}
+
 /* Home page committee cards (navy back, clickable) */
 .home-committee-cards {
   display: grid;
