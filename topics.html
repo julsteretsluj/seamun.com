@@ -246,24 +246,103 @@
     <main class="agenda-main">
       <aside class="agenda-committees">
         <h2>Committees</h2>
-        <button type="button" class="committee-btn active" data-committee="ecosoc">ECOSOC</button>
-        <button type="button" class="committee-btn" data-committee="fwc">FWC</button>
-        <button type="button" class="committee-btn" data-committee="press">Press Corps</button>
-        <button type="button" class="committee-btn" data-committee="unhrc">UNHRC</button>
-        <button type="button" class="committee-btn" data-committee="unodc">UNODC</button>
-        <button type="button" class="committee-btn" data-committee="unsc">UNSC</button>
-        <button type="button" class="committee-btn" data-committee="unwomen">UN Women</button>
+        <button type="button" class="committee-btn active" data-committee="unhrc">UNHRC</button>
         <button type="button" class="committee-btn" data-committee="disec">DISEC</button>
-        <button type="button" class="committee-btn" data-committee="hsc">HSC</button>
+        <button type="button" class="committee-btn" data-committee="unwomen">UN Women</button>
+        <button type="button" class="committee-btn" data-committee="interpol">Interpol</button>
+        <button type="button" class="committee-btn" data-committee="press">Press Corps</button>
         <button type="button" class="committee-btn" data-committee="who">WHO</button>
+        <button type="button" class="committee-btn" data-committee="unsc">UNSC</button>
+        <button type="button" class="committee-btn" data-committee="unodc">UNODC</button>
+        <button type="button" class="committee-btn" data-committee="ecosoc">ECOSOC</button>
+        <button type="button" class="committee-btn" data-committee="fwc">FWC</button>
       </aside>
 
       <section class="agenda-topics">
         <h2>Topics</h2>
-        <p class="committee-agenda-title" id="committee-agenda-title">ECOSOC : agenda!</p>
+        <p class="committee-agenda-title" id="committee-agenda-title">UNHRC : agenda!</p>
 
-        <div class="topic-block visible" id="topic-ecosoc">
-          <div class="committee-meta"><span class="difficulty-badge difficulty-beginner">Beginner</span><span class="age-range">Age 7–12</span></div>
+        <div class="topic-block visible" id="topic-unhrc">
+          <div class="topic-item">
+            <span class="topic-icon" aria-hidden="true">☠️</span>
+            <div class="topic-text"><em>The Question of</em> Promoting the <strong>Standardized Regulation</strong> of the <strong>Death Penalty</strong> and Respect for the <strong>Right to Life</strong>.</div>
+          </div>
+          <div class="topic-item">
+            <span class="topic-icon" aria-hidden="true">🔒</span>
+            <div class="topic-text"><em>The Question of</em> The Obligation to <strong>Prevent Cruel, Inhuman or Degrading Treatment</strong> Arising from Deficiencies in <strong>Prison Administration and Justice Systems</strong>.</div>
+          </div>
+        </div>
+
+        <div class="topic-block" id="topic-disec">
+          <div class="topic-item">
+            <span class="topic-icon" aria-hidden="true">☢️</span>
+            <div class="topic-text"><em>The Question of</em> Strengthening International Protocols and Logistics for Securing the Cross-Border Transport of <strong>Lethal Military Weapons</strong> and Related Materials.</div>
+          </div>
+          <div class="topic-item">
+            <span class="topic-icon" aria-hidden="true">🔫</span>
+            <div class="topic-text"><em>The Question of</em> Developing Mechanisms to Prevent the Diversion of Legally Traded Conventional Arms to <strong>Illicit Markets and Non-State Actors</strong>.</div>
+          </div>
+        </div>
+
+        <div class="topic-block" id="topic-unwomen">
+          <div class="topic-item">
+            <span class="topic-icon" aria-hidden="true">💜</span>
+            <div class="topic-text"><em>The Question of</em> Affirming and Guaranteeing Women's <strong>Reproductive Autonomy</strong> by Establishing International Legal Standards on Access to Safe and <strong>Legal Abortion</strong> with Respect for Cultural and Religious Diversity.</div>
+          </div>
+          <div class="topic-item">
+            <span class="topic-icon" aria-hidden="true">👶</span>
+            <div class="topic-text"><em>The Question of</em> Examining the Recognition of <strong>Universal Childcare</strong> as a Fundamental Human Right and its Role in Addressing <strong>Declining Birth Rates</strong> and Supporting Gender Equality in the Workforce.</div>
+          </div>
+        </div>
+
+        <div class="topic-block" id="topic-interpol">
+          <div class="topic-item">
+            <span class="topic-icon" aria-hidden="true">🏥</span>
+            <div class="topic-text"><em>The Question of</em> Combating <strong>Transnational Organized Crime</strong> in <strong>Underground Medical Markets</strong> and <strong>Unregulated Surgical Practices</strong>.</div>
+          </div>
+          <div class="topic-item">
+            <span class="topic-icon" aria-hidden="true">🌐</span>
+            <div class="topic-text"><em>The Question of</em> Strengthening <strong>Cross-Border Security Frameworks</strong> to Mitigate the Nexus of <strong>Narcotic Trafficking</strong> with a Focus on the Schengen Area and the Golden Triangle.</div>
+          </div>
+        </div>
+
+        <div class="topic-block" id="topic-press">
+          <div class="topic-item">
+            <span class="topic-icon" aria-hidden="true">📰</span>
+            <div class="topic-text"><em>The Question of</em> Determining the Circumstances in Which Journalists Can and Should <strong>Report on Public Affairs</strong>.</div>
+          </div>
+        </div>
+
+        <div class="topic-block" id="topic-who">
+          <div class="topic-item">
+            <span class="topic-icon" aria-hidden="true">💊</span>
+            <div class="topic-text"><em>The Question of</em> Examining the Ethical and Regulatory Landscape for the Clinical Use of <strong>Psychedelic Drugs</strong> in the Treatment of <strong>Trauma-Based Mental Health Conditions</strong>.</div>
+          </div>
+          <div class="topic-item">
+            <span class="topic-icon" aria-hidden="true">🦠</span>
+            <div class="topic-text"><em>The Question of</em> Examining Measures for Combating, Addressing, and Recovering from <strong>Pandemics or Severe Outbreaks</strong>.</div>
+          </div>
+        </div>
+
+        <div class="topic-block" id="topic-unsc">
+          <div class="topic-item">
+            <span class="topic-icon" aria-hidden="true">🕊️</span>
+            <div class="topic-text"><em>The Question of</em> Developing and Standardizing Best Practices for Peacekeeping Operations to Ensure <strong>Scalable and Sustainable Global Implementation</strong>.</div>
+          </div>
+        </div>
+
+        <div class="topic-block" id="topic-unodc">
+          <div class="topic-item">
+            <span class="topic-icon" aria-hidden="true">⚖️</span>
+            <div class="topic-text"><em>The Question of</em> Policy Analysis of Alternatives to Conviction and Punishment for <strong>Drug Possession for Personal Use</strong>.</div>
+          </div>
+          <div class="topic-item">
+            <span class="topic-icon" aria-hidden="true">🌿</span>
+            <div class="topic-text"><em>The Question of</em> Addressing the Inter-generational Impact of <strong>Substance Abuse and Addiction</strong>.</div>
+          </div>
+        </div>
+
+        <div class="topic-block" id="topic-ecosoc">
           <div class="topic-item">
             <span class="topic-icon" aria-hidden="true">💰</span>
             <div class="topic-text"><em>The Question of</em> Implementing a Globally Coordinated <strong>Universal Basic Income (UBI) Programme</strong> as a Strategy for <strong>Poverty Eradication and Economic Stability</strong>.</div>
@@ -275,98 +354,13 @@
         </div>
 
         <div class="topic-block" id="topic-fwc">
-          <div class="committee-meta"><span class="difficulty-badge difficulty-beginner">Beginner</span><span class="age-range">Age 7–12</span></div>
           <div class="topic-item">
             <span class="topic-icon" aria-hidden="true">🛒</span>
-            <div class="topic-text"><em>The Question of</em> Preventing <strong>Excessive Consumerism</strong> and Regulating the Manufacture and Marketing of <strong>Non-Essential Goods</strong>.</div>
+            <div class="topic-text"><em>The Question of</em> Preventing <strong>Excessive Consumerism</strong> and Regulating the Manufacture and Marketing of <strong>Non-Essential Goods</strong> (The Thneed Principle).</div>
           </div>
           <div class="topic-item">
             <span class="topic-icon" aria-hidden="true">🌍</span>
             <div class="topic-text"><em>The Question of</em> Establishing <strong>"Ecocide"</strong> as a Crime Against Universal Heritage and the Legal Accountability of Consumers for <strong>Industrial Byproducts</strong>.</div>
-          </div>
-        </div>
-
-        <div class="topic-block" id="topic-press">
-          <div class="committee-meta"><span class="difficulty-badge difficulty-beginner">Beginner</span><span class="age-range">Age 7–12</span></div>
-          <div class="topic-item">
-            <span class="topic-icon" aria-hidden="true">📰</span>
-            <div class="topic-text"><em>The Question of</em> Determining the Circumstances in Which Journalists Can and Should <strong>Report on Public Affairs</strong>.</div>
-          </div>
-        </div>
-
-        <div class="topic-block" id="topic-unhrc">
-          <div class="committee-meta"><span class="difficulty-badge difficulty-intermediate">Intermediate</span><span class="age-range">Age 9–12</span></div>
-          <div class="topic-item">
-            <span class="topic-icon" aria-hidden="true">☠️</span>
-            <div class="topic-text"><em>The Question of</em> Promoting the <strong>Standardized Regulation</strong> of the <strong>Death Penalty</strong> and Respect for the <strong>Right to Life</strong>.</div>
-          </div>
-          <div class="topic-item">
-            <span class="topic-icon" aria-hidden="true">🔒</span>
-            <div class="topic-text"><em>The Question of</em> the Obligation to <strong>Prevent Cruel, Inhuman, or Degrading Treatments</strong> Arising from Deficiencies in <strong>Prison Administrations and Justice Systems</strong>.</div>
-          </div>
-        </div>
-
-        <div class="topic-block" id="topic-unodc">
-          <div class="committee-meta"><span class="difficulty-badge difficulty-intermediate">Intermediate</span><span class="age-range">Age 9–12</span></div>
-          <div class="topic-item">
-            <span class="topic-icon" aria-hidden="true">⚖️</span>
-            <div class="topic-text"><em>The Question of</em> Policy Analysis of Alternatives to Conviction and Punishment for <strong>Drug Possession for Personal Use</strong>.</div>
-          </div>
-          <div class="topic-item">
-            <span class="topic-icon" aria-hidden="true">🌿</span>
-            <div class="topic-text"><em>The Question of</em> Addressing the Inter-generational Impact of <strong>Substance Abuse and Addiction</strong>.</div>
-          </div>
-        </div>
-
-        <div class="topic-block" id="topic-unsc">
-          <div class="committee-meta"><span class="difficulty-badge difficulty-intermediate">Intermediate</span><span class="age-range">Age 7–12</span></div>
-          <div class="topic-item">
-            <span class="topic-icon" aria-hidden="true">🕊️</span>
-            <div class="topic-text"><em>The Question of</em> Developing and Standardising Best Practices for Peacekeeping Operations to Ensure <strong>Scalable and Sustainable Global Implementation</strong>.</div>
-          </div>
-        </div>
-
-        <div class="topic-block" id="topic-unwomen">
-          <div class="committee-meta"><span class="difficulty-badge difficulty-intermediate">Intermediate</span><span class="age-range">Age 9–12</span></div>
-          <div class="topic-item">
-            <span class="topic-icon" aria-hidden="true">💜</span>
-            <div class="topic-text"><em>The Question of</em> Affirming and Guaranteeing Women's <strong>Reproductive Autonomy</strong> by Establishing International Legal Standards on Access to Safe and <strong>Legal Abortion</strong>.</div>
-          </div>
-          <div class="topic-item">
-            <span class="topic-icon" aria-hidden="true">👶</span>
-            <div class="topic-text"><em>The Question of</em> Examining the Recognition of <strong>Universal Childcare</strong> as a Fundamental Human Right and its Role in Addressing <strong>Declining Birth Rates</strong> and Supporting Gender Equality in the Workforce.</div>
-          </div>
-        </div>
-
-        <div class="topic-block" id="topic-disec">
-          <div class="committee-meta"><span class="difficulty-badge difficulty-advanced">Advanced</span><span class="age-range">Age 7–12</span></div>
-          <div class="topic-item">
-            <span class="topic-icon" aria-hidden="true">☢️</span>
-            <div class="topic-text"><em>The Question of</em> Strengthening International Protocols and Logistics for Securing the Cross-Border Transport of <strong>Lethal Weapons</strong> and Related Materials.</div>
-          </div>
-          <div class="topic-item">
-            <span class="topic-icon" aria-hidden="true">🔫</span>
-            <div class="topic-text"><em>The Question of</em> Developing Mechanisms to Prevent the Diversion of Legally Traded Conventional Arms to <strong>Illicit Markets and Non-State Actors</strong>.</div>
-          </div>
-        </div>
-
-        <div class="topic-block" id="topic-hsc">
-          <div class="committee-meta"><span class="difficulty-badge difficulty-advanced">Advanced</span><span class="age-range">Age 9–12</span></div>
-          <div class="topic-item">
-            <span class="topic-icon" aria-hidden="true">📜</span>
-            <div class="topic-text"><strong>Operation Cast Thy Bread</strong></div>
-          </div>
-        </div>
-
-        <div class="topic-block" id="topic-who">
-          <div class="committee-meta"><span class="difficulty-badge difficulty-advanced">Advanced</span><span class="age-range">Age 9–12</span></div>
-          <div class="topic-item">
-            <span class="topic-icon" aria-hidden="true">💊</span>
-            <div class="topic-text"><em>The Question of</em> Examining the Ethical and Regulatory Landscape for the Clinical Use of <strong>Psychedelic Drugs</strong> in the Treatment of <strong>Mental Health Conditions</strong>.</div>
-          </div>
-          <div class="topic-item">
-            <span class="topic-icon" aria-hidden="true">⚖️</span>
-            <div class="topic-text"><em>The Question of</em> Examining Measures to Safeguard <strong>Patient Autonomy</strong> and Ensure the Protection of Human Rights in the Context of <strong>Euthanasia and Assisted Suicide</strong>.</div>
           </div>
         </div>
       </section>
@@ -375,16 +369,16 @@
     <script>
       (function () {
         var titles = {
-          ecosoc: "ECOSOC",
-          fwc: "FWC (CRISIS)",
-          press: "Press Corps (CRISIS?)",
-          unhrc: "UNHRC",
-          unodc: "UNODC",
-          unsc: "UNSC (CRISIS)",
-          unwomen: "UN Women",
-          disec: "DISEC",
-          hsc: "HSC (CRISIS)",
-          who: "WHO"
+          unhrc: "UNHRC (United Nations Human Rights Council)",
+          disec: "DISEC (Disarmament and International Security Committee)",
+          unwomen: "UN Women (United Nations Entity for Gender Equality and the Empowerment of Women)",
+          interpol: "Interpol (International Police and Criminal Investigation Organization)",
+          press: "Press Corps",
+          who: "WHO (World Health Organization)",
+          unsc: "UNSC (United Nations Security Council)",
+          unodc: "UNODC (United Nations Office on Drugs and Crime)",
+          ecosoc: "ECOSOC (Economic and Societal Council)",
+          fwc: "FWC (Fantasy World Committee)"
         };
         var buttons = document.querySelectorAll(".committee-btn");
         var blocks = document.querySelectorAll(".topic-block");
@@ -406,7 +400,7 @@
           });
         });
 
-        showCommittee("ecosoc");
+        showCommittee("unhrc");
       })();
     </script>
   </body>

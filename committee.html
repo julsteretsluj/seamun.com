@@ -79,40 +79,44 @@
         var content = document.getElementById("committee-content");
 
         var COMMITTEES = {
-          unhrc: { name: "UNHRC", fullName: "Human Rights Council", type: "Traditional", grades: "9–12", chairs: "2", delegates: "23", metaLabel: "Chairs", topics: [
+          unhrc: { name: "UNHRC", fullName: "United Nations Human Rights Council", type: "Traditional", grades: "9–12", chairs: "2", delegates: "23", metaLabel: "Chairs", topics: [
             { emoji: "☠️", text: "The Question of Promoting the Standardized Regulation of the Death Penalty and Respect for the Right to Life", diff: "Intermediate" },
             { emoji: "🔒", text: "The Question of The Obligation to Prevent Cruel, Inhuman or Degrading Treatment Arising from Deficiencies in Prison Administration and Justice Systems", diff: "Intermediate" }
           ], topicNote: null, allocations: ["Albania","Algeria","Bangladesh","Belgium","Benin","Bolivia","Brazil","Bulgaria","Burundi","Chile","China","Colombia","Costa Rica","Côte d'Ivoire","Cuba","Cyprus","Czechia","DRC","Dominican Republic","Ethiopia","France","Gambia","Georgia"] },
-          disec: { name: "DISEC", fullName: "Disarmament and International Security", type: "Traditional", grades: "7–12", chairs: "2", delegates: "23", metaLabel: "Chairs", topics: [
-            { emoji: "☢️", text: "The Question of Strengthening International Protocols and Logistics for Securing the Cross-Border Transport of WMDs and Related Materials", diff: "Advanced" },
+          disec: { name: "DISEC", fullName: "Disarmament and International Security Committee", type: "Traditional", grades: "7–12", chairs: "2", delegates: "23", metaLabel: "Chairs", topics: [
+            { emoji: "☢️", text: "The Question of Strengthening International Protocols and Logistics for Securing the Cross-Border Transport of Lethal Military Weapons and Related Materials", diff: "Advanced" },
             { emoji: "🔫", text: "The Question of Developing Mechanisms to Prevent the Diversion of Legally Traded Conventional Arms to Illicit Markets and Non-State Actors", diff: "Advanced" }
           ], topicNote: null, allocations: ["Australia","Brazil","China","Egypt","France","Germany","India","Iran","Israel","Japan","Mexico","Nigeria","North Korea","Pakistan","Russia","South Africa","South Korea","Turkey","United Kingdom","United States","Algeria","Canada","Indonesia"] },
-          unwomen: { name: "UN Women", fullName: "Gender Equality", type: "Specialized", grades: "9–12", chairs: "2", delegates: "22", metaLabel: "Chairs", topics: [
-            { emoji: "💜", text: "The Question of Affirming and Guaranteeing Women's Reproductive Autonomy by Establishing International Legal Standards on Access to Safe and Legal Abortion", diff: "Advanced" },
+          unwomen: { name: "UN Women", fullName: "United Nations Entity for Gender Equality and the Empowerment of Women", type: "Specialized", grades: "9–12", chairs: "2", delegates: "22", metaLabel: "Chairs", topics: [
+            { emoji: "💜", text: "The Question of Affirming and Guaranteeing Women's Reproductive Autonomy by Establishing International Legal Standards on Access to Safe and Legal Abortion with Respect for Cultural and Religious Diversity", diff: "Advanced" },
             { emoji: "👶", text: "The Question of Examining the Recognition of Universal Childcare as a Fundamental Human Right and its Role in Addressing Declining Birth Rates and Supporting Gender Equality in the Workforce", diff: "Intermediate" }
           ], topicNote: null, allocations: ["Burkina Faso","DRC","South Africa","Senegal","Rwanda","China","India","Japan","South Korea","Saudi Arabia","Vietnam","Nepal","Philippines","Albania","Russia","Ukraine","Colombia","Peru","Mexico","Bolivia","Belgium","United States"] },
-          hsc: { name: "HSC", fullName: "Historical Security Council", type: "Specialized", grades: "9–12", chairs: "2", delegates: "22", metaLabel: "Chairs", topics: [
-            { emoji: "📜", text: "The Question of Operation Cast Thy Bread: Biological Warfare, the 1925 Geneva Protocol, and Accountability in the 1948 Palestine War", diff: "Intermediate" }
-          ], topicNote: '<a href="https://en.wikipedia.org/wiki/Operation_Cast_Thy_Bread" target="_blank" rel="noopener">Operation Cast Thy Bread (Wikipedia)</a>', allocations: ["China","France","United Kingdom","United States","USSR","Argentina","Belgium","Canada","Colombia","Syria","Ukraine","Egypt","Iraq","Lebanon","Jordan","Saudi Arabia","Yemen","Turkey","Iran","Pakistan","India","Greece"] },
+          interpol: { name: "Interpol", fullName: "International Police and Criminal Investigation Organization", type: "Specialized", grades: "9–12", chairs: "2", delegates: "22", metaLabel: "Chairs", topics: [
+            { emoji: "🏥", text: "The Question of Combating Transnational Organized Crime in Underground Medical Markets and Unregulated Surgical Practices", diff: "Intermediate" },
+            { emoji: "🌐", text: "The Question of Strengthening Cross-Border Security Frameworks to Mitigate the Nexus of Narcotic Trafficking with a Focus on the Schengen Area and the Golden Triangle", diff: "Intermediate" }
+          ], topicNote: null, allocations: ["Algeria","Argentina","Australia","Brazil","China","Colombia","France","Germany","India","Indonesia","Italy","Japan","Kenya","Mexico","Morocco","Nigeria","Russia","South Africa","Spain","Thailand","United Kingdom","United States"] },
           press: { name: "Press Corps", fullName: "Media", type: "Specialized", grades: "7–12", chairs: "2", delegates: "14", metaLabel: "Editors", topics: [
             { emoji: "📰", text: "The Question of Determining the Circumstances in Which Journalists Can and Should Report on Public Affairs", diff: "Beginner" }
           ], topicNote: null, allocations: ["AFP","Al Jazeera","BBC News","Daily Maverick","Deutsche Welle","Novaya Gazeta Europe","Rappler","Reuters","AP","The Economist","The Guardian","The New York Times","The Washington Post","The Wire"] },
           who: { name: "WHO", fullName: "World Health Organization", type: "Specialized", grades: "9–12", chairs: "2", delegates: "22", metaLabel: "Chairs", topics: [
             { emoji: "💊", text: "The Question of Examining the Ethical and Regulatory Landscape for the Clinical Use of Psychedelic Drugs in the Treatment of Trauma-Based Mental Health Conditions", diff: "Intermediate" },
-            { emoji: "⚖️", text: "The Question of Examining Measures to Safeguard Patient Autonomy and Ensure the Protection of Human Rights in the Context of Euthanasia and Assisted Suicide", diff: "Intermediate" }
+            { emoji: "🦠", text: "The Question of Examining Measures for Combating, Addressing, and Recovering from Pandemics or Severe Outbreaks", diff: "Intermediate" }
           ], topicNote: null, allocations: ["Australia","Brazil","Canada","China","Egypt","Ethiopia","France","Germany","India","Indonesia","Japan","Kenya","Mexico","Nigeria","Pakistan","Russia","South Africa","South Korea","Thailand","United Kingdom","United States","Vietnam"] },
-          unsc: { name: "UNSC", fullName: "Security Council", type: "Traditional", grades: "7–12", chairs: "3", delegates: "15", metaLabel: "Chairs", topics: [
+          unsc: { name: "UNSC", fullName: "United Nations Security Council", type: "Traditional", grades: "7–12", chairs: "3", delegates: "15", metaLabel: "Chairs", topics: [
             { emoji: "🕊️", text: "The Question of Developing and Standardizing Best Practices for Peacekeeping Operations to Ensure Scalable and Sustainable Global Implementation", diff: "Intermediate" }
           ], topicNote: null, allocations: ["Algeria","China","Denmark","France","Greece","Guyana","Pakistan","Panama","Russia","Sierra Leone","Slovenia","Somalia","South Korea","United Kingdom","United States"] },
-          unodc: { name: "UNODC", fullName: "Office on Drugs and Crime", type: "Specialized", grades: "9–12", chairs: "2", delegates: "22", metaLabel: "Chairs", topics: [
+          unodc: { name: "UNODC", fullName: "United Nations Office on Drugs and Crime", type: "Specialized", grades: "9–12", chairs: "2", delegates: "22", metaLabel: "Chairs", topics: [
             { emoji: "⚖️", text: "The Question of Policy Analysis of Alternatives to Conviction and Punishment for Drug Possession for Personal Use", diff: "Intermediate" },
-            { emoji: "👨‍👩‍👧‍👦", text: "The Question of Addressing the Inter-generational Impact of Substance Abuse and Addiction", diff: "Intermediate" }
+            { emoji: "🌿", text: "The Question of Addressing the Inter-generational Impact of Substance Abuse and Addiction", diff: "Intermediate" }
           ], topicNote: null, allocations: ["Algeria","Argentina","Australia","Brazil","China","Colombia","France","Ghana","India","Indonesia","Iran","Japan","Kenya","Mexico","Morocco","Nigeria","Russia","South Africa","Switzerland","Thailand","United Kingdom","United States"] },
-          ecosoc: { name: "ECOSOC", fullName: "Economic and Social Council", type: "Traditional", grades: "7–12", chairs: "2", delegates: "20", metaLabel: "Chairs", topics: [
+          ecosoc: { name: "ECOSOC", fullName: "Economic and Societal Council", type: "Traditional", grades: "7–12", chairs: "2", delegates: "20", metaLabel: "Chairs", topics: [
             { emoji: "💰", text: "The Question of Implementing a Globally Coordinated Universal Basic Income (UBI) Programme as a Strategy for Poverty Eradication and Economic Stability", diff: "Intermediate" },
             { emoji: "🏥", text: "The Question of Exploring International Mechanisms for Reallocating Military Expenditures Towards the Development and Strengthening of Global Public Health Systems", diff: "Advanced" }
           ], topicNote: null, allocations: ["Algeria","Australia","Bangladesh","Canada","China","Côte d'Ivoire","France","Germany","India","Japan","Kenya","Mexico","Netherlands","Nigeria","Pakistan","Russia","Saudi Arabia","South Africa","United States","Uruguay"] },
-          fwc: { name: "FWC", fullName: "Fantasy World Committee", type: "Fantasy", grades: "7–12", chairs: "2", delegates: "10", metaLabel: "Chairs", topics: [], topicNote: null, allocations: ["The Once-ler","The Lorax","Bar-ba-loots","Swomee-Swans","Humming-Fish","Thneedville","Ted Wiggins","Audrey","Aloysius O'Hare","Truffula Valley"], fwcUniverse: { title: "The Lorax (7–8)", lines: [{ emoji: "🌳", text: "Addressing deforestation and industrial pollution" }, { emoji: "🛒", text: "Regulating non-essential goods and excessive consumerism" }] } }
+          fwc: { name: "FWC", fullName: "Fantasy World Committee", type: "Fantasy", grades: "7–12", chairs: "2", delegates: "10", metaLabel: "Chairs", topics: [
+            { emoji: "🛒", text: "The Question of Preventing Excessive Consumerism and Regulating the Manufacture and Marketing of Non-Essential Goods (The Thneed Principle)", diff: "Beginner" },
+            { emoji: "🌍", text: "The Question of Establishing \"Ecocide\" as a Crime Against Universal Heritage and the Legal Accountability of Consumers for Industrial Byproducts", diff: "Beginner" }
+          ], topicNote: null, allocations: ["The Once-ler","The Lorax","Bar-ba-loots","Swomee-Swans","Humming-Fish","Thneedville","Ted Wiggins","Audrey","Aloysius O'Hare","Truffula Valley"] }
         };
 
         if (!id || !COMMITTEES[id]) {
