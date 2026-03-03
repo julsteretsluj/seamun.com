@@ -387,9 +387,9 @@ body {
 }
 
 .home-committee-logo {
-  height: 40px;
+  height: 48px;
   width: auto;
-  max-width: 100px;
+  max-width: 60px;
   object-fit: contain;
   margin-bottom: 0.5rem;
   filter: brightness(0) invert(1);
@@ -999,9 +999,9 @@ body.modal-open {
 }
 
 .committee-card-logo {
-  height: 48px;
+  height: 56px;
   width: auto;
-  max-width: 120px;
+  max-width: 80px;
   object-fit: contain;
   flex-shrink: 0;
 }
@@ -1026,6 +1026,26 @@ body.modal-open {
 
 .committee-type {
   font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.committee-header .committee-name-wrap {
+  flex: 1;
+  min-width: 0;
+}
+
+.committee-header .committee-name-wrap h3 {
+  display: inline;
+  margin-bottom: 0;
+}
+
+.committee-header .committee-name-wrap .committee-type {
+  display: inline;
+  margin-left: 0.35em;
+}
+
+.committee-header .committee-name-wrap .committee-type::before {
+  content: "— ";
   color: var(--text-muted);
 }
 
@@ -1155,7 +1175,18 @@ body.modal-open {
 
 .committee-card-single .committee-single-title {
   font-size: 1.5rem;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0;
+  display: inline;
+}
+
+.committee-card-single .committee-name-wrap .committee-type {
+  display: inline;
+  margin-left: 0.35em;
+}
+
+.committee-card-single .committee-name-wrap .committee-type::before {
+  content: "— ";
+  color: var(--text-muted);
 }
 
 .back-to-top {

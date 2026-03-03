@@ -129,10 +129,25 @@
         transition: background 0.2s, color 0.2s, border-color 0.2s;
       }
       .committee-btn img {
-        height: 24px;
+        height: 28px;
         width: auto;
-        max-width: 48px;
+        max-width: 40px;
         object-fit: contain;
+        flex-shrink: 0;
+      }
+      .committee-btn .btn-text {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        line-height: 1.25;
+      }
+      .committee-btn .btn-acronym {
+        font-weight: 700;
+      }
+      .committee-btn .btn-full {
+        font-size: 0.75rem;
+        opacity: 0.9;
       }
       .committee-btn:hover,
       .committee-btn.active {
@@ -272,16 +287,16 @@
     <main class="agenda-main">
       <aside class="agenda-committees">
         <h2>Committees</h2>
-        <button type="button" class="committee-btn active" data-committee="ecosoc"><img src="assets/ecosoclogotrans-d1ae3134-e72d-4eae-bcb9-148f0fd16994.png" alt="" />ECOSOC</button>
-        <button type="button" class="committee-btn" data-committee="press"><img src="assets/presscorpslogotrans-d63dcd43-6daa-4688-acfe-7422e8edde24.png" alt="" />Press Corps</button>
-        <button type="button" class="committee-btn" data-committee="unhrc"><img src="assets/unhrclogotrans-a5d267e8-37e4-42a6-b92d-8a46ac5822d0.png" alt="" />UNHRC</button>
-        <button type="button" class="committee-btn" data-committee="unodc"><img src="assets/unodclogotrans-1682d7cf-2f42-4e6d-86a5-5404a076dade.png" alt="" />UNODC</button>
-        <button type="button" class="committee-btn" data-committee="unsc"><img src="assets/unsclogotrans-49c58680-dcae-4ad2-bf2c-9c19c269203f.png" alt="" />UNSC</button>
-        <button type="button" class="committee-btn" data-committee="unwomen"><img src="assets/unwomenlogotrans-d72592e0-466d-4bc0-b610-df549b6e895d.png" alt="" />UN Women</button>
-        <button type="button" class="committee-btn" data-committee="disec"><img src="assets/diseclogotrans-2379bef6-e3b6-486c-9f14-ce7139589b71.png" alt="" />DISEC</button>
-        <button type="button" class="committee-btn" data-committee="fwc"><img src="assets/fwclogotrans-7c78f9d4-c925-40f4-93e7-fa29216e2daf.png" alt="" />FWC</button>
-        <button type="button" class="committee-btn" data-committee="interpol"><img src="assets/interpollogotrans-2752ebee-7955-47cd-b2e7-9f447ea46beb.png" alt="" />Interpol</button>
-        <button type="button" class="committee-btn" data-committee="who"><img src="assets/whologotrans-e8cc5054-5966-4c0b-bb0a-d35f43edceb3.png" alt="" />WHO</button>
+        <button type="button" class="committee-btn active" data-committee="ecosoc"><img src="assets/ecosoclogotrans-d1ae3134-e72d-4eae-bcb9-148f0fd16994.png" alt="" /><span class="btn-text"><span class="btn-acronym">ECOSOC</span> <span class="btn-full">Economic and Social Council</span></span></button>
+        <button type="button" class="committee-btn" data-committee="press"><img src="assets/presscorpslogotrans-d63dcd43-6daa-4688-acfe-7422e8edde24.png" alt="" /><span class="btn-text"><span class="btn-acronym">Press Corps</span> <span class="btn-full">Media</span></span></button>
+        <button type="button" class="committee-btn" data-committee="unhrc"><img src="assets/unhrclogotrans-a5d267e8-37e4-42a6-b92d-8a46ac5822d0.png" alt="" /><span class="btn-text"><span class="btn-acronym">UNHRC</span> <span class="btn-full">United Nations Human Rights Council</span></span></button>
+        <button type="button" class="committee-btn" data-committee="unodc"><img src="assets/unodclogotrans-1682d7cf-2f42-4e6d-86a5-5404a076dade.png" alt="" /><span class="btn-text"><span class="btn-acronym">UNODC</span> <span class="btn-full">United Nations Office on Drugs and Crime</span></span></button>
+        <button type="button" class="committee-btn" data-committee="unsc"><img src="assets/unsclogotrans-49c58680-dcae-4ad2-bf2c-9c19c269203f.png" alt="" /><span class="btn-text"><span class="btn-acronym">UNSC</span> <span class="btn-full">United Nations Security Council (CRISIS)</span></span></button>
+        <button type="button" class="committee-btn" data-committee="unwomen"><img src="assets/unwomenlogotrans-d72592e0-466d-4bc0-b610-df549b6e895d.png" alt="" /><span class="btn-text"><span class="btn-acronym">UN Women</span> <span class="btn-full">United Nations Entity for Gender Equality</span></span></button>
+        <button type="button" class="committee-btn" data-committee="disec"><img src="assets/diseclogotrans-2379bef6-e3b6-486c-9f14-ce7139589b71.png" alt="" /><span class="btn-text"><span class="btn-acronym">DISEC</span> <span class="btn-full">Disarmament and International Security Committee</span></span></button>
+        <button type="button" class="committee-btn" data-committee="fwc"><img src="assets/fwclogotrans-7c78f9d4-c925-40f4-93e7-fa29216e2daf.png" alt="" /><span class="btn-text"><span class="btn-acronym">FWC</span> <span class="btn-full">Fantasy World Committee (CRISIS)</span></span></button>
+        <button type="button" class="committee-btn" data-committee="interpol"><img src="assets/interpollogotrans-2752ebee-7955-47cd-b2e7-9f447ea46beb.png" alt="" /><span class="btn-text"><span class="btn-acronym">Interpol</span> <span class="btn-full">International Criminal Police Organization</span></span></button>
+        <button type="button" class="committee-btn" data-committee="who"><img src="assets/whologotrans-e8cc5054-5966-4c0b-bb0a-d35f43edceb3.png" alt="" /><span class="btn-text"><span class="btn-acronym">WHO</span> <span class="btn-full">World Health Organization</span></span></button>
       </aside>
 
       <section class="agenda-topics">
