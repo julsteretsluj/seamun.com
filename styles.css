@@ -353,7 +353,7 @@ body {
   min-width: 3.5rem;
 }
 
-/* Home page committee cards (navy back, clickable) */
+/* Home page committee cards (official logos + committee colors) */
 .home-committee-cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -365,25 +365,39 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 120px;
+  min-height: 140px;
   padding: 1.25rem;
   background: var(--navy);
   color: var(--bg);
   text-decoration: none;
   border-radius: 8px;
   text-align: center;
-  transition: background 0.2s, transform 0.15s;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
 }
 
 .home-committee-card:hover {
-  background: var(--navy-light);
   color: var(--bg);
   transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 .home-committee-card:focus {
   outline: 2px solid var(--bg);
   outline-offset: 2px;
+}
+
+.home-committee-logo {
+  height: 40px;
+  width: auto;
+  max-width: 100px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
+}
+
+.home-committee-card:hover .home-committee-logo {
+  opacity: 1;
 }
 
 .home-committee-name {
@@ -397,6 +411,42 @@ body {
   font-size: 0.8rem;
   opacity: 0.9;
   line-height: 1.3;
+}
+
+/* Committee-specific colors (from official logos) */
+.home-committee-ecosoc { background: #1e5f74; }
+.home-committee-ecosoc:hover { background: #256d85; }
+
+.home-committee-press { background: #0891b2; }
+.home-committee-press:hover { background: #0e7490; }
+
+.home-committee-unhrc { background: #1d4ed8; }
+.home-committee-unhrc:hover { background: #2563eb; }
+
+.home-committee-unodc { background: #1e40af; }
+.home-committee-unodc:hover { background: #2563eb; }
+
+.home-committee-unsc { background: #0369a1; }
+.home-committee-unsc:hover { background: #0284c7; }
+
+.home-committee-unwomen { background: #6d28d9; }
+.home-committee-unwomen:hover { background: #7c3aed; }
+
+.home-committee-disec { background: #1e3a5f; }
+.home-committee-disec:hover { background: #1e40af; }
+
+.home-committee-fwc { background: #1c1917; }
+.home-committee-fwc:hover { background: #292524; }
+
+.home-committee-interpol { background: #1e40af; }
+.home-committee-interpol:hover { background: #2563eb; }
+
+.home-committee-who { background: #0f766e; }
+.home-committee-who:hover { background: #0d9488; }
+
+/* FWC dark: logo has red elements, no invert so it displays correctly */
+.home-committee-fwc .home-committee-logo {
+  filter: none;
 }
 
 /* Leadership */
@@ -936,6 +986,7 @@ body.modal-open {
   border: 1px solid var(--border);
   border-radius: 8px;
   scroll-margin-top: 5rem;
+  border-left: 4px solid var(--primary);
 }
 
 .committee-card .committee-header {
@@ -946,6 +997,26 @@ body.modal-open {
   gap: 0.75rem;
   margin-bottom: 0.75rem;
 }
+
+.committee-card-logo {
+  height: 48px;
+  width: auto;
+  max-width: 120px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* Committee card accent colors */
+.committee-card-ecosoc { border-left-color: #1e5f74; }
+.committee-card-press { border-left-color: #0891b2; }
+.committee-card-unhrc { border-left-color: #1d4ed8; }
+.committee-card-unodc { border-left-color: #1e40af; }
+.committee-card-unsc { border-left-color: #0369a1; }
+.committee-card-unwomen { border-left-color: #6d28d9; }
+.committee-card-disec { border-left-color: #1e3a5f; }
+.committee-card-fwc { border-left-color: #b91c1c; }
+.committee-card-interpol { border-left-color: #1e40af; }
+.committee-card-who { border-left-color: #0f766e; }
 
 .committee-card h3 {
   font-size: 1.25rem;
