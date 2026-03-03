@@ -78,7 +78,7 @@
         var id = (params.get("c") || "").toLowerCase().trim();
         var content = document.getElementById("committee-content");
 
-        var LOGOS = { ecosoc: "assets/ecosoclogotrans-d1ae3134-e72d-4eae-bcb9-148f0fd16994.png", press: "assets/presscorpslogotrans-d63dcd43-6daa-4688-acfe-7422e8edde24.png", unhrc: "assets/unhrclogotrans-a5d267e8-37e4-42a6-b92d-8a46ac5822d0.png", unodc: "assets/unodclogotrans-1682d7cf-2f42-4e6d-86a5-5404a076dade.png", unsc: "assets/unsclogotrans-49c58680-dcae-4ad2-bf2c-9c19c269203f.png", unwomen: "assets/unwomenlogotrans-d72592e0-466d-4bc0-b610-df549b6e895d.png", disec: "assets/diseclogotrans-2379bef6-e3b6-486c-9f14-ce7139589b71.png", fwc: "assets/fwclogotrans-7c78f9d4-c925-40f4-93e7-fa29216e2daf.png", interpol: "assets/interpollogotrans-2752ebee-7955-47cd-b2e7-9f447ea46beb.png", who: "assets/whologotrans-e8cc5054-5966-4c0b-bb0a-d35f43edceb3.png" };
+        var LOGOS = { ecosoc: "assets/ecosoclogotrans-full.png", press: "assets/presscorpsemblem-e3b83ea3-1a9b-4ac8-89eb-dc22525d7f50.png", unhrc: "assets/unhrcemblem-cf4880dc-fd97-4810-893e-cad759e685ed.png", unodc: "assets/unodcemblem-a5fbe716-a294-4ca6-b854-e483b0be890b.png", unsc: "assets/unscemblem-63d2a66d-4869-47fc-bddb-eca272b4273f.png", unwomen: "assets/unwomenemblem-75768fc7-e173-4395-b282-823d48a735d1.png", disec: "assets/disecemblem-0dcf6e55-f215-434d-9c08-ab82f8e808f5.png", fwc: "assets/fwclogotrans-full.png", interpol: "assets/interpolemblem-9d12df52-1131-4853-a8db-447deeb02d6d.png", who: "assets/whoemblem-bd37b638-7568-40c3-88eb-ecadd89c1592.png" };
         var COMMITTEES = {
           ecosoc: { name: "ECOSOC", fullName: "Economic and Social Council", type: "Traditional", grades: "7–12", chairs: "2", delegates: "22", metaLabel: "Chairs", topics: [
             { emoji: "💰", text: "The Question of Implementing a Globally Coordinated Universal Basic Income (UBI) Programme as a Strategy for Poverty Eradication and Economic Stability", diff: "Beginner" },
@@ -127,10 +127,13 @@
 
         var c = COMMITTEES[id];
         document.title = c.name + " — SEAMUN I";
-        var logo = LOGOS[id] ? '<img src="' + LOGOS[id] + '" alt="" class="committee-card-logo" />' : '';
+        var emblemClass = "committee-card-emblem-img" + (id === "ecosoc" || id === "fwc" ? " committee-card-emblem-full" : "");
+        var emblem = LOGOS[id] ? '<div class="committee-card-emblem"><img src="' + LOGOS[id] + '" alt="" class="' + emblemClass + '" /></div>' : '';
 
         var html = '<article class="committee-card committee-card-single committee-card-' + id + '">';
-        html += '<div class="committee-header">' + logo + '<div class="committee-name-wrap"><h2 class="committee-single-title">' + c.name + '</h2> <p class="committee-type">' + c.fullName + '</p></div>';
+        html += emblem;
+        html += '<div class="committee-card-body">';
+        html += '<div class="committee-header"><div class="committee-name-wrap"><h2 class="committee-single-title">' + c.name + '</h2> <p class="committee-type">' + c.fullName + '</p></div>';
         html += '<div class="committee-tags"><span class="tag">' + c.type + '</span><span class="tag">' + c.grades + '</span></div></div>';
         html += '<div class="committee-meta"><span>' + c.chairs + ' ' + c.metaLabel + '</span><span>' + c.delegates + ' Delegates</span><span>Grades ' + c.grades + '</span></div>';
 
@@ -153,7 +156,7 @@
         (c.allocations.length ? c.allocations : ["Allocations to be announced."]).forEach(function (item) {
           html += '<li>' + item + '</li>';
         });
-        html += '</ul></details></article>';
+        html += '</ul></details></div></article>';
         content.innerHTML = html;
       })();
     </script>

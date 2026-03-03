@@ -365,7 +365,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 140px;
+  min-height: 160px;
   padding: 1.25rem;
   background: var(--navy);
   color: var(--bg);
@@ -387,13 +387,18 @@ body {
 }
 
 .home-committee-logo {
-  height: 48px;
+  height: 72px;
   width: auto;
-  max-width: 60px;
+  max-width: 80px;
   object-fit: contain;
   margin-bottom: 0.5rem;
   filter: brightness(0) invert(1);
   opacity: 0.95;
+}
+
+.home-committee-logo-full {
+  max-width: 130px;
+  height: 80px;
 }
 
 .home-committee-card:hover .home-committee-logo {
@@ -444,8 +449,9 @@ body {
 .home-committee-who { background: #0f766e; }
 .home-committee-who:hover { background: #0d9488; }
 
-/* FWC dark: logo has red elements, no invert so it displays correctly */
-.home-committee-fwc .home-committee-logo {
+/* FWC and ECOSOC: full logos have built-in text, no invert */
+.home-committee-fwc .home-committee-logo,
+.home-committee-ecosoc .home-committee-logo {
   filter: none;
 }
 
@@ -981,12 +987,53 @@ body.modal-open {
 }
 
 .committee-card {
+  display: flex;
+  gap: 1.5rem;
   padding: 1.5rem;
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: 8px;
   scroll-margin-top: 5rem;
   border-left: 4px solid var(--primary);
+}
+
+.committee-card-emblem {
+  flex-shrink: 0;
+  width: 180px;
+  min-height: 200px;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+}
+
+.committee-card-emblem-img {
+  width: 100%;
+  height: 100%;
+  min-height: 160px;
+  object-fit: contain;
+}
+
+.committee-card-emblem-full {
+  min-height: 140px;
+}
+
+@media (max-width: 640px) {
+  .committee-card {
+    flex-direction: column;
+    align-items: center;
+  }
+  .committee-card-emblem {
+    width: 140px;
+    min-height: 140px;
+    align-self: center;
+  }
+}
+
+.committee-card-body {
+  flex: 1;
+  min-width: 0;
 }
 
 .committee-card .committee-header {
@@ -1004,6 +1051,10 @@ body.modal-open {
   max-width: 80px;
   object-fit: contain;
   flex-shrink: 0;
+}
+
+.committee-card-logo-full {
+  max-width: 140px;
 }
 
 /* Committee card accent colors */
@@ -1171,6 +1222,10 @@ body.modal-open {
 
 .committee-back:hover {
   text-decoration: underline;
+}
+
+.committee-card-single {
+  min-height: 280px;
 }
 
 .committee-card-single .committee-single-title {
