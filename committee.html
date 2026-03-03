@@ -79,6 +79,7 @@
         var content = document.getElementById("committee-content");
 
         var LOGOS = { ecosoc: "assets/ecosoclogotrans-full.png", press: "assets/presscorpsemblem-e3b83ea3-1a9b-4ac8-89eb-dc22525d7f50.png", unhrc: "assets/unhrcemblem-cf4880dc-fd97-4810-893e-cad759e685ed.png", unodc: "assets/unodcemblem-a5fbe716-a294-4ca6-b854-e483b0be890b.png", unsc: "assets/unscemblem-63d2a66d-4869-47fc-bddb-eca272b4273f.png", unwomen: "assets/unwomenemblem-75768fc7-e173-4395-b282-823d48a735d1.png", disec: "assets/disecemblem-0dcf6e55-f215-434d-9c08-ab82f8e808f5.png", fwc: "assets/fwclogotrans-full.png", interpol: "assets/interpolemblem-9d12df52-1131-4853-a8db-447deeb02d6d.png", who: "assets/whoemblem-bd37b638-7568-40c3-88eb-ecadd89c1592.png" };
+        var LOGO_IS_FULL = { ecosoc: true, fwc: true };
         var COMMITTEES = {
           ecosoc: { name: "ECOSOC", fullName: "Economic and Social Council", type: "Traditional", grades: "7–12", chairs: "2", delegates: "22", metaLabel: "Chairs", topics: [
             { emoji: "💰", text: "The Question of Implementing a Globally Coordinated Universal Basic Income (UBI) Programme as a Strategy for Poverty Eradication and Economic Stability", diff: "Beginner" },
@@ -127,7 +128,7 @@
 
         var c = COMMITTEES[id];
         document.title = c.name + " — SEAMUN I";
-        var emblemClass = "committee-card-emblem-img" + (id === "ecosoc" || id === "fwc" ? " committee-card-emblem-full" : "");
+        var emblemClass = "committee-card-emblem-img" + (LOGO_IS_FULL[id] ? " committee-card-emblem-full" : "");
         var emblem = LOGOS[id] ? '<div class="committee-card-emblem"><img src="' + LOGOS[id] + '" alt="" class="' + emblemClass + '" /></div>' : '';
 
         var html = '<article class="committee-card committee-card-single committee-card-' + id + '">';

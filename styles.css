@@ -992,7 +992,8 @@ body.modal-open {
 
 .committee-card-emblem {
   flex-shrink: 0;
-  width: 180px;
+  width: 260px;
+  min-width: 200px;
   min-height: 200px;
   align-self: stretch;
   display: flex;
@@ -1009,7 +1010,7 @@ body.modal-open {
 }
 
 .committee-card-emblem-full {
-  min-height: 140px;
+  min-height: 100px;
 }
 
 @media (max-width: 640px) {
