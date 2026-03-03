@@ -392,7 +392,6 @@ body {
   max-width: 80px;
   object-fit: contain;
   margin-bottom: 0.5rem;
-  filter: brightness(0) invert(1);
   opacity: 0.95;
 }
 
@@ -448,12 +447,6 @@ body {
 
 .home-committee-who { background: #0f766e; }
 .home-committee-who:hover { background: #0d9488; }
-
-/* FWC and ECOSOC: full logos have built-in text, no invert */
-.home-committee-fwc .home-committee-logo,
-.home-committee-ecosoc .home-committee-logo {
-  filter: none;
-}
 
 /* Leadership */
 .leadership-grid {
