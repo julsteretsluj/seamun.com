@@ -15,7 +15,7 @@ window.SEAMUN_TRANSLATIONS = {
           hero_badge: "📅 Upcoming | January 16-17, 2027",
           hero_title: "SEAMUN I Conference",
           hero_lead:
-            "SEAMUN I is a student-led, non-profit Model United Nations conference focused on global healthcare and sustainability policy. Join 200 delegates, 22 chairs, 8 SMT, 10 staff, and 10 external advisors for two days of policy-driven debate. All profits are directed to Thai Red Cross Society.",
+            "SEAMUN I is a student-led, non-profit Model United Nations conference focused on global healthcare and sustainability policy. Join 200 delegates, 20 chairs, 8 SMT, 10 staff, and 10 external advisors for two days of policy-driven debate. All profits are directed to Thai Red Cross Society.",
           hero_view_committees: "🧾 View committees",
           hero_see_applications: "📝 See applications",
           label_location: "📍 Location",
@@ -310,7 +310,7 @@ window.SEAMUN_TRANSLATIONS = {
           hero_badge: "📅 กำลังจะมาถึง | 16-17 มกราคม 2027",
           hero_title: "การประชุม SEAMUN I",
           hero_lead:
-            "SEAMUN I เป็นการประชุม MUN ที่นักเรียนจัดขึ้นแบบไม่แสวงหากำไร เน้นนโยบายด้านสุขภาพโลกและความยั่งยืน ร่วมกับผู้แทน 200 คน ประธาน 22 คน SMT 8 คน เจ้าหน้าที่ 10 คน และที่ปรึกษาภายนอก 10 คน ตลอดสองวันของการอภิปรายเชิงนโยบาย กำไรทั้งหมดมอบให้โครงการทุนของ Thai Red Cross Society",
+            "SEAMUN I เป็นการประชุม MUN ที่นักเรียนจัดขึ้นแบบไม่แสวงหากำไร เน้นนโยบายด้านสุขภาพโลกและความยั่งยืน ร่วมกับผู้แทน 200 คน ประธาน 20 คน SMT 8 คน เจ้าหน้าที่ 10 คน และที่ปรึกษาภายนอก 10 คน ตลอดสองวันของการอภิปรายเชิงนโยบาย กำไรทั้งหมดมอบให้โครงการทุนของ Thai Red Cross Society",
           hero_view_committees: "🧾 ดูคณะกรรมการ",
           hero_see_applications: "📝 ดูการสมัคร",
           label_location: "📍 สถานที่",
@@ -602,7 +602,7 @@ window.SEAMUN_TRANSLATIONS = {
           hero_badge: "📅 即将到来 | 2027年1月16-17日",
           hero_title: "SEAMUN I 会议",
           hero_lead:
-            "SEAMUN I 是由学生主办的非营利模拟联合国会议，聚焦全球健康与可持续发展政策。两天的政策辩论将汇聚200名代表、22名主席、8名SMT、10名工作人员和10名外部顾问。所有收益将用于Thai Red Cross Society的资助项目。",
+            "SEAMUN I 是由学生主办的非营利模拟联合国会议，聚焦全球健康与可持续发展政策。两天的政策辩论将汇聚200名代表、20名主席、8名SMT、10名工作人员和10名外部顾问。所有收益将用于Thai Red Cross Society的资助项目。",
           hero_view_committees: "🧾 查看委员会",
           hero_see_applications: "📝 查看申请",
           label_location: "📍 地点",
@@ -851,7 +851,7 @@ window.SEAMUN_TRANSLATIONS = {
           hero_badge: "📅 開催予定 | 2027年1月16-17日",
           hero_title: "SEAMUN I 会議",
           hero_lead:
-            "SEAMUN Iは学生主導の非営利MUN会議で、世界の医療と持続可能性政策に焦点を当てます。200名の代表、22名の議長、8名のSMT、10名のスタッフ、10名の外部アドバイザーが2日間の政策討論に参加します。収益はThai Red Cross Societyの資金プログラムに充てられます。",
+            "SEAMUN Iは学生主導の非営利MUN会議で、世界の医療と持続可能性政策に焦点を当てます。200名の代表、20名の議長、8名のSMT、10名のスタッフ、10名の外部アドバイザーが2日間の政策討論に参加します。収益はThai Red Cross Societyの資金プログラムに充てられます。",
           hero_view_committees: "🧾 委員会を見る",
           hero_see_applications: "📝 申請を見る",
           label_location: "📍 会場",
@@ -1100,7 +1100,7 @@ window.SEAMUN_TRANSLATIONS = {
           hero_badge: "📅 Próximo | 16-17 de enero de 2027",
           hero_title: "Conferencia SEAMUN I",
           hero_lead:
-            "SEAMUN I es una conferencia MUN sin fines de lucro liderada por estudiantes, enfocada en políticas de salud global y sostenibilidad. Participan 200 delegados, 22 chairs, 8 SMT, 10 staff y 10 asesores externos durante dos días de debate. Todas las ganancias se destinan al programa de financiamiento de Thai Red Cross Society.",
+            "SEAMUN I es una conferencia MUN sin fines de lucro liderada por estudiantes, enfocada en políticas de salud global y sostenibilidad. Participan 200 delegados, 20 chairs, 8 SMT, 10 staff y 10 asesores externos durante dos días de debate. Todas las ganancias se destinan al programa de financiamiento de Thai Red Cross Society.",
           hero_view_committees: "🧾 Ver comités",
           hero_see_applications: "📝 Ver solicitudes",
           label_location: "📍 Ubicación",
@@ -1349,7 +1349,7 @@ window.SEAMUN_TRANSLATIONS = {
           hero_badge: "📅 À venir | 16-17 janvier 2027",
           hero_title: "Conférence SEAMUN I",
           hero_lead:
-            "SEAMUN I est une conférence MUN non lucrative dirigée par des élèves, axée sur la santé mondiale et la durabilité. 200 délégués, 22 chairs, 8 SMT, 10 staff et 10 conseillers externes participent à deux jours de débat. Les bénéfices sont versés au programme de financement de Thai Red Cross Society.",
+            "SEAMUN I est une conférence MUN non lucrative dirigée par des élèves, axée sur la santé mondiale et la durabilité. 200 délégués, 20 chairs, 8 SMT, 10 staff et 10 conseillers externes participent à deux jours de débat. Les bénéfices sont versés au programme de financement de Thai Red Cross Society.",
           hero_view_committees: "🧾 Voir les comités",
           hero_see_applications: "📝 Voir les candidatures",
           label_location: "📍 Lieu",
@@ -1598,7 +1598,7 @@ window.SEAMUN_TRANSLATIONS = {
           hero_badge: "📅 Скоро | 16-17 января 2027",
           hero_title: "Конференция SEAMUN I",
           hero_lead:
-            "SEAMUN I — некоммерческая конференция MUN, организованная учениками, с фокусом на глобальном здравоохранении и устойчивом развитии. 200 делегатов, 22 председателя, 8 SMT, 10 сотрудников и 10 внешних советников участвуют в двухдневных дебатах. Вся прибыль направляется в программу Thai Red Cross Society.",
+            "SEAMUN I — некоммерческая конференция MUN, организованная учениками, с фокусом на глобальном здравоохранении и устойчивом развитии. 200 делегатов, 20 председателя, 8 SMT, 10 сотрудников и 10 внешних советников участвуют в двухдневных дебатах. Вся прибыль направляется в программу Thai Red Cross Society.",
           hero_view_committees: "🧾 Комитеты",
           hero_see_applications: "📝 Заявки",
           label_location: "📍 Место",
@@ -1847,7 +1847,7 @@ window.SEAMUN_TRANSLATIONS = {
           hero_badge: "📅 예정 | 2027년 1월 16-17일",
           hero_title: "SEAMUN I 컨퍼런스",
           hero_lead:
-            "SEAMUN I은 학생 주도 비영리 MUN 컨퍼런스로, 글로벌 보건 및 지속가능성 정책에 초점을 둡니다. 200명의 대표, 22명의 의장, 8명의 SMT, 10명의 스태프, 10명의 외부 자문위원이 이틀간의 정책 토론에 참여합니다. 모든 수익은 Thai Red Cross Society 자금 프로그램에 기부됩니다.",
+            "SEAMUN I은 학생 주도 비영리 MUN 컨퍼런스로, 글로벌 보건 및 지속가능성 정책에 초점을 둡니다. 200명의 대표, 20명의 의장, 8명의 SMT, 10명의 스태프, 10명의 외부 자문위원이 이틀간의 정책 토론에 참여합니다. 모든 수익은 Thai Red Cross Society 자금 프로그램에 기부됩니다.",
           hero_view_committees: "🧾 위원회 보기",
           hero_see_applications: "📝 신청서 보기",
           label_location: "📍 장소",

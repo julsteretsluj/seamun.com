@@ -155,7 +155,7 @@
   },
   "unsc": {
     "delegates": 15,
-    "chairs": 3,
+    "chairs": 2,
     "topics": [
       {
         "emoji": "\ud83d\udd4a\ufe0f",
@@ -259,7 +259,7 @@
   },
   "fwc": {
     "delegates": 10,
-    "chairs": 3,
+    "chairs": 2,
     "topics": [
       {
         "emoji": "\ud83d\udd2e",

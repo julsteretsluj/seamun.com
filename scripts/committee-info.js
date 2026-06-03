@@ -46,7 +46,7 @@
     unsc: {
       grades: "Grades 7–12",
       difficulty: "Intermediate",
-      chairs: 3,
+      chairs: 2,
       chairsLabel: "Chairs",
       delegates: 15,
       rop: "Special",
@@ -76,7 +76,7 @@
     fwc: {
       grades: "Grades 9–12",
       difficulty: "Advanced",
-      chairs: 3,
+      chairs: 2,
       chairsLabel: "Chairs",
       delegates: 10,
       rop: "Special",
