@@ -373,6 +373,7 @@ body {
   border-radius: 8px;
   text-align: center;
   transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  position: relative;
 }
 
 .home-committee-card:hover {
@@ -392,16 +393,14 @@ body {
   max-width: 80px;
   object-fit: contain;
   margin-bottom: 0.5rem;
-  opacity: 0.95;
+  background: transparent;
+  mix-blend-mode: normal;
+  filter: none;
 }
 
 .home-committee-logo-full {
   max-width: 130px;
   height: 80px;
-}
-
-.home-committee-card:hover .home-committee-logo {
-  opacity: 1;
 }
 
 .home-committee-name {
@@ -988,6 +987,144 @@ body.modal-open {
   border-radius: 8px;
   scroll-margin-top: 5rem;
   border-left: 4px solid var(--primary);
+  position: relative;
+}
+
+/* Committee info button & popover */
+.committee-info-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 3;
+  width: 1.65rem;
+  height: 1.65rem;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--navy);
+  font-family: var(--font);
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
+}
+
+.committee-card .committee-info-btn {
+  border-color: var(--border);
+  background: var(--bg);
+  color: var(--primary);
+}
+
+.committee-info-btn:hover,
+.committee-info-btn:focus {
+  background: var(--bg-alt);
+  transform: scale(1.05);
+  outline: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.committee-info-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.home-committee-card .committee-info-btn {
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--navy);
+}
+
+.home-committee-card .committee-info-btn:hover,
+.home-committee-card .committee-info-btn:focus {
+  background: #fff;
+}
+
+.committee-info-btn-icon {
+  display: block;
+  margin-top: 1px;
+}
+
+.committee-info-popover {
+  position: fixed;
+  z-index: 200;
+  max-width: min(300px, calc(100vw - 24px));
+  padding: 0.75rem 0.85rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.14);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--text);
+  text-align: left;
+}
+
+.committee-info-popover[hidden] {
+  display: none !important;
+}
+
+.committee-info-popover-title {
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin: 0 0 0.5rem;
+  color: var(--navy);
+}
+
+.committee-info-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.committee-info-tag {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.2rem;
+  padding: 0.2rem 0.45rem;
+  border-radius: 4px;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.committee-info-tag-label {
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.committee-info-tag--beginner {
+  background: #e8f5e9;
+  border-color: #c8e6c9;
+  color: #2e7d32;
+}
+
+.committee-info-tag--intermediate {
+  background: #fff9c4;
+  border-color: #ffe082;
+  color: #f57f17;
+}
+
+.committee-info-tag--advanced {
+  background: #ffebee;
+  border-color: #ffcdd2;
+  color: #c62828;
+}
+
+.committee-info-tag--crisis {
+  background: #fce4ec;
+  border-color: #f8bbd0;
+  color: #ad1457;
+}
+
+.committee-info-tag--esl {
+  background: #e3f2fd;
+  border-color: #90caf9;
+  color: #1565c0;
 }
 
 .committee-card-emblem {
@@ -1000,17 +1137,25 @@ body.modal-open {
   align-items: center;
   justify-content: center;
   padding: 1.25rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
 }
 
 .committee-card-emblem-img {
   width: 100%;
   height: 100%;
-  min-height: 160px;
+  min-height: 140px;
+  max-height: 200px;
   object-fit: contain;
+  object-position: center;
+  background: transparent;
+  mix-blend-mode: normal;
+  filter: none;
 }
 
 .committee-card-emblem-full {
-  min-height: 100px;
+  min-height: 120px;
 }
 
 @media (max-width: 640px) {
