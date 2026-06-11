@@ -25,7 +25,7 @@
         <p><strong>Leadership</strong> — Secretariat &amp; team contacts.</p>
         <p><strong>Committees</strong> — All 10 committees, topics, and country allocations.</p>
         <p><strong>Contact</strong> — Email and “Send a message” for registration or enquiries.</p>
-        <p><strong>Register</strong> — Delegate and advisor sign up, chair applications; or contact us by email.</p>
+        <p><strong>Register</strong> — Delegate, advisor, and chair forms on the <a href="forms.html">forms page</a>; or contact us by email.</p>
       </div>
       <div id="help-mun-basics">
         <p class="help-popover-title">What is Model UN?</p>
@@ -56,11 +56,11 @@
       <div class="container announcement-inner">
         <p class="announcement-text">
           <strong>SEAMUN I 2027</strong> — Mid- &amp; high school MUN. January 16–17, D-PREP (Bang Phli).
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdKwhkLsqoRydiE-7NrF9cnjQLnAhQXQU5Fmq_GPwPLJrBf0Q/viewform" target="_blank" rel="noopener noreferrer" class="announcement-cta">Delegate Sign Up</a>
+          <a href="forms.html#delegate" class="announcement-cta">Delegate Sign Up</a>
           ·
-          <a href="https://forms.gle/oDZzS68inE6XH53Q6" target="_blank" rel="noopener noreferrer" class="announcement-cta">Advisor Sign Up</a>
+          <a href="forms.html#advisor" class="announcement-cta">Advisor Sign Up</a>
           ·
-          <a href="https://forms.gle/gfwMiEUmHr6mUrHq8" target="_blank" rel="noopener noreferrer" class="announcement-cta">Chair Application</a>
+          <a href="forms.html#chair" class="announcement-cta">Chair Application</a>
         </p>
         <button type="button" class="announcement-close" aria-label="Dismiss" data-close-announcement>×</button>
       </div>
@@ -77,12 +77,13 @@
           <a href="leadership.html">Leadership</a>
           <a href="committees.html">Committees</a>
           <a href="index.html#schedule">Schedule</a>
+          <a href="forms.html">Forms</a>
           <a href="contact.html">Contact</a>
           <a href="sponsors.html">Sponsors</a>
           <span class="header-help">
             <button type="button" class="help-icon" aria-label="Site and MUN help" data-help="site-guide" title="Help">?</button>
           </span>
-          <a class="btn btn-header" href="register.html">Register</a>
+          <a class="btn btn-header" href="forms.html">Register</a>
         </nav>
         <button class="nav-toggle" type="button" aria-label="Open menu" data-nav-toggle></button>
       </div>
@@ -91,10 +92,11 @@
         <a href="leadership.html">Leadership</a>
         <a href="committees.html">Committees</a>
         <a href="index.html#schedule">Schedule</a>
+        <a href="forms.html">Forms</a>
         <a href="contact.html">Contact</a>
         <a href="sponsors.html">Sponsors</a>
         <button type="button" class="help-trigger" data-help="site-guide">Help</button>
-        <a href="register.html">Register</a>
+        <a href="forms.html">Register</a>
       </div>
     </header>
 
@@ -112,9 +114,9 @@
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="committees.html">View committees</a>
-            <a class="btn btn-secondary" href="https://docs.google.com/forms/d/e/1FAIpQLSdKwhkLsqoRydiE-7NrF9cnjQLnAhQXQU5Fmq_GPwPLJrBf0Q/viewform" target="_blank" rel="noopener noreferrer">Delegate Sign Up</a>
-            <a class="btn btn-secondary" href="https://forms.gle/oDZzS68inE6XH53Q6" target="_blank" rel="noopener noreferrer">Advisor Sign Up</a>
-            <a class="btn btn-secondary" href="https://forms.gle/gfwMiEUmHr6mUrHq8" target="_blank" rel="noopener noreferrer">Chair Application</a>
+            <a class="btn btn-secondary" href="forms.html#delegate">Delegate Sign Up</a>
+            <a class="btn btn-secondary" href="forms.html#advisor">Advisor Sign Up</a>
+            <a class="btn btn-secondary" href="forms.html#chair">Chair Application</a>
           </div>
         </div>
       </section>
@@ -336,9 +338,10 @@
           <h2 class="section-title">Applications</h2>
           <p class="contact-lead">Sign up as a delegate or advisor, or apply to chair a committee.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdKwhkLsqoRydiE-7NrF9cnjQLnAhQXQU5Fmq_GPwPLJrBf0Q/viewform" target="_blank" rel="noopener noreferrer">Delegate Sign Up</a>
-            <a class="btn btn-secondary" href="https://forms.gle/oDZzS68inE6XH53Q6" target="_blank" rel="noopener noreferrer">Advisor Sign Up</a>
-            <a class="btn btn-secondary" href="https://forms.gle/gfwMiEUmHr6mUrHq8" target="_blank" rel="noopener noreferrer">Chair Application</a>
+            <a class="btn btn-primary" href="forms.html">View all forms</a>
+            <a class="btn btn-secondary" href="forms.html#delegate">Delegate Sign Up</a>
+            <a class="btn btn-secondary" href="forms.html#advisor">Advisor Sign Up</a>
+            <a class="btn btn-secondary" href="forms.html#chair">Chair Application</a>
           </div>
         </div>
       </section>
@@ -542,9 +545,9 @@
           var open = document.querySelector(".modal:not([hidden])");
           if (open) closeModal(open.id);
         });
-        if (location.hash === "#register") { window.location.replace("register.html"); }
+        if (location.hash === "#register") { window.location.replace("forms.html"); }
         window.addEventListener("hashchange", function () {
-          if (location.hash === "#register") window.location.replace("register.html");
+          if (location.hash === "#register") window.location.replace("forms.html");
         });
 
         // Optional: embed Google Form in register modal (set data-register-form-url on body to the form's embedded URL)

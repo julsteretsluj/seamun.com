@@ -918,6 +918,73 @@ body.modal-open {
   border-radius: 8px;
 }
 
+.form-embed-tall {
+  min-height: 72vh;
+  height: 1200px;
+  max-height: 1400px;
+}
+
+.forms-page {
+  max-width: 920px;
+}
+
+.form-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.25rem 0 1rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.75rem;
+}
+
+.form-tab {
+  appearance: none;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.form-tab:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.form-tab.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.form-panel {
+  display: none;
+}
+
+.form-panel.visible {
+  display: block;
+}
+
+.form-panel-desc {
+  color: var(--text-muted);
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+}
+
+.form-open-link {
+  margin: 0.75rem 0 0;
+  font-size: 0.9rem;
+}
+
+.form-open-link a {
+  color: var(--accent);
+}
+
 .contact-form-btn {
   margin-left: 0;
   margin-bottom: 1rem;

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forms — SEAMUN I</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="assets/seamun-logo.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo">
+          <img class="logo-image" src="assets/seamun-logo.png" alt="SEAMUN I" />
+          <span class="logo-text">SEAMUN I</span>
+        </a>
+        <nav class="nav">
+          <a href="about.html">About</a>
+          <a href="leadership.html">Leadership</a>
+          <a href="committees.html">Committees</a>
+          <a href="index.html#schedule">Schedule</a>
+          <a href="forms.html" aria-current="page">Forms</a>
+          <a href="contact.html">Contact</a>
+          <a href="sponsors.html">Sponsors</a>
+          <a class="btn btn-header" href="forms.html">Register</a>
+        </nav>
+        <button class="nav-toggle" type="button" aria-label="Open menu" data-nav-toggle></button>
+      </div>
+      <div class="nav-dropdown" id="nav-dropdown" hidden>
+        <a href="about.html">About</a>
+        <a href="leadership.html">Leadership</a>
+        <a href="committees.html">Committees</a>
+        <a href="index.html#schedule">Schedule</a>
+        <a href="forms.html">Forms</a>
+        <a href="contact.html">Contact</a>
+        <a href="sponsors.html">Sponsors</a>
+        <a href="forms.html">Register</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="section section-alt">
+        <div class="container forms-page">
+          <h2 class="section-title">Registration &amp; Applications</h2>
+          <p class="section-desc">Choose a form below. You can also <a href="contact.html">contact us</a> with questions.</p>
+
+          <div class="form-tabs" role="tablist" aria-label="Registration forms">
+            <button type="button" class="form-tab active" role="tab" id="form-tab-delegate" aria-selected="true" aria-controls="form-panel-delegate" data-form-tab="delegate">Delegate Sign Up</button>
+            <button type="button" class="form-tab" role="tab" id="form-tab-advisor" aria-selected="false" aria-controls="form-panel-advisor" data-form-tab="advisor">Advisor Sign Up</button>
+            <button type="button" class="form-tab" role="tab" id="form-tab-chair" aria-selected="false" aria-controls="form-panel-chair" data-form-tab="chair">Chair Application</button>
+          </div>
+
+          <div class="form-panel visible" id="form-panel-delegate" role="tabpanel" aria-labelledby="form-tab-delegate" data-form-panel="delegate">
+            <p class="form-panel-desc">Independent delegate registration for SEAMUN I 2027. Capacity is capped at 200 delegates.</p>
+            <div class="form-embed-wrap">
+              <iframe class="form-embed form-embed-tall" id="form-embed-delegate" title="Delegate Sign Up" src="about:blank" loading="lazy"></iframe>
+            </div>
+            <p class="form-open-link"><a href="https://docs.google.com/forms/d/e/1FAIpQLSdKwhkLsqoRydiE-7NrF9cnjQLnAhQXQU5Fmq_GPwPLJrBf0Q/viewform" target="_blank" rel="noopener noreferrer">Open form in a new tab</a></p>
+          </div>
+
+          <div class="form-panel" id="form-panel-advisor" role="tabpanel" aria-labelledby="form-tab-advisor" hidden data-form-panel="advisor">
+            <p class="form-panel-desc">Advisor registration for SEAMUN I 2027.</p>
+            <div class="form-embed-wrap">
+              <iframe class="form-embed form-embed-tall" id="form-embed-advisor" title="Advisor Sign Up" src="about:blank" loading="lazy"></iframe>
+            </div>
+            <p class="form-open-link"><a href="https://docs.google.com/forms/d/e/1FAIpQLSfFSjKegswoOKVyBQIZ6ihEs8qQv9FpAjAMFOGe8-tqmArSzQ/viewform" target="_blank" rel="noopener noreferrer">Open form in a new tab</a></p>
+          </div>
+
+          <div class="form-panel" id="form-panel-chair" role="tabpanel" aria-labelledby="form-tab-chair" hidden data-form-panel="chair">
+            <p class="form-panel-desc">Apply to chair a committee at SEAMUN I 2027.</p>
+            <div class="form-embed-wrap">
+              <iframe class="form-embed form-embed-tall" id="form-embed-chair" title="Chair Application" src="about:blank" loading="lazy"></iframe>
+            </div>
+            <p class="form-open-link"><a href="https://docs.google.com/forms/d/e/1FAIpQLScrnEHiXci3JQC4SQVEjqgM8ESdEbkbAwnOk8Z6xPOcMIxj7w/viewform" target="_blank" rel="noopener noreferrer">Open form in a new tab</a></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <img class="footer-logo" src="assets/seamun-logo.png" alt="" />
+        <p class="footer-tagline">SEAMUN I — Policies with a Purpose</p>
+        <p class="footer-copy">&copy; SEAMUN I 2027</p>
+      </div>
+    </footer>
+
+    <script src="scripts/forms-data.js"></script>
+    <script>
+      (function () {
+        var t = document.querySelector("[data-nav-toggle]");
+        var d = document.getElementById("nav-dropdown");
+        if (t && d) {
+          t.addEventListener("click", function () {
+            var open = d.hasAttribute("hidden");
+            if (open) d.removeAttribute("hidden");
+            else d.setAttribute("hidden", "");
+            t.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+          });
+        }
+
+        var forms = window.SEAMUNForms || {};
+        var tabs = document.querySelectorAll("[data-form-tab]");
+        var panels = document.querySelectorAll("[data-form-panel]");
+        var loaded = {};
+
+        function loadEmbed(id) {
+          if (loaded[id] || !forms[id]) return;
+          var iframe = document.getElementById("form-embed-" + id);
+          if (iframe && iframe.src === "about:blank") {
+            iframe.src = forms[id].embedUrl;
+            loaded[id] = true;
+          }
+        }
+
+        function showTab(id) {
+          tabs.forEach(function (tab) {
+            var active = tab.getAttribute("data-form-tab") === id;
+            tab.classList.toggle("active", active);
+            tab.setAttribute("aria-selected", active ? "true" : "false");
+          });
+          panels.forEach(function (panel) {
+            var active = panel.getAttribute("data-form-panel") === id;
+            panel.classList.toggle("visible", active);
+            if (active) {
+              panel.removeAttribute("hidden");
+              loadEmbed(id);
+            } else {
+              panel.setAttribute("hidden", "");
+            }
+          });
+          if (history.replaceState) {
+            history.replaceState(null, "", "#" + id);
+          } else {
+            location.hash = id;
+          }
+        }
+
+        tabs.forEach(function (tab) {
+          tab.addEventListener("click", function () {
+            showTab(tab.getAttribute("data-form-tab"));
+          });
+        });
+
+        var initial = (location.hash || "#delegate").replace("#", "");
+        if (!forms[initial]) initial = "delegate";
+        showTab(initial);
+      })();
+    </script>
+  </body>
+</html>
