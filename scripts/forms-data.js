@@ -29,8 +29,7 @@
       id: "chair",
       label: "Chair Application",
       description: "Apply to chair a committee at SEAMUN I 2027.",
-      viewUrl:
-        "https://docs.google.com/forms/d/e/1FAIpQLScrnEHiXci3JQC4SQVEjqgM8ESdEbkbAwnOk8Z6xPOcMIxj7w/viewform",
+      viewUrl: "https://forms.gle/yGK1r1WL76sLeESZ9",
       embedUrl: embedUrl(
         "https://docs.google.com/forms/d/e/1FAIpQLScrnEHiXci3JQC4SQVEjqgM8ESdEbkbAwnOk8Z6xPOcMIxj7w/viewform"
       ),
