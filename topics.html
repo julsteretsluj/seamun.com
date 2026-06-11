@@ -30,6 +30,7 @@
         color: var(--agenda-text);
         line-height: 1.6;
         min-height: 100vh;
+        overflow-x: clip;
       }
       .agenda-header {
         display: flex;
@@ -92,8 +93,41 @@
         padding: 2rem;
       }
       @media (max-width: 768px) {
+        .agenda-header {
+          padding: 1rem;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .agenda-title {
+          font-size: 1.5rem;
+          order: -1;
+          width: 100%;
+        }
+        .agenda-links {
+          width: 100%;
+          flex-wrap: wrap;
+        }
+        .agenda-links a {
+          flex: 1 1 auto;
+          text-align: center;
+          min-height: 44px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+        }
         .agenda-main {
           grid-template-columns: 1fr;
+          padding: 1rem;
+          gap: 1.25rem;
+        }
+        .agenda-committees {
+          position: static;
+        }
+        .committee-btn .btn-full {
+          display: none;
+        }
+        .topic-block {
+          padding: 1rem;
         }
       }
       .agenda-committees {
@@ -272,6 +306,35 @@
       .difficulty-intermediate { background: #fff9c4; color: #f57f17; }
       .difficulty-advanced { background: #ffcdd2; color: #c62828; }
       .age-range { color: var(--agenda-text); }
+      @keyframes fade-up {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .motion-ok .agenda-header {
+        animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .motion-ok .reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+        transition-delay: var(--reveal-delay, 0s);
+      }
+      .motion-ok .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .committee-btn {
+        transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .committee-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(15, 52, 96, 0.15);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .motion-ok .reveal { opacity: 1; transform: none; transition: none; }
+        .motion-ok .agenda-header { animation: none; }
+        .committee-btn:hover { transform: none; box-shadow: none; }
+      }
     </style>
   </head>
   <body>
@@ -460,5 +523,6 @@
         showCommittee("ecosoc");
       })();
     </script>
+    <script src="scripts/animations.js"></script>
   </body>
 </html>

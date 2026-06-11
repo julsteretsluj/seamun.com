@@ -49,7 +49,7 @@
     </div>
     <header class="site-header">
       <div class="container header-inner">
-        <div class="logo">
+        <a href="index.html" class="logo">
           <img
             class="logo-image"
             src="assets/seamun-logo-light.png"
@@ -59,23 +59,30 @@
             <strong>SEAMUN I</strong>
             <span>Policies with a Purpose</span>
           </div>
-        </div>
+        </a>
         <nav class="nav">
           <a href="index.html" data-i18n="nav_home">🏛️ Home</a>
-          <a href="index.html#committees" data-i18n="nav_committees">🧾 Committees</a>
+          <a href="committees.html" data-i18n="nav_committees">🧾 Committees</a>
           <details class="nav-more">
             <summary data-i18n="nav_more">☰ More</summary>
             <div class="nav-more-menu">
-              <a href="index.html#forms" data-i18n="nav_forms">📝 Forms</a>
-              <a href="index.html#awards" data-i18n="nav_awards">🏆 Awards</a>
+              <a href="forms.html" data-i18n="nav_forms">📝 Forms</a>
               <a href="index.html#schedule" data-i18n="nav_schedule">🗓️ Schedule</a>
-              <a href="index.html#signin" data-i18n="nav_signin">🔐 Sign in</a>
               <a href="profile.html" data-i18n="nav_profile">👤 Profile</a>
-              <a href="index.html#contact" data-i18n="nav_contact">📬 Contact</a>
+              <a href="contact.html" data-i18n="nav_contact">📬 Contact</a>
             </div>
           </details>
           <span class="nav-status" id="nav-auth-status">Signed out</span>
         </nav>
+        <button class="nav-toggle" type="button" aria-label="Open menu" data-nav-toggle></button>
+      </div>
+      <div class="nav-dropdown" id="nav-dropdown" hidden>
+        <a href="index.html" data-i18n="nav_home">Home</a>
+        <a href="committees.html" data-i18n="nav_committees">Committees</a>
+        <a href="forms.html" data-i18n="nav_forms">Forms</a>
+        <a href="index.html#schedule" data-i18n="nav_schedule">Schedule</a>
+        <a href="contact.html" data-i18n="nav_contact">Contact</a>
+        <a href="profile.html" data-i18n="nav_profile">Profile</a>
       </div>
     </header>
 
@@ -549,5 +556,20 @@
       setDarkMode(savedDark);
       applyLanguage(currentLang);
     </script>
+    <script>
+      (function () {
+        var toggle = document.querySelector("[data-nav-toggle]");
+        var dropdown = document.getElementById("nav-dropdown");
+        if (toggle && dropdown) {
+          toggle.addEventListener("click", function () {
+            var open = dropdown.hasAttribute("hidden");
+            if (open) dropdown.removeAttribute("hidden");
+            else dropdown.setAttribute("hidden", "");
+            toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+          });
+        }
+      })();
+    </script>
+    <script src="scripts/animations.js"></script>
   </body>
 </html>
