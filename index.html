@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SEAMUN I Conference — Mid- &amp; High School MUN</title>
     <meta name="description" content="SEAMUN I is a mid- and high school Model UN conference (grades 7–12), January 16–17, 2027. Policies with a Purpose." />
-    <!-- To use a Google Form instead of the inline form: add data-register-form-url="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?embedded=true" to the body tag -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -24,8 +23,8 @@
         <p><strong>About</strong> — Our purpose, collaboration, and diplomacy.</p>
         <p><strong>Leadership</strong> — Secretariat &amp; team contacts.</p>
         <p><strong>Committees</strong> — All 10 committees, topics, and country allocations.</p>
-        <p><strong>Contact</strong> — Email and “Send a message” for registration or enquiries.</p>
-        <p><strong>Register</strong> — Delegate, advisor, and chair forms on the <a href="forms.html">forms page</a>; or contact us by email.</p>
+        <p><strong>Contact</strong> — Venue and sponsor information; registration via the forms page.</p>
+        <p><strong>Register</strong> — Delegate, advisor, and chair forms on the <a href="forms.html">forms page</a>.</p>
       </div>
       <div id="help-mun-basics">
         <p class="help-popover-title">What is Model UN?</p>
@@ -349,87 +348,15 @@
       <section class="section" id="contact">
         <div class="container">
           <h2 class="section-title">Contact</h2>
-          <p class="contact-lead">For registration, partnerships, or general enquiries:</p>
-          <a class="contact-email" href="mailto:information@seamun.com">information@seamun.com</a>
-          <button type="button" class="btn btn-secondary contact-form-btn" data-open="contact-modal">Send a message</button>
-          <p class="contact-note">Venues &amp; sponsors: see our capacity (200 delegates, up to 60 staff including student staff), venue requirements, and donation pledge. For Secretariat matters, contact the Secretary General at <a href="mailto:juleskittoastrop@gmail.com">juleskittoastrop@gmail.com</a>.</p>
+          <p class="contact-lead">Registration and applications are handled through our Google Forms.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="forms.html">View all forms</a>
+            <a class="btn btn-secondary" href="contact.html">Venue &amp; sponsors</a>
+          </div>
+          <p class="contact-note">Venues &amp; sponsors: see our capacity (200 delegates, up to 60 staff including student staff), venue requirements, and donation pledge on the <a href="contact.html">contact</a> and <a href="sponsors.html">sponsors</a> pages.</p>
         </div>
       </section>
     </main>
-
-    <!-- Register modal -->
-    <div class="modal" id="register-modal" role="dialog" aria-modal="true" aria-labelledby="register-modal-title" hidden>
-      <div class="modal-backdrop" data-close-modal></div>
-      <div class="modal-dialog modal-dialog-lg">
-        <button type="button" class="modal-close" aria-label="Close" data-close-modal>×</button>
-        <h2 class="modal-title" id="register-modal-title">Register for SEAMUN I</h2>
-        <!-- Optional: replace form-embed with an iframe for Google Forms. Set data-form-embed-url and ensure .form-embed has a src. -->
-        <div class="form-embed-wrap" id="register-form-embed-wrap" hidden>
-          <iframe class="form-embed" id="register-form-embed" title="Registration form" src="about:blank"></iframe>
-        </div>
-        <div class="modal-form-wrap" id="register-inline-form">
-          <p class="modal-form-intro">Express your interest. We’ll get back to you with registration details.</p>
-          <form class="modal-form" id="register-form" data-mailto="information@seamun.com" data-subject="SEAMUN I 2027 – Registration interest">
-            <label>
-              <span>Name</span>
-              <input type="text" name="name" required placeholder="Your name" />
-            </label>
-            <label>
-              <span>Email</span>
-              <input type="email" name="email" required placeholder="you@example.com" />
-            </label>
-            <label>
-              <span>Role</span>
-              <select name="role">
-                <option value="">Select…</option>
-                <option value="Delegate">Delegate</option>
-                <option value="Chair">Chair</option>
-                <option value="Advisor">Advisor</option>
-              </select>
-            </label>
-            <label>
-              <span>School or organisation (optional)</span>
-              <input type="text" name="school" placeholder="School name" />
-            </label>
-            <label>
-              <span>Message (optional)</span>
-              <textarea name="message" rows="3" placeholder="Any questions or notes…"></textarea>
-            </label>
-            <div class="modal-form-actions">
-              <button type="submit" class="btn btn-primary">Send</button>
-              <button type="button" class="btn btn-secondary" data-close-modal>Cancel</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-
-    <!-- Contact modal -->
-    <div class="modal" id="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title" hidden>
-      <div class="modal-backdrop" data-close-modal></div>
-      <div class="modal-dialog">
-        <button type="button" class="modal-close" aria-label="Close" data-close-modal>×</button>
-        <h2 class="modal-title" id="contact-modal-title">Send a message</h2>
-        <form class="modal-form" id="contact-form" data-mailto="information@seamun.com" data-subject="SEAMUN I 2027 – Website contact">
-          <label>
-            <span>Name</span>
-            <input type="text" name="name" required placeholder="Your name" />
-          </label>
-          <label>
-            <span>Email</span>
-            <input type="email" name="email" required placeholder="you@example.com" />
-          </label>
-          <label>
-            <span>Message</span>
-            <textarea name="message" rows="4" required placeholder="Your message…"></textarea>
-          </label>
-          <div class="modal-form-actions">
-            <button type="submit" class="btn btn-primary">Send</button>
-            <button type="button" class="btn btn-secondary" data-close-modal>Cancel</button>
-          </div>
-        </form>
-      </div>
-    </div>
 
     <footer class="site-footer">
       <div class="container footer-inner">
@@ -505,94 +432,9 @@
           });
         });
 
-        // Modals
-        function openModal(id) {
-          var el = document.getElementById(id);
-          if (!el) return;
-          el.hidden = false;
-          document.body.classList.add("modal-open");
-          var firstFocus = el.querySelector("input:not([type=hidden]), select, textarea, button");
-          if (firstFocus) firstFocus.focus();
-        }
-        function closeModal(id) {
-          var el = id ? document.getElementById(id) : document.querySelector(".modal:not([hidden])");
-          if (el) {
-            el.hidden = true;
-            document.body.classList.remove("modal-open");
-          }
-        }
-        document.querySelectorAll("[data-open]").forEach(function (trigger) {
-          trigger.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = trigger.getAttribute("data-open");
-            if (id) openModal(id);
-          });
-        });
-        document.querySelectorAll("[data-close-modal]").forEach(function (btn) {
-          btn.addEventListener("click", function () {
-            var modal = btn.closest(".modal");
-            closeModal(modal ? modal.id : null);
-          });
-        });
-        document.querySelectorAll(".modal-backdrop").forEach(function (backdrop) {
-          backdrop.addEventListener("click", function () {
-            var modal = backdrop.closest(".modal");
-            if (modal) closeModal(modal.id);
-          });
-        });
-        document.addEventListener("keydown", function (e) {
-          if (e.key !== "Escape") return;
-          var open = document.querySelector(".modal:not([hidden])");
-          if (open) closeModal(open.id);
-        });
         if (location.hash === "#register") { window.location.replace("forms.html"); }
         window.addEventListener("hashchange", function () {
           if (location.hash === "#register") window.location.replace("forms.html");
-        });
-
-        // Optional: embed Google Form in register modal (set data-register-form-url on body to the form's embedded URL)
-        var formUrl = document.body.getAttribute("data-register-form-url");
-        if (formUrl) {
-          var wrap = document.getElementById("register-form-embed-wrap");
-          var iframe = document.getElementById("register-form-embed");
-          var inline = document.getElementById("register-inline-form");
-          if (wrap && iframe && inline) {
-            iframe.src = formUrl;
-            wrap.hidden = false;
-            inline.hidden = true;
-          }
-        }
-
-        // Mailto form submit: build body and open mailto
-        function buildMailto(to, subject, bodyLines) {
-          var params = ["subject=" + encodeURIComponent(subject), "body=" + encodeURIComponent(bodyLines.join("\n"))];
-          return "mailto:" + encodeURIComponent(to) + "?" + params.join("&");
-        }
-        document.getElementById("register-form") && document.getElementById("register-form").addEventListener("submit", function (e) {
-          e.preventDefault();
-          var form = e.target;
-          var to = form.getAttribute("data-mailto") || "information@seamun.com";
-          var subject = form.getAttribute("data-subject") || "SEAMUN I 2027";
-          var name = (form.querySelector("[name=name]") && form.querySelector("[name=name]").value) || "";
-          var email = (form.querySelector("[name=email]") && form.querySelector("[name=email]").value) || "";
-          var role = (form.querySelector("[name=role]") && form.querySelector("[name=role]").value) || "";
-          var school = (form.querySelector("[name=school]") && form.querySelector("[name=school]").value) || "";
-          var message = (form.querySelector("[name=message]") && form.querySelector("[name=message]").value) || "";
-          var body = ["Name: " + name, "Email: " + email].concat(role ? ["Role: " + role] : []).concat(school ? ["School/Organisation: " + school] : []).concat(message ? ["Message: " + message] : []);
-          window.location.href = buildMailto(to, subject, body);
-          closeModal("register-modal");
-        });
-        document.getElementById("contact-form") && document.getElementById("contact-form").addEventListener("submit", function (e) {
-          e.preventDefault();
-          var form = e.target;
-          var to = form.getAttribute("data-mailto") || "information@seamun.com";
-          var subject = form.getAttribute("data-subject") || "SEAMUN I 2027 – Contact";
-          var name = (form.querySelector("[name=name]") && form.querySelector("[name=name]").value) || "";
-          var email = (form.querySelector("[name=email]") && form.querySelector("[name=email]").value) || "";
-          var message = (form.querySelector("[name=message]") && form.querySelector("[name=message]").value) || "";
-          var body = ["Name: " + name, "Email: " + email, "", message];
-          window.location.href = buildMailto(to, subject, body);
-          closeModal("contact-modal");
         });
       })();
     </script>
