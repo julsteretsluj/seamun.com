@@ -214,53 +214,17 @@
       </section>
 
       <section class="section section-alt" id="schedule">
-        <div class="container">
+        <div class="container schedule-page">
           <h2 class="section-title">Schedule</h2>
-          <p class="section-desc">Two-day program with opening and closing ceremonies at <a href="https://www.google.com/maps/place/D-PREP+International+School+Secondary+Campus/@13.6448316,100.6850120,17z" target="_blank" rel="noopener noreferrer">D-PREP International School Secondary Campus</a>. <a href="assets/SEAMUN-I-2027.ics" class="schedule-ics">Add to calendar</a></p>
-          <div class="schedule-grid">
-            <div class="schedule-day">
-              <h3 class="schedule-day-title">Day 1 — Friday, January 16, 2027</h3>
-              <ul class="schedule-list">
-                <li><span class="schedule-time">7:30</span> Arrival</li>
-                <li><span class="schedule-time">8:00</span> Registration</li>
-                <li><span class="schedule-time">8:30</span> Opening Ceremony</li>
-                <li><span class="schedule-time">9:30</span> Break &amp; Photo Ops</li>
-                <li><span class="schedule-time">10:00</span> Icebreakers</li>
-                <li><span class="schedule-time">10:30</span> Committee Session 1a</li>
-                <li><span class="schedule-time">11:05</span> In-Committee Break (Optional)</li>
-                <li><span class="schedule-time">11:15</span> Committee Session 1b</li>
-                <li><span class="schedule-time">12:00</span> Lunch</li>
-                <li><span class="schedule-time">13:00</span> Committee Session 2a</li>
-                <li><span class="schedule-time">13:35</span> In-Committee Break (Optional)</li>
-                <li><span class="schedule-time">13:45</span> Committee Session 2b</li>
-                <li><span class="schedule-time">14:30</span> Break &amp; Photo Ops</li>
-                <li><span class="schedule-time">15:00</span> Committee Session 3a</li>
-                <li><span class="schedule-time">15:35</span> In-Committee Break (Optional)</li>
-                <li><span class="schedule-time">15:45</span> Committee Session 3b</li>
-                <li><span class="schedule-time">16:30</span> Feedback Sessions &amp; Departure</li>
-                <li><span class="schedule-time">17:00</span> Departure</li>
-              </ul>
-            </div>
-            <div class="schedule-day">
-              <h3 class="schedule-day-title">Day 2 — Saturday, January 17, 2027</h3>
-              <ul class="schedule-list">
-                <li><span class="schedule-time">8:00</span> Arrival</li>
-                <li><span class="schedule-time">9:00</span> Registration &amp; Photo Ops</li>
-                <li><span class="schedule-time">9:30</span> Committee Session 1a</li>
-                <li><span class="schedule-time">10:30</span> In-Committee Break (Optional)</li>
-                <li><span class="schedule-time">11:00</span> Committee Session 1b</li>
-                <li><span class="schedule-time">12:00</span> Lunch</li>
-                <li><span class="schedule-time">13:00</span> Committee Session 2a</li>
-                <li><span class="schedule-time">13:35</span> In-Committee Break (Optional)</li>
-                <li><span class="schedule-time">13:45</span> Committee Session 2b</li>
-                <li><span class="schedule-time">14:30</span> Break</li>
-                <li><span class="schedule-time">15:00</span> Committee Session 3</li>
-                <li><span class="schedule-time">16:00</span> Feedback &amp; Break</li>
-                <li><span class="schedule-time">16:30</span> Closing Ceremony</li>
-                <li><span class="schedule-time">17:30</span> Photo Ops &amp; Departure</li>
-              </ul>
-            </div>
+          <p class="section-desc">Two-day program at <a href="https://www.google.com/maps/place/D-PREP+International+School+Secondary+Campus/@13.6448316,100.6850120,17z" target="_blank" rel="noopener noreferrer">D-PREP International School Secondary Campus</a>. Times vary by committee group — select your group below. <a href="assets/SEAMUN-I-2027.ics" class="schedule-ics">Add to calendar</a></p>
+
+          <div class="schedule-tabs" role="tablist" aria-label="Schedule by committee group">
+            <button type="button" class="schedule-tab active" role="tab" id="schedule-tab-group1" aria-selected="true" aria-controls="schedule-panel-group1" data-schedule-tab="group1">Group 1</button>
+            <button type="button" class="schedule-tab" role="tab" id="schedule-tab-group2" aria-selected="false" aria-controls="schedule-panel-group2" data-schedule-tab="group2">Group 2</button>
+            <button type="button" class="schedule-tab" role="tab" id="schedule-tab-group3" aria-selected="false" aria-controls="schedule-panel-group3" data-schedule-tab="group3">Group 3</button>
           </div>
+
+          <div class="schedule-panels" id="schedule-panels"></div>
         </div>
       </section>
 
@@ -441,6 +405,112 @@
     <script src="scripts/committee-logos.js"></script>
     <script src="scripts/committee-data.js"></script>
     <script src="scripts/committee-info.js"></script>
+    <script src="scripts/schedule-data.js"></script>
+    <script>
+      (function () {
+        var data = window.SEAMUNSchedule || {};
+        var container = document.getElementById("schedule-panels");
+        var tabs = document.querySelectorAll("[data-schedule-tab]");
+        if (!container) return;
+
+        function escapeHtml(str) {
+          return String(str)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;");
+        }
+
+        function renderGroup(group) {
+          var committees = group.committees
+            .map(function (name) {
+              return '<span class="schedule-committee-tag">' + escapeHtml(name) + "</span>";
+            })
+            .join("");
+          var daysHtml = group.days
+            .map(function (day, dayIndex) {
+              var items = day.items
+                .map(function (item) {
+                  return (
+                    '<li><span class="schedule-time">' +
+                    escapeHtml(item.time) +
+                    "</span> " +
+                    escapeHtml(item.activity) +
+                    "</li>"
+                  );
+                })
+                .join("");
+              var totalKey = dayIndex === 0 ? "day1" : "day2";
+              var total = group.debateTotals[totalKey];
+              return (
+                '<div class="schedule-day">' +
+                '<h3 class="schedule-day-title">' +
+                escapeHtml(day.title) +
+                "</h3>" +
+                '<ul class="schedule-list">' +
+                items +
+                "</ul>" +
+                '<p class="schedule-debate-total"><strong>Total debate time:</strong> ' +
+                escapeHtml(total) +
+                "</p></div>"
+              );
+            })
+            .join("");
+          return (
+            '<div class="schedule-panel visible" id="schedule-panel-' +
+            group.id +
+            '" role="tabpanel" aria-labelledby="schedule-tab-' +
+            group.id +
+            '" data-schedule-panel="' +
+            group.id +
+            '">' +
+            '<p class="schedule-group-committees"><strong>Committees:</strong> ' +
+            committees +
+            "</p>" +
+            '<div class="schedule-grid">' +
+            daysHtml +
+            "</div></div>"
+          );
+        }
+
+        ["group1", "group2", "group3"].forEach(function (id) {
+          if (data[id]) container.insertAdjacentHTML("beforeend", renderGroup(data[id]));
+        });
+
+        function showTab(id) {
+          if (!data[id]) id = "group1";
+          tabs.forEach(function (tab) {
+            var active = tab.getAttribute("data-schedule-tab") === id;
+            tab.classList.toggle("active", active);
+            tab.setAttribute("aria-selected", active ? "true" : "false");
+          });
+          container.querySelectorAll("[data-schedule-panel]").forEach(function (panel) {
+            var active = panel.getAttribute("data-schedule-panel") === id;
+            panel.classList.toggle("visible", active);
+            if (active) panel.removeAttribute("hidden");
+            else panel.setAttribute("hidden", "");
+          });
+          if (history.replaceState) {
+            history.replaceState(null, "", "#schedule-" + id);
+          }
+        }
+
+        tabs.forEach(function (tab) {
+          tab.addEventListener("click", function () {
+            showTab(tab.getAttribute("data-schedule-tab"));
+          });
+        });
+
+        var hash = (location.hash || "").replace("#", "");
+        var initial = hash.indexOf("schedule-group") === 0 ? hash.replace("schedule-", "") : "group1";
+        if (!data[initial]) initial = "group1";
+        showTab(initial);
+        window.addEventListener("hashchange", function () {
+          var h = (location.hash || "").replace("#", "");
+          if (h.indexOf("schedule-group") === 0) showTab(h.replace("schedule-", ""));
+        });
+      })();
+    </script>
     <script src="scripts/animations.js"></script>
   </body>
 </html>
