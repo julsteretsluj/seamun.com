@@ -11,7 +11,7 @@
       rel="stylesheet"
     />
     <link rel="icon" type="image/png" href="assets/seamun-logo-light.png" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20260711c" />
   </head>
   <body>
     <div class="theme-bar">
@@ -558,18 +558,9 @@
     </script>
     <script>
       (function () {
-        var toggle = document.querySelector("[data-nav-toggle]");
-        var dropdown = document.getElementById("nav-dropdown");
-        if (toggle && dropdown) {
-          toggle.addEventListener("click", function () {
-            var open = dropdown.hasAttribute("hidden");
-            if (open) dropdown.removeAttribute("hidden");
-            else dropdown.setAttribute("hidden", "");
-            toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
-          });
-        }
       })();
     </script>
+    <script src="scripts/nav.js"></script>
     <script src="scripts/animations.js"></script>
   </body>
 </html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Committee — SEAMUN I</title><link rel="icon" type="image/png" href="assets/seamun-logo.png" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20260711c" />
   </head>
   <body>
     <header class="site-header">
@@ -66,16 +66,6 @@
     <script src="scripts/committee-info.js"></script>
     <script>
       (function () {
-        var navToggle = document.querySelector("[data-nav-toggle]");
-        var dropdown = document.getElementById("nav-dropdown");
-        if (navToggle && dropdown) {
-          navToggle.addEventListener("click", function () {
-            var open = dropdown.hasAttribute("hidden");
-            if (open) dropdown.removeAttribute("hidden");
-            else dropdown.setAttribute("hidden", "");
-            navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
-          });
-        }
 
         var params = new URLSearchParams(window.location.search);
         var id = (params.get("c") || "").toLowerCase().trim();
@@ -158,6 +148,7 @@
         }
       })();
     </script>
+    <script src="scripts/nav.js"></script>
     <script src="scripts/animations.js"></script>
   </body>
 </html>
