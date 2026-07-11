@@ -44,6 +44,9 @@
   --text-footnote: 0.8125rem;
   --header-height: clamp(3rem, 3.5vw + 2rem, 3.5rem);
   --tap-target: 44px;
+  --btn-gap: clamp(1rem, 1.75vw, 1.5rem);
+  --btn-pad-y: 0.65rem;
+  --btn-pad-x: clamp(1.2rem, 2vw, 1.6rem);
 
   /* Apple materials */
   --glass-bg: var(--bg-elevated);
@@ -394,7 +397,7 @@ main .hero > .container::before {
 }
 
 .btn-header {
-  padding: 0.4rem clamp(0.75rem, 1vw, 0.9rem);
+  padding: 0.45rem clamp(0.85rem, 1.2vw, 1.05rem);
   min-height: 32px;
   background: var(--apple-blue);
   color: #fff !important;
@@ -570,8 +573,10 @@ main .hero > .container::before {
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: var(--btn-gap);
   justify-content: center;
+  margin-top: 0.5rem;
+  padding: 0.35rem 0;
 }
 
 .btn {
@@ -579,7 +584,7 @@ main .hero > .container::before {
   align-items: center;
   justify-content: center;
   min-height: var(--tap-target);
-  padding: 0.5rem clamp(1rem, 1.5vw, 1.25rem);
+  padding: var(--btn-pad-y) var(--btn-pad-x);
   font-family: var(--font);
   font-size: 1.0625rem;
   font-weight: 600;
@@ -1150,8 +1155,9 @@ main .hero > .container::before {
 .partnership-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 0.5rem;
+  gap: var(--btn-gap);
+  margin-top: 0.85rem;
+  padding: 0.35rem 0;
   justify-content: center;
 }
 
@@ -1337,7 +1343,8 @@ main .hero > .container::before {
   color: #fff;
   font-weight: 600;
   text-decoration: none;
-  padding: 0.15rem 0.45rem;
+  padding: 0.2rem 0.55rem;
+  margin: 0 0.1rem;
   border-radius: var(--radius-sm);
   transition: background 0.15s;
 }
@@ -1487,7 +1494,8 @@ body.modal-open {
 .modal-form-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: var(--btn-gap);
+  padding: 0.25rem 0;
 }
 
 .form-embed-wrap {
@@ -2262,7 +2270,8 @@ body.modal-open {
   .hero-actions {
     flex-direction: column;
     align-items: stretch;
-    gap: 0.75rem;
+    gap: var(--btn-gap);
+    padding: 0.5rem 0;
   }
 
   .hero-actions .btn {
