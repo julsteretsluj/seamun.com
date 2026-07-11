@@ -11,7 +11,8 @@
   --accent-hover: #0077ed;
   --navy: #001f3f;
   --navy-light: #002d5c;
-  --container: min(94vw, 68rem);
+  --container: min(96vw, 68rem);
+  --nav-breakpoint: 1100px;
   --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", system-ui, sans-serif;
 
   /* Fluid scale — adapts padding and type to any viewport */
@@ -92,6 +93,13 @@ body {
   background: var(--bg);
   position: relative;
   isolation: isolate;
+}
+
+main,
+.site-header,
+.announcement {
+  width: 100%;
+  max-width: 100%;
 }
 
 /* Ambient mesh canvas — organic light blobs behind glass */
@@ -334,9 +342,10 @@ iframe {
   display: flex;
   align-items: center;
   gap: clamp(0.35rem, 1vw, 1rem);
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: flex-end;
   max-width: 100%;
+  min-width: 0;
 }
 
 .nav a {
@@ -376,6 +385,7 @@ iframe {
   display: none;
   width: 44px;
   height: 44px;
+  position: relative;
   border: 1px solid var(--glass-border-subtle);
   background: var(--glass-bg);
   backdrop-filter: var(--glass-blur);
@@ -393,33 +403,32 @@ iframe {
 .nav-toggle::after {
   content: "";
   position: absolute;
-  left: 50%;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
   width: 22px;
   height: 2px;
-  margin-left: -11px;
+  margin: auto;
   background: currentColor;
   border-radius: 2px;
-  transition: transform 0.2s var(--ease-out), top 0.2s var(--ease-out), opacity 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
+  transition: transform 0.2s var(--ease-out), opacity 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
 }
 
 .nav-toggle::before {
-  top: 15px;
   box-shadow: 0 -7px 0 currentColor, 0 7px 0 currentColor;
 }
 
 .nav-toggle::after {
-  top: 21px;
   opacity: 0;
 }
 
 .nav-toggle[aria-expanded="true"]::before {
-  top: 21px;
   box-shadow: none;
   transform: rotate(45deg);
 }
 
 .nav-toggle[aria-expanded="true"]::after {
-  top: 21px;
   opacity: 1;
   transform: rotate(-45deg);
 }
@@ -450,7 +459,7 @@ iframe {
   background: rgba(0, 31, 63, 0.06);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
   .nav {
     display: none;
   }
@@ -475,7 +484,7 @@ iframe {
 }
 
 .hero-inner {
-  max-width: min(42rem, 92vw);
+  max-width: min(42rem, 100%);
   margin: 0 auto;
   padding: var(--space-card-x);
   border-radius: var(--radius-xl);
@@ -842,8 +851,8 @@ iframe {
 .home-committee-ecosoc { background: #0284c7; }
 .home-committee-ecosoc:hover { background: #0ea5e9; }
 
-.home-committee-press { background: #ea580c; }
-.home-committee-press:hover { background: #f97316; }
+.home-committee-press { background: #3d5a80; }
+.home-committee-press:hover { background: #4a6fa5; }
 
 .home-committee-unhrc { background: #1d4ed8; }
 .home-committee-unhrc:hover { background: #2563eb; }
@@ -1257,6 +1266,7 @@ iframe {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .announcement-text {
@@ -1777,7 +1787,7 @@ body.modal-open {
 
 /* Committee card accent colors */
 .committee-card-ecosoc { border-left-color: #0284c7; }
-.committee-card-press { border-left-color: #ea580c; }
+.committee-card-press { border-left-color: #3d5a80; }
 .committee-card-unhrc { border-left-color: #1d4ed8; }
 .committee-card-unodc { border-left-color: #1e40af; }
 .committee-card-unsc { border-left-color: #0369a1; }
@@ -2142,6 +2152,10 @@ body.modal-open {
 
 /* Mobile layout */
 @media (max-width: 768px) {
+  body::before {
+    background-attachment: scroll;
+  }
+
   .container {
     padding-left: var(--space-page-x);
     padding-right: var(--space-page-x);
@@ -2527,7 +2541,7 @@ body.modal-open {
   transition: transform 0.3s cubic-bezier(0.34, 1.4, 0.64, 1);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
   .nav-dropdown:not([hidden]) {
     animation: fade-up 0.3s ease;
   }

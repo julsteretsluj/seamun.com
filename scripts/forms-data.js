@@ -34,5 +34,15 @@
         "https://docs.google.com/forms/d/e/1FAIpQLScrnEHiXci3JQC4SQVEjqgM8ESdEbkbAwnOk8Z6xPOcMIxj7w/viewform"
       ),
     },
+    partnership: {
+      id: "partnership",
+      label: "Partnership Form",
+      description:
+        "Official partnership interest form for conferences, NGOs, and organizations interested in collaborating with SEAMUN I 2027.",
+      viewUrl: "https://forms.gle/87dZheYDL4mSAd1U6",
+      embedUrl: embedUrl(
+        "https://docs.google.com/forms/d/e/1FAIpQLSd-xzH4L8sXhXtWo4HU-EnJ7oXeT_Q84W0r2BmqR4hvx57G5A/viewform"
+      ),
+    },
   };
 })(typeof window !== "undefined" ? window : this);
