@@ -7,7 +7,7 @@
   global.SEAMUNCommitteeLogos = {
     ecosoc: logo("assets/committee-logos/ecosoc.png"),
     press: logo("assets/committee-logos/press.png"),
-    unhrc: logo("assets/committee-logos/unhrc.png"),
+    unhrc: "assets/committee-logos/unhrc.png?v=20260712e",
     unodc: logo("assets/committee-logos/unodc.png"),
     unsc: logo("assets/committee-logos/unsc.png"),
     unwomen: logo("assets/committee-logos/unwomen.png"),

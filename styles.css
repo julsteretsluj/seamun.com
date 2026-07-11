@@ -857,21 +857,21 @@ main .hero > .container::before {
   justify-content: center;
   min-height: clamp(7.5rem, 12vw, 9.5rem);
   padding: clamp(0.85rem, 1.2vw, 1.1rem);
-  background: var(--navy);
-  color: #fff;
+  background: var(--bg-elevated);
+  color: var(--label-primary);
   text-decoration: none;
   border-radius: var(--radius-lg);
   text-align: center;
-  transition: transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
+  transition: background 0.2s var(--ease-out), transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
   position: relative;
-  border: none;
-  box-shadow: var(--shadow-md);
+  border: 0.5px solid var(--glass-border-subtle);
+  box-shadow: var(--shadow-sm);
 }
 
 .home-committee-card:hover {
-  color: #fff;
+  color: var(--label-primary);
   transform: scale(1.02);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-md);
 }
 
 .home-committee-card:focus {
@@ -904,40 +904,90 @@ main .hero > .container::before {
 
 .home-committee-info {
   font-size: clamp(0.7rem, 0.2vw + 0.65rem, 0.78rem);
-  opacity: 0.9;
+  color: var(--label-secondary);
   line-height: 1.3;
 }
 
-/* Committee-specific colors (from official logos) */
-.home-committee-ecosoc { background: #0284c7; }
-.home-committee-ecosoc:hover { background: #0ea5e9; }
+/* Committee-specific light tints */
+.home-committee-ecosoc,
+.committee-card-ecosoc {
+  background: #e8f4fc;
+  border-left-color: #0284c7;
+}
+.home-committee-ecosoc:hover { background: #d4ebf9; }
+.committee-card-ecosoc .committee-card-emblem { background: #d4ebf9; }
 
-.home-committee-press { background: #3d5a80; }
-.home-committee-press:hover { background: #4a6fa5; }
+.home-committee-press,
+.committee-card-press {
+  background: #eef3f8;
+  border-left-color: #3d5a80;
+}
+.home-committee-press:hover { background: #dfe8f2; }
+.committee-card-press .committee-card-emblem { background: #dfe8f2; }
 
-.home-committee-unhrc { background: #1d4ed8; }
-.home-committee-unhrc:hover { background: #2563eb; }
+.home-committee-unhrc,
+.committee-card-unhrc {
+  background: #eaf1fd;
+  border-left-color: #1d4ed8;
+}
+.home-committee-unhrc:hover { background: #d6e4fa; }
+.committee-card-unhrc .committee-card-emblem { background: #d6e4fa; }
 
-.home-committee-unodc { background: #1e40af; }
-.home-committee-unodc:hover { background: #2563eb; }
+.home-committee-unodc,
+.committee-card-unodc {
+  background: #eaf0fa;
+  border-left-color: #1e40af;
+}
+.home-committee-unodc:hover { background: #d6e0f5; }
+.committee-card-unodc .committee-card-emblem { background: #d6e0f5; }
 
-.home-committee-unsc { background: #0369a1; }
-.home-committee-unsc:hover { background: #0284c7; }
+.home-committee-unsc,
+.committee-card-unsc {
+  background: #e6f6fa;
+  border-left-color: #0369a1;
+}
+.home-committee-unsc:hover { background: #cceef6; }
+.committee-card-unsc .committee-card-emblem { background: #cceef6; }
 
-.home-committee-unwomen { background: #6d28d9; }
-.home-committee-unwomen:hover { background: #7c3aed; }
+.home-committee-unwomen,
+.committee-card-unwomen {
+  background: #f3effe;
+  border-left-color: #6d28d9;
+}
+.home-committee-unwomen:hover { background: #e8e0fd; }
+.committee-card-unwomen .committee-card-emblem { background: #e8e0fd; }
 
-.home-committee-disec { background: #1e3a5f; }
-.home-committee-disec:hover { background: #1e40af; }
+.home-committee-disec,
+.committee-card-disec {
+  background: #edf1f6;
+  border-left-color: #1e3a5f;
+}
+.home-committee-disec:hover { background: #dce3ec; }
+.committee-card-disec .committee-card-emblem { background: #dce3ec; }
 
-.home-committee-fwc { background: #1c1917; }
-.home-committee-fwc:hover { background: #292524; }
+.home-committee-fwc,
+.committee-card-fwc {
+  background: #fdf0f0;
+  border-left-color: #b91c1c;
+}
+.home-committee-fwc:hover { background: #fae4e4; }
+.committee-card-fwc .committee-card-emblem { background: #fae4e4; }
 
-.home-committee-interpol { background: #1e40af; }
-.home-committee-interpol:hover { background: #2563eb; }
+.home-committee-interpol,
+.committee-card-interpol {
+  background: #eef1fe;
+  border-left-color: #1e40af;
+}
+.home-committee-interpol:hover { background: #dde4fc; }
+.committee-card-interpol .committee-card-emblem { background: #dde4fc; }
 
-.home-committee-who { background: #0f766e; }
-.home-committee-who:hover { background: #0d9488; }
+.home-committee-who,
+.committee-card-who {
+  background: #e8faf6;
+  border-left-color: #0f766e;
+}
+.home-committee-who:hover { background: #d0f5ec; }
+.committee-card-who .committee-card-emblem { background: #d0f5ec; }
 
 /* Leadership */
 .leadership-grid {
@@ -1673,9 +1723,9 @@ body.modal-open {
 }
 
 .home-committee-card .committee-info-btn {
-  border-color: rgba(255, 255, 255, 0.5);
-  background: rgba(255, 255, 255, 0.95);
-  color: var(--navy);
+  border-color: var(--separator);
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--label-primary);
 }
 
 .home-committee-card .committee-info-btn:hover,
@@ -1833,17 +1883,7 @@ body.modal-open {
   max-width: 140px;
 }
 
-/* Committee card accent colors */
-.committee-card-ecosoc { border-left-color: #0284c7; }
-.committee-card-press { border-left-color: #3d5a80; }
-.committee-card-unhrc { border-left-color: #1d4ed8; }
-.committee-card-unodc { border-left-color: #1e40af; }
-.committee-card-unsc { border-left-color: #0369a1; }
-.committee-card-unwomen { border-left-color: #6d28d9; }
-.committee-card-disec { border-left-color: #1e3a5f; }
-.committee-card-fwc { border-left-color: #b91c1c; }
-.committee-card-interpol { border-left-color: #1e40af; }
-.committee-card-who { border-left-color: #0f766e; }
+/* Committee card accent colors — set via shared tint rules above */
 
 .committee-card h3 {
   font-size: 1.25rem;
