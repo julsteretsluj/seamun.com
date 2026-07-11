@@ -28,6 +28,7 @@
       ".leadership-card",
       ".schedule-grid > *",
       ".sponsor-tier",
+      ".partnership-card",
       ".meta-row",
       ".contact-lead",
       ".contact-note",

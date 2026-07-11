@@ -119,6 +119,7 @@ body::after {
 .schedule-committee-tag,
 .leadership-card,
 .sponsor-tier,
+.partnership-card,
 .committee-card,
 .committee-card-emblem,
 .signin-card,
@@ -148,6 +149,7 @@ body::after {
 .schedule-tabs::before,
 .leadership-card::before,
 .sponsor-tier::before,
+.partnership-card::before,
 .committee-card::before,
 .committee-card-emblem::before,
 .signin-card::before,
@@ -193,6 +195,7 @@ body::after {
 .about-card,
 .leadership-card,
 .sponsor-tier,
+.partnership-card,
 .committee-card,
 .schedule-day,
 .hero-inner {
@@ -204,6 +207,7 @@ body::after {
   .about-card:hover,
   .leadership-card:hover,
   .sponsor-tier:hover,
+  .partnership-card:hover,
   .committee-card:hover,
   .schedule-day:hover,
   .hero-inner:hover,
@@ -228,6 +232,7 @@ body::after {
   .about-card,
   .leadership-card,
   .sponsor-tier,
+  .partnership-card,
   .committee-card,
   .schedule-day,
   .hero-inner,
@@ -239,6 +244,7 @@ body::after {
   .about-card:hover,
   .leadership-card:hover,
   .sponsor-tier:hover,
+  .partnership-card:hover,
   .committee-card:hover,
   .schedule-day:hover,
   .hero-inner:hover,
@@ -770,11 +776,11 @@ iframe {
 }
 
 /* Committee-specific colors (from official logos) */
-.home-committee-ecosoc { background: #1e5f74; }
-.home-committee-ecosoc:hover { background: #256d85; }
+.home-committee-ecosoc { background: #0284c7; }
+.home-committee-ecosoc:hover { background: #0ea5e9; }
 
-.home-committee-press { background: #0891b2; }
-.home-committee-press:hover { background: #0e7490; }
+.home-committee-press { background: #ea580c; }
+.home-committee-press:hover { background: #f97316; }
 
 .home-committee-unhrc { background: #1d4ed8; }
 .home-committee-unhrc:hover { background: #2563eb; }
@@ -882,6 +888,14 @@ iframe {
   text-decoration: underline;
 }
 
+.acknowledgement-note {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  max-width: 42rem;
+  line-height: 1.65;
+  margin: 0.25rem 0 1.5rem;
+}
+
 /* Sponsors page */
 .sponsors-subtitle {
   font-size: 1.25rem;
@@ -940,6 +954,75 @@ iframe {
 .sponsor-purposes li {
   margin-bottom: 0.75rem;
   line-height: 1.6;
+}
+
+/* Partnerships */
+.partnership-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.partnership-card {
+  padding: 1.75rem 2rem;
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.25rem;
+}
+
+.partnership-logo-link {
+  display: block;
+  line-height: 0;
+}
+
+.partnership-logo {
+  width: min(220px, 100%);
+  height: auto;
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 24px rgba(0, 20, 40, 0.12);
+}
+
+.partnership-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.partnership-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.partnership-subtitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.partnership-desc {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  max-width: 32rem;
+  margin: 0.25rem 0 0;
+}
+
+.partnership-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.partnership-link {
+  margin-top: 0;
 }
 
 /* Footer */
@@ -1630,8 +1713,8 @@ body.modal-open {
 }
 
 /* Committee card accent colors */
-.committee-card-ecosoc { border-left-color: #1e5f74; }
-.committee-card-press { border-left-color: #0891b2; }
+.committee-card-ecosoc { border-left-color: #0284c7; }
+.committee-card-press { border-left-color: #ea580c; }
 .committee-card-unhrc { border-left-color: #1d4ed8; }
 .committee-card-unodc { border-left-color: #1e40af; }
 .committee-card-unsc { border-left-color: #0369a1; }
@@ -2412,6 +2495,7 @@ body.modal-open {
   .about-card:hover,
   .leadership-card:hover,
   .sponsor-tier:hover,
+  .partnership-card:hover,
   .committee-card:hover,
   .home-committee-card:hover,
   .form-tab:hover,

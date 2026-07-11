@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Partnerships — SEAMUN I</title>
+    <meta name="description" content="SEAMUN I conference partnerships, including Youth Organized MUN (YOMUN 2.0)." />
+    <link rel="icon" type="image/png" href="assets/seamun-logo.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo">
+          <img class="logo-image" src="assets/seamun-logo.png" alt="SEAMUN I" />
+          <span class="logo-text">SEAMUN I</span>
+        </a>
+        <nav class="nav">
+          <a href="about.html">About</a>
+          <a href="leadership.html">Leadership</a>
+          <a href="committees.html">Committees</a>
+          <a href="index.html#schedule">Schedule</a>
+          <a href="forms.html">Forms</a>
+          <a href="contact.html">Contact</a>
+          <a href="sponsors.html">Sponsors</a>
+          <a href="partnerships.html" aria-current="page">Partnerships</a>
+          <a class="btn btn-header" href="forms.html">Register</a>
+        </nav>
+        <button class="nav-toggle" type="button" aria-label="Open menu" data-nav-toggle></button>
+      </div>
+      <div class="nav-dropdown" id="nav-dropdown" hidden>
+        <a href="about.html">About</a>
+        <a href="leadership.html">Leadership</a>
+        <a href="committees.html">Committees</a>
+        <a href="index.html#schedule">Schedule</a>
+        <a href="forms.html">Forms</a>
+        <a href="contact.html">Contact</a>
+        <a href="sponsors.html">Sponsors</a>
+        <a href="partnerships.html" aria-current="page">Partnerships</a>
+        <a href="forms.html">Register</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">Partnerships</h2>
+          <p class="section-desc">SEAMUN I collaborates with youth-led Model UN initiatives that share our commitment to accessible, purposeful diplomacy. Thank you to our partners for supporting the MUN community.</p>
+
+          <h3 class="sponsors-subtitle">Acknowledgement</h3>
+          <p class="acknowledgement-note">SEAMUN I operates as the Thailand sector of <strong>SEAMUN</strong> (South East Asia Model United Nations). We extend our sincere thanks to the founders of <strong>SEAMUN Malaysia</strong> for their kindness in letting us carry forward the Thailand branch of their organization.</p>
+
+          <h3 class="sponsors-subtitle">Our partners</h3>
+          <div class="partnership-grid">
+            <article class="partnership-card">
+              <a href="https://www.yomun.org" target="_blank" rel="noopener noreferrer" class="partnership-logo-link">
+                <img src="assets/partnerships/yomun-2.png" alt="YOMUN 2.0 logo" class="partnership-logo" width="220" height="220" />
+              </a>
+              <div class="partnership-body">
+                <h4 class="partnership-name">YOMUN 2.0</h4>
+                <p class="partnership-subtitle">Youth Organized MUN</p>
+                <p class="partnership-desc">A youth-led Model UN initiative connecting delegates worldwide. SEAMUN I is proud to partner with YOMUN 2.0 in building the next generation of global citizens.</p>
+                <div class="partnership-links">
+                  <a href="https://www.yomun.org" class="btn btn-secondary partnership-link" target="_blank" rel="noopener noreferrer">Visit YOMUN</a>
+                  <a href="https://www.instagram.com/yomun.official/" class="btn btn-secondary partnership-link" target="_blank" rel="noopener noreferrer">Instagram</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <h3 class="sponsors-subtitle">Partner with us</h3>
+          <p class="contact-note">Interested in partnering with SEAMUN I? Reach out through the <a href="contact.html">contact page</a> or speak with your school’s delegation advisor.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <img class="footer-logo" src="assets/seamun-logo.png" alt="" />
+        <p class="footer-tagline">SEAMUN I — Policies with a Purpose</p>
+        <p class="footer-copy">&copy; SEAMUN I 2027</p>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var t = document.querySelector("[data-nav-toggle]");
+        var d = document.getElementById("nav-dropdown");
+        if (t && d) t.addEventListener("click", function () {
+          var open = d.hasAttribute("hidden");
+          if (open) d.removeAttribute("hidden"); else d.setAttribute("hidden", "");
+          t.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+        });
+      })();
+    </script>
+    <script src="scripts/animations.js"></script>
+  </body>
+</html>
