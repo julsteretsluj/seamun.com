@@ -1,6 +1,6 @@
 /** Committee logo paths (full logos; black background removed without aggressive chroma). */
 (function (global) {
-  var v = "20260710g";
+  var v = "20260711a";
   function logo(path) {
     return path + "?v=" + v;
   }

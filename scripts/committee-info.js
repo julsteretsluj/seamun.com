@@ -4,7 +4,7 @@
 (function (global) {
   var COMMITTEE_INFO = {
     ecosoc: {
-      grades: "Grades 7–12",
+      grades: "Grades 7–12 & university",
       difficulty: "Beginner",
       chairs: 2,
       chairsLabel: "Chairs",
@@ -14,7 +14,7 @@
       esl: false,
     },
     press: {
-      grades: "Grades 7–12",
+      grades: "Grades 7–12 & university",
       difficulty: "Beginner",
       chairs: 2,
       chairsLabel: "Editors",
@@ -24,7 +24,7 @@
       esl: false,
     },
     unhrc: {
-      grades: "Grades 9–12",
+      grades: "Grades 9–12 & university",
       difficulty: "Intermediate",
       chairs: 2,
       chairsLabel: "Chairs",
@@ -34,7 +34,7 @@
       esl: true,
     },
     unodc: {
-      grades: "Grades 9–12",
+      grades: "Grades 9–12 & university",
       difficulty: "Intermediate",
       chairs: 2,
       chairsLabel: "Chairs",
@@ -44,7 +44,7 @@
       esl: false,
     },
     unsc: {
-      grades: "Grades 7–12",
+      grades: "Grades 7–12 & university",
       difficulty: "Intermediate",
       chairs: 2,
       chairsLabel: "Chairs",
@@ -54,7 +54,7 @@
       esl: false,
     },
     unwomen: {
-      grades: "Grades 9–12",
+      grades: "Grades 9–12 & university",
       difficulty: "Intermediate",
       chairs: 2,
       chairsLabel: "Chairs",
@@ -64,7 +64,7 @@
       esl: false,
     },
     disec: {
-      grades: "Grades 7–12",
+      grades: "Grades 7–12 & university",
       difficulty: "Advanced",
       chairs: 2,
       chairsLabel: "Chairs",
@@ -74,7 +74,7 @@
       esl: false,
     },
     fwc: {
-      grades: "Grades 9–12",
+      grades: "Grades 9–12 & university",
       difficulty: "Advanced",
       chairs: 2,
       chairsLabel: "Chairs",
@@ -84,7 +84,7 @@
       esl: false,
     },
     interpol: {
-      grades: "Grades 9–12",
+      grades: "Grades 9–12 & university",
       difficulty: "Advanced",
       chairs: 2,
       chairsLabel: "Chairs",
@@ -94,7 +94,7 @@
       esl: false,
     },
     who: {
-      grades: "Grades 9–12",
+      grades: "Grades 9–12 & university",
       difficulty: "Advanced",
       chairs: 2,
       chairsLabel: "Chairs",
