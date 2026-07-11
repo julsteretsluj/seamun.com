@@ -9,7 +9,7 @@
     press: logo("assets/committee-logos/press.png"),
     unhrc: "assets/committee-logos/unhrc.png?v=20260712e",
     unodc: "assets/committee-logos/unodc.png?v=20260712f",
-    unsc: logo("assets/committee-logos/unsc.png"),
+    unsc: "assets/committee-logos/unsc.png?v=20260712g",
     unwomen: logo("assets/committee-logos/unwomen.png"),
     disec: logo("assets/committee-logos/disec.png"),
     fwc: logo("assets/committee-logos/fwc.png"),
