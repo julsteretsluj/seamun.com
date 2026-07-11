@@ -76,7 +76,9 @@ html {
   text-size-adjust: 100%;
   width: 100%;
   min-width: 100%;
+  min-height: 100%;
   overflow-x: hidden;
+  background: var(--bg);
   font-size: clamp(14px, 13px + 0.12vw, 15.5px);
 }
 
@@ -96,14 +98,6 @@ body {
   background: var(--bg);
   position: relative;
   isolation: isolate;
-}
-
-main,
-.site-header,
-.announcement,
-.site-footer {
-  width: 100%;
-  max-width: none;
 }
 
 /* Ambient mesh canvas — organic light blobs behind glass */
@@ -291,9 +285,23 @@ iframe {
 
 .container {
   width: 100%;
-  max-width: 100%;
-  margin-inline: auto;
+  max-width: none;
+  margin-inline: 0;
   padding-inline: var(--container-gutter);
+}
+
+/* Full-width layout — ensure nothing constrains the page below viewport width */
+html,
+body,
+main,
+.site-header,
+.site-footer,
+.announcement,
+.section,
+.hero,
+.nav-dropdown {
+  width: 100%;
+  max-width: none;
 }
 
 /* Header */
