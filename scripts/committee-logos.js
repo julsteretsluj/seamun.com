@@ -8,7 +8,7 @@
     ecosoc: logo("assets/committee-logos/ecosoc.png"),
     press: logo("assets/committee-logos/press.png"),
     unhrc: "assets/committee-logos/unhrc.png?v=20260712e",
-    unodc: logo("assets/committee-logos/unodc.png"),
+    unodc: "assets/committee-logos/unodc.png?v=20260712f",
     unsc: logo("assets/committee-logos/unsc.png"),
     unwomen: logo("assets/committee-logos/unwomen.png"),
     disec: logo("assets/committee-logos/disec.png"),
