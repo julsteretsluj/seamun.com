@@ -11,8 +11,20 @@
   --accent-hover: #0077ed;
   --navy: #001f3f;
   --navy-light: #002d5c;
-  --container: min(1120px, 100vw - 2rem);
+  --container: min(94vw, 68rem);
   --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", system-ui, sans-serif;
+
+  /* Fluid scale — adapts padding and type to any viewport */
+  --space-page-x: clamp(0.875rem, 2.5vw, 1.5rem);
+  --space-section-y: clamp(2.5rem, 4vw + 0.5rem, 3.75rem);
+  --space-hero-y: clamp(2.5rem, 5vw, 4rem);
+  --space-card: clamp(1.1rem, 1.2vw + 0.6rem, 1.5rem);
+  --space-card-x: clamp(1.25rem, 1.5vw + 0.75rem, 1.75rem);
+  --text-hero: clamp(1.75rem, 2.5vw + 1rem, 2.5rem);
+  --text-section: clamp(1.35rem, 1.2vw + 0.85rem, 1.85rem);
+  --text-lead: clamp(0.95rem, 0.35vw + 0.85rem, 1.05rem);
+  --text-body: clamp(0.875rem, 0.2vw + 0.8rem, 0.95rem);
+  --header-height: clamp(3.25rem, 4vw + 2rem, 4rem);
 
   /* Glass tokens — light mode */
   --glass-bg: rgba(255, 255, 255, 0.4);
@@ -62,6 +74,7 @@ html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
   width: 100%;
+  font-size: clamp(14px, 13px + 0.12vw, 15.5px);
 }
 
 body {
@@ -269,8 +282,8 @@ iframe {
   max-width: var(--container);
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: var(--space-page-x);
+  padding-right: var(--space-page-x);
 }
 
 /* Header */
@@ -290,24 +303,27 @@ iframe {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 72px;
+  min-height: var(--header-height);
+  gap: clamp(0.5rem, 1.5vw, 1rem);
 }
 
 .logo {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.65rem;
   text-decoration: none;
   color: var(--text);
   font-weight: 600;
-  font-size: 1.15rem;
+  font-size: clamp(0.95rem, 0.5vw + 0.85rem, 1.05rem);
   letter-spacing: -0.02em;
+  min-width: 0;
 }
 
 .logo-image {
-  height: 40px;
+  height: clamp(30px, 2vw + 24px, 36px);
   width: auto;
   display: block;
+  flex-shrink: 0;
 }
 
 .logo-text {
@@ -317,17 +333,21 @@ iframe {
 .nav {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: clamp(0.35rem, 1vw, 1rem);
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  max-width: 100%;
 }
 
 .nav a {
   color: var(--text-muted);
   text-decoration: none;
-  font-size: 0.875rem;
+  font-size: clamp(0.75rem, 0.35vw + 0.68rem, 0.85rem);
   font-weight: 500;
-  padding: 0.4rem 0.75rem;
+  padding: 0.35rem clamp(0.45rem, 0.8vw, 0.65rem);
   border-radius: var(--radius-pill);
   transition: background 0.2s var(--ease-out), color 0.2s var(--ease-out);
+  white-space: nowrap;
 }
 
 .nav a:hover {
@@ -336,14 +356,15 @@ iframe {
 }
 
 .btn-header {
-  padding: 0.5rem 1.1rem;
+  padding: 0.4rem clamp(0.7rem, 1vw, 0.95rem);
   background: linear-gradient(180deg, var(--navy-light) 0%, var(--primary) 100%);
   color: #fff !important;
   border-radius: var(--radius-pill);
-  font-size: 0.875rem;
+  font-size: clamp(0.75rem, 0.35vw + 0.68rem, 0.85rem);
   font-weight: 600;
   box-shadow: 0 2px 12px rgba(0, 31, 63, 0.22);
   border: 1px solid rgba(255, 255, 255, 0.12);
+  white-space: nowrap;
 }
 
 .btn-header:hover {
@@ -429,7 +450,7 @@ iframe {
   background: rgba(0, 31, 63, 0.06);
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 900px) {
   .nav {
     display: none;
   }
@@ -444,28 +465,9 @@ iframe {
   }
 }
 
-@media (min-width: 1025px) and (max-width: 1280px) {
-  .nav {
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    max-width: calc(100% - 11rem);
-  }
-
-  .nav a {
-    font-size: 0.8rem;
-    padding: 0.35rem 0.55rem;
-  }
-
-  .btn-header {
-    padding: 0.45rem 0.85rem;
-    font-size: 0.8rem;
-  }
-}
-
 /* Hero */
 .hero {
-  padding: 5rem 0 5.5rem;
+  padding: var(--space-hero-y) 0;
   text-align: center;
   background: transparent;
   position: relative;
@@ -473,27 +475,27 @@ iframe {
 }
 
 .hero-inner {
-  max-width: 720px;
+  max-width: min(42rem, 92vw);
   margin: 0 auto;
-  padding: 3rem 2.5rem;
+  padding: var(--space-card-x);
   border-radius: var(--radius-xl);
 }
 
 .hero-badge {
   display: inline-block;
-  font-size: 0.8rem;
+  font-size: clamp(0.7rem, 0.25vw + 0.65rem, 0.78rem);
   color: var(--accent);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  margin-bottom: 1rem;
-  padding: 0.35rem 0.85rem;
+  margin-bottom: 0.85rem;
+  padding: 0.3rem 0.75rem;
   background: rgba(0, 113, 227, 0.1);
   border-radius: var(--radius-pill);
   font-weight: 600;
 }
 
 .hero-title {
-  font-size: clamp(2.25rem, 6vw, 3.5rem);
+  font-size: var(--text-hero);
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 1.08;
@@ -501,7 +503,7 @@ iframe {
 }
 
 .hero-tagline {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 0.5vw + 0.9rem, 1.1rem);
   color: var(--text-muted);
   margin-bottom: 0.4rem;
   font-weight: 500;
@@ -509,16 +511,16 @@ iframe {
 }
 
 .hero-audience {
-  font-size: 0.95rem;
+  font-size: var(--text-body);
   color: var(--text-muted);
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
   font-weight: 500;
 }
 
 .hero-lead {
-  font-size: 1.05rem;
+  font-size: var(--text-lead);
   color: var(--text-muted);
-  margin-bottom: 2rem;
+  margin-bottom: clamp(1.25rem, 2vw, 1.75rem);
   line-height: 1.7;
 }
 
@@ -533,9 +535,9 @@ iframe {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem 1.5rem;
+  padding: clamp(0.55rem, 0.5vw + 0.45rem, 0.7rem) clamp(1rem, 1.5vw, 1.25rem);
   font-family: var(--font);
-  font-size: 0.95rem;
+  font-size: var(--text-body);
   font-weight: 600;
   text-decoration: none;
   border-radius: var(--radius-pill);
@@ -569,7 +571,7 @@ iframe {
 
 /* Sections */
 .section {
-  padding: 5.5rem 0;
+  padding: var(--space-section-y) 0;
   position: relative;
 }
 
@@ -582,9 +584,9 @@ iframe {
 }
 
 .section-title {
-  font-size: clamp(1.75rem, 4vw, 2.35rem);
+  font-size: var(--text-section);
   font-weight: 700;
-  margin-bottom: 1.5rem;
+  margin-bottom: clamp(1rem, 1.5vw, 1.35rem);
   letter-spacing: -0.035em;
   line-height: 1.12;
   color: var(--text);
@@ -592,10 +594,10 @@ iframe {
 
 .section-desc {
   color: var(--text-muted);
-  font-size: 1.05rem;
-  margin-bottom: 2.25rem;
+  font-size: var(--text-lead);
+  margin-bottom: clamp(1.5rem, 2vw, 2rem);
   line-height: 1.7;
-  max-width: 42rem;
+  max-width: min(42rem, 100%);
   font-weight: 400;
 }
 
@@ -606,24 +608,24 @@ iframe {
 /* About */
 .about-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.25rem;
-  margin-bottom: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: clamp(0.85rem, 1.5vw, 1.15rem);
+  margin-bottom: clamp(1.5rem, 2.5vw, 2rem);
 }
 
 .about-card {
-  padding: 1.75rem 2rem;
+  padding: var(--space-card) var(--space-card-x);
   border-radius: var(--radius-lg);
 }
 
 .about-card h3 {
-  font-size: 1.125rem;
+  font-size: clamp(1rem, 0.5vw + 0.9rem, 1.075rem);
   font-weight: 700;
   margin-bottom: 0.5rem;
 }
 
 .about-card p {
-  font-size: 0.95rem;
+  font-size: var(--text-body);
   color: var(--text-muted);
   line-height: 1.6;
 }
@@ -631,10 +633,10 @@ iframe {
 .meta-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.25rem 2rem;
-  font-size: 0.9rem;
+  gap: clamp(0.75rem, 1.5vw, 1.25rem) clamp(1rem, 2vw, 1.75rem);
+  font-size: var(--text-body);
   color: var(--text-muted);
-  padding: 1.5rem 2rem;
+  padding: var(--space-card) var(--space-card-x);
   border-radius: var(--radius-lg);
 }
 
@@ -655,19 +657,19 @@ iframe {
 /* Schedule */
 .schedule-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: clamp(0.85rem, 1.2vw, 1.1rem);
 }
 
 .schedule-day {
-  padding: 1.75rem 2rem;
+  padding: var(--space-card) var(--space-card-x);
   border-radius: var(--radius-lg);
 }
 
 .schedule-day-title {
-  font-size: 1.1rem;
+  font-size: clamp(0.95rem, 0.4vw + 0.85rem, 1.05rem);
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 0.85rem;
   color: var(--text);
   letter-spacing: -0.02em;
 }
@@ -679,9 +681,9 @@ iframe {
 .schedule-list li {
   display: flex;
   align-items: baseline;
-  gap: 1rem;
-  padding: 0.5rem 0;
-  font-size: 0.95rem;
+  gap: 0.85rem;
+  padding: 0.4rem 0;
+  font-size: var(--text-body);
   color: var(--text-muted);
   border-bottom: 1px solid var(--border);
 }
@@ -694,11 +696,11 @@ iframe {
   flex-shrink: 0;
   font-weight: 600;
   color: var(--text);
-  min-width: 3.5rem;
+  min-width: 3.25rem;
 }
 
 .schedule-page {
-  max-width: 960px;
+  max-width: min(60rem, 100%);
 }
 
 .schedule-tabs {
@@ -774,8 +776,8 @@ iframe {
 /* Home page committee cards (official logos + committee colors) */
 .home-committee-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 8.5rem), 1fr));
+  gap: clamp(0.75rem, 1.2vw, 1rem);
 }
 
 .home-committee-card {
@@ -783,8 +785,8 @@ iframe {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 160px;
-  padding: 1.25rem;
+  min-height: clamp(7.5rem, 12vw, 9.5rem);
+  padding: clamp(0.85rem, 1.2vw, 1.1rem);
   background: var(--navy);
   color: #fff;
   text-decoration: none;
@@ -808,30 +810,30 @@ iframe {
 }
 
 .home-committee-logo {
-  height: 72px;
+  height: clamp(3rem, 5vw, 4rem);
   width: auto;
-  max-width: 80px;
+  max-width: clamp(3.5rem, 6vw, 5rem);
   object-fit: contain;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
   background: transparent;
   mix-blend-mode: normal;
   filter: none;
 }
 
 .home-committee-logo-full {
-  max-width: 130px;
-  height: 80px;
+  max-width: clamp(4.5rem, 7vw, 6.5rem);
+  height: clamp(3.25rem, 5vw, 4.25rem);
 }
 
 .home-committee-name {
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 0.4vw + 0.8rem, 1rem);
   letter-spacing: 0.02em;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.2rem;
 }
 
 .home-committee-info {
-  font-size: 0.8rem;
+  font-size: clamp(0.7rem, 0.2vw + 0.65rem, 0.78rem);
   opacity: 0.9;
   line-height: 1.3;
 }
@@ -870,12 +872,12 @@ iframe {
 /* Leadership */
 .leadership-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 10.5rem), 1fr));
+  gap: clamp(0.85rem, 1.2vw, 1.1rem);
 }
 
 .leadership-card {
-  padding: 1.75rem 2rem;
+  padding: var(--space-card) var(--space-card-x);
   border-radius: var(--radius-lg);
   display: flex;
   flex-direction: column;
@@ -884,16 +886,16 @@ iframe {
 
 .leadership-photo {
   width: 100%;
-  height: 11rem;
+  height: clamp(7rem, 12vw, 9rem);
   object-fit: contain;
   object-position: center bottom;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
   border-radius: var(--radius-md);
   background: rgba(255, 255, 255, 0.5);
 }
 
 .leadership-card .role {
-  font-size: 0.8rem;
+  font-size: clamp(0.7rem, 0.2vw + 0.65rem, 0.78rem);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--text-muted);
@@ -901,7 +903,7 @@ iframe {
 
 .leadership-card .name {
   font-weight: 600;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 0.35vw + 0.8rem, 0.95rem);
 }
 
 .leadership-card a {
@@ -950,48 +952,48 @@ iframe {
 }
 
 .acknowledgement-note {
-  font-size: 0.95rem;
+  font-size: var(--text-body);
   color: var(--text-muted);
-  max-width: 42rem;
+  max-width: min(42rem, 100%);
   line-height: 1.65;
-  margin: 0.25rem 0 1.5rem;
+  margin: 0.25rem 0 clamp(1rem, 2vw, 1.5rem);
 }
 
 /* Sponsors page */
 .sponsors-subtitle {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 0.5vw + 0.9rem, 1.15rem);
   font-weight: 700;
-  margin: 2.5rem 0 1rem;
+  margin: clamp(1.5rem, 2.5vw, 2rem) 0 0.85rem;
 }
 
 .sponsor-tiers {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.25rem;
-  margin-bottom: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+  gap: clamp(0.85rem, 1.2vw, 1.1rem);
+  margin-bottom: 0.85rem;
 }
 
 .sponsor-tier {
-  padding: 1.75rem 2rem;
+  padding: var(--space-card) var(--space-card-x);
   border-radius: var(--radius-lg);
 }
 
 .sponsor-tier h4 {
-  font-size: 1.1rem;
+  font-size: clamp(0.95rem, 0.35vw + 0.85rem, 1.05rem);
   margin-bottom: 0.25rem;
 }
 
 .sponsor-price {
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 0.3vw + 0.8rem, 0.95rem);
   font-weight: 600;
   color: var(--navy);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.65rem;
 }
 
 .sponsor-tier ul {
   margin: 0;
-  padding-left: 1.1rem;
-  font-size: 0.9rem;
+  padding-left: 1rem;
+  font-size: var(--text-body);
   color: var(--text-muted);
   line-height: 1.5;
 }
@@ -1020,19 +1022,19 @@ iframe {
 /* Partnerships */
 .partnership-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.25rem;
-  margin-bottom: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
+  gap: clamp(0.85rem, 1.2vw, 1.1rem);
+  margin-bottom: clamp(1.25rem, 2vw, 1.75rem);
 }
 
 .partnership-card {
-  padding: 1.75rem 2rem;
+  padding: var(--space-card) var(--space-card-x);
   border-radius: var(--radius-lg);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 1.25rem;
+  gap: clamp(0.85rem, 1.2vw, 1.1rem);
 }
 
 .partnership-logo-link {
@@ -1041,7 +1043,7 @@ iframe {
 }
 
 .partnership-logo {
-  width: min(220px, 100%);
+  width: min(clamp(9rem, 18vw, 12rem), 100%);
   height: auto;
   border-radius: var(--radius-md);
   box-shadow: 0 8px 24px rgba(0, 20, 40, 0.12);
@@ -1051,17 +1053,17 @@ iframe {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
 }
 
 .partnership-name {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 0.6vw + 0.85rem, 1.15rem);
   font-weight: 700;
   letter-spacing: -0.02em;
 }
 
 .partnership-subtitle {
-  font-size: 0.9rem;
+  font-size: var(--text-body);
   font-weight: 600;
   color: var(--text-muted);
   margin: 0;
@@ -1069,9 +1071,9 @@ iframe {
 
 .partnership-desc {
   color: var(--text-muted);
-  font-size: 0.95rem;
+  font-size: var(--text-body);
   line-height: 1.65;
-  max-width: 32rem;
+  max-width: min(32rem, 100%);
   margin: 0.25rem 0 0;
 }
 
@@ -1088,7 +1090,7 @@ iframe {
 
 /* Footer */
 .site-footer {
-  padding: 3rem 0;
+  padding: clamp(1.75rem, 3vw, 2.5rem) 0;
   border-top: 1px solid rgba(255, 255, 255, 0.35);
   text-align: center;
   background: rgba(255, 255, 255, 0.45);
@@ -1419,7 +1421,7 @@ body.modal-open {
 
 .form-embed {
   width: 100%;
-  min-height: 400px;
+  min-height: clamp(20rem, 50vh, 28rem);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
   box-shadow: var(--glass-shadow);
@@ -1427,13 +1429,13 @@ body.modal-open {
 }
 
 .form-embed-tall {
-  min-height: 72vh;
-  height: 1200px;
-  max-height: 1400px;
+  min-height: clamp(22rem, 55vh, 36rem);
+  height: clamp(28rem, 62vh, 42rem);
+  max-height: 48rem;
 }
 
 .forms-page {
-  max-width: 920px;
+  max-width: min(58rem, 100%);
 }
 
 .form-tabs {
@@ -1557,13 +1559,13 @@ body.modal-open {
 
 .committee-grid {
   display: grid;
-  gap: 1.25rem;
+  gap: clamp(0.85rem, 1.2vw, 1.1rem);
 }
 
 .committee-card {
   display: flex;
-  gap: 1.75rem;
-  padding: 1.75rem 2rem;
+  gap: clamp(1rem, 1.5vw, 1.35rem);
+  padding: var(--space-card) var(--space-card-x);
   border-radius: var(--radius-lg);
   scroll-margin-top: 5rem;
   border-left: 4px solid var(--primary);
@@ -2141,12 +2143,12 @@ body.modal-open {
 /* Mobile layout */
 @media (max-width: 768px) {
   .container {
-    padding-left: 0.875rem;
-    padding-right: 0.875rem;
+    padding-left: var(--space-page-x);
+    padding-right: var(--space-page-x);
   }
 
   .section {
-    padding: 2.75rem 0;
+    padding: clamp(2rem, 6vw, 2.75rem) 0;
   }
 
   .section-title {
@@ -2525,7 +2527,7 @@ body.modal-open {
   transition: transform 0.3s cubic-bezier(0.34, 1.4, 0.64, 1);
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 900px) {
   .nav-dropdown:not([hidden]) {
     animation: fade-up 0.3s ease;
   }
