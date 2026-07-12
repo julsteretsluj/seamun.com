@@ -12,7 +12,7 @@
     unsc: "assets/committee-logos/unsc.png?v=20260712g",
     unwomen: "assets/committee-logos/unwomen.png?v=20260712h",
     disec: "assets/committee-logos/disec.png?v=20260712i",
-    fwc: logo("assets/committee-logos/fwc.png"),
+    fwc: "assets/committee-logos/fwc.png?v=20260712j",
     interpol: logo("assets/committee-logos/interpol.png"),
     who: logo("assets/committee-logos/who.png"),
   };
