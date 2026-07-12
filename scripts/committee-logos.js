@@ -13,7 +13,7 @@
     unwomen: "assets/committee-logos/unwomen.png?v=20260712h",
     disec: "assets/committee-logos/disec.png?v=20260712i",
     fwc: "assets/committee-logos/fwc.png?v=20260712j",
-    interpol: logo("assets/committee-logos/interpol.png"),
-    who: logo("assets/committee-logos/who.png"),
+    interpol: "assets/committee-logos/interpol.png?v=20260712k",
+    who: "assets/committee-logos/who.png?v=20260712l",
   };
 })(typeof window !== "undefined" ? window : this);
