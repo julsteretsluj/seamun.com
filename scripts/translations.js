@@ -34,7 +34,7 @@ window.SEAMUN_TRANSLATIONS = {
           snapshot_value_capacity: "200 delegates, up to 60 staff (incl. student staff)",
           meta_value_venue: "D-PREP International School Secondary Campus, 97/9 Moo 1, Bang Phli Yai, Samut Prakan 10540",
           meta_value_venue_short: "D-PREP International School Secondary Campus (Bang Phli, Samut Prakan)",
-          meta_value_fees: "Delegates: 2,500 THB. Chairs: 800 THB. Media/photographers & advisors: 0 THB.",
+          meta_value_fees: "Delegates: 2,500 THB. Chairs: 800 THB. Photographers & advisors: 0 THB.",
           meta_value_registration: "To be announced",
           meta_value_position_papers: "Deadline: January 9, 2027",
           topics_section_title: "✨ Unique topics",
