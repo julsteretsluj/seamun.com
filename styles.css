@@ -844,6 +844,59 @@ main .hero > .container::before {
 }
 
 /* Home page committee cards (official logos + committee colors) */
+.home-committee-groups {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 2.5vw, 2rem);
+}
+
+.home-committee-group-title {
+  font-size: clamp(0.95rem, 0.4vw + 0.85rem, 1.05rem);
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 0.85rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+  display: inline-block;
+  width: fit-content;
+  margin-inline: auto;
+}
+
+.home-committee-group-beginner {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.home-committee-group-intermediate {
+  background: #fff9c4;
+  color: #f57f17;
+}
+
+.home-committee-group-advanced {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.home-committee-group {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+}
+
+.home-committee-group .home-committee-cards {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: clamp(0.5rem, 1vw, 0.85rem);
+  width: 100%;
+}
+
+.home-committee-group .home-committee-card {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
 .home-committee-cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 8.5rem), 1fr));
@@ -903,9 +956,13 @@ main .hero > .container::before {
 }
 
 .home-committee-info {
-  font-size: clamp(0.7rem, 0.2vw + 0.65rem, 0.78rem);
+  font-size: clamp(0.65rem, 0.15vw + 0.6rem, 0.78rem);
   color: var(--label-secondary);
   line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 /* Committee-specific light tints */
@@ -2365,14 +2422,21 @@ body.modal-open {
     align-items: center;
   }
 
-  .home-committee-cards {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.75rem;
+  .home-committee-group .home-committee-cards {
+    gap: 0.5rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
 
-  .home-committee-card {
-    min-height: 132px;
-    padding: 0.9rem 0.65rem;
+  .home-committee-group .home-committee-cards::-webkit-scrollbar {
+    display: none;
+  }
+
+  .home-committee-group .home-committee-card {
+    flex: 1 0 min(38vw, 8.5rem);
+    min-height: 118px;
+    padding: 0.75rem 0.5rem;
   }
 
   .home-committee-logo-full {
@@ -2513,7 +2577,10 @@ body.modal-open {
 }
 
 @media (max-width: 400px) {
-  .home-committee-cards,
+  .home-committee-group .home-committee-card {
+    flex: 0 0 min(44vw, 8rem);
+  }
+
   .leadership-grid {
     grid-template-columns: 1fr;
   }

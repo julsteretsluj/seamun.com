@@ -23,6 +23,7 @@
       ".section-title",
       ".section-desc",
       ".about-card",
+      ".home-committee-group",
       ".home-committee-card",
       ".committee-card",
       ".leadership-card",
