@@ -1306,6 +1306,25 @@ main .hero > .container::before {
   color: var(--text-muted);
 }
 
+.footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin: 0.15rem 0 0;
+}
+
+.footer-social a {
+  color: var(--apple-blue);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.footer-social a:hover {
+  text-decoration: underline;
+}
+
 /* Help icons & popovers */
 .help-wrap {
   display: inline-flex;
